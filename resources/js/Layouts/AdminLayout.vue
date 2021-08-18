@@ -681,8 +681,8 @@
 import { Inertia } from "@inertiajs/inertia";
 import { ref, computed } from "vue";
 import { Link } from "@inertiajs/inertia-vue3";
-import Breadcrumbs from "@/components/Breadcrumbs.vue";
-import FlashMessages from "@/components/FlashMessages.vue";
+import Breadcrumbs from "@/Components/Breadcrumbs.vue";
+import FlashMessages from "@/Components/FlashMessages.vue";
 import {
   Dialog,
   DialogOverlay,

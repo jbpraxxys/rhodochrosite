@@ -477,7 +477,7 @@
 
 <script>
 import { Link } from "@inertiajs/inertia-vue3";
-import Breadcrumbs from "@/components/Breadcrumbs.vue";
+import Breadcrumbs from "@/Components/Breadcrumbs.vue";
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import {
   Menu,
