@@ -227,41 +227,333 @@ return [
             'sections' => [
                 [
                     'id' => 'section1',
-                    'label' => 'Section 1: Bio Data',
-                    'description' => 'Bio Data.',
+                    'label' => 'Section 1',
+                    'description' => '',
                     'items' => [
                         [
-                            'id' => 'age',
+                            'id' => 'label',
                             'type' => 'text',
-                            'label' => 'Age',
+                            'label' => 'Label',
+                            'description' => '',
+                            'rules' => 'required'
+                        ],
+                        [
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
+                            'description' => '30 characters max',
+                            'rules' => 'required|max:30'
+                        ],
+                        [
+                            'id' => 'subtitle',
+                            'type' => 'text',
+                            'label' => 'Subtitle',
                             'description' => '50 characters max',
-                            'rules' => 'required|integer'
+                            'rules' => 'required|max:50'
                         ],
                         [
-                            'id' => 'name',
-                            'type' => 'text',
-                            'label' => 'Name',
-                            'description' => '20 characters max',
-                            'rules' => 'required|max:20'
-                        ],
-                        [
-                            'id' => 'picture',
+                            'id' => 'image1',
                             'type' => 'image',
-                            'label' => 'Picture',
-                            'description' => 'PNG/JPG only 10 MB',
-                            'rules' => 'max:1000',
+                            'label' => 'Image 1',
+                            'description' => 'PNG/JPG only 2 MB',
+                            'rules' => 'max:2000',
                         ],
                         [
-                            'id' => 'blurb',
-                            'type' => 'text',
-                            'label' => 'Blurb',
-                            'description' => 'Max 5 characters',
-                            'rules' => 'required:max:5',
+                            'id' => 'image2',
+                            'type' => 'image',
+                            'label' => 'Image 2',
+                            'description' => 'PNG/JPG only 2 MB',
+                            'rules' => 'max:2000',
+                        ],
+                        [
+                            'id' => 'image3',
+                            'type' => 'image',
+                            'label' => 'Image 3',
+                            'description' => 'PNG/JPG only 2 MB',
+                            'rules' => 'max:2000',
                         ],
 
                     ]
                 ]
             ]
+        ],
+        [
+            'slug' => 'contact',
+            'label' => 'Contact Page',
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Main Section',
+                    'description' => '',
+                    'items' => [
+                        [
+                            'id' => 'label',
+                            'type' => 'text',
+                            'label' => 'Label',
+                            'description' => '',
+                            'rules' => 'required'
+                        ],
+                        [
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
+                            'description' => '30 characters max',
+                            'rules' => 'required|max:30'
+                        ],
+                        [
+                            'id' => 'subtitle',
+                            'type' => 'text',
+                            'label' => 'Subtitle',
+                            'description' => '50 characters max',
+                            'rules' => 'required|max:50'
+                        ],
+                        [
+                            'id' => 'hotline_title',
+                            'type' => 'text',
+                            'label' => 'Hotline Title',
+                            'description' => '',
+                            'rules' => 'required',
+                        ],
+                        [
+                            'id' => 'phone1_title',
+                            'type' => 'text',
+                            'label' => 'Phone 1 Title',
+                            'description' => '',
+                            'rules' => 'required',
+                        ],
+                        [
+                            'id' => 'phone1_number',
+                            'type' => 'text',
+                            'label' => 'Phone 1 Number',
+                            'description' => '',
+                            'rules' => 'required',
+                        ],
+                        [
+                            'id' => 'phone2_title',
+                            'type' => 'text',
+                            'label' => 'Phone 2 Title',
+                            'description' => '',
+                            'rules' => 'required',
+                        ],
+                        [
+                            'id' => 'phone2_number',
+                            'type' => 'text',
+                            'label' => 'Phone 2 Number',
+                            'description' => '',
+                            'rules' => 'required',
+                        ],
+
+                    ]
+                ]
+            ],
+        ],
+        [
+            'slug' => 'promos',
+            'label' => 'Promos Page',
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Main Section',
+                    'description' => '',
+                    'items' => [
+                        [
+                            'id' => 'label',
+                            'type' => 'text',
+                            'label' => 'Label',
+                            'description' => '',
+                            'rules' => 'required'
+                        ],
+                        [
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
+                            'description' => '30 characters max',
+                            'rules' => 'required|max:30'
+                        ],
+                        [
+                            'id' => 'subtitle',
+                            'type' => 'text',
+                            'label' => 'Subtitle',
+                            'description' => '50 characters max',
+                            'rules' => 'required|max:50'
+                        ],
+
+                    ],
+                ],
+                [
+                    'id' => 'section2',
+                    'label' => 'Section 2',
+                    'description' => '',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
+                            'description' => '',
+                            'rules' => 'required'
+                        ],
+                        [
+                            'id' => 'subtitle',
+                            'type' => 'text',
+                            'label' => 'Subtitle',
+                            'description' => '30 characters max',
+                            'rules' => 'required|max:30'
+                        ],
+                        [
+                            'id' => 'bullet1',
+                            'type' => 'text',
+                            'label' => 'Bullet 1',
+                            'description' => '50 characters max',
+                            'rules' => 'required|max:50'
+                        ],
+                        [
+                            'id' => 'bullet2',
+                            'type' => 'text',
+                            'label' => 'Bullet 2',
+                            'description' => '50 characters max',
+                            'rules' => 'required|max:50'
+                        ],
+                        [
+                            'id' => 'bullet3',
+                            'type' => 'text',
+                            'label' => 'Bullet 3',
+                            'description' => '50 characters max',
+                            'rules' => 'required|max:50'
+                        ],
+                        [
+                            'id' => 'button_text',
+                            'type' => 'text',
+                            'label' => 'Button Text',
+                            'description' => '20 characters max',
+                            'rules' => 'required|max:20'
+                        ],
+
+                        [
+                            'id' => 'bida_image',
+                            'type' => 'image',
+                            'label' => 'Bida Image',
+                            'description' => '',
+                            'rules' => ''
+                        ],
+                        [
+                            'id' => 'card_image',
+                            'type' => 'image',
+                            'label' => 'Card Image',
+                            'description' => '',
+                            'rules' => ''
+                        ],
+                        [
+                            'id' => 'vector_image',
+                            'type' => 'image',
+                            'label' => 'Vector Image',
+                            'description' => '',
+                            'rules' => ''
+                        ],
+
+
+                    ],
+                    
+                ],
+                [
+                    'id' => 'section3',
+                    'label' => 'Section 3',
+                    'description' => 'Promo Banner',
+                    'items' => [
+                        [
+                            'id' => 'banner_image',
+                            'type' => 'image',
+                            'label' => 'Banner Image',
+                            'description' => '',
+                            'rules' => ''
+                        ],
+                    ],
+                ],
+                [
+                    'id' => 'section4',
+                    'label' => 'Section 4',
+                    'description' => 'Catalog Section',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
+                            'description' => '30 characters max',
+                            'rules' => 'required|max:30'
+                        ],
+                        [
+                            'id' => 'subtitle',
+                            'type' => 'text',
+                            'label' => 'Subtitle',
+                            'description' => '50 characters max',
+                            'rules' => 'required|max:50'
+                        ],
+
+                    ],
+                ],
+                [
+                    'id' => 'section5',
+                    'label' => 'Section 5',
+                    'description' => 'Services Section',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
+                            'description' => '30 characters max',
+                            'rules' => 'required|max:30'
+                        ],
+                        [
+                            'id' => 'subtitle',
+                            'type' => 'text',
+                            'label' => 'Subtitle',
+                            'description' => '50 characters max',
+                            'rules' => 'required|max:50'
+                        ],
+                        [
+                            'id' => 'icon_item1',
+                            'type' => 'image',
+                            'label' => 'Item 1 Icon',
+                            'description' => '',
+                            'rules' => ''
+                        ],
+                        [
+                            'id' => 'text_item1',
+                            'type' => 'text',
+                            'label' => 'Item 1 Text',
+                            'description' => '',
+                            'rules' => 'required'
+                        ],
+                        [
+                            'id' => 'icon_item2',
+                            'type' => 'image',
+                            'label' => 'Item 2 Icon',
+                            'description' => '',
+                            'rules' => ''
+                        ],
+                        [
+                            'id' => 'text_item2',
+                            'type' => 'text',
+                            'label' => 'Item 2 Text',
+                            'description' => '',
+                            'rules' => 'required'
+                        ],
+                        [
+                            'id' => 'icon_item3',
+                            'type' => 'image',
+                            'label' => 'Item 3 Icon',
+                            'description' => '',
+                            'rules' => ''
+                        ],
+                        [
+                            'id' => 'text_item3',
+                            'type' => 'text',
+                            'label' => 'Item 3 Text',
+                            'description' => '',
+                            'rules' => 'required'
+                        ],
+                    ],
+                ],
+            ],
         ],
     ],
 ];
