@@ -555,5 +555,32 @@ return [
                 ],
             ],
         ],
+        [
+            'slug' => 'careers',
+            'label' => 'Careers Page',
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Main Section',
+                    'description' => '',
+                    'items' => [
+                        [
+                            'id' => 'label',
+                            'type' => 'text',
+                            'label' => 'Label',
+                            'description' => '',
+                            'rules' => 'required'
+                        ],
+                        [
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
+                            'description' => '30 characters max',
+                            'rules' => 'required|max:30'
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ],
 ];
