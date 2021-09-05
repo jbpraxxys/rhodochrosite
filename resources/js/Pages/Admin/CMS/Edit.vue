@@ -10,7 +10,7 @@
           <div
             v-for="section in schema.sections"
             :key="section.id"
-            class="md:grid md:grid-cols-3 md:gap-6 mb-12"
+            class="md:grid md:grid-cols-3 md:gap-6"
           >
             <div class="md:col-span-1">
               <h3 class="text-lg font-medium leading-6 text-gray-900">
@@ -26,7 +26,9 @@
                   v-for="item in section.items"
                   :key="`${section.id}_${item.id}`"
                 >
-                  <!-- Text -->
+                  <!-------------------
+                   | Text
+                   -------------------->
                   <div
                     v-if="item.type === 'text' || item.type === 'url'"
                     class="col-span-5"
@@ -42,10 +44,12 @@
                     </p>
                   </div>
 
-                  <!-- Images -->
+                  <!-------------------
+                   | Images
+                   -------------------->
                   <div class="col-span-5" v-if="item.type === 'image'">
                     <label
-                      :for="id"
+                      :for="item.id"
                       class="block text-sm font-medium text-gray-700 mb-1"
                       >{{ item.label }}</label
                     >
@@ -59,16 +63,23 @@
                     ></dropzone>
                   </div>
 
-                  <!-- List Table -->
+                  <!-------------------
+                   | List Table
+                   -------------------->
                   <div class="col-span-5" v-if="item.type === 'list_table'">
                     <list-table
+                      :list="item"
                       :items="item.items"
                       :id="section.id + '_' + item.id"
+                      :form="form"
+                      @update-list="updateList"
                     ></list-table>
                   </div>
                 </template>
               </div>
             </div>
+            <!-- Divider -->
+            <div class="border-b border-gray-200 md:col-span-6 mt-6 mb-10"></div>
           </div>
           <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
@@ -155,6 +166,7 @@ import AdminLayout from "@/Layouts/AdminLayout.vue";
 import TextInput from "@/Components/TextInput.vue";
 import Dropzone from "@/Components/Dropzone.vue";
 import ListTable from "@/Components/ListTable.vue";
+import useListTable from "@/composables/useListTable";
 import { PencilAltIcon } from "@heroicons/vue/solid";
 import usePRXCMSForm from "@/composables/usePRXCMSForm";
 import Selector from "@/Components/Selector.vue";
@@ -182,10 +194,14 @@ export default {
     const submitUrl = route("admin.cms.edit", props.page.id);
 
     const { form, submit } = usePRXCMSForm(props.page, props.schema, submitUrl);
+
+    const { updateList } = useListTable(form);
+
     return {
       breadcrumbs,
       form,
       submit,
+      updateList,
     };
   },
 };

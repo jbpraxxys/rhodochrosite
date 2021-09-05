@@ -99,7 +99,6 @@ export default {
     },
     file: {
       type: String,
-      required: true,
     },
     error: {
       type: String,
@@ -138,6 +137,10 @@ export default {
       type: String,
       default: "image/*",
     },
+    overwritePath: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { emit }) {
     const rejectErrors = ref([]);
@@ -158,6 +161,9 @@ export default {
         acceptFiles.forEach((file) => {
           processFileSrc(file).then((base64) => {
             acceptedFileSrcs.value.push(base64);
+            if (props.overwritePath) {
+              emit("update:path", base64);
+            }
           });
         });
         // emit v-model change event

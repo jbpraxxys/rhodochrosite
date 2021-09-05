@@ -19,7 +19,7 @@ class CreateCmsPagesTable extends Migration
             $table->string('slug', 20)->index();
             $table->string('label');
             // Content
-            $table->json('content')->nullable();
+            $table->text('content')->nullable();
             // Meta data
             $table->string('title')->nullable();
             $table->string('description')->nullable();

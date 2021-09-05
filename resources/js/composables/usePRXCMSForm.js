@@ -1,6 +1,6 @@
 import { useForm } from "@inertiajs/inertia-vue3";
 import { watch } from "vue";
-export default function usePRXForm(page, schema, submitUrl) {
+export default function usePRXCRMForm(page, schema, submitUrl) {
   const formData = buildFormData(page, schema);
   const form = useForm(formData);
 
@@ -17,7 +17,11 @@ export default function usePRXForm(page, schema, submitUrl) {
   );
 
   function submit() {
-    form.post(submitUrl);
+    form.post(submitUrl, {
+      onError: (errors) => {
+        document.getElementById(Object.keys(errors)[0]).scrollIntoView();
+      },
+    });
   }
 
   return {
@@ -38,13 +42,35 @@ function buildFormData(page, schema) {
     section.items.forEach((item) => {
       // get value from page
       const content = page.content;
-      console.log(content);
-      data[`${section.id}_${item.id}`] = content
-        ? content[`${section.id}_${item.id}`] || null
-        : null;
+      // console.log(content);
+      if (item.type === "list_table") {
+        // list items
+        item.items.forEach((listItem) => {
+          const contentId = `${section.id}_${item.id}`;
+          const id = `${contentId}_${listItem.id}`;
+          data[id] = [];
+          if (listItem.type === "image") {
+            data[`${id}_file`] = [];
+          }
+
+          if (content && content[contentId] && content[contentId].length) {
+            content[contentId].forEach((contentItem) => {
+              data[id].push(contentItem[listItem.id]);
+              if (listItem.type === "image") {
+                data[`${id}_file`].push(null);
+              }
+            });
+          }
+        });
+      } else {
+        // normal items
+        data[`${section.id}_${item.id}`] = content
+          ? content[`${section.id}_${item.id}`] || null
+          : null;
+      }
       if (item.type === "image") {
         data[`${section.id}_${item.id}_file`] = null;
-      } // or file or whatever
+      }
     });
   });
   return data;

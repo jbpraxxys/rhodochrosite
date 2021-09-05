@@ -96,7 +96,6 @@ class CmsPageController extends Controller
         return redirect()
             ->route('admin.cms.index')
             ->with('success', $cmsPage->label . ' successfully updated!');
-
     }
 
     /**
@@ -148,6 +147,28 @@ class CmsPageController extends Controller
                         $file_key = $key . '_file';
                         $content[$key] = $request->$file_key ? $request->$file_key->store('cms_images') : $request->$key;
                         break;
+                    case 'list_table':
+                        $content[$key] = [];
+                        $key_check = $key . "_{$item['items'][0]['id']}";
+                        $length = is_array($request->$key_check) ? count($request->$key_check) : 0;
+                        for ($i = 0; $i < $length; $i++) {
+                            $item_array = [];
+                            foreach ($item['items'] as $list_item) {
+                                $item_key = $key . "_{$list_item['id']}";
+                                switch ($list_item['type']) {
+                                    case 'text':
+                                    case 'url':
+                                        $item_array[$list_item['id']] = $request->$item_key[$i];
+                                        break;
+                                    case 'image':
+                                        $file_key = $item_key . '_file';
+                                        $item_array[$list_item['id']] = $request->$file_key[$i] ? $request->$file_key[$i]->store('cms_images') : $request->$item_key[$i];
+                                        break;
+                                }
+                            }
+                            array_push($content[$key], $item_array);
+                        }
+                        break;
                 }
             }
         }
@@ -171,7 +192,10 @@ class CmsPageController extends Controller
                             $rules["{$section['id']}_{$item['id']}"] = $item['rules'];
                             break;
                         case 'image':
-                            $rules["{$section['id']}_{$item['id']}_file"] = $item['rules'];
+                            # Apply file rules if string component is null
+                            if ($request->{"{$section['id']}_{$item['id']}"} === null) {
+                                $rules["{$section['id']}_{$item['id']}_file"] = $item['rules'];
+                            }
                             break;
                     }
                 }
