@@ -58,9 +58,12 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],
+            'options' => (env('MYSQL_SSL')) ? [
+                PDO::MYSQL_ATTR_SSL_KEY    => env('MYSQL_SSL_KEY'),
+                PDO::MYSQL_ATTR_SSL_CERT   => env('MYSQL_SSL_CERT'),
+                PDO::MYSQL_ATTR_SSL_CA     => env('MYSQL_SSL_CA'),
+                PDO::MYSQL_ATTR_SSL_CIPHER => env('MYSQL_SSL_CIPHER')
+            ] : []
         ],
 
         'pgsql' => [
@@ -74,7 +77,7 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
-            'schema' => 'public',
+            'search_path' => 'public',
             'sslmode' => 'prefer',
         ],
 
@@ -129,7 +132,7 @@ return [
         'default' => [
             'url' => env('REDIS_URL'),
             'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
+            'password' => env('REDIS_PASSWORD'),
             'port' => env('REDIS_PORT', '6379'),
             'database' => env('REDIS_DB', '0'),
         ],
@@ -137,7 +140,7 @@ return [
         'cache' => [
             'url' => env('REDIS_URL'),
             'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
+            'password' => env('REDIS_PASSWORD'),
             'port' => env('REDIS_PORT', '6379'),
             'database' => env('REDIS_CACHE_DB', '1'),
         ],
