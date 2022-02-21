@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-#use Laravel\Scout\Searchable;
+use Laravel\Scout\Searchable;
 
 class Admin extends Authenticatable
 {
@@ -19,7 +19,7 @@ class Admin extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use SoftDeletes;
-    #use Searchable;
+    use Searchable;
 
     public $asYouType = true;
 
