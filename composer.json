@@ -13,6 +13,7 @@
         "laravel/jetstream": "^2.6",
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
+        "teamtnt/laravel-scout-tntsearch-driver": "^11.6",
         "tightenco/ziggy": "^1.4"
     },
     "require-dev": {
