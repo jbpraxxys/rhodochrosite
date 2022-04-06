@@ -1,8 +1,12 @@
 /node_modules
 /public/hot
+/public/mix-manifest.json
+/public/js
+/public/css
 /public/storage
 /storage/*.key
-/storage/*.index*
+/storage/*.index
+/storage/framework/laravel-excel
 /vendor
 .env
 .env.backup
@@ -14,3 +18,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+**/.DS_Store
