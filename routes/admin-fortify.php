@@ -71,8 +71,8 @@ Route::group(['middleware' => config('fortify.middleware', ['web'])], function (
     //             ->name('register');
     //     }
 
-    Route::post('/register', [RegisteredUserController::class, 'store'])
-        ->middleware(['auth:sanctum']);
+    // Route::post('/register', [RegisteredUserController::class, 'store'])
+    //     ->middleware(['auth:sanctum']);
     // }
 
     // Email Verification...
@@ -91,34 +91,6 @@ Route::group(['middleware' => config('fortify.middleware', ['web'])], function (
             ->middleware(['auth:' . config('fortify.guard'), 'throttle:6,1'])
             ->name('verification.send');
     }
-
-    // Profile Information...
-    if (Features::enabled(Features::updateProfileInformation())) {
-        Route::put('/user/profile-information', [ProfileInformationController::class, 'update'])
-            ->middleware(['auth:sanctum', 'verified'])
-            ->name('user-profile-information.update');
-    }
-
-    // Passwords...
-    if (Features::enabled(Features::updatePasswords())) {
-        Route::put('/user/password', [PasswordController::class, 'update'])
-            ->middleware(['auth:sanctum', 'verified'])
-            ->name('user-password.update');
-    }
-
-    // Password Confirmation...
-    if ($enableViews) {
-        Route::get('/user/confirm-password', [ConfirmablePasswordController::class, 'show'])
-            ->middleware(['auth:sanctum'])
-            ->name('password.confirm');
-    }
-
-    Route::get('/user/confirmed-password-status', [ConfirmedPasswordStatusController::class, 'show'])
-        ->middleware(['auth:sanctum'])
-        ->name('password.confirmation');
-
-    Route::post('/user/confirm-password', [ConfirmablePasswordController::class, 'store'])
-        ->middleware(['auth:sanctum']);
 
     // Two Factor Authentication...
     if (Features::enabled(Features::twoFactorAuthentication())) {
@@ -158,3 +130,35 @@ Route::group(['middleware' => config('fortify.middleware', ['web'])], function (
             ->middleware($twoFactorMiddleware);
     }
 });
+
+
+Route::middleware(['auth:sanctum', 'verified'])->group(
+    function () {
+        // Profile Information...
+        if (Features::enabled(Features::updateProfileInformation())) {
+            Route::put('/user/profile-information', [ProfileInformationController::class, 'update'])
+                ->name('user-profile-information.update');
+        }
+
+        // Passwords...
+        if (Features::enabled(Features::updatePasswords())) {
+            Route::put('/user/password', [PasswordController::class, 'update'])
+                ->middleware(['auth:sanctum', 'verified'])
+                ->name('user-password.update');
+        }
+
+        // Password Confirmation...
+        Route::get('/user/confirm-password', [ConfirmablePasswordController::class, 'show'])
+            ->middleware(['auth:sanctum'])
+            ->name('password.confirm');
+
+        Route::get('/user/confirmed-password-status', [ConfirmedPasswordStatusController::class, 'show'])
+            ->middleware(['auth:sanctum'])
+            ->name('password.confirmation');
+
+        Route::post('/user/confirm-password', [ConfirmablePasswordController::class, 'store'])
+            ->middleware(['auth:sanctum']);
+    }
+
+
+);
