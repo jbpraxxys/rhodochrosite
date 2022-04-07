@@ -27,6 +27,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('header_footer', CmsPage::where('slug', 'header_footer')->first());
+        // View::share('header_footer', CmsPage::where('slug', 'header_footer')->first());
     }
 }
