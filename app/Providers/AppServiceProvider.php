@@ -3,6 +3,11 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+
+use App\Models\CmsPage;
+
+use Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::share('header_footer', CmsPage::where('slug', 'header_footer')->first());
+        Validator::extend(
+            'captcha',
+            'App\\Validators\\Captcha@validate'
+        );
     }
 }

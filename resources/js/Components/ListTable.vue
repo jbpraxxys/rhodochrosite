@@ -54,9 +54,10 @@
                   class="text-sm text-center text-gray-900"
                 >
                   <img
-                    class="h-40 m-auto object-contain"
+                    class="m-auto object-contain"
                     :src="renderUrl(listData[`${id}_${item.id}`][index])"
                     alt=""
+                    width="120"
                   />
                 </div>
                 <p v-else>{{ listData[`${id}_${item.id}`][index] }}</p>

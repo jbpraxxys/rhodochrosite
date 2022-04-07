@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Display file -->
-    <img v-if="display_src" class="mb-2" :src="display_src" alt="" />
+    <img v-if="display_src" class="mb-2" :src="display_src" alt="" width="120"/>
     <div
       class="
         w-full

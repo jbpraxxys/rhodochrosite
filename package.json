@@ -36,6 +36,7 @@
         "@ckeditor/ckeditor5-vue": "^3.0.0",
         "@headlessui/vue": "^1.4.0",
         "@heroicons/vue": "^1.0.3",
+        "swiper": "^8.0.7",
         "vue3-dropzone": "0.0.7",
         "vuedraggable": "^4.1.0"
     }
