@@ -25,7 +25,7 @@
 
 <section class="h-screen">
     <div class="h-full flex items-center justify-center">
-        <h2 class="text-center">This is Homepage</h2>
+        <h2 class="text-center">This is Laravel Homepage</h2>
     </div>
 </section>
 
