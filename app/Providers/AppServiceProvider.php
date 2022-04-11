@@ -28,9 +28,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        # Check if cms_pages exists before querying the database
-        if (Schema::hasTable('cms_pages')) {
-            View::share('header_footer', CmsPage::where('slug', 'header_footer')->first());
+        try {
+            if (Schema::hasTable('cms_pages')) {
+                View::share('header_footer', CmsPage::where('slug', 'header_footer')->first());
+            }
+        } catch (\Exception $e) {
+          
         }
     }
 }
