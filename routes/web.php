@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\CmsPage;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -27,3 +28,21 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
+
+// Route::get('/', function () {
+//     return view('guest.pages.home');
+// });
+
+Route::get('/', function () {
+	// dd(CmsPage::where('slug', 'home')->first()->content);
+	return view('guest.pages.home', [
+		'page' => CmsPage::where('slug', 'home')->first(),
+	]);
+});
+
+// Route::get('/about-us', function () {
+// 	// dd(CmsPage::where('slug', 'home')->first()->content);
+// 	return view('guest.pages.about', [
+// 		'page' => CmsPage::where('slug', 'about')->first(),
+// 	]);
+// });
