@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Schema;
 
 use App\Models\CmsPage;
 
@@ -27,6 +28,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // View::share('header_footer', CmsPage::where('slug', 'header_footer')->first());
+        # Check if cms_pages exists before querying the database
+        if (Schema::hasTable('cms_pages')) {
+            View::share('header_footer', CmsPage::where('slug', 'header_footer')->first());
+        }
     }
 }

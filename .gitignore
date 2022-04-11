@@ -7,7 +7,7 @@
 /public/css
 /public/storage
 /storage/*.key
-/storage/*.index
+/storage/.index
 /storage/framework/laravel-excel
 /vendor
 .env
