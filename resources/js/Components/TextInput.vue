@@ -1,10 +1,27 @@
 <template>
   <div>
-    <label for="email" class="block text-sm font-medium text-gray-700">{{
+    <label :for="id" class="block text-sm font-medium text-gray-700">{{
       label
     }}</label>
     <div class="mt-1 relative rounded-md shadow-sm">
+      <textarea
+        v-if="textarea"
+        :name="name"
+        :id="id"
+        rows="10"
+        class="block w-full pr-10 focus:outline-none sm:text-sm rounded-md"
+        :class="
+          error
+            ? 'text-red-900 border-red-300 placeholder-red-300 focus:ring-red-500 focus:border-red-500'
+            : 'text-gray-800 border-gray-300 placeholder-gray-300 focus:ring-yellow-300 focus:border-yellow-300'
+        "
+        :placeholder="placeholder"
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
+      ></textarea>
+
       <input
+        v-else
         :type="type"
         :name="name"
         :id="id"
@@ -17,8 +34,6 @@
         :placeholder="placeholder"
         :value="modelValue"
         @input="$emit('update:modelValue', $event.target.value)"
-        aria-invalid="true"
-        aria-describedby="email-error"
       />
       <div
         v-if="error"
@@ -84,6 +99,10 @@ export default {
     type: {
       type: String,
       default: "text",
+    },
+    textarea: {
+      type: Boolean,
+      default: false,
     },
   },
 };

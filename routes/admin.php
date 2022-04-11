@@ -5,8 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Models\Admin;
-use App\Notifications\Admins\Welcome;
+use App\Http\Controllers\CmsPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +44,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::delete('delete/{admin}', [AdminController::class, 'delete'])->name('delete');
         Route::post('restore}', [AdminController::class, 'restore'])->name('restore');
         Route::get('search/{q}', [AdminController::class, 'search'])->name('search');
+    });
+
+    Route::prefix('cms')->name('cms.')->group(function () {
+        Route::get('index', [CmsPageController::class, 'index'])->name('index');
+        Route::get('edit/{cmsPage}', [CmsPageController::class, 'edit'])->name('edit');
+        Route::post('edit/{cmsPage}', [CmsPageController::class, 'update']);
+        // Route::get('create', [AdminController::class, 'create'])->name('create');
+        // Route::post('store', [AdminController::class, 'store'])->name('store');
+        // Route::delete('delete/{admin}', [AdminController::class, 'delete'])->name('delete');
+        // Route::post('restore}', [AdminController::class, 'restore'])->name('restore');
+        // Route::get('search/{q}', [AdminController::class, 'search'])->name('search');
     });
 });

@@ -3,6 +3,11 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Schema;
+
+use App\Models\CmsPage;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +28,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        try {
+            if (Schema::hasTable('cms_pages')) {
+                View::share('header_footer', CmsPage::where('slug', 'header_footer')->first());
+            }
+        } catch (\Exception $e) {
+          
+        }
     }
 }
