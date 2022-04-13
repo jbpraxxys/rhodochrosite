@@ -1,0 +1,95 @@
+/** 
+ * VARIABLES
+ * --
+ * Set the default values according to your preference.
+**/
+@import '../../fonts/poppins/stylesheet.scss';
+@import '../../fonts/nunito/stylesheet.scss';
+
+/*-------------------------
+|   COLORS
+---------------------------*/
+$color--primary: #F2BC57;               // Yellow
+$color--secondary: #D58824;             // Dark Yellow
+
+
+//  Yellow
+$color--yellow--100: #FAE4BC;           // Pale Yellow | Pagination select background
+$color--yellow--500: $color--primary;   // Base Yellow | Header Background, Primary Links
+$color--yellow--600: #E8C87F;           // Tint Yellow | On-queue Actions
+$color--yellow--700: #DDA339;           // Dark Yellow | Default Button, Default Icon
+$color--yellow--800: #DA9627;           // Darker Yellow | Body Link Text, Pressed Button
+$color--yellow--900: $color--secondary; // Shade Yellow | Header Text
+
+//  Green
+$color--green--50: #A0B1A5;             // Light Pale Green | input label, text label - Neutral - 40
+$color--green--100: #4DE26F;            // Tint Green
+$color--green--200: #28A745;            // Base Green | Success Actions, Completed, Approved
+$color--green--300: #135021;            // Shade Green
+
+//  Red Orange
+$color--redOrange--100: #FFBF7F;        // Tint Red Orange
+$color--redOrange--200: #FE7F00;        // Base Red Orange | Warning Actions, Pending
+$color--redOrange--300: #7F4000;        // Shade Red Orange
+
+//  Red
+$color--red--100: #FE8A65;              // Tint Red
+$color--red--200: #C73101;              // Base Red | Critical Actions, Rejected, Notif
+$color--red--300: #641800;              // Shade Red
+$color--red--400: #EB5757;              // Pale Red | Delete button
+
+// Blue
+$color--blue--50: #A0B1A5;              // Light Pale Blue | input bg
+$color--blue--100: #CADFFA;             // Tint Blue | Price BG
+$color--blue--200: #2F80ED;             // Base Blue | Price, View Button
+
+// Sky Blue
+$color--skyBlue--50: #56CCF2;           // Base Sky Blue | Commission skyblue
+
+// Orange
+$color--orange--100: #F2994A;           // Base Orange | orange - toggle
+
+// Neutrals Admin Merchant
+$color--white: #FFFFFF;                 // White Text
+$color--gray--50: #FAFAFA;              // Table Row
+$color--gray--100: #F5F5F5;             // Search bg
+$color--gray--200: #EEEEEE;             // Option group bg
+$color--gray--300: #E0E0E0;             // #DCDDDD converted | Button cancel gray, 
+$color--gray--400: #BDBDBD;             // #C4C4C4 & #B5B5B6 converted | Search placeholder, gray icon, nav text, Button gray color
+$color--gray--500: #9E9E9E;             // Home icon, Notif Icon, Breadcrumbs
+$color--gray--600: #757575;
+$color--gray--700: #616161;             // #626262 converted | Gray tab text
+$color--gray--800: #424242;
+$color--gray--900: #212121;              
+$color--black: #000000;                 // Normal Text
+
+
+
+// Design System Neutrals
+$color--grayD--50: #F1F2f6;             // Text Input Background
+$color--grayD--100: #DFE4EA;            // Disabled Button, Disabled Icons
+$color--grayD--200: #C5CCD6;            // Placeholder, Active Notification Highlight
+$color--grayD--300: #A1A9C2;            // Text Input Label, Disabled Text
+$color--grayD--400: #737CA5;            // Body Text, Concaelled Actions
+$color--grayD--500: #F4F8FC;            // Input BG
+
+
+
+
+/*-------------------------
+|   TEXTS
+---------------------------*/
+$font--main: Nunito, sans-serif;
+$font--secondary: Poppins, sans-serif;
+
+$font-size--default: 1rem;                    //   16px    |   Default/Paragraph/
+$font-size--h1: 1.938rem;                     //   31px    |   h1
+$font-size--h2: 1.563rem;                     //   25px    |   h2 
+$font-size--h3: 1.250rem;                     //   20px    |   h3
+$font-size--h4: 1rem;                         //   16px    |   h4
+$font-size--h5: 0.875rem;                     //   14px    |   h5 
+$font-size--h6: 0.750rem;                     //   12px    |   h6 
+
+$font-size--21: 1.313rem;                     //   21px |   Other Headers
+$font-size--13: 0.813rem;                     //   13px |   Table Text
+$font-size--10: 0.625rem;                     //   10px |   Input Label

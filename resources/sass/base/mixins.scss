@@ -1,0 +1,32 @@
+@mixin truncate($width, $lines) {
+    display: -webkit-box;
+    width: $width;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@mixin article_card {
+    .article__card {
+        width: 100%;
+        img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            @media screen and (max-width: 1366px) {
+                height: 220px;
+            }
+        }
+        .article__card-body {
+            h4{
+                margin-bottom: 1rem;
+                @include truncate(100%, 2);
+            }
+            p {
+                margin-bottom: 1rem;
+                @include truncate(100%, 2);
+            }
+        }
+    }
+}

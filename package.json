@@ -33,6 +33,7 @@
     },
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^33.0.0",
+        "@ckeditor/ckeditor5-image": "^34.0.0",
         "@ckeditor/ckeditor5-vue": "^3.0.0",
         "@headlessui/vue": "^1.4.0",
         "@heroicons/vue": "^1.0.3",

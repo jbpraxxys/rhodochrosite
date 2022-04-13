@@ -1,0 +1,145 @@
+html {
+    font-size: $font-size--default;
+    font-family: $font--main;
+    line-height: 1.5;
+
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, span,
+    small, strong, ol, ul, li, label, th, td {
+        font-family: $font--main;
+        line-height: 1.5;
+    }
+
+    b, strong {
+        font-weight: bold;
+    }
+}
+body {
+    font-family: inherit;
+}
+h1 {
+    font-size: $font-size--h1;
+    font-weight: normal;
+    span, b, strong, a {
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+    }
+}
+h2 {
+    font-size: $font-size--h2;
+    font-weight: normal;
+    span, b, strong, a {
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+    }
+}
+h3 {
+    font-size: $font-size--h3;
+    font-weight: normal;
+
+    span, b, strong, a {
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+    }
+}
+h4 {
+    font-size: $font-size--h4;
+    font-weight: normal;
+    span, b, strong, a {
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+    }
+}
+h5 {
+    font-size: $font-size--h5;
+    font-weight: normal;
+    span, b, strong, a {
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+    }
+}
+h6 {
+    font-size: $font-size--h6;
+    font-weight: normal;
+    span, b, strong, a {
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+    }
+}
+small {
+    font-size: $font-size--h6;
+    span, b, strong, a {
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+    }
+}
+p, span, b, strong, a {
+    font-size: $font-size--default;
+
+    span, b, strong, a {
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+    }
+}
+a {
+    text-decoration: none;
+}
+
+
+
+/*---------------------------------
+|   Font Family
+-----------------------------------*/
+.font--main { font-family: $font--main; }
+.font--secondary { font-family: $font--secondary; }
+
+
+
+/*---------------------------------
+|   Font Sizes
+-----------------------------------*/
+.font--size--default {
+    font-size: $font-size--default;
+}
+.font--h1 {
+    font-size: $font-size--h1
+}
+.font--h2 {
+    font-size: $font-size--h2;
+}
+.font--h3 {
+    font-size: $font-size--h3;
+}
+.font--h4 {
+    font-size: $font-size--h4;
+}
+.font--h5 {
+    font-size: $font-size--h5;
+}
+.font--h6 {
+    font-size: $font-size--h6;
+}
+.font--21 {
+    font-size: $font-size--21;
+}
+.font--13 {
+    font-size: $font-size--13;
+}
+.font--10 {
+    font-size: $font-size--10;
+}
+
+.font--small {
+    font-size: $font-size--10;
+}
+
+/*---------------------------------
+|   Font Weight
+-----------------------------------*/
