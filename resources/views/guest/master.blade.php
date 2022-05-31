@@ -28,6 +28,9 @@
 
         @include('guest.partials.footer')
 
+        @include('guest.includes.script-tags')
+
+
         <!-- jQuery -->
         {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
