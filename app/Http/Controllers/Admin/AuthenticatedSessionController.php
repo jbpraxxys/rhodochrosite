@@ -3,14 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Actions\Fortify\AdminRedirectIfTwoFactorAuthenticatable;
-use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController as Controller;
+use App\Http\Responses\AdminLogoutResponse;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Pipeline;
 use Laravel\Fortify\Actions\AttemptToAuthenticate;
 use Laravel\Fortify\Actions\EnsureLoginIsNotThrottled;
-use Laravel\Fortify\Actions\PrepareAuthenticatedSession;;
-
+use Laravel\Fortify\Actions\PrepareAuthenticatedSession;
+use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController as Controller;
 use Laravel\Fortify\Http\Requests\LoginRequest;
 
 class AuthenticatedSessionController extends Controller
@@ -41,5 +43,17 @@ class AuthenticatedSessionController extends Controller
             AttemptToAuthenticate::class,
             PrepareAuthenticatedSession::class,
         ]));
+    }
+
+    /**
+     * Destroy an authenticated session.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Laravel\Fortify\Contracts\LogoutResponse
+     */
+    public function destroy(Request $request): LogoutResponse
+    {
+        $this->guard->logout();
+        return app(AdminLogoutResponse::class);
     }
 }
