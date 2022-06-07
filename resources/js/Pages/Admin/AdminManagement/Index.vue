@@ -98,15 +98,7 @@
                 <button
                   v-if="searchText"
                   @click="searchText = ''"
-                  class="
-                    absolute
-                    inset-y-0
-                    right-0
-                    pr-3
-                    flex
-                    items-center
-                    z-10
-                  "
+                  class="absolute inset-y-0 right-0 pr-3 flex items-center z-10"
                 >
                   <XIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
                 </button>
@@ -137,6 +129,35 @@
             >
               <UserAddIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
               Create
+            </Link>
+            <Link
+              :href="
+                route('admin.admin-management.export', { query: searchText })
+              "
+              as="button"
+              type="button"
+              class="
+                inline-flex
+                items-center
+                ml-2
+                px-3
+                py-1.5
+                border border-transparent
+                text-xs
+                font-medium
+                rounded-full
+                shadow
+                text-gray-800
+                bg-yellow-300
+                hover:bg-yellow-200
+                focus:outline-none
+                focus:ring-2
+                focus:ring-offset-2
+                focus:ring-yellow-300
+              "
+            >
+              <DownloadIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+              Export
             </Link>
           </div>
         </div>
@@ -398,6 +419,7 @@ import {
   SearchIcon,
   RefreshIcon,
   XIcon,
+  DownloadIcon,
 } from "@heroicons/vue/solid";
 import { Link } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
@@ -416,6 +438,7 @@ export default {
     SearchIcon,
     RefreshIcon,
     XIcon,
+    DownloadIcon,
     Link,
   },
   props: [

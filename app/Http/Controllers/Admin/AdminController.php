@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\AdminsExportEmail;
 use App\Models\Admin;
 use App\Models\Department;
 use App\Notifications\Admins\Welcome;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Password;
-use Inertia\Inertia;
 use Illuminate\Support\Str;
+use Inertia\Inertia;
 
 class AdminController extends Controller
 {
@@ -51,7 +52,6 @@ class AdminController extends Controller
         $active_count = Admin::count();
         $archived_count = Admin::onlyTrashed()->count();
 
-
         return Inertia::render('Admin/AdminManagement/Index', [
             'items' => $admins,
             'archived' => Admin::with('department:id,name')->whereNotNull('deleted_at')->get(),
@@ -71,7 +71,7 @@ class AdminController extends Controller
     public function create()
     {
         return Inertia::render('Admin/AdminManagement/Create', [
-            'departments' => Department::renderSelect()
+            'departments' => Department::renderSelect(),
         ]);
     }
 
@@ -85,7 +85,7 @@ class AdminController extends Controller
     {
         return Inertia::render('Admin/AdminManagement/Edit', [
             'admin' => $admin,
-            'departments' => Department::renderSelect()
+            'departments' => Department::renderSelect(),
         ]);
     }
 
@@ -110,9 +110,8 @@ class AdminController extends Controller
 
         $admin = Admin::create($vars);
 
-
         Password::broker('admins')->sendResetLink([
-            'email' => $admin->email
+            'email' => $admin->email,
         ], function ($user, $token) {
             $user->notify(new Welcome($token));
         });
@@ -173,5 +172,36 @@ class AdminController extends Controller
         return redirect()
             ->route('admin.admin-management.index')
             ->with('success', 'Admin successfully restored!');
+    }
+
+    public function export(Request $request)
+    {
+        $admins = Admin::query();
+
+        // Handle search requests
+        if ($request->input('query')) {
+            $search_query = Admin::search($request->input('query'));
+
+            // Filter tab
+            if ($request->tab === 'archived') {
+                $search_query = $search_query->onlyTrashed();
+            }
+
+            $ids = $search_query->get()->pluck('id');
+            $admins = $admins->whereIn('id', $ids);
+        }
+
+        $admins = $admins->with('department:id,name');
+
+        // Filter tab
+        if ($request->tab === 'archived') {
+            $admins = $admins->onlyTrashed();
+        }
+
+        Mail::to($request->user())->send(new AdminsExportEmail($admins));
+
+        return redirect()
+            ->route('admin.admin-management.index')
+            ->with('success', 'Admin export successfully sent to your email!');
     }
 }
