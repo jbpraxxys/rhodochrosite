@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ActivityLogsController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CmsPageController;
 use Illuminate\Foundation\Application;
@@ -45,6 +46,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::post('restore}', 'restore')->name('restore');
             Route::get('search/{q}', 'search')->name('search');
             Route::get('export', 'export')->name('export');
+        });
+
+    Route::prefix('activity-logs')
+        ->name('activity-logs.')
+        ->controller(ActivityLogsController::class)
+        ->group(function () {
+            Route::get('index', 'index')->name('index');
         });
 
     Route::prefix('cms')
