@@ -1,4 +1,4 @@
-image: localhost:5000/laravel8:latest
+image: localhost:5000/laravel9:latest
 
 include:
   - template: Code-Quality.gitlab-ci.yml
