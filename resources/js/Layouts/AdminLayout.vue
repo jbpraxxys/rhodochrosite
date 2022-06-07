@@ -699,6 +699,7 @@ import {
   ChevronLeftIcon,
   XIcon,
   DocumentTextIcon,
+  ClipboardListIcon,
 } from "@heroicons/vue/outline";
 import {
   SearchIcon,
@@ -715,6 +716,11 @@ const navigation = [
     icon: LibraryIcon,
   },
   { name: "CMS", href: route("admin.cms.index"), icon: DocumentTextIcon },
+  {
+    name: "Activity Logs",
+    href: route("admin.activity-logs.index"),
+    icon: ClipboardListIcon,
+  },
 ];
 const teams = [
   { name: "Engineering", href: "#", bgColorClass: "bg-indigo-500" },
