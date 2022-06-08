@@ -2,9 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Admin;
 use Inertia\Middleware;
+use Illuminate\Http\Request;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Facades\Storage;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -45,6 +47,15 @@ class HandleInertiaRequests extends Middleware
                     'success' => $request->session()->get('success'),
                     // 'error' => $request->session()->get('error'),
                 ];
+            },
+            'session_permissions' => function () use ($request) {
+                if ($request->user() && in_array(HasRoles::class, class_uses((new \ReflectionClass($request->user()))->getName()))) {
+                    return $request->user()->getAllPermissions()->map(function ($permission) {
+                        return $permission->name;
+                    });
+                } else {
+                    return null;
+                }
             },
         ]);
     }

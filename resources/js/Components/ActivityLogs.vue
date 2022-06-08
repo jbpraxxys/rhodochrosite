@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between px-8 mt-4">
+  <div class="flex items-center justify-between px-4 mt-4">
     <div class="flex">
       <selector
         placeholder="Filter by Status"
@@ -21,25 +21,35 @@
     />
   </div>
 
-  <div class="mt-4 px-8">
-    <DataTable :headers="headers" :no-action="true">
+  <div class="mt-4">
+    <DataTable :headers="headers" :no-action="true" :isEmpty="logs.data.length === 0">
       <template v-slot:body>
         <template v-for="log in logs.data" :key="log.id">
-          <tr class="text-center border-l border-dark-200">
-            <td class="p-2 text-sm border-l border-b border-dark-200">
-              {{ log.id }}
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="text-sm text-gray-900">
+                {{ log.id }}
+              </div>
             </td>
-            <td class="p-2 text-sm border-l border-b border-dark-200">
-              {{ log.log_name }}
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="text-sm text-gray-900">
+                {{ log.log_name }}
+              </div>
             </td>
-            <td class="p-2 text-sm border-l border-b border-dark-200">
-              {{ log.description }}
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="text-sm text-gray-500">
+                {{ log.description }}
+              </div>
             </td>
-            <td class="p-2 text-sm border-l border-b border-dark-200">
-              {{ log.causer_name }}
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="text-sm text-gray-900">
+                {{ log.causer_name }}
+              </div>
             </td>
-            <td class="p-2 text-sm border-l border-b border-dark-200">
-              {{ log.created_at }}
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="text-sm text-gray-900">
+                {{ log.created_at }}
+              </div>
             </td>
           </tr>
         </template>

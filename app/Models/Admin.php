@@ -13,6 +13,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Scout\Searchable;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Permission\Traits\HasRoles;
 
 class Admin extends Authenticatable
 {
@@ -23,6 +24,7 @@ class Admin extends Authenticatable
     use TwoFactorAuthenticatable;
     use SoftDeletes;
     use Searchable;
+    use HasRoles;
     use LogsActivity;
     use PrettyLog;
     use ReadableTimestamp;
