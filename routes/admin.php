@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ActivityLogsController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\RolePermissionController;
 use App\Http\Controllers\CmsPageController;
 use Illuminate\Foundation\Application;
@@ -68,6 +69,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         ->middleware('can:manage-activity-logs')
         ->group(function () {
             Route::get('index', 'index')->name('index');
+        });
+
+    Route::prefix('notification')
+        ->name('notification.')
+        ->controller(NotificationController::class)
+        ->group(function () {
+            Route::get('index', 'index')->name('index');
+            Route::get('show/{id}', 'show')->name('show');
+            Route::patch('read-all', 'readAll')->name('read-all');
         });
 
     Route::prefix('cms')
