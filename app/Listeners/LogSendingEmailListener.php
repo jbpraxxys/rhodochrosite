@@ -24,7 +24,7 @@ class LogSendingEmailListener
      */
     public function handle(MessageSending $event)
     {
-        $event->data['message'] = trim(strip_tags($event->message->getHtmlBody()));
+        $event->data['message'] = $event->message->getTextBody();
 
         if (isset($event->message->mailable)) {
             $event->data['mailable'] = $event->message->mailable;
@@ -33,22 +33,25 @@ class LogSendingEmailListener
         foreach ($event->message->getTo() as $mail) {
             activity()
                 ->withProperties($event->data)
+                ->causedByAnonymous()
                 ->event('mail')
-                ->log("Email trying to sending ... Re: {$event->message->getSubject()} (To: {$mail->getAddress()})");
+                ->log("Email trying to send ... Re: {$event->message->getSubject()} (To: {$mail->getAddress()})");
         }
 
         foreach ($event->message->getCc() as $mail) {
             activity()
                 ->withProperties($event->data)
+                ->causedByAnonymous()
                 ->event('mail')
-                ->log("Email trying to sending ... Re: {$event->message->getSubject()} (Cc: {$mail->getAddress()})");
+                ->log("Email trying to send ... Re: {$event->message->getSubject()} (Cc: {$mail->getAddress()})");
         }
 
         foreach ($event->message->getBcc() as $mail) {
             activity()
                 ->withProperties($event->data)
+                ->causedByAnonymous()
                 ->event('mail')
-                ->log("Email trying to sending ... Re: {$event->message->getSubject()} (Bcc: {$mail->getAddress()})");
+                ->log("Email trying to send ... Re: {$event->message->getSubject()} (Bcc: {$mail->getAddress()})");
         }
     }
 }
