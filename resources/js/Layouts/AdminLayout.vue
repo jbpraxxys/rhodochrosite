@@ -84,6 +84,7 @@
                       'group flex items-center px-2 py-2 text-base leading-5 font-medium rounded-md',
                     ]"
                     :aria-current="item.current ? 'page' : undefined"
+                    v-if="item.allowed"
                   >
                     <component
                       :is="item.icon"
@@ -332,31 +333,97 @@
           <div class="w-full border-t mt-3 border-gray-200 shadow-sm"></div>
           <!-- Navigation -->
           <nav class="px-3 mt-3">
-            <div class="space-y-1">
-              <Link
-                v-for="item in navigation"
-                :key="item.name"
-                :href="item.href"
-                :class="[
-                  isCurrentUrl(item.href)
-                    ? 'bg-gray-200 text-gray-900'
-                    : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50',
-                  'group flex items-center px-2 py-2 text-sm font-medium rounded-md',
-                ]"
-                :aria-current="item.current ? 'page' : undefined"
-              >
-                <component
-                  :is="item.icon"
-                  :class="[
-                    isCurrentUrl(item.href)
-                      ? 'text-gray-500'
-                      : 'text-gray-400 group-hover:text-gray-500',
-                    'mr-3 flex-shrink-0 h-6 w-6',
-                  ]"
-                  aria-hidden="true"
-                />
-                {{ item.name }}
-              </Link>
+            <h3
+              class="
+                px-3
+                text-xs
+                font-semibold
+                text-gray-500
+                uppercase
+                tracking-wider
+              "
+              id="desktop-teams-headline"
+            >
+              Main Navigation
+            </h3>
+            <div class="mt-1 space-y-1" role="group">
+              <template v-for="item in navigation" :key="item.name">
+                <template
+                  v-if="
+                    item.links && item.links.filter((e) => e.allowed).length > 0
+                  "
+                >
+                  <accordion
+                    :custom-class="[
+                      isCurrentUrl(item.href)
+                        ? 'bg-gray-200 text-gray-900'
+                        : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50',
+                      'group flex items-center px-2 py-2 text-sm font-medium rounded-md cursor-pointer',
+                    ]"
+                  >
+                    <template #title>
+                      <img
+                        :src="item.icon"
+                        class="mr-3 flex-shrink-0 h-[18px] w-[18px]"
+                      />
+                      {{ item.name }}
+                    </template>
+                    <template #content>
+                      <template v-for="link in item.links" :key="link.name">
+                        <Link
+                          :href="link.href"
+                          :class="[
+                            isCurrentUrl(link.href)
+                              ? 'bg-gray-200 text-gray-900'
+                              : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50',
+                            'group flex items-center px-2 py-2 text-sm font-medium rounded-md',
+                          ]"
+                          :aria-current="link.current ? 'page' : undefined"
+                          :dusk="link.dusk"
+                          v-if="link.allowed"
+                        >
+                          <component
+                            :is="link.icon"
+                            :class="[
+                              isCurrentUrl(link.href)
+                                ? 'text-gray-500'
+                                : 'text-gray-400 group-hover:text-gray-500',
+                              'mr-3 flex-shrink-0 h-6 w-6',
+                            ]"
+                            aria-hidden="true"
+                          />
+                          {{ link.name }}
+                        </Link>
+                      </template>
+                    </template>
+                  </accordion>
+                </template>
+                <template v-else>
+                  <Link
+                    :href="item.href"
+                    :class="[
+                      isCurrentUrl(item.href)
+                        ? 'bg-gray-200 text-gray-900'
+                        : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50',
+                      'group flex items-center px-2 py-2 text-sm font-medium rounded-md',
+                    ]"
+                    :aria-current="item.current ? 'page' : undefined"
+                    v-if="item.allowed"
+                  >
+                    <component
+                      :is="item.icon"
+                      :class="[
+                        isCurrentUrl(item.href)
+                          ? 'text-gray-500'
+                          : 'text-gray-400 group-hover:text-gray-500',
+                        'mr-3 flex-shrink-0 h-6 w-6',
+                      ]"
+                      aria-hidden="true"
+                    />
+                    {{ item.name }}
+                  </Link>
+                </template>
+              </template>
             </div>
             <div class="mt-8">
               <!-- Secondary navigation -->
@@ -683,6 +750,7 @@ import { ref, computed } from "vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import Breadcrumbs from "@/Components/Breadcrumbs.vue";
 import FlashMessages from "@/Components/FlashMessages.vue";
+import { usePage } from "@inertiajs/inertia-vue3";
 import {
   Dialog,
   DialogOverlay,
@@ -707,26 +775,6 @@ import {
   LibraryIcon,
   UserGroupIcon,
 } from "@heroicons/vue/solid";
-
-const navigation = [
-  { name: "Dashboard", href: route("admin.dashboard"), icon: HomeIcon },
-  {
-    name: "Admin Management",
-    href: route("admin.admin-management.index"),
-    icon: LibraryIcon,
-  },
-  { name: "CMS", href: route("admin.cms.index"), icon: DocumentTextIcon },
-  {
-    name: "Activity Logs",
-    href: route("admin.activity-logs.index"),
-    icon: ClipboardListIcon,
-  },
-];
-const teams = [
-  { name: "Engineering", href: "#", bgColorClass: "bg-indigo-500" },
-  { name: "Human Resources", href: "#", bgColorClass: "bg-green-500" },
-  { name: "Customer Success", href: "#", bgColorClass: "bg-yellow-500" },
-];
 
 export default {
   components: {
@@ -764,6 +812,42 @@ export default {
     },
   },
   setup(props) {
+    const navigation = [
+      {
+        name: "Dashboard",
+        href: route("admin.dashboard"),
+        icon: HomeIcon,
+        allowed: true,
+      },
+      {
+        name: "Admin Management",
+        href: route("admin.admin-management.index"),
+        icon: LibraryIcon,
+        allowed: true,
+      },
+      { name: "CMS", href: route("admin.cms.index"), icon: DocumentTextIcon },
+      {
+        name: "Roles & Permissions",
+        href: route("admin.role-permission-management.index"),
+        icon: UserGroupIcon,
+        allowed: true,
+      },
+      {
+        name: "Activity Logs",
+        href: route("admin.activity-logs.index"),
+        icon: ClipboardListIcon,
+        allowed: usePage().props.value.session_permissions.includes(
+          "manage-activity-logs"
+        ),
+      },
+    ];
+
+    const teams = [
+      { name: "Engineering", href: "#", bgColorClass: "bg-indigo-500" },
+      { name: "Human Resources", href: "#", bgColorClass: "bg-green-500" },
+      { name: "Customer Success", href: "#", bgColorClass: "bg-yellow-500" },
+    ];
+
     const sidebarOpen = ref(false);
 
     const canBack = computed(() => props.showBack);

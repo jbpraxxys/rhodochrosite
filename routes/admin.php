@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ActivityLogsController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\RolePermissionController;
 use App\Http\Controllers\CmsPageController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -48,9 +49,23 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::get('export', 'export')->name('export');
         });
 
+    Route::prefix('role-permission-management')
+        ->name('role-permission-management.')
+        ->controller(RolePermissionController::class)
+        ->group(function () {
+            Route::get('index', 'index')->name('index');
+            Route::get('edit/{role}', 'edit')->name('edit');
+            Route::post('edit/{role}', 'update')->name('update');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::delete('delete/{role}', 'delete')->name('delete');
+            Route::post('restore', 'restore')->name('restore');
+        });
+
     Route::prefix('activity-logs')
         ->name('activity-logs.')
         ->controller(ActivityLogsController::class)
+        ->middleware('can:manage-activity-logs')
         ->group(function () {
             Route::get('index', 'index')->name('index');
         });
