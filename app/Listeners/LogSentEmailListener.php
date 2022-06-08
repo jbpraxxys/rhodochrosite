@@ -29,6 +29,7 @@ class LogSentEmailListener
         foreach ($event->message->getTo() as $mail) {
             activity()
                 ->withProperties($event->data)
+                ->causedByAnonymous()
                 ->event('mail')
                 ->log("Email sent ... Re: {$event->message->getSubject()} (To: {$mail->getAddress()})");
         }
@@ -36,6 +37,7 @@ class LogSentEmailListener
         foreach ($event->message->getCc() as $mail) {
             activity()
                 ->withProperties($event->data)
+                ->causedByAnonymous()
                 ->event('mail')
                 ->log("Email sent ... Re: {$event->message->getSubject()} (Cc: {$mail->getAddress()})");
         }
@@ -43,6 +45,7 @@ class LogSentEmailListener
         foreach ($event->message->getBcc() as $mail) {
             activity()
                 ->withProperties($event->data)
+                ->causedByAnonymous()
                 ->event('mail')
                 ->log("Email sent ... Re: {$event->message->getSubject()} (Bcc: {$mail->getAddress()})");
         }

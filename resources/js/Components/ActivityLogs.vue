@@ -22,7 +22,11 @@
   </div>
 
   <div class="mt-4">
-    <DataTable :headers="headers" :no-action="true" :is-empty="logs.data.length === 0">
+    <DataTable
+      :headers="headers"
+      :no-action="true"
+      :is-empty="logs.data.length === 0"
+    >
       <template v-slot:body>
         <template v-for="log in logs.data" :key="log.id">
           <tr>
@@ -34,6 +38,11 @@
             <td class="px-6 py-4 whitespace-nowrap">
               <div class="text-sm text-gray-900">
                 {{ log.log_name }}
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="text-sm text-gray-900">
+                {{ log.event }}
               </div>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
@@ -104,6 +113,7 @@ export default {
     const headers = [
       { text: "#", value: "id" },
       { text: "Log Name", value: "logName" },
+      { text: "Event", value: "event" },
       { text: "Description", value: "description" },
       { text: "Caused By", value: "causedBy" },
       { text: "Date Received", value: "dateReceived" },
@@ -153,6 +163,8 @@ export default {
       { id: "updated", value: "Updated" },
       { id: "deleted", value: "Deleted" },
       { id: "restored", value: "Restored" },
+      { id: "mail", value: "Mail" },
+      { id: "notification", value: "Notification" },
     ];
 
     return {
