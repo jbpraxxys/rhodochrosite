@@ -22,7 +22,7 @@
   </div>
 
   <div class="mt-4">
-    <DataTable :headers="headers" :no-action="true" :isEmpty="logs.data.length === 0">
+    <DataTable :headers="headers" :no-action="true" :is-empty="logs.data.length === 0">
       <template v-slot:body>
         <template v-for="log in logs.data" :key="log.id">
           <tr>

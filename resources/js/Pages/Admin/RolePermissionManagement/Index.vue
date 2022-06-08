@@ -5,6 +5,7 @@
       :button-items="true"
       :input-items="true"
       :active-tab="activeTab"
+      @update:activeTab="(newValue) => (activeTab = newValue)"
       :page-route="route('admin.role-permission-management.index')"
     >
       <template #inputs>
@@ -83,7 +84,7 @@
     <DataTable
       :headers="headers"
       :no-action="noAction"
-      :empty="items.data.length === 0"
+      :is-empty="items.data.length === 0"
     >
       <template v-slot:body>
         <template v-for="role in items.data" :key="role.name">

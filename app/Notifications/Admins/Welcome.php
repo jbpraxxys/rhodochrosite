@@ -35,7 +35,7 @@ class Welcome extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -47,6 +47,7 @@ class Welcome extends Notification
     public function toMail($notifiable)
     {
         $route = route('admin.password.reset', ['token' => $this->token, 'email' => $notifiable->email]);
+
         return (new MailMessage)
             ->subject(Lang::get('Welcome to ' . config('app.name')))
             ->greeting("Hello {$notifiable->first_name} {$notifiable->last_name}!")
@@ -56,5 +57,25 @@ class Welcome extends Notification
             ->line(Lang::get('This link will expire in :count minutes.', ['count' => config('auth.passwords.' . config('auth.defaults.passwords') . '.expire')]))
             ->line(Lang::get('Upon expiration, you may request a new password reset by using the Forgot Password feature in the Login Page.'))
             ->line(Lang::get('Thank you and stay safe!'));
+    }
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toDatabase($notifiable)
+    {
+        $properties = [
+            'token' => $this->token,
+            'email' => $notifiable->email,
+        ];
+
+        return [
+            'properties' => $properties,
+            'message' => "Hello {$notifiable->first_name} {$notifiable->last_name}! Your Admin account has been created.",
+            'title' => 'Welcome to ' . config('app.name'),
+        ];
     }
 }
