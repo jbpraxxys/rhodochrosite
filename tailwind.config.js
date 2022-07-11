@@ -16,12 +16,22 @@ module.exports = {
         sans: ["Nunito", ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        'bst-green-1': '#18402C',
-        'bst-green-2': '#E9F5EE',
-        'bst-yellow-1': '#C9A54B',
-        'bst-yellow-2': '#FFDE59',
-        'bst-yellow-3': '#FFEE59',
-        'bst-yellow-4': '#FDFF9C'
+        'primary': {
+          200: '#f6e8fc',
+          300: '#f2ddfb',
+          400: '#e4b8f6',
+          500: '#a81ae2',
+          600: '#7e14aa',
+          700: '#3b094f',
+        },
+        'secondary': {
+          200: '#FFF8E6',
+          300: '#FFF5D9',
+          400: '#FFEAB0',
+          500: '#FFBC00',
+          600: '#BF8D00',
+          700: '#594200',
+        },
       }
     },
   },
