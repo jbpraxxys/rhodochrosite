@@ -43,6 +43,42 @@ return [
 
     'debug' => (bool) env('APP_DEBUG', false),
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Google Analytics
+    |--------------------------------------------------------------------------
+    |
+    | This value is to allow google analytics function.
+    |
+    */
+
+    'google_analytics' => env('ALLOW_GOOGLE_ANALYTICS', false),
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Tawk.to
+    |--------------------------------------------------------------------------
+    |
+    | This value is to allow tawk.to function.
+    |
+    */
+
+    'tawkto' => env('ALLOW_TAWKTO', false),
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Facebook Chat
+    |--------------------------------------------------------------------------
+    |
+    | This value is to allow facebook chat function.
+    |
+    */
+
+    'facebook_chat' => env('ALLOW_FACEBOOK_CHAT', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application URL

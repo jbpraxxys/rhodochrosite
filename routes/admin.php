@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\ActivityLogsController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\RolePermissionController;
+use App\Http\Controllers\CmsPageController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\CmsPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +18,7 @@ use App\Http\Controllers\CmsPageController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
-
-
+ */
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -35,25 +35,57 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::prefix('admin-management')->name('admin-management.')->group(function () {
-        Route::get('index', [AdminController::class, 'index'])->name('index');
-        Route::get('create', [AdminController::class, 'create'])->name('create');
-        Route::get('edit/{admin}', [AdminController::class, 'edit'])->name('edit');
-        Route::post('store', [AdminController::class, 'store'])->name('store');
-        Route::post('edit/{admin}', [AdminController::class, 'update']);
-        Route::delete('delete/{admin}', [AdminController::class, 'delete'])->name('delete');
-        Route::post('restore}', [AdminController::class, 'restore'])->name('restore');
-        Route::get('search/{q}', [AdminController::class, 'search'])->name('search');
-    });
+    Route::prefix('admin-management')
+        ->name('admin-management.')
+        ->controller(AdminController::class)
+        ->group(function () {
+            Route::get('index', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::get('edit/{admin}', 'edit')->name('edit');
+            Route::post('store', 'store')->name('store');
+            Route::post('edit/{admin}', 'update');
+            Route::delete('delete/{admin}', 'delete')->name('delete');
+            Route::post('restore}', 'restore')->name('restore');
+            Route::get('search/{q}', 'search')->name('search');
+            Route::get('export', 'export')->name('export');
+        });
 
-    Route::prefix('cms')->name('cms.')->group(function () {
-        Route::get('index', [CmsPageController::class, 'index'])->name('index');
-        Route::get('edit/{cmsPage}', [CmsPageController::class, 'edit'])->name('edit');
-        Route::post('edit/{cmsPage}', [CmsPageController::class, 'update']);
-        // Route::get('create', [AdminController::class, 'create'])->name('create');
-        // Route::post('store', [AdminController::class, 'store'])->name('store');
-        // Route::delete('delete/{admin}', [AdminController::class, 'delete'])->name('delete');
-        // Route::post('restore}', [AdminController::class, 'restore'])->name('restore');
-        // Route::get('search/{q}', [AdminController::class, 'search'])->name('search');
-    });
+    Route::prefix('role-permission-management')
+        ->name('role-permission-management.')
+        ->controller(RolePermissionController::class)
+        ->group(function () {
+            Route::get('index', 'index')->name('index');
+            Route::get('edit/{role}', 'edit')->name('edit');
+            Route::post('edit/{role}', 'update')->name('update');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::delete('delete/{role}', 'delete')->name('delete');
+            Route::post('restore', 'restore')->name('restore');
+        });
+
+    Route::prefix('activity-logs')
+        ->name('activity-logs.')
+        ->controller(ActivityLogsController::class)
+        ->middleware('can:manage-activity-logs')
+        ->group(function () {
+            Route::get('index', 'index')->name('index');
+        });
+
+    Route::prefix('notification')
+        ->name('notification.')
+        ->controller(NotificationController::class)
+        ->group(function () {
+            Route::get('index', 'index')->name('index');
+            Route::get('show/{id}', 'show')->name('show');
+            Route::patch('read-all', 'readAll')->name('read-all');
+        });
+
+    Route::prefix('cms')
+        ->name('cms.')
+        ->controller(CmsPageController::class)
+        ->group(function () {
+            Route::get('index', 'index')->name('index');
+            Route::get('edit/{cmsPage}', 'edit')->name('edit');
+            Route::post('edit/{cmsPage}', 'update');
+        });
 });

@@ -183,5 +183,54 @@ return [
                 ],
             ],
         ],
+
+        [
+            'slug' => 'api_keys',
+            'label' => 'General: API Keys',
+            'sections' => [
+                [
+                    'id' => 'googleanalytics',
+                    'label' => 'Google Analytics',
+                    'description' => 'Add the key to enable google analytics',
+                    'items' => [
+                        [
+                            'id' => 'googleanalytics',
+                            'type' => 'text',
+                            'label' => 'Google Analytics KEY',
+                            'description' => 'ex: G-H33RXMHQNV',
+                            'rules' => ''
+                        ],
+                    ],
+                ],
+                [
+                    'id' => 'tawkto',
+                    'label' => 'Tawk.to',
+                    'description' => 'Add the tawk.to id to enable the chat',
+                    'items' => [
+                        [
+                            'id' => 'tawkto_link',
+                            'type' => 'text',
+                            'label' => 'Tawk.to ID',
+                            'description' => 'ex: 5cf8afbab534676f32ad96b7',
+                            'rules' => ''
+                        ],
+                    ],
+                ],
+                [
+                    'id' => 'facebook',
+                    'label' => 'Facebook Page Id for Chat',
+                    'description' => 'Add the facebook page id to enable facebook chat',
+                    'items' => [
+                        [
+                            'id' => 'facebook_page_id',
+                            'type' => 'text',
+                            'label' => 'Facebook Page Id',
+                            'description' => 'ex: 124807260896296',
+                            'rules' => ''
+                        ],
+                    ],
+                ]
+            ],
+        ],
     ],
 ];

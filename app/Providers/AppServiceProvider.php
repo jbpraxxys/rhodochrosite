@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         try {
             if (Schema::hasTable('cms_pages')) {
                 View::share('header_footer', CmsPage::where('slug', 'header_footer')->first());
+                View::share('api_keys', CmsPage::where('slug', 'api_keys')->first());
             }
         } catch (\Exception $e) {
           

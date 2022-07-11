@@ -2,14 +2,18 @@
 
 namespace App\Models;
 
+use App\Traits\Notifiable;
+use App\Traits\PrettyLog;
+use App\Traits\ReadableTimestamp;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Scout\Searchable;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Permission\Traits\HasRoles;
 
 class Admin extends Authenticatable
 {
@@ -20,6 +24,10 @@ class Admin extends Authenticatable
     use TwoFactorAuthenticatable;
     use SoftDeletes;
     use Searchable;
+    use HasRoles;
+    use LogsActivity;
+    use PrettyLog;
+    use ReadableTimestamp;
 
     public $asYouType = true;
 
@@ -34,7 +42,7 @@ class Admin extends Authenticatable
         'email',
         'password',
         'title',
-        'department_id'
+        'department_id',
     ];
 
     /**
