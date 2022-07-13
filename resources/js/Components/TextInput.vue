@@ -60,6 +60,7 @@
                     text-sm
                     rounded-md
                     py-2.5
+                    h-11
                     disabled:bg-gray-100
                 "
                 :class="
