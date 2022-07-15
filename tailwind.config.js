@@ -17,12 +17,12 @@ module.exports = {
       },
       colors: {
         'primary': {
-          200: '#f6e8fc',
-          300: '#f2ddfb',
-          400: '#e4b8f6',
-          500: '#a81ae2',
-          600: '#7e14aa',
-          700: '#3b094f',
+          200: '#fefce8',
+          300: '#fef9c3',
+          400: '#fef08a',
+          500: '#fde047',
+          600: '#facc15',
+          700: '#eab308',
         },
         'secondary': {
           200: '#FFF8E6',

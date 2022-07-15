@@ -54,10 +54,10 @@ class AdminController extends Controller
         return Inertia::render('Admin/AdminManagement/Index', [
             'items' => $admins,
             'archived' => Admin::with('department:id,name')->whereNotNull('deleted_at')->get(),
-            'active_count' => $active_count,
-            'archived_count' => $archived_count,
+            'activeCount' => $active_count,
+            'archivedCount' => $archived_count,
             'query' => $request->input('query'), // return search query
-            'selected_tab' => $request->input('tab'), // return selected tab
+            'selectedTab' => $request->input('tab'), // return selected tab
         ]);
     }
 

@@ -1,5 +1,5 @@
 <template>
-  <admin-layout title="CMS" :breadcrumb-pages="breadcrumbs">
+  <admin-layout title="Settings" :breadcrumb-pages="breadcrumbs">
     <div class="flex flex-col">
       <div class="-my-2 overflow-x-auto">
         <div class="py-2 align-middle inline-block min-w-full">
@@ -13,17 +13,13 @@
           >
             <DataTable :headers="headers" :no-action="noAction">
               <template v-slot:body>
-                <template v-for="page in items" :key="page.slug">
+                <!-- <tr v-for="item in items" :key="item"> -->
+                <template v-for="item in items" :key="item">
                   <tr>
                     <td
                       class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                     >
-                      {{ page.label }}
-                    </td>
-                    <td
-                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                    >
-                      {{ page.updated_at }}
+                      {{ item.label }}
                     </td>
                     <td
                       v-if="!noAction"
@@ -36,7 +32,7 @@
                     >
                       <edit-button
                         class="mr-3"
-                        :route="route('admin.cms.edit', page.id)"
+                        route="#"
                       />
                     </td>
                   </tr>
@@ -44,12 +40,12 @@
               </template>
             </DataTable>
           </div>
-          <p
+          <!-- <p
             v-if="items.length === 0"
             class="text-sm text-gray-600 text-center py-8"
           >
             No data to display.
-          </p>
+          </p> -->
         </div>
       </div>
     </div>
@@ -81,11 +77,10 @@ export default {
     /*---------------*
      * Breadcrumbs
      *---------------*/
-    const breadcrumbs = [{ name: "CMS", href: "#", current: true }];
+    const breadcrumbs = [{ name: "Settings", href: "#", current: true }];
 
     const headers = [
       { text: "Label", value: "Label" },
-      { text: "Last Updated", value: "Last Updated" },
     ];
 
     return {

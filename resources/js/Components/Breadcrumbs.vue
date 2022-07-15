@@ -4,7 +4,7 @@
       <li>
         <div>
           <Link
-            :href="route('admin.dashboard')"
+            :href="route('admin.dashboard.index')"
             class="text-gray-400 hover:text-gray-500"
           >
             <HomeIcon class="flex-shrink-0 h-5 w-5" aria-hidden="true" />

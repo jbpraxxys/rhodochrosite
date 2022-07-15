@@ -9,9 +9,8 @@
       <tabs
         :tabs="tabs"
         :active-tab="activeTab"
-        :preserve-state="true"
         @update:activeTab="(newValue) => (activeTab = newValue)"
-        :page-route="route('admin.role-permission-management.edit', role.id)"
+        :tab-route="route('admin.role-permission-management.edit', role.id)"
       >
       </tabs>
     </div>
@@ -46,33 +45,9 @@
                 />
               </div>
               <div class="col-span-6">
-                <button
-                  @click="submit"
-                  class="
-                    inline-flex
-                    items-center
-                    px-3
-                    py-1.5
-                    border border-transparent
-                    text-xs
-                    font-medium
-                    rounded-full
-                    shadow
-                    text-gray-800
-                    bg-yellow-300
-                    hover:bg-yellow-200
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-offset-2
-                    focus:ring-yellow-300
-                  "
-                >
-                  <PencilAltIcon
-                    class="-ml-0.5 mr-2 h-4 w-4"
-                    aria-hidden="true"
-                  />
-                  Save
-                </button>
+                <jet-button @click="submit" type="button">
+                  Save Changes
+                </jet-button>
               </div>
             </div>
           </div>
@@ -177,6 +152,7 @@ import Selector from "@/Components/Selector.vue";
 import TextInput from "@/Components/TextInput.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import { Switch } from "@headlessui/vue";
+import JetButton from "@/Jetstream/Button.vue";
 
 export default {
   components: {
@@ -189,6 +165,7 @@ export default {
     Selector,
     TextInput,
     Switch,
+    JetButton
   },
   props: [
     "role",

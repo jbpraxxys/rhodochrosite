@@ -52,10 +52,24 @@
             </div>
         </div>
         <div class="flex justify-between items-center py-2 border-b">
-            <p class="text-lg">text-2xl</p>
+            <p class="text-lg">text-3xl	</p>
             <div class="w-1/2">
-                <p class="text-sm text-slate-500">font-size: 1.5rem; /* 24px */</p>
-                <p class="text-sm text-slate-500">line-height: 2rem; /* 32px */</p>
+                <p class="text-sm text-slate-500">font-size: 1.875rem; /* 30px */</p>
+                <p class="text-sm text-slate-500">line-height: 2.25rem; /* 36px */</p>
+            </div>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b">
+            <p class="text-lg">text-4xl	</p>
+            <div class="w-1/2">
+                <p class="text-sm text-slate-500">font-size: 2.25rem; /* 36px */</p>
+                <p class="text-sm text-slate-500">line-height: 2.5rem; /* 40px */</p>
+            </div>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b">
+            <p class="text-lg">text-5xl</p>
+            <div class="w-1/2">
+                <p class="text-sm text-slate-500">font-size: 3rem; /* 48px */</p>
+                <p class="text-sm text-slate-500">line-height: 1;</p>
             </div>
         </div>
     </div>

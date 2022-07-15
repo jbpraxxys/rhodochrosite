@@ -18,12 +18,12 @@
 </template>
 
 <script>
-import { Link } from "@inertiajs/inertia-vue3";
+// import { Link } from "@inertiajs/inertia-vue3";
 import { TrashIcon } from "@heroicons/vue/outline";
 
 export default {
   components: {
-    Link,
+    // Link,
     TrashIcon,
   },
   props: {

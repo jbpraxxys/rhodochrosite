@@ -1,85 +1,42 @@
 <template>
   <admin-layout title="Roles & Permissions" :breadcrumb-pages="breadcrumbs">
-    <tabs
-      :tabs="tabs"
-      :button-items="true"
-      :input-items="true"
-      :active-tab="activeTab"
-      @update:activeTab="(newValue) => (activeTab = newValue)"
-      :page-route="route('admin.role-permission-management.index')"
-    >
-      <template #inputs>
-        <label for="search" class="sr-only">Search</label>
-        <div class="relative rounded-md shadow-sm">
-          <div
-            class="
-              absolute
-              inset-y-0
-              left-0
-              pl-3
-              flex
-              items-center
-              pointer-events-none
-            "
-            aria-hidden="true"
-          >
-            <SearchIcon class="mr-3 h-4 w-4 text-gray-400" aria-hidden="true" />
-          </div>
-          <input
-            v-model="searchText"
-            type="text"
-            name="search"
-            id="search"
-            class="
-              focus:ring-yellow-300 focus:border-yellow-300
-              block
-              w-full
-              pl-9
-              sm:text-sm
-              border-gray-300
-              rounded-md
-            "
-            placeholder="Search"
-          />
-          <button
-            v-if="searchText"
-            @click="searchText = ''"
-            class="absolute inset-y-0 right-0 pr-3 flex items-center z-10"
-          >
-            <XIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
-          </button>
-        </div>
-      </template>
+    <!-- Tabs -->
+    <div>
+      <tabs
+        :tabs="tabs"
+        :button-items="true"
+        :active-tab="activeTab"
+        @update:tab="(value) => (activeTab = value)"
+        :tab-route="route('admin.role-permission-management.index')"
+      >
+        <template #buttons v-if="activeTab !== 'activity_logs'">
+          <create-button :route="route('admin.role-permission-management.create')" />
+        </template>
+      </tabs>
 
-      <template #buttons>
-        <Link
-          :href="route('admin.role-permission-management.create')"
-          as="button"
-          type="button"
-          class="
-            inline-flex
-            items-center
-            px-3
-            py-1.5
-            border border-transparent
-            text-xs
-            font-medium
-            rounded-full
-            shadow
-            text-gray-800
-            bg-yellow-300
-            hover:bg-yellow-200
-            focus:outline-none
-            focus:ring-2
-            focus:ring-offset-2
-            focus:ring-yellow-300
-          "
+      <!-- Filter -->
+      <div class="py-3 px-6" v-if="activeTab !== 'activity_logs'">
+        <Filter
+          :search="searchText"
+          @update:searchText="(value) => (searchText = value)"
+          @update:filters="applyFilters"
+          :custom-filters="activeTab !== 'activity_logs'"
         >
-          <PlusIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
-          Create
-        </Link>
-      </template>
-    </tabs>
+          <template #fields>
+            <div class="mb-6">
+              <date-picker
+                id="filterDate"
+                label="Date Created"
+                placeholder="Filter Date Created"
+                v-model="filterDate"
+                :enableTimePicker="false"
+                @update:modelValue="(value) => (filterDate = value)"
+              />
+            </div>
+          </template>
+        </Filter>
+      </div>
+    </div>
 
     <DataTable
       :headers="headers"
@@ -113,74 +70,18 @@
               class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
             >
               <template v-if="activeTab !== 'archived'">
-                <Link
-                  :href="
-                    route('admin.role-permission-management.edit', role.id)
-                  "
-                  class="
-                    mx-1
-                    inline-flex
-                    items-center
-                    p-1
-                    border border-transparent
-                    rounded-full
-                    shadow
-                    text-gray-700
-                    bg-yellow-300
-                    hover:bg-yellow-200
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-offset-2
-                    focus:ring-yellow-300
-                  "
-                >
-                  <PencilAltIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
-                </Link>
-                <button
-                  @click="selectDelete(role)"
-                  class="
-                    mx-1
-                    inline-flex
-                    items-center
-                    p-1
-                    border border-transparent
-                    rounded-full
-                    shadow
-                    text-gray-700
-                    bg-red-400
-                    hover:bg-red-300
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-offset-2
-                    focus:ring-red-400
-                  "
-                >
-                  <TrashIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
-                </button>
+                <edit-button
+                  class="mr-3"
+                  :route="route('admin.role-permission-management.edit', role.id)"
+                />
+                <delete-button @click="selectDelete(role)" />
               </template>
 
-              <button
-                class="
-                  mx-1
-                  inline-flex
-                  items-center
-                  p-1
-                  border border-transparent
-                  rounded-full
-                  shadow
-                  text-gray-700
-                  bg-green-300
-                  hover:bg-green-200
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-offset-2
-                  focus:ring-green-300
-                "
-                v-if="activeTab === 'archived'"
+              <restore-button
+                v-if="selectedTab === 'archived'"
                 @click="selectRestore(role)"
-              >
-                <RefreshIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
-              </button>
+              />
+              
             </td>
           </tr>
         </template>
@@ -212,6 +113,9 @@ import AdminLayout from "@/Layouts/AdminLayout.vue";
 import Tabs from "@/Components/Tabs.vue";
 import TextInput from "@/Components/TextInput.vue";
 import DataTable from "@/Components/DataTable.vue";
+import EditButton from "@/Components/ActionButtons/EditButton.vue";
+import DeleteButton from "@/Components/ActionButtons/DeleteButton.vue";
+import RestoreButton from "@/Components/ActionButtons/RestoreButton.vue";
 import { computed, ref, watch } from "vue";
 import {
   SearchIcon,
@@ -228,7 +132,7 @@ import DeleteModal from "@/Components/DeleteModal.vue";
 import Pagination from "@/Components/Pagination.vue";
 import throttle from "lodash/throttle";
 import pickBy from "lodash/pickBy";
-
+import Filter from "@/Components/Filter.vue";
 export default {
   components: {
     AdminLayout,
@@ -245,6 +149,10 @@ export default {
     PlusIcon,
     XIcon,
     PencilAltIcon,
+    Filter,
+    EditButton,
+    DeleteButton,
+    RestoreButton,
   },
   props: ["items", "activeCount", "archivedCount", "selectedTab", "query"],
   setup(props) {

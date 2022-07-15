@@ -71,34 +71,9 @@
                 </div>
 
                 <div class="col-span-6 sm:col-span-4">
-                  <button
-                    @click="submit"
-                    type="button"
-                    class="
-                      inline-flex
-                      items-center
-                      px-3
-                      py-1.5
-                      border border-transparent
-                      text-xs
-                      font-medium
-                      rounded-full
-                      shadow
-                      text-gray-600
-                      bg-yellow-300
-                      hover:bg-yellow-300
-                      focus:outline-none
-                      focus:ring-2
-                      focus:ring-offset-2
-                      focus:ring-yellow-300
-                    "
-                  >
-                    <PencilAltIcon
-                      class="-ml-0.5 mr-2 h-4 w-4"
-                      aria-hidden="true"
-                    />
-                    Save
-                  </button>
+                  <jet-button @click="submit" type="button">
+                    Save Changes
+                  </jet-button>
                 </div>
               </div>
             </form>
@@ -115,13 +90,14 @@ import TextInput from "@/Components/TextInput.vue";
 import { PencilAltIcon } from "@heroicons/vue/solid";
 import usePRXForm from "@/composables/usePRXForm";
 import Selector from "@/Components/Selector.vue";
-
+import JetButton from "@/Jetstream/Button.vue";
 export default {
   components: {
     AdminLayout,
     PencilAltIcon,
     TextInput,
     Selector,
+    JetButton
   },
   props: ["admin", "departments"],
   setup(props) {
