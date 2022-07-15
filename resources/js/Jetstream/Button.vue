@@ -1,16 +1,39 @@
 <template>
-    <button :type="type" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest  focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition bg-yellow-300 hover:bg-yellow-200 active:bg-yellow-400 text-gray-800">
-        <slot></slot>
-    </button>
+  <button
+    :type="type"
+    class="
+      inline-flex
+      items-center
+      px-4
+      py-2.5
+      border
+      ring-0
+      rounded-md
+      font-semibold
+      text-sm
+      transition
+    "
+    :class="
+      secondary
+        ? 'bg-white border-gray-300 text-primary-500 hover:text-primary-600 focus:outline-none active:text-gray-800 active:bg-gray-50 disabled:opacity-25 '
+        : 'border-primary-500 focus:outline-none focus:border-gray-900 focus:outline-none focus:border-primary-400 disabled:opacity-25 bg-primary-500 hover:bg-primary-600 active:bg-primary-400 text-white'
+    "
+  >
+    <slot></slot>
+  </button>
 </template>
 
 <script>
-    export default {
-        props: {
-            type: {
-                type: String,
-                default: 'submit',
-            },
-        }
-    }
+export default {
+  props: {
+    type: {
+      type: String,
+      default: "submit",
+    },
+    secondary: {
+      type: Boolean,
+      default: false,
+    },
+  },
+};
 </script>

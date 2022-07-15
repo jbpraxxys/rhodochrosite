@@ -157,31 +157,9 @@
             </div>
           </div>
           <div class="col-span-6 sm:col-span-4">
-            <button
-              @click="submit"
-              type="button"
-              class="
-                inline-flex
-                items-center
-                px-3
-                py-1.5
-                border border-transparent
-                text-xs
-                font-medium
-                rounded-full
-                shadow
-                text-gray-600
-                bg-yellow-300
-                hover:bg-yellow-300
-                focus:outline-none
-                focus:ring-2
-                focus:ring-offset-2
-                focus:ring-yellow-300
-              "
-            >
-              <PencilAltIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
-              Save
-            </button>
+            <jet-button @click="submit" type="button">
+              Save Changes
+            </jet-button>
           </div>
         </form>
       </div>
@@ -199,6 +177,7 @@ import { PencilAltIcon } from "@heroicons/vue/solid";
 import usePRXCMSForm from "@/composables/usePRXCMSForm";
 import Selector from "@/Components/Selector.vue";
 import ckeditor from  "@/Components/CKEditor.vue";
+import JetButton from "@/Jetstream/Button.vue";
 
 export default {
   components: {
@@ -208,7 +187,8 @@ export default {
     Selector,
     Dropzone,
     ListTable,
-    ckeditor
+    ckeditor,
+    JetButton
   },
   props: ["page", "schema"],
   setup(props) {

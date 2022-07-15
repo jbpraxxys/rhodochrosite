@@ -11,101 +11,38 @@
               sm:rounded-lg
             "
           >
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-gray-50">
-                <tr>
-                  <th
-                    scope="col"
-                    class="
-                      px-6
-                      py-3
-                      text-center text-xs
-                      font-medium
-                      text-gray-500
-                      uppercase
-                      tracking-wider
-                    "
-                  >
-                    Label
-                  </th>
-                  <th
-                    scope="col"
-                    class="
-                      px-6
-                      py-3
-                      text-center text-xs
-                      font-medium
-                      text-gray-500
-                      uppercase
-                      tracking-wider
-                    "
-                  >
-                    Last Updated
-                  </th>
-                  <th
-                    scope="col"
-                    class="
-                      relative
-                      px-6
-                      py-3
-                      text-center text-xs
-                      font-medium
-                      text-gray-500
-                      uppercase
-                      tracking-wider
-                    "
-                  >
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-                <tr v-for="page in items" :key="page.slug">
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-center text-gray-900">
+            <DataTable :headers="headers" :no-action="noAction">
+              <template v-slot:body>
+                <template v-for="page in items" :key="page.slug">
+                  <tr>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                    >
                       {{ page.label }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-center text-gray-900">
+                    </td>
+                    <td
+                      class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                    >
                       {{ page.updated_at }}
-                    </div>
-                  </td>
-                  <td
-                    class="
-                      px-6
-                      py-4
-                      whitespace-nowrap
-                      text-center text-sm
-                      font-medium
-                    "
-                  >
-                    <!-- Edit Button -->
-                    <Link
-                      :href="route('admin.cms.edit', page.id)"
+                    </td>
+                    <td
+                      v-if="!noAction"
                       class="
-                        mx-1
-                        inline-flex
-                        items-center
-                        p-1
-                        border border-transparent
-                        rounded-full
-                        shadow
-                        text-gray-700
-                        bg-yellow-300
-                        hover:bg-yellow-200
-                        focus:outline-none
-                        focus:ring-2
-                        focus:ring-offset-2
-                        focus:ring-yellow-300
+                        px-6
+                        py-4
+                        whitespace-nowrap
+                        text-sm text-gray-500 text-center
                       "
                     >
-                      <PencilAltIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
-                    </Link>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                      <edit-button
+                        class="mr-3"
+                        :route="route('admin.cms.edit', page.id)"
+                      />
+                    </td>
+                  </tr>
+                </template>
+              </template>
+            </DataTable>
           </div>
           <p
             v-if="items.length === 0"
@@ -124,11 +61,15 @@ import AdminLayout from "@/Layouts/AdminLayout.vue";
 import { computed } from "vue";
 import { PencilAltIcon } from "@heroicons/vue/solid";
 import { Link } from "@inertiajs/inertia-vue3";
+import DataTable from "@/Components/DataTable.vue";
+import EditButton from "@/Components/ActionButtons/EditButton.vue";
 export default {
   components: {
     AdminLayout,
     PencilAltIcon,
     Link,
+    DataTable,
+    EditButton
   },
   props: ["items"],
   setup(props) {
@@ -142,10 +83,16 @@ export default {
      *---------------*/
     const breadcrumbs = [{ name: "CMS", href: "#", current: true }];
 
+    const headers = [
+      { text: "Label", value: "Label" },
+      { text: "Last Updated", value: "Last Updated" },
+    ];
+
     return {
       breadcrumbs,
       // Table
       items,
+      headers
     };
   },
 };

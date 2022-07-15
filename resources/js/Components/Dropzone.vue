@@ -13,13 +13,13 @@
         border-2 border-dashed
         rounded-md
       "
-      :class="isDragActive ? 'border-yellow-300' : 'border-gray-300'"
+      :class="isDragActive ? 'border-gray-900' : 'border-gray-300'"
       v-bind="getRootProps()"
     >
       <div class="space-y-1 text-center">
         <svg
           class="mx-auto h-12 w-12"
-          :class="isDragActive ? 'text-yellow-300' : 'text-gray-400'"
+          :class="isDragActive ? 'text-gray-900' : 'text-gray-400'"
           stroke="currentColor"
           fill="none"
           viewBox="0 0 48 48"
@@ -41,12 +41,12 @@
               bg-white
               rounded-md
               font-medium
-              text-yellow-500
-              hover:text-yellow-300
+              text-gray-900
+              hover:text-gray-900
               focus-within:outline-none
               focus-within:ring-2
               focus-within:ring-offset-2
-              focus-within:ring-yellow-300
+              focus-within:ring-gray-900
             "
           >
             <span>Select {{ multiple ? "files" : "a file" }}</span>

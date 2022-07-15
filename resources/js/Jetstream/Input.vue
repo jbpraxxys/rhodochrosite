@@ -1,5 +1,22 @@
 <template>
-    <input class="border-gray-300 focus:border-yellow-200 focus:ring focus:ring-yellow-100 focus:ring-opacity-50 rounded-md shadow-sm" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" ref="input">
+    <input 
+    class="
+        block
+        w-full
+        focus:outline-none
+        text-sm
+        rounded-md
+        py-2.5
+        h-11
+        disabled:bg-gray-100
+        text-gray-800
+        border-gray-300
+        placeholder-gray-500
+        focus:ring-gray-900
+        focus:border-gray-900" 
+    :value="modelValue" 
+    @input="$emit('update:modelValue', $event.target.value)" 
+    ref="input">
 </template>
 
 <script>

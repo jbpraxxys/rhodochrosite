@@ -73,81 +73,30 @@
             </div>
             <div class="mt-5 flex-1 h-0 overflow-y-auto">
               <nav class="px-2">
-                <div class="space-y-1">
+                <div class="space-y-4">
                   <Link
                     :key="item.name"
                     :href="item.href"
                     :class="[
-                      isCurrentUrl(item.href)
-                        ? 'bg-gray-100 text-gray-900'
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50',
+                      isCurrentUrl(item.parentUrl)
+                        ? 'bg-gray-100 text-black'
+                        : 'text-gray-600 hover:text-black',
                       'group flex items-center px-2 py-2 text-base leading-5 font-medium rounded-md',
                     ]"
                     :aria-current="item.current ? 'page' : undefined"
                     v-if="item.allowed"
                   >
-                    <component
-                      :is="item.icon"
+                    <img
+                      :src="item.icon"
                       :class="[
-                        isCurrentUrl(item.href)
+                        isCurrentUrl(item.parentUrl)
                           ? 'text-gray-500'
                           : 'text-gray-400 group-hover:text-gray-500',
-                        'mr-3 flex-shrink-0 h-6 w-6',
+                        'mr-4 flex-shrink-0 h-5 w-5',
                       ]"
-                      aria-hidden="true"
                     />
                     {{ item.name }}
                   </Link>
-                </div>
-                <div class="mt-8">
-                  <h3
-                    class="
-                      px-3
-                      text-xs
-                      font-semibold
-                      text-gray-500
-                      uppercase
-                      tracking-wider
-                    "
-                    id="mobile-teams-headline"
-                  >
-                    Teams
-                  </h3>
-                  <div
-                    class="mt-1 space-y-1"
-                    role="group"
-                    aria-labelledby="mobile-teams-headline"
-                  >
-                    <a
-                      v-for="team in teams"
-                      :key="team.name"
-                      :href="team.href"
-                      class="
-                        group
-                        flex
-                        items-center
-                        px-3
-                        py-2
-                        text-base
-                        leading-5
-                        font-medium
-                        text-gray-600
-                        rounded-md
-                        hover:text-gray-900 hover:bg-gray-50
-                      "
-                    >
-                      <span
-                        :class="[
-                          team.bgColorClass,
-                          'w-2.5 h-2.5 mr-4 rounded-full',
-                        ]"
-                        aria-hidden="true"
-                      />
-                      <span class="truncate">
-                        {{ team.name }}
-                      </span>
-                    </a>
-                  </div>
                 </div>
               </nav>
             </div>
@@ -162,14 +111,7 @@
     <!-- Static sidebar for desktop -->
     <div class="hidden lg:flex lg:flex-shrink-0">
       <div
-        class="
-          flex flex-col
-          w-64
-          border-r border-gray-200
-          pt-3
-          pb-4
-          bg-gray-100
-        "
+        class="flex flex-col w-64 border-r border-gray-200 pt-3 pb-4 bg-white"
       >
         <div class="flex items-center flex-shrink-0 px-6 border-b pb-3">
           <img
@@ -187,19 +129,18 @@
                 class="
                   group
                   w-full
-                  bg-gray-100
                   rounded-md
                   px-3.5
                   py-2
                   text-sm text-left
                   font-medium
-                  text-gray-700
-                  hover:bg-gray-200
+                  text-gray-600
+                  hover:bg-gray-100
                   focus:outline-none
                   focus:ring-2
                   focus:ring-offset-2
                   focus:ring-offset-gray-100
-                  focus:ring-yellow-300
+                  focus:ring-primary-300
                 "
               >
                 <span class="flex w-full justify-between items-center">
@@ -296,28 +237,6 @@
                   <MenuItem v-slot="{ active }">
                     <a
                       href="#"
-                      :class="[
-                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
-                      ]"
-                      >Get desktop app</a
-                    >
-                  </MenuItem>
-                  <MenuItem v-slot="{ active }">
-                    <a
-                      href="#"
-                      :class="[
-                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
-                      ]"
-                      >Support</a
-                    >
-                  </MenuItem>
-                </div>
-                <div class="py-1">
-                  <MenuItem v-slot="{ active }">
-                    <a
-                      href="#"
                       @click="logout"
                       :class="[
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -330,152 +249,154 @@
               </MenuItems>
             </transition>
           </Menu>
-          <div class="w-full border-t mt-3 border-gray-200 shadow-sm"></div>
+          <div class="w-full mt-3 shadow-sm"></div>
           <!-- Navigation -->
-          <nav class="px-3 mt-3">
-            <h3
-              class="
-                px-3
-                text-xs
-                font-semibold
-                text-gray-500
-                uppercase
-                tracking-wider
-              "
-              id="desktop-teams-headline"
+          <nav class="mt-3">
+            <div
+              class="space-y-4"
+              role="group"
+              aria-labelledby="desktop-main-headline"
             >
-              Main Navigation
-            </h3>
-            <div class="mt-1 space-y-1" role="group">
               <template v-for="item in navigation" :key="item.name">
-                <template
-                  v-if="
-                    item.links && item.links.filter((e) => e.allowed).length > 0
-                  "
-                >
-                  <accordion
-                    :custom-class="[
-                      isCurrentUrl(item.href)
-                        ? 'bg-gray-200 text-gray-900'
-                        : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50',
-                      'group flex items-center px-2 py-2 text-sm font-medium rounded-md cursor-pointer',
-                    ]"
-                  >
-                    <template #title>
-                      <img
-                        :src="item.icon"
-                        class="mr-3 flex-shrink-0 h-[18px] w-[18px]"
-                      />
-                      {{ item.name }}
-                    </template>
-                    <template #content>
-                      <template v-for="link in item.links" :key="link.name">
-                        <Link
-                          :href="link.href"
-                          :class="[
-                            isCurrentUrl(link.href)
-                              ? 'bg-gray-200 text-gray-900'
-                              : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50',
-                            'group flex items-center px-2 py-2 text-sm font-medium rounded-md',
-                          ]"
-                          :aria-current="link.current ? 'page' : undefined"
-                          :dusk="link.dusk"
-                          v-if="link.allowed"
-                        >
-                          <component
-                            :is="link.icon"
-                            :class="[
-                              isCurrentUrl(link.href)
-                                ? 'text-gray-500'
-                                : 'text-gray-400 group-hover:text-gray-500',
-                              'mr-3 flex-shrink-0 h-6 w-6',
-                            ]"
-                            aria-hidden="true"
-                          />
-                          {{ link.name }}
-                        </Link>
-                      </template>
-                    </template>
-                  </accordion>
-                </template>
-                <template v-else>
+                <div v-if="!item.children">
                   <Link
                     :href="item.href"
                     :class="[
-                      isCurrentUrl(item.href)
-                        ? 'bg-gray-200 text-gray-900'
-                        : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50',
+                      isCurrentUrl(item.parentUrl)
+                        ? 'text-black pl-0'
+                        : 'text-gray-600 hover:text-black pl-8',
                       'group flex items-center px-2 py-2 text-sm font-medium rounded-md',
                     ]"
                     :aria-current="item.current ? 'page' : undefined"
                     v-if="item.allowed"
                   >
-                    <component
-                      :is="item.icon"
+                    <span
+                      class="
+                        bg-black
+                        w-1.5
+                        inline-block
+                        h-5
+                        mr-6
+                        rounded-tr rounded-br
+                      "
+                      v-if="isCurrentUrl(item.parentUrl)"
+                    />
+                    <img
+                      :src="
+                        isCurrentUrl(item.parentUrl)
+                          ? item.activeIcon
+                          : item.icon
+                      "
                       :class="[
-                        isCurrentUrl(item.href)
+                        isCurrentUrl(item.parentUrl)
                           ? 'text-gray-500'
                           : 'text-gray-400 group-hover:text-gray-500',
-                        'mr-3 flex-shrink-0 h-6 w-6',
+                        'mr-5 flex-shrink-0 h-5 w-5',
                       ]"
-                      aria-hidden="true"
                     />
                     {{ item.name }}
                   </Link>
-                </template>
+                </div>
+                <Disclosure
+                  as="div"
+                  v-else-if="
+                    item.children &&
+                    item.children.filter((e) => e.allowed).length > 0
+                  "
+                  class="space-y-4"
+                  v-slot="{ open }"
+                  :defaultOpen="true"
+                >
+                  <DisclosureButton
+                    :class="[
+                      isCurrentUrl(item.parentUrl)
+                        ? 'text-black pl-0'
+                        : 'text-gray-600 hover:text-black pl-8',
+                      'group w-full flex items-center pr-1 py-2 text-left text-sm font-medium focus:outline-none focus:ring-2 focus:ring-gray-300',
+                    ]"
+                  >
+                    <span
+                      class="
+                        bg-black
+                        w-1.5
+                        inline-block
+                        h-5
+                        mr-7
+                        rounded-tr rounded-br
+                      "
+                      v-if="isCurrentUrl(item.parentUrl)"
+                    />
+                    <img
+                      :src="
+                        isCurrentUrl(item.parentUrl)
+                          ? item.activeIcon
+                          : item.icon
+                      "
+                      :class="[
+                        isCurrentUrl(item.parentUrl) ? '-ml-0.5' : 'ml-0',
+                      ]"
+                      class="
+                        mr-5
+                        flex-shrink-0
+                        h-5
+                        w-5
+                        text-gray-500
+                        group-hover:text-gray-500
+                      "
+                    />
+                    <span class="flex-1 text-sm">
+                      {{ item.name }}
+                    </span>
+                  </DisclosureButton>
+                  <DisclosurePanel class="space-y-4">
+                    <template
+                      v-for="subItem in item.children"
+                      :key="subItem.name"
+                    >
+                      <Link
+                        :href="subItem.href"
+                        :class="[
+                          isCurrentUrl(subItem.parentUrl)
+                            ? 'text-black pl-0'
+                            : 'text-gray-600 hover:text-black pl-9',
+                          'group flex items-center px-2 py-2 text-sm font-medium rounded-md',
+                        ]"
+                        :aria-current="subItem.current ? 'page' : undefined"
+                        v-if="subItem.allowed"
+                      >
+                        <span
+                          class="
+                            bg-black
+                            w-1.5
+                            inline-block
+                            h-5
+                            mr-8
+                            rounded-tr rounded-br
+                          "
+                          v-if="isCurrentUrl(subItem.parentUrl)"
+                        />
+                        <img
+                          :src="
+                            isCurrentUrl(subItem.parentUrl)
+                              ? subItem.activeIcon
+                              : subItem.icon
+                          "
+                          :class="[
+                            isCurrentUrl(subItem.parentUrl)
+                              ? '-ml-0.5'
+                              : 'ml-0',
+                            'mr-6 flex-shrink-0 h-3 w-3',
+                          ]"
+                        />
+                        {{ subItem.name }}
+                      </Link>
+                    </template>
+                  </DisclosurePanel>
+                </Disclosure>
               </template>
             </div>
-            <div class="mt-8">
-              <!-- Secondary navigation -->
-              <h3
-                class="
-                  px-3
-                  text-xs
-                  font-semibold
-                  text-gray-500
-                  uppercase
-                  tracking-wider
-                "
-                id="desktop-teams-headline"
-              >
-                Teams
-              </h3>
-              <div
-                class="mt-1 space-y-1"
-                role="group"
-                aria-labelledby="desktop-teams-headline"
-              >
-                <a
-                  v-for="team in teams"
-                  :key="team.name"
-                  :href="team.href"
-                  class="
-                    group
-                    flex
-                    items-center
-                    px-3
-                    py-2
-                    text-sm
-                    font-medium
-                    text-gray-700
-                    rounded-md
-                    hover:text-gray-900 hover:bg-gray-50
-                  "
-                >
-                  <span
-                    :class="[
-                      team.bgColorClass,
-                      'w-2.5 h-2.5 mr-4 rounded-full',
-                    ]"
-                    aria-hidden="true"
-                  />
-                  <span class="truncate">
-                    {{ team.name }}
-                  </span>
-                </a>
-              </div>
-            </div>
           </nav>
+          
         </div>
       </div>
     </div>
@@ -760,6 +681,9 @@ import {
   MenuItems,
   TransitionChild,
   TransitionRoot,
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
 } from "@headlessui/vue";
 import {
   HomeIcon,
@@ -795,6 +719,9 @@ export default {
     Link,
     Breadcrumbs,
     FlashMessages,
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
   },
   props: {
     title: String,
@@ -815,38 +742,122 @@ export default {
     const navigation = [
       {
         name: "Dashboard",
-        href: route("admin.dashboard"),
-        icon: HomeIcon,
-        allowed: true,
+        href: "#",
+        parentUrl: [
+          "admin.dashboard*",
+        ],
+        icon: "/icons/ic-nav-dashboard.svg",
+        activeIcon: "/icons/ic-nav-dashboard-active.svg",
+        children: [
+          {
+            name: "Overview",
+            href: route("admin.dashboard.index"),
+            parentUrl: "admin.dashboard*",
+            icon: "/icons/ic-nav-bullet.svg",
+            activeIcon: "/icons/ic-nav-bullet-active.svg",
+            allowed: true
+          },
+        ],
       },
       {
-        name: "Admin Management",
-        href: route("admin.admin-management.index"),
-        icon: LibraryIcon,
-        allowed: true,
+        name: "Contents",
+        href: "#",
+        parentUrl: ["admin.cms*"],
+        icon: "/icons/ic-nav-contents.svg",
+        activeIcon: "/icons/ic-nav-contents-active.svg",
+        children: [
+          {
+            name: "Pages",
+            href: route("admin.cms.index"),
+            parentUrl: "admin.cms*",
+            icon: "/icons/ic-nav-bullet.svg",
+            activeIcon: "/icons/ic-nav-bullet-active.svg",
+            allowed: true
+          },
+        ],
       },
-      { name: "CMS", href: route("admin.cms.index"), icon: DocumentTextIcon },
       {
-        name: "Roles & Permissions",
-        href: route("admin.role-permission-management.index"),
-        icon: UserGroupIcon,
-        allowed: true,
+        name: "Accounts",
+        href: "#",
+        parentUrl: [
+          "admin.admin-management*",
+          "admin.role-permission-management*",
+        ],
+        icon: "/icons/ic-nav-accounts.svg",
+        activeIcon: "/icons/ic-nav-accounts-active.svg",
+        children: [
+          {
+            name: "Admins",
+            href: route("admin.admin-management.index"),
+            parentUrl: "admin.admin-management*",
+            icon: "/icons/ic-nav-bullet.svg",
+            activeIcon: "/icons/ic-nav-bullet-active.svg",
+            allowed: true
+          },
+          {
+            name: "Roles",
+            href: route("admin.role-permission-management.index"),
+            parentUrl: "admin.role-permission-management*",
+            icon: "/icons/ic-nav-bullet.svg",
+            activeIcon: "/icons/ic-nav-bullet-active.svg",
+            allowed: true
+          },
+        ],
+      },
+      {
+        name: "Reports",
+        href: route("admin.reports-management.index"),
+        parentUrl: "admin.reports-management*",
+        icon: "/icons/ic-nav-reports.svg",
+        activeIcon: "/icons/ic-nav-reports-active.svg",
+        allowed: true
+      },
+      {
+        name: "Settings",
+        href: route("admin.settings-management.index"),
+        parentUrl: "admin.settings-management*",
+        icon: "/icons/ic-nav-settings.svg",
+        activeIcon: "/icons/ic-nav-settings-active.svg",
+        allowed: true
       },
       {
         name: "Activity Logs",
         href: route("admin.activity-logs.index"),
-        icon: ClipboardListIcon,
-        allowed: usePage().props.value.session_permissions.includes(
-          "manage-activity-logs"
-        ),
+        parentUrl: "admin.activity-logs*",
+        icon: "/icons/ic-nav-activity-logs.svg",
+        activeIcon: "/icons/ic-nav-activity-logs-active.svg",
+        allowed: true
       },
     ];
-
-    const teams = [
-      { name: "Engineering", href: "#", bgColorClass: "bg-indigo-500" },
-      { name: "Human Resources", href: "#", bgColorClass: "bg-green-500" },
-      { name: "Customer Success", href: "#", bgColorClass: "bg-yellow-500" },
-    ];
+    // const navigation = [
+    //   {
+    //     name: "Dashboard",
+    //     href: route("admin.dashboard"),
+    //     icon: HomeIcon,
+    //     allowed: true,
+    //   },
+    //   {
+    //     name: "Admin Management",
+    //     href: route("admin.admin-management.index"),
+    //     icon: LibraryIcon,
+    //     allowed: true,
+    //   },
+    //   { name: "CMS", href: route("admin.cms.index"), icon: DocumentTextIcon },
+    //   {
+    //     name: "Roles & Permissions",
+    //     href: route("admin.role-permission-management.index"),
+    //     icon: UserGroupIcon,
+    //     allowed: true,
+    //   },
+    //   {
+    //     name: "Activity Logs",
+    //     href: route("admin.activity-logs.index"),
+    //     icon: ClipboardListIcon,
+    //     allowed: usePage().props.value.session_permissions.includes(
+    //       "manage-activity-logs"
+    //     ),
+    //   },
+    // ];
 
     const sidebarOpen = ref(false);
 
@@ -862,7 +873,6 @@ export default {
 
     return {
       navigation,
-      teams,
       sidebarOpen,
       goBack,
       canBack,
@@ -872,9 +882,23 @@ export default {
     logout() {
       this.$inertia.post(route("admin.logout"));
     },
-    isCurrentUrl(href) {
-      const currentUrl = this.$page.url.substr(1);
-      return href.endsWith(currentUrl);
+    isCurrentUrl(url) {
+      if (Array.isArray(url)) {
+        let value = false;
+
+        url.forEach((href, index) => {
+          if (route().current(href)) {
+            value = true;
+          }
+        });
+
+        return value;
+      } else {
+        return route().current(url);
+      }
+
+      // const currentUrl = this.$page.url.substr(1);
+      // return href.endsWith(currentUrl);
     },
   },
 };

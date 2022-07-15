@@ -30,9 +30,9 @@ Route::get('/', function () {
 
 Route::post('ckeditor/upload', [CkeditorController::class, 'upload']);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->name('dashboard');
 
 Route::get('/stylesheet', function () {
     return Inertia::render('Stylesheet/Partials/SSContent');

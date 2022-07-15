@@ -9,6 +9,30 @@
                 placeholder="Sample Placeholder"
                 label="Sample Label"
             />
+
+        </div>
+
+        <div class="mb-4">
+            <text-input
+            label="Price"
+            placeholder="Price"
+            id="price"
+            :add_on_left="true"
+            add_on_text="₱"
+            type="number"
+            />
+
+        </div>
+
+        <div class="mb-4">
+            <text-input
+            label="Height"
+            placeholder="Height"
+            id="height"
+            :add_on_right="true"
+            add_on_text="cm"
+            type="number"
+            />
         </div>
         <div class="mb-4">
             <selector
@@ -25,6 +49,12 @@
                 id="textarea-input"
                 placeholder="Sample Placeholder"
                 label="Sample Label"
+            />
+        </div>
+
+        <div class="mb-4">
+            <dropzone
+                label="Dropzone"
             />
         </div>
 
@@ -113,19 +143,19 @@ import Selector from "@/Components/Selector.vue";
 // import Password from 'Components/inputs/Password.vue';
 // import DatePicker from 'Components/inputs/DatePicker.vue';
 // import Selector from 'Components/inputs/Selector.vue';
-// import FilePicker from 'Components/inputs/FilePicker.vue';
+import Dropzone from '@/Components/Dropzone.vue';
 
 export default {
     components: {
         TextInput,
-        Selector
+        Selector,
         // TextField,
         // Password,
         // TextArea,
         // TextEditor,
         // DatePicker,
         // Selector,
-        // FilePicker
+        Dropzone
     },
     data: () => ({
         sampleOptions: [
