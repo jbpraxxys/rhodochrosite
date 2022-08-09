@@ -48,6 +48,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::post('restore}', 'restore')->name('restore');
             Route::get('search/{q}', 'search')->name('search');
             Route::get('export', 'export')->name('export');
+            Route::get('manifest', 'manifest')->name('manifest');
+            Route::post('import', 'import')->name('import');
         });
 
     Route::prefix('role-permission-management')

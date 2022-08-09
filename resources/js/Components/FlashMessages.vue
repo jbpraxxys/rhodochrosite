@@ -1,6 +1,6 @@
 <template>
   <TransitionRoot
-    :show="success !== null"
+    :show="show"
     enter="transition-opacity duration-75"
     enter-from="opacity-0"
     enter-to="opacity-100"
@@ -8,33 +8,49 @@
     leave-from="opacity-100"
     leave-to="opacity-0"
   >
-    <div class="rounded-md bg-green-50 p-4">
+    <div :class="`rounded-md bg-${color()}-50 p-4`">
       <div class="flex">
         <div class="flex-shrink-0">
-          <CheckCircleIcon class="h-5 w-5 text-green-400" aria-hidden="true" />
+          <CheckCircleIcon
+            :class="`h-5 w-5 text-${color()}-400`"
+            aria-hidden="true"
+            v-if="success !== null"
+          />
+          <XCircleIcon
+            :class="`h-5 w-5 text-${color()}-400`"
+            aria-hidden="true"
+            v-else-if="danger !== null"
+          />
+          <ExclamationCircleIcon
+            :class="`h-5 w-5 text-${color()}-400`"
+            aria-hidden="true"
+            v-else-if="warning !== null"
+          />
+          <AnnotationIcon
+            :class="`h-5 w-5 text-${color()}-400`"
+            aria-hidden="true"
+            v-else
+          />
         </div>
         <div class="ml-3">
-          <p class="text-sm font-medium text-green-800">
-            {{ success }}
-          </p>
+          <p
+            :class="`text-sm font-medium text-${color()}-800`"
+            v-html="message()"
+          />
         </div>
         <div class="ml-auto pl-3">
           <div class="-mx-1.5 -my-1.5">
             <button
               type="button"
-              class="
+              :class="`
                 inline-flex
-                bg-green-50
                 rounded-md
                 p-1.5
-                text-green-500
-                hover:bg-green-100
                 focus:outline-none
                 focus:ring-2
                 focus:ring-offset-2
-                focus:ring-offset-green-50
-                focus:ring-green-600
-              "
+                bg-${color()}-50 text-${color()}-500 hover:bg-${color()}-100 focus:ring-offset-${color()}-50 focus:ring-${color()}-600
+              `"
             >
               <span class="sr-only">Dismiss</span>
               <XIcon class="h-5 w-5" aria-hidden="true" @click="show = false" />
@@ -47,7 +63,13 @@
 </template>
 
 <script>
-import { CheckCircleIcon, XIcon } from "@heroicons/vue/solid";
+import {
+  CheckCircleIcon,
+  XCircleIcon,
+  XIcon,
+  ExclamationCircleIcon,
+  AnnotationIcon,
+} from "@heroicons/vue/solid";
 import { ref, computed } from "vue";
 import { usePage } from "@inertiajs/inertia-vue3";
 import { TransitionRoot } from "@headlessui/vue";
@@ -55,13 +77,49 @@ import { TransitionRoot } from "@headlessui/vue";
 export default {
   components: {
     CheckCircleIcon,
+    XCircleIcon,
     XIcon,
+    ExclamationCircleIcon,
+    AnnotationIcon,
     TransitionRoot,
   },
   setup() {
     const success = computed(() => usePage().props.value.flash.success);
+    const danger = computed(() => usePage().props.value.flash.danger);
+    const warning = computed(() => usePage().props.value.flash.warning);
+    const show = ref(
+      success.value !== null || danger.value !== null || warning.value !== null
+    );
+
+    function message() {
+      if (success.value !== null) {
+        return success.value;
+      } else if (danger.value !== null) {
+        return danger.value;
+      } else if (warning.value !== null) {
+        return warning.value;
+      }
+    }
+
+    function color() {
+      if (success.value !== null) {
+        return "green";
+      } else if (danger.value !== null) {
+        return "red";
+      } else if (warning.value !== null) {
+        return "yellow";
+      } else {
+        return "slate";
+      }
+    }
+
     return {
       success,
+      danger,
+      warning,
+      show,
+      message,
+      color,
     };
   },
 };

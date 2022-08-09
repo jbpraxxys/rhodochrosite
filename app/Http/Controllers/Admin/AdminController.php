@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\AdminManifestExport;
 use App\Http\Controllers\Controller;
+use App\Imports\AdminsImport;
 use App\Mail\AdminsExportEmail;
 use App\Models\Admin;
 use App\Models\Department;
@@ -10,9 +12,11 @@ use App\Notifications\Admins\Welcome;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -202,5 +206,29 @@ class AdminController extends Controller
         return redirect()
             ->route('admin.admin-management.index')
             ->with('success', 'Admin export successfully sent to your email!');
+    }
+
+    public function manifest(Request $request)
+    {
+        return Excel::download(new AdminManifestExport, 'admins_manifest.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        if ($request->hasFile('file')) {
+            $import = new AdminsImport;
+            $import->import($request->file('file'));
+
+            if ($import->hasFailure()) {
+                return to_route('admin.admin-management.index')
+                    ->with('danger', $import->failuresHtml());
+            } else {
+                return to_route('admin.admin-management.index')
+                    ->with('success', 'File successfully imported to admins!');
+            }
+        } else {
+            return to_route('admin.admin-management.index')
+                ->with('warning', 'No file to import.');
+        }
     }
 }
