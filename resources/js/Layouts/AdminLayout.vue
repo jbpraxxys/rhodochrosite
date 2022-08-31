@@ -637,18 +637,15 @@ export default {
         allowed: true,
       },
       {
+        name: "CMS",
+        href: route("admin.cms.index"),
+        icon: DocumentTextIcon,
+      },
+      {
         name: "Roles & Permissions",
         href: route("admin.role-permission-management.index"),
         icon: UserGroupIcon,
         allowed: true,
-      },
-      {
-        name: "Activity Logs",
-        href: route("admin.activity-logs.index"),
-        icon: ClipboardDocumentListIcon,
-        allowed: usePage().props.value.session_permissions.includes(
-          "manage-activity-logs"
-        ),
       },
       {
         name: "Activity Logs",
