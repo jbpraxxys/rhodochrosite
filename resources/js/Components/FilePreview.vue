@@ -23,7 +23,7 @@
     <div class="flex items-center justify-end w-[88px]">
       <div class="border-l" v-if="allowDownload">
         <button type="button" class="py-5 px-4" @click="$emit('file:download')">
-          <DownloadIcon class="w-5 h-5" />
+          <ArrowDownOnSquareIcon class="w-5 h-5" />
         </button>
       </div>
       <div class="border-l" v-if="allowDelete">
@@ -35,11 +35,11 @@
   </div>
 </template>
 <script>
-import { DownloadIcon, TrashIcon } from "@heroicons/vue/solid";
+import { ArrowDownOnSquareIcon, TrashIcon } from "@heroicons/vue/24/solid";
 
 export default {
   components: {
-    DownloadIcon,
+    ArrowDownOnSquareIcon,
     TrashIcon,
   },
   props: {

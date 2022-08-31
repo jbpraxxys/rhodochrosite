@@ -100,7 +100,7 @@
                         focus:ring-yellow-300
                       "
                     >
-                      <PencilAltIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
+                      <PencilSquareIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
                     </Link>
                   </td>
                 </tr>
@@ -122,12 +122,12 @@
 <script>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import { computed } from "vue";
-import { PencilAltIcon } from "@heroicons/vue/solid";
+import { PencilSquareIcon } from "@heroicons/vue/24/solid";
 import { Link } from "@inertiajs/inertia-vue3";
 export default {
   components: {
     AdminLayout,
-    PencilAltIcon,
+    PencilSquareIcon,
     Link,
   },
   props: ["items"],

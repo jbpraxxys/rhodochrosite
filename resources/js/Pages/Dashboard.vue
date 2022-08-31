@@ -63,7 +63,7 @@
                 "
               >
                 <span class="sr-only">Open options</span>
-                <DotsVerticalIcon class="w-5 h-5" aria-hidden="true" />
+                <EllipsisVerticalIcon class="w-5 h-5" aria-hidden="true" />
               </MenuButton>
               <transition
                 enter-active-class="transition ease-out duration-100"
@@ -339,7 +339,7 @@
                     "
                   >
                     <span class="sr-only">Open options</span>
-                    <DotsVerticalIcon class="w-5 h-5" aria-hidden="true" />
+                    <EllipsisVerticalIcon class="w-5 h-5" aria-hidden="true" />
                   </MenuButton>
                   <transition
                     enter-active-class="transition ease-out duration-100"
@@ -378,7 +378,7 @@
                               'group flex items-center px-4 py-2 text-sm',
                             ]"
                           >
-                            <PencilAltIcon
+                            <PencilSquareIcon
                               class="
                                 mr-3
                                 h-5
@@ -401,7 +401,7 @@
                               'group flex items-center px-4 py-2 text-sm',
                             ]"
                           >
-                            <DuplicateIcon
+                            <DocumentDuplicateIcon
                               class="
                                 mr-3
                                 h-5
@@ -424,7 +424,7 @@
                               'group flex items-center px-4 py-2 text-sm',
                             ]"
                           >
-                            <UserAddIcon
+                            <UserPlusIcon
                               class="
                                 mr-3
                                 h-5
@@ -488,19 +488,19 @@ import {
   TransitionRoot,
 } from "@headlessui/vue";
 import {
-  MenuAlt1Icon,
-  XIcon,
-} from "@heroicons/vue/outline";
+  Bars3CenterLeftIcon,
+  XCircleIcon,
+} from "@heroicons/vue/24/outline";
 import {
   ChevronRightIcon,
-  DotsVerticalIcon,
-  DuplicateIcon,
-  PencilAltIcon,
-  SearchIcon,
-  SelectorIcon,
+  EllipsisVerticalIcon,
+  DocumentDuplicateIcon,
+  PencilSquareIcon,
+  MagnifyingGlassIcon,
+  ArrowsUpDownIcon,
   TrashIcon,
-  UserAddIcon,
-} from "@heroicons/vue/solid";
+  UserPlusIcon,
+} from "@heroicons/vue/24/solid";
 
 const projects = [
   {
@@ -552,15 +552,15 @@ export default {
     TransitionChild,
     TransitionRoot,
     ChevronRightIcon,
-    DotsVerticalIcon,
-    DuplicateIcon,
-    MenuAlt1Icon,
-    PencilAltIcon,
-    SearchIcon,
-    SelectorIcon,
+    EllipsisVerticalIcon,
+    DocumentDuplicateIcon,
+    Bars3CenterLeftIcon,
+    PencilSquareIcon,
+    MagnifyingGlassIcon,
+    ArrowsUpDownIcon,
     TrashIcon,
-    UserAddIcon,
-    XIcon,
+    UserPlusIcon,
+    XCircleIcon,
     AdminLayout,
     Link,
     Breadcrumbs,

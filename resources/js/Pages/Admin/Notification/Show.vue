@@ -46,7 +46,7 @@
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import { ref } from "vue";
-import { PaperClipIcon } from "@heroicons/vue/outline";
+import { PaperClipIcon } from "@heroicons/vue/24/outline";
 
 export default {
   components: {

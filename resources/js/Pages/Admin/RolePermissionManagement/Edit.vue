@@ -70,7 +70,7 @@
 										focus:ring-yellow-300
 									"
 								>
-									<PencilAltIcon
+									<PencilSquareIcon
 										class="-ml-0.5 mr-2 h-4 w-4"
 										aria-hidden="true"
 									/>
@@ -130,7 +130,7 @@
 
 <script>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
-import { PencilAltIcon } from "@heroicons/vue/solid";
+import { PencilSquareIcon } from "@heroicons/vue/24/solid";
 import Tabs from "@/Components/Tabs.vue";
 import ActivityLogs from "@/Components/ActivityLogs.vue";
 import usePRXForm from "@/composables/usePRXForm";
@@ -142,7 +142,7 @@ import ToggleSwitch from "@/Components/ToggleSwitch.vue";
 export default {
 	components: {
 		AdminLayout,
-		PencilAltIcon,
+		PencilSquareIcon,
 		Tabs,
 		ActivityLogs,
 		usePRXForm,

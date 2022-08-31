@@ -118,7 +118,7 @@
 
 <script>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
-import { PlusIcon } from "@heroicons/vue/solid";
+import { PlusIcon } from "@heroicons/vue/24/solid";
 import Tabs from "@/Components/Tabs.vue";
 import usePRXForm from "@/composables/usePRXForm";
 import { ref } from "vue";

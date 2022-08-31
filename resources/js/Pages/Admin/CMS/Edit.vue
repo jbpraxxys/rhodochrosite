@@ -179,7 +179,7 @@
                 focus:ring-yellow-300
               "
             >
-              <PencilAltIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+              <PencilSquareIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
               Save
             </button>
           </div>
@@ -195,7 +195,7 @@ import TextInput from "@/Components/TextInput.vue";
 import Dropzone from "@/Components/Dropzone.vue";
 import ListTable from "@/Components/ListTable.vue";
 import useListTable from "@/composables/useListTable";
-import { PencilAltIcon } from "@heroicons/vue/solid";
+import { PencilSquareIcon } from "@heroicons/vue/24/solid";
 import usePRXCMSForm from "@/composables/usePRXCMSForm";
 import Selector from "@/Components/Selector.vue";
 import ckeditor from  "@/Components/CKEditor.vue";
@@ -203,7 +203,7 @@ import ckeditor from  "@/Components/CKEditor.vue";
 export default {
   components: {
     AdminLayout,
-    PencilAltIcon,
+    PencilSquareIcon,
     TextInput,
     Selector,
     Dropzone,

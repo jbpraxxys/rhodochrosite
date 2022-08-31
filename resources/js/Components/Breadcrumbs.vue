@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { ChevronRightIcon, HomeIcon } from "@heroicons/vue/solid";
+import { ChevronRightIcon, HomeIcon } from "@heroicons/vue/24/solid";
 import { Link } from "@inertiajs/inertia-vue3";
 
 export default {

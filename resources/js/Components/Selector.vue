@@ -43,7 +43,7 @@
             pointer-events-none
           "
         >
-          <SelectorIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+          <ArrowsUpDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
         </span>
       </ListboxButton>
 
@@ -126,7 +126,7 @@ import {
   ListboxOption,
   ListboxOptions,
 } from "@headlessui/vue";
-import { CheckIcon, SelectorIcon } from "@heroicons/vue/solid";
+import { CheckIcon, ArrowsUpDownIcon } from "@heroicons/vue/24/solid";
 
 export default {
   components: {
@@ -136,7 +136,7 @@ export default {
     ListboxOption,
     ListboxOptions,
     CheckIcon,
-    SelectorIcon,
+    ArrowsUpDownIcon,
   },
   props: {
     modelValue: {

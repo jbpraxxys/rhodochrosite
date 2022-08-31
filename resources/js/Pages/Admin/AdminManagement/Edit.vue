@@ -93,7 +93,7 @@
                       focus:ring-yellow-300
                     "
                   >
-                    <PencilAltIcon
+                    <PencilSquareIcon
                       class="-ml-0.5 mr-2 h-4 w-4"
                       aria-hidden="true"
                     />
@@ -112,14 +112,14 @@
 <script>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import TextInput from "@/Components/TextInput.vue";
-import { PencilAltIcon } from "@heroicons/vue/solid";
+import { PencilSquareIcon } from "@heroicons/vue/24/solid";
 import usePRXForm from "@/composables/usePRXForm";
 import Selector from "@/Components/Selector.vue";
 
 export default {
   components: {
     AdminLayout,
-    PencilAltIcon,
+    PencilSquareIcon,
     TextInput,
     Selector,
   },

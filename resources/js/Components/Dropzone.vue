@@ -102,7 +102,7 @@
 <script>
 import { ref, computed } from "vue";
 import { usePage } from "@inertiajs/inertia-vue3";
-import { ExclamationCircleIcon } from "@heroicons/vue/solid";
+import { ExclamationCircleIcon } from "@heroicons/vue/24/solid";
 import { useDropzone } from "vue3-dropzone";
 import FilePreview from "@/Components/FilePreview.vue";
 

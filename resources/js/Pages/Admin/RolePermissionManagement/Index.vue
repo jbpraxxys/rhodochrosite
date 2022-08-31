@@ -23,7 +23,7 @@
             "
             aria-hidden="true"
           >
-            <SearchIcon class="mr-3 h-4 w-4 text-gray-400" aria-hidden="true" />
+            <MagnifyingGlassIcon class="mr-3 h-4 w-4 text-gray-400" aria-hidden="true" />
           </div>
           <input
             v-model="searchText"
@@ -46,7 +46,7 @@
             @click="searchText = ''"
             class="absolute inset-y-0 right-0 pr-3 flex items-center z-10"
           >
-            <XIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+            <XCircleIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
           </button>
         </div>
       </template>
@@ -134,7 +134,7 @@
                     focus:ring-yellow-300
                   "
                 >
-                  <PencilAltIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
+                  <PencilSquareIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
                 </Link>
                 <button
                   @click="selectDelete(role)"
@@ -179,7 +179,7 @@
                 v-if="activeTab === 'archived'"
                 @click="selectRestore(role)"
               >
-                <RefreshIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
+                <ArrowPathIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
               </button>
             </td>
           </tr>
@@ -214,13 +214,13 @@ import TextInput from "@/Components/TextInput.vue";
 import DataTable from "@/Components/DataTable.vue";
 import { computed, ref, watch } from "vue";
 import {
-  SearchIcon,
+  MagnifyingGlassIcon,
   TrashIcon,
-  RefreshIcon,
+  ArrowPathIcon,
   PlusIcon,
-  XIcon,
-  PencilAltIcon,
-} from "@heroicons/vue/solid";
+  XCircleIcon,
+  PencilSquareIcon,
+} from "@heroicons/vue/24/solid";
 import { Link } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import RestoreModal from "@/Components/RestoreModal.vue";
@@ -239,12 +239,12 @@ export default {
     DataTable,
     Pagination,
     Link,
-    SearchIcon,
+    MagnifyingGlassIcon,
     TrashIcon,
-    RefreshIcon,
+    ArrowPathIcon,
     PlusIcon,
-    XIcon,
-    PencilAltIcon,
+    XCircleIcon,
+    PencilSquareIcon,
   },
   props: ["items", "activeCount", "archivedCount", "selectedTab", "query"],
   setup(props) {

@@ -26,7 +26,7 @@
             aria-hidden="true"
             v-else-if="warning !== null"
           />
-          <AnnotationIcon
+          <ChatBubbleBottomCenterTextIcon
             :class="`h-5 w-5 text-${color()}-400`"
             aria-hidden="true"
             v-else
@@ -53,7 +53,7 @@
               `"
             >
               <span class="sr-only">Dismiss</span>
-              <XIcon class="h-5 w-5" aria-hidden="true" @click="show = false" />
+              <XCircleIcon class="h-5 w-5" aria-hidden="true" @click="show = false" />
             </button>
           </div>
         </div>
@@ -66,10 +66,9 @@
 import {
   CheckCircleIcon,
   XCircleIcon,
-  XIcon,
   ExclamationCircleIcon,
-  AnnotationIcon,
-} from "@heroicons/vue/solid";
+  ChatBubbleBottomCenterTextIcon,
+} from "@heroicons/vue/24/solid";
 import { ref, computed } from "vue";
 import { usePage } from "@inertiajs/inertia-vue3";
 import { TransitionRoot } from "@headlessui/vue";
@@ -78,9 +77,8 @@ export default {
   components: {
     CheckCircleIcon,
     XCircleIcon,
-    XIcon,
     ExclamationCircleIcon,
-    AnnotationIcon,
+    ChatBubbleBottomCenterTextIcon,
     TransitionRoot,
   },
   setup() {

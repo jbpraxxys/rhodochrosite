@@ -93,7 +93,7 @@
 								@click="$emit('cancel')"
 							>
 								<span class="sr-only">Close</span>
-								<XIcon class="h-6 w-6" aria-hidden="true" />
+								<XCircleIcon class="h-6 w-6" aria-hidden="true" />
 							</button>
 						</div>
 						<div class="sm:flex sm:items-start">
@@ -178,7 +178,7 @@ import {
 	TransitionChild,
 	TransitionRoot,
 } from "@headlessui/vue";
-import { PlusIcon, XIcon } from "@heroicons/vue/outline";
+import { PlusIcon, XCircleIcon } from "@heroicons/vue/24/outline";
 import JetButton from "@/Jetstream/Button.vue";
 
 export default {
@@ -189,7 +189,7 @@ export default {
 		TransitionChild,
 		TransitionRoot,
 		PlusIcon,
-		XIcon,
+		XCircleIcon,
 		JetButton,
 	},
 	props: {
