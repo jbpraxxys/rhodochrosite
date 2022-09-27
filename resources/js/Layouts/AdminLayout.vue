@@ -113,7 +113,7 @@
       <div
         class="flex flex-col w-64 border-r border-gray-200 pt-3 pb-4 bg-white"
       >
-        <div class="flex items-center flex-shrink-0 px-6 border-b pb-3">
+        <div class="flex items-center flex-shrink-0 p-6 py-8">
           <img
             class="h-8 w-auto object-contain"
             src="/images/logo.png"
@@ -123,7 +123,7 @@
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="h-0 flex-1 flex flex-col overflow-y-auto">
           <!-- User account dropdown -->
-          <Menu as="div" class="px-3 mt-3 relative inline-block text-left">
+          <!-- <Menu as="div" class="px-3 mt-3 relative inline-block text-left">
             <div>
               <MenuButton
                 class="
@@ -249,7 +249,7 @@
               </MenuItems>
             </transition>
           </Menu>
-          <div class="w-full mt-3 shadow-sm"></div>
+          <div class="w-full mt-3 shadow-sm"></div> -->
           <!-- Navigation -->
           <nav class="mt-3">
             <div
@@ -652,7 +652,7 @@
             </h1>
           </div>
           <div class="mt-4 flex sm:mt-0 sm:ml-4">
-            <breadcrumbs :pages="breadcrumbPages" />
+            <breadcrumbs :pages="breadcrumbPages" @logout="logout"/>
           </div>
         </div>
 
@@ -746,15 +746,15 @@ export default {
         parentUrl: [
           "admin.dashboard*",
         ],
-        icon: "/icons/ic-nav-dashboard.svg",
-        activeIcon: "/icons/ic-nav-dashboard-active.svg",
+        icon: "/icons/nav/ic-nav-dashboard.svg",
+        activeIcon: "/icons/nav/ic-nav-dashboard-active.svg",
         children: [
           {
             name: "Overview",
             href: route("admin.dashboard.index"),
             parentUrl: "admin.dashboard*",
-            icon: "/icons/ic-nav-bullet.svg",
-            activeIcon: "/icons/ic-nav-bullet-active.svg",
+            icon: "/icons/nav/ic-nav-bullet.svg",
+            activeIcon: "/icons/nav/ic-nav-bullet-active.svg",
             allowed: true
           },
         ],
@@ -763,15 +763,15 @@ export default {
         name: "Contents",
         href: "#",
         parentUrl: ["admin.cms*"],
-        icon: "/icons/ic-nav-contents.svg",
-        activeIcon: "/icons/ic-nav-contents-active.svg",
+        icon: "/icons/nav/ic-nav-contents.svg",
+        activeIcon: "/icons/nav/ic-nav-contents-active.svg",
         children: [
           {
             name: "Pages",
             href: route("admin.cms.index"),
             parentUrl: "admin.cms*",
-            icon: "/icons/ic-nav-bullet.svg",
-            activeIcon: "/icons/ic-nav-bullet-active.svg",
+            icon: "/icons/nav/ic-nav-bullet.svg",
+            activeIcon: "/icons/nav/ic-nav-bullet-active.svg",
             allowed: true
           },
         ],
@@ -783,23 +783,23 @@ export default {
           "admin.admin-management*",
           "admin.role-permission-management*",
         ],
-        icon: "/icons/ic-nav-accounts.svg",
-        activeIcon: "/icons/ic-nav-accounts-active.svg",
+        icon: "/icons/nav/ic-nav-accounts.svg",
+        activeIcon: "/icons/nav/ic-nav-accounts-active.svg",
         children: [
           {
             name: "Admins",
             href: route("admin.admin-management.index"),
             parentUrl: "admin.admin-management*",
-            icon: "/icons/ic-nav-bullet.svg",
-            activeIcon: "/icons/ic-nav-bullet-active.svg",
+            icon: "/icons/nav/ic-nav-bullet.svg",
+            activeIcon: "/icons/nav/ic-nav-bullet-active.svg",
             allowed: true
           },
           {
             name: "Roles",
             href: route("admin.role-permission-management.index"),
             parentUrl: "admin.role-permission-management*",
-            icon: "/icons/ic-nav-bullet.svg",
-            activeIcon: "/icons/ic-nav-bullet-active.svg",
+            icon: "/icons/nav/ic-nav-bullet.svg",
+            activeIcon: "/icons/nav/ic-nav-bullet-active.svg",
             allowed: true
           },
         ],
@@ -808,24 +808,24 @@ export default {
         name: "Reports",
         href: route("admin.reports-management.index"),
         parentUrl: "admin.reports-management*",
-        icon: "/icons/ic-nav-reports.svg",
-        activeIcon: "/icons/ic-nav-reports-active.svg",
+        icon: "/icons/nav/ic-nav-reports.svg",
+        activeIcon: "/icons/nav/ic-nav-reports-active.svg",
         allowed: true
       },
       {
         name: "Settings",
         href: route("admin.settings-management.index"),
         parentUrl: "admin.settings-management*",
-        icon: "/icons/ic-nav-settings.svg",
-        activeIcon: "/icons/ic-nav-settings-active.svg",
+        icon: "/icons/nav/ic-nav-settings.svg",
+        activeIcon: "/icons/nav/ic-nav-settings-active.svg",
         allowed: true
       },
       {
         name: "Activity Logs",
         href: route("admin.activity-logs.index"),
         parentUrl: "admin.activity-logs*",
-        icon: "/icons/ic-nav-activity-logs.svg",
-        activeIcon: "/icons/ic-nav-activity-logs-active.svg",
+        icon: "/icons/nav/ic-nav-activity-logs.svg",
+        activeIcon: "/icons/nav/ic-nav-activity-logs-active.svg",
         allowed: true
       },
     ];
