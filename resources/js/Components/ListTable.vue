@@ -91,7 +91,7 @@
                   focus:ring-yellow-300
                 "
               >
-                <PencilAltIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
+                <PencilSquareIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
               </button>
               <!-- Delete Button -->
               <button
@@ -219,7 +219,7 @@
             mx-1
           "
         >
-          <PencilAltIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+          <PencilSquareIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
           Save
         </button>
         <button
@@ -245,7 +245,7 @@
             mx-1
           "
         >
-          <XIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+          <XCircleIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
           Cancel
         </button>
       </div>
@@ -257,10 +257,10 @@
 <script>
 import {
   PlusIcon,
-  XIcon,
-  PencilAltIcon,
+  XCircleIcon,
+  PencilSquareIcon,
   TrashIcon,
-} from "@heroicons/vue/solid";
+} from "@heroicons/vue/24/solid";
 import { computed, ref, nextTick } from "vue";
 import TextInput from "@/Components/TextInput.vue";
 import Dropzone from "@/Components/Dropzone.vue";
@@ -269,8 +269,8 @@ import { usePage } from "@inertiajs/inertia-vue3";
 export default {
   components: {
     PlusIcon,
-    XIcon,
-    PencilAltIcon,
+    XCircleIcon,
+    PencilSquareIcon,
     TrashIcon,
     TextInput,
     Dropzone,

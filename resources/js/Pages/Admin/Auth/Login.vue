@@ -110,7 +110,7 @@ import JetCheckbox from "@/Jetstream/Checkbox.vue";
 import JetLabel from "@/Jetstream/Label.vue";
 import JetValidationErrors from "@/Jetstream/ValidationErrors.vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
-import { EyeIcon, EyeOffIcon } from "@heroicons/vue/solid";
+import { EyeIcon, EyeOffIcon } from "@heroicons/vue/24/solid";
 export default {
   components: {
     Head,

@@ -186,16 +186,10 @@
 </template>
 
 <script>
-import { Link } from "@inertiajs/inertia-vue3";
-import {
-  ChevronDoubleLeftIcon,
-  ChevronDoubleRightIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from "@heroicons/vue/solid";
-import { ref } from "vue";
 import Selector from "@/Components/Selector.vue";
-import { Inertia } from "@inertiajs/inertia";
+import { Link } from "@inertiajs/inertia-vue3";
+import { ChevronLeftIcon, ChevronRightIcon, ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from "@heroicons/vue/24/solid";
+import { ref } from "vue";
 
 export default {
   components: {

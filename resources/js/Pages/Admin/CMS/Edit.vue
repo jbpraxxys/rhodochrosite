@@ -173,7 +173,7 @@ import TextInput from "@/Components/TextInput.vue";
 import Dropzone from "@/Components/Dropzone.vue";
 import ListTable from "@/Components/ListTable.vue";
 import useListTable from "@/composables/useListTable";
-import { PencilAltIcon } from "@heroicons/vue/solid";
+import { PencilSquareIcon } from "@heroicons/vue/24/solid";
 import usePRXCMSForm from "@/composables/usePRXCMSForm";
 import Selector from "@/Components/Selector.vue";
 import ckeditor from  "@/Components/CKEditor.vue";
@@ -182,7 +182,7 @@ import JetButton from "@/Jetstream/Button.vue";
 export default {
   components: {
     AdminLayout,
-    PencilAltIcon,
+    PencilSquareIcon,
     TextInput,
     Selector,
     Dropzone,

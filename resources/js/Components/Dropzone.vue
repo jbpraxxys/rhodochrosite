@@ -1,7 +1,5 @@
 <template>
   <div>
-    <!-- Display file -->
-    <img v-if="display_src" class="mb-2" :src="display_src" alt="" width="120"/>
     <div
       class="
         w-full
@@ -63,6 +61,23 @@
         <p class="text-xs text-gray-500">{{ description }}</p>
       </div>
     </div>
+
+    <div
+      class="w-full mt-2 space-y-2"
+      v-if="previewFile && acceptedFiles.length > 0"
+    >
+      <template v-for="(file, key) in acceptedFiles" :key="file">
+        <FilePreview
+          :file-type="file.type"
+          :source="acceptedFileSrcs[key]"
+          :file-name="file.name"
+          :size="file.size"
+          @file:download="fileDownload(key)"
+          @file:delete="fileDelete(key)"
+        />
+      </template>
+    </div>
+
     <!-- External error -->
     <p
       v-if="error"
@@ -72,6 +87,7 @@
     >
       {{ error }}
     </p>
+
     <!-- Reject error -->
     <p
       v-for="(rejectError, index) in rejectErrors"
@@ -86,11 +102,14 @@
 <script>
 import { ref, computed } from "vue";
 import { usePage } from "@inertiajs/inertia-vue3";
-import { ExclamationCircleIcon } from "@heroicons/vue/solid";
+import { ExclamationCircleIcon } from "@heroicons/vue/24/solid";
 import { useDropzone } from "vue3-dropzone";
+import FilePreview from "@/Components/FilePreview.vue";
+
 export default {
   components: {
     ExclamationCircleIcon,
+    FilePreview,
   },
   props: {
     path: {
@@ -138,6 +157,10 @@ export default {
       default: "image/*",
     },
     overwritePath: {
+      type: Boolean,
+      default: false,
+    },
+    previewFile: {
       type: Boolean,
       default: false,
     },
@@ -212,15 +235,35 @@ export default {
       });
 
     // displayed image
-    const storage_url = computed(() => usePage().props.value.storage_url);
-    const display_src = computed(() => {
+    const storageUrl = computed(() => usePage().props.value.storage_url);
+    const displaySrc = computed(() => {
       if (acceptedFileSrcs.value.length) {
         return acceptedFileSrcs.value[0];
       } else if (props.path) {
-        return storage_url.value + props.path;
+        return storageUrl.value + props.path;
       }
       return null;
     });
+
+    function fileDownload(key) {
+      const a = document.createElement("a");
+      a.href = acceptedFileSrcs.value[key];
+      a.download = acceptedFiles.value[key].name;
+      a.target = "_blank";
+      a.click();
+      a.remove();
+    }
+
+    function fileDelete(key) {
+      acceptedFiles.value.splice(key, 1);
+      acceptedFileSrcs.value.splice(key, 1);
+
+      // emit v-model change event
+      let payload = props.multiple
+        ? acceptedFiles.value
+        : acceptedFiles.value[0];
+      emit("update:file", payload);
+    }
 
     return {
       getRootProps,
@@ -228,7 +271,10 @@ export default {
       isDragActive,
       rejectErrors,
       acceptedFileSrcs,
-      display_src,
+      acceptedFiles,
+      displaySrc,
+      fileDownload,
+      fileDelete,
     };
   },
 };

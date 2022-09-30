@@ -117,7 +117,7 @@ import JetButton from "@/Jetstream/Button.vue";
 import JetInput from "@/Jetstream/Input.vue";
 import JetLabel from "@/Jetstream/Label.vue";
 import JetValidationErrors from "@/Jetstream/ValidationErrors.vue";
-import { EyeIcon, EyeOffIcon } from "@heroicons/vue/solid";
+import { EyeIcon, EyeOffIcon } from "@heroicons/vue/24/solid";
 export default {
   components: {
     Head,
