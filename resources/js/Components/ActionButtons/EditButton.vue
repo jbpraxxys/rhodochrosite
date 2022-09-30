@@ -19,7 +19,7 @@
 
 <script>
 import { Link } from "@inertiajs/inertia-vue3";
-import { EyeIcon } from "@heroicons/vue/outline";
+import { EyeIcon } from "@heroicons/vue/24/outline";
 
 export default {
   components: {

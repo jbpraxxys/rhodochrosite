@@ -43,7 +43,7 @@
             focus:ring-yellow-300
           "
         >
-          <RefreshIcon class="h-4 w-4" aria-hidden="true" />
+          <ArrowPathIcon class="h-4 w-4" aria-hidden="true" />
         </button>
         <button
           @click="markAllRead"
@@ -68,7 +68,7 @@
           "
           v-show="!activeTab"
         >
-          <MailOpenIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+          <EnvelopeOpenIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
           Mark all as read
         </button>
       </template>
@@ -142,7 +142,7 @@ import AdminLayout from "@/Layouts/AdminLayout.vue";
 import DataTable from "@/Components/DataTable.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import Tabs from "@/Components/Tabs.vue";
-import { RefreshIcon, MailOpenIcon, EyeIcon } from "@heroicons/vue/solid";
+import { ArrowPathIcon, EnvelopeOpenIcon, EyeIcon } from "@heroicons/vue/24/solid";
 import Datepicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 import pickBy from "lodash/pickBy";
@@ -158,8 +158,8 @@ export default {
     Link,
     Tabs,
     EyeIcon,
-    RefreshIcon,
-    MailOpenIcon,
+    ArrowPathIcon,
+    EnvelopeOpenIcon,
     Datepicker,
     Pagination,
   },

@@ -215,7 +215,7 @@ import {
 import {
   MenuAlt1Icon,
   XIcon,
-} from "@heroicons/vue/outline";
+} from "@heroicons/vue/24/outline";
 import {
   ChevronRightIcon,
   DotsVerticalIcon,
@@ -225,7 +225,7 @@ import {
   SelectorIcon,
   TrashIcon,
   UserAddIcon,
-} from "@heroicons/vue/solid";
+} from "@heroicons/vue/24/solid";
 
 
 export default {

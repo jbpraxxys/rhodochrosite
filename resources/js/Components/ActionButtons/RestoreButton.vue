@@ -19,7 +19,7 @@
 
 <script>
 import { Link } from "@inertiajs/inertia-vue3";
-import { RefreshIcon } from "@heroicons/vue/solid";
+import { RefreshIcon } from "@heroicons/vue/24/solid";
 
 export default {
   components: {

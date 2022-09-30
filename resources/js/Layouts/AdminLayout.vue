@@ -27,15 +27,7 @@
           leave-to="-translate-x-full"
         >
           <div
-            class="
-              relative
-              flex-1 flex flex-col
-              max-w-xs
-              w-full
-              pt-5
-              pb-4
-              bg-white
-            "
+            class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white"
           >
             <TransitionChild
               as="template"
@@ -48,23 +40,11 @@
             >
               <div class="absolute top-0 right-0 -mr-12 pt-2">
                 <button
-                  class="
-                    ml-1
-                    flex
-                    items-center
-                    justify-center
-                    h-10
-                    w-10
-                    rounded-full
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-inset
-                    focus:ring-white
-                  "
+                  class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                   @click="sidebarOpen = false"
                 >
                   <span class="sr-only">Close sidebar</span>
-                  <XIcon class="h-6 w-6 text-white" aria-hidden="true" />
+                  <XCircleIcon class="h-6 w-6 text-white" aria-hidden="true" />
                 </button>
               </div>
             </TransitionChild>
@@ -113,7 +93,7 @@
       <div
         class="flex flex-col w-64 border-r border-gray-200 pt-3 pb-4 bg-white"
       >
-        <div class="flex items-center flex-shrink-0 px-6 border-b pb-3">
+        <div class="flex items-center flex-shrink-0 p-6 py-8">
           <img
             class="h-8 w-auto object-contain"
             src="/images/logo.png"
@@ -123,7 +103,7 @@
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="h-0 flex-1 flex flex-col overflow-y-auto">
           <!-- User account dropdown -->
-          <Menu as="div" class="px-3 mt-3 relative inline-block text-left">
+          <!-- <Menu as="div" class="px-3 mt-3 relative inline-block text-left">
             <div>
               <MenuButton
                 class="
@@ -162,14 +142,8 @@
                       }}</span>
                     </span>
                   </span>
-                  <SelectorIcon
-                    class="
-                      flex-shrink-0
-                      h-5
-                      w-5
-                      text-gray-400
-                      group-hover:text-gray-500
-                    "
+                  <ArrowsUpDownIcon
+                    class="flex-shrink-0 h-5 w-5 text-gray-400 group-hover:text-gray-500"
                     aria-hidden="true"
                   />
                 </span>
@@ -184,21 +158,7 @@
               leave-to-class="transform opacity-0 scale-95"
             >
               <MenuItems
-                class="
-                  z-10
-                  mx-3
-                  origin-top
-                  absolute
-                  right-0
-                  left-0
-                  mt-1
-                  rounded-md
-                  shadow-lg
-                  bg-white
-                  ring-1 ring-black ring-opacity-5
-                  divide-y divide-gray-200
-                  focus:outline-none
-                "
+                class="z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none"
               >
                 <div class="py-1">
                   <MenuItem v-slot="{ active }">
@@ -249,7 +209,7 @@
               </MenuItems>
             </transition>
           </Menu>
-          <div class="w-full mt-3 shadow-sm"></div>
+          <div class="w-full mt-3 shadow-sm"></div> -->
           <!-- Navigation -->
           <nav class="mt-3">
             <div
@@ -404,31 +364,14 @@
     <div class="flex flex-col w-0 flex-1 overflow-hidden">
       <!-- Search header -->
       <div
-        class="
-          relative
-          z-10
-          flex-shrink-0 flex
-          h-16
-          bg-white
-          border-b border-gray-200
-          lg:hidden
-        "
+        class="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden"
       >
         <button
-          class="
-            px-4
-            border-r border-gray-200
-            text-gray-500
-            focus:outline-none
-            focus:ring-2
-            focus:ring-inset
-            focus:ring-yellow-300
-            lg:hidden
-          "
+          class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-300 lg:hidden"
           @click="sidebarOpen = true"
         >
           <span class="sr-only">Open sidebar</span>
-          <MenuAlt1Icon class="h-6 w-6" aria-hidden="true" />
+          <Bars3CenterLeftIcon class="h-6 w-6" aria-hidden="true" />
         </button>
         <div class="flex-1 flex justify-between px-4 sm:px-6 lg:px-8">
           <div class="flex-1 flex">
@@ -438,36 +381,14 @@
                 class="relative w-full text-gray-400 focus-within:text-gray-600"
               >
                 <div
-                  class="
-                    absolute
-                    inset-y-0
-                    left-0
-                    flex
-                    items-center
-                    pointer-events-none
-                  "
+                  class="absolute inset-y-0 left-0 flex items-center pointer-events-none"
                 >
-                  <SearchIcon class="h-5 w-5" aria-hidden="true" />
+                  <MagnifyingGlassIcon class="h-5 w-5" aria-hidden="true" />
                 </div>
                 <input
                   id="search-field"
                   name="search-field"
-                  class="
-                    block
-                    w-full
-                    h-full
-                    pl-8
-                    pr-3
-                    py-2
-                    border-transparent
-                    text-gray-900
-                    placeholder-gray-500
-                    focus:outline-none
-                    focus:ring-0
-                    focus:border-transparent
-                    focus:placeholder-gray-400
-                    sm:text-sm
-                  "
+                  class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-transparent focus:placeholder-gray-400 sm:text-sm"
                   placeholder="Search"
                   type="search"
                 />
@@ -479,18 +400,7 @@
             <Menu as="div" class="ml-3 relative">
               <div>
                 <MenuButton
-                  class="
-                    max-w-xs
-                    bg-white
-                    flex
-                    items-center
-                    text-sm
-                    rounded-full
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-offset-2
-                    focus:ring-yellow-300
-                  "
+                  class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300"
                 >
                   <span class="sr-only">Open user menu</span>
                   <img
@@ -509,19 +419,7 @@
                 leave-to-class="transform opacity-0 scale-95"
               >
                 <MenuItems
-                  class="
-                    origin-top-right
-                    absolute
-                    right-0
-                    mt-2
-                    w-48
-                    rounded-md
-                    shadow-lg
-                    bg-white
-                    ring-1 ring-black ring-opacity-5
-                    divide-y divide-gray-200
-                    focus:outline-none
-                  "
+                  class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none"
                 >
                   <div class="py-1">
                     <MenuItem v-slot="{ active }">
@@ -614,45 +512,24 @@
       <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none">
         <!-- Page title & actions -->
         <div
-          class="
-            border-b border-gray-200
-            px-4
-            py-4
-            sm:flex sm:items-center sm:justify-between sm:px-6
-            lg:px-8
-          "
+          class="border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8"
         >
           <div class="flex min-w-0">
             <button
               v-if="canBack"
               @click="goBack"
-              class="
-                border border-transparent
-                text-xs
-                font-medium
-                text-gray-600
-                hover:text-gray-300
-                focus:outline-none
-                mr-1
-              "
+              class="border border-transparent text-xs font-medium text-gray-600 hover:text-gray-300 focus:outline-none mr-1"
             >
               <ChevronLeftIcon class="h-5 w-5" />
             </button>
             <h1
-              class="
-                text-lg
-                font-medium
-                leading-6
-                text-gray-900
-                sm:truncate
-                dark:text-white
-              "
+              class="text-lg font-medium leading-6 text-gray-900 sm:truncate dark:text-white"
             >
               {{ title }}
             </h1>
           </div>
           <div class="mt-4 flex sm:mt-0 sm:ml-4">
-            <breadcrumbs :pages="breadcrumbPages" />
+            <breadcrumbs :pages="breadcrumbPages" @logout="logout"/>
           </div>
         </div>
 
@@ -672,6 +549,7 @@ import { Link } from "@inertiajs/inertia-vue3";
 import Breadcrumbs from "@/Components/Breadcrumbs.vue";
 import FlashMessages from "@/Components/FlashMessages.vue";
 import { usePage } from "@inertiajs/inertia-vue3";
+import Accordion from "@/Components/Accordion.vue";
 import {
   Dialog,
   DialogOverlay,
@@ -687,21 +565,21 @@ import {
 } from "@headlessui/vue";
 import {
   HomeIcon,
-  MenuAlt1Icon,
+  Bars3CenterLeftIcon,
   ChevronLeftIcon,
-  XIcon,
-  DocumentTextIcon,
-  ClipboardListIcon,
-} from "@heroicons/vue/outline";
+  XCircleIcon,
+  ClipboardDocumentListIcon,
+} from "@heroicons/vue/24/outline";
 import {
-  SearchIcon,
-  SelectorIcon,
-  LibraryIcon,
+  MagnifyingGlassIcon,
+  ArrowsUpDownIcon,
+  BuildingLibraryIcon,
   UserGroupIcon,
-} from "@heroicons/vue/solid";
+} from "@heroicons/vue/24/solid";
 
 export default {
   components: {
+    Accordion,
     Dialog,
     DialogOverlay,
     Menu,
@@ -710,11 +588,11 @@ export default {
     MenuItems,
     TransitionChild,
     TransitionRoot,
-    MenuAlt1Icon,
-    SearchIcon,
-    SelectorIcon,
-    LibraryIcon,
-    XIcon,
+    Bars3CenterLeftIcon,
+    MagnifyingGlassIcon,
+    ArrowsUpDownIcon,
+    BuildingLibraryIcon,
+    XCircleIcon,
     ChevronLeftIcon,
     Link,
     Breadcrumbs,
@@ -746,15 +624,15 @@ export default {
         parentUrl: [
           "admin.dashboard*",
         ],
-        icon: "/icons/ic-nav-dashboard.svg",
-        activeIcon: "/icons/ic-nav-dashboard-active.svg",
+        icon: "/icons/nav/ic-nav-dashboard.svg",
+        activeIcon: "/icons/nav/ic-nav-dashboard-active.svg",
         children: [
           {
             name: "Overview",
             href: route("admin.dashboard.index"),
             parentUrl: "admin.dashboard*",
-            icon: "/icons/ic-nav-bullet.svg",
-            activeIcon: "/icons/ic-nav-bullet-active.svg",
+            icon: "/icons/nav/ic-nav-bullet.svg",
+            activeIcon: "/icons/nav/ic-nav-bullet-active.svg",
             allowed: true
           },
         ],
@@ -763,15 +641,15 @@ export default {
         name: "Contents",
         href: "#",
         parentUrl: ["admin.cms*"],
-        icon: "/icons/ic-nav-contents.svg",
-        activeIcon: "/icons/ic-nav-contents-active.svg",
+        icon: "/icons/nav/ic-nav-contents.svg",
+        activeIcon: "/icons/nav/ic-nav-contents-active.svg",
         children: [
           {
             name: "Pages",
             href: route("admin.cms.index"),
             parentUrl: "admin.cms*",
-            icon: "/icons/ic-nav-bullet.svg",
-            activeIcon: "/icons/ic-nav-bullet-active.svg",
+            icon: "/icons/nav/ic-nav-bullet.svg",
+            activeIcon: "/icons/nav/ic-nav-bullet-active.svg",
             allowed: true
           },
         ],
@@ -783,23 +661,23 @@ export default {
           "admin.admin-management*",
           "admin.role-permission-management*",
         ],
-        icon: "/icons/ic-nav-accounts.svg",
-        activeIcon: "/icons/ic-nav-accounts-active.svg",
+        icon: "/icons/nav/ic-nav-accounts.svg",
+        activeIcon: "/icons/nav/ic-nav-accounts-active.svg",
         children: [
           {
             name: "Admins",
             href: route("admin.admin-management.index"),
             parentUrl: "admin.admin-management*",
-            icon: "/icons/ic-nav-bullet.svg",
-            activeIcon: "/icons/ic-nav-bullet-active.svg",
+            icon: "/icons/nav/ic-nav-bullet.svg",
+            activeIcon: "/icons/nav/ic-nav-bullet-active.svg",
             allowed: true
           },
           {
             name: "Roles",
             href: route("admin.role-permission-management.index"),
             parentUrl: "admin.role-permission-management*",
-            icon: "/icons/ic-nav-bullet.svg",
-            activeIcon: "/icons/ic-nav-bullet-active.svg",
+            icon: "/icons/nav/ic-nav-bullet.svg",
+            activeIcon: "/icons/nav/ic-nav-bullet-active.svg",
             allowed: true
           },
         ],
@@ -808,24 +686,24 @@ export default {
         name: "Reports",
         href: route("admin.reports-management.index"),
         parentUrl: "admin.reports-management*",
-        icon: "/icons/ic-nav-reports.svg",
-        activeIcon: "/icons/ic-nav-reports-active.svg",
+        icon: "/icons/nav/ic-nav-reports.svg",
+        activeIcon: "/icons/nav/ic-nav-reports-active.svg",
         allowed: true
       },
       {
         name: "Settings",
         href: route("admin.settings-management.index"),
         parentUrl: "admin.settings-management*",
-        icon: "/icons/ic-nav-settings.svg",
-        activeIcon: "/icons/ic-nav-settings-active.svg",
+        icon: "/icons/nav/ic-nav-settings.svg",
+        activeIcon: "/icons/nav/ic-nav-settings-active.svg",
         allowed: true
       },
       {
         name: "Activity Logs",
         href: route("admin.activity-logs.index"),
         parentUrl: "admin.activity-logs*",
-        icon: "/icons/ic-nav-activity-logs.svg",
-        activeIcon: "/icons/ic-nav-activity-logs-active.svg",
+        icon: "/icons/nav/ic-nav-activity-logs.svg",
+        activeIcon: "/icons/nav/ic-nav-activity-logs-active.svg",
         allowed: true
       },
     ];

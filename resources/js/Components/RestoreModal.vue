@@ -78,7 +78,7 @@
                 @click="cancel"
               >
                 <span class="sr-only">Close</span>
-                <XIcon class="h-6 w-6" aria-hidden="true" />
+                <XCircleIcon class="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
             <div class="sm:flex sm:items-start">
@@ -95,7 +95,7 @@
                   sm:mx-0 sm:h-10 sm:w-10
                 "
               >
-                <ExclamationIcon
+                <ExclamationCircleIcon
                   class="h-6 w-6 text-red-600"
                   aria-hidden="true"
                 />
@@ -189,7 +189,7 @@ import {
   TransitionChild,
   TransitionRoot,
 } from "@headlessui/vue";
-import { ExclamationIcon, XIcon } from "@heroicons/vue/outline";
+import { ExclamationCircleIcon, XCircleIcon } from "@heroicons/vue/24/outline";
 
 export default {
   components: {
@@ -198,8 +198,8 @@ export default {
     DialogTitle,
     TransitionChild,
     TransitionRoot,
-    ExclamationIcon,
-    XIcon,
+    ExclamationCircleIcon,
+    XCircleIcon,
   },
   props: {
     show: {

@@ -56,7 +56,7 @@
 
 <script>
 
-import { SelectorIcon } from "@heroicons/vue/outline";
+import { SelectorIcon } from "@heroicons/vue/24/outline";
 
 
 export default {

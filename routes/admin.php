@@ -23,12 +23,7 @@ use Inertia\Inertia;
  */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return redirect()->route('admin.dashboard');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -57,6 +52,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::post('restore}', 'restore')->name('restore');
             Route::get('search/{q}', 'search')->name('search');
             Route::get('export', 'export')->name('export');
+            Route::get('manifest', 'manifest')->name('manifest');
+            Route::post('import', 'import')->name('import');
         });
 
     Route::prefix('role-permission-management')

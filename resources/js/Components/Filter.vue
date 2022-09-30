@@ -173,7 +173,7 @@ import {
   FilterIcon,
   RefreshIcon,
   SearchIcon,
-} from "@heroicons/vue/outline";
+} from "@heroicons/vue/24/outline";
 import JetButton from "@/Jetstream/Button.vue";
 
 export default {

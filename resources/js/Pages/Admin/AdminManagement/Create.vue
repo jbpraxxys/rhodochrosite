@@ -110,7 +110,7 @@
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import TextInput from "@/Components/TextInput.vue";
 import Selector from "@/Components/Selector.vue";
-import { PlusIcon } from "@heroicons/vue/solid";
+import { PlusIcon } from "@heroicons/vue/24/solid";
 import usePRXForm from "@/composables/usePRXForm";
 
 export default {

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { DownloadIcon } from "@heroicons/vue/solid";
+import { DownloadIcon } from "@heroicons/vue/24/solid";
 import JetButton from "@/Jetstream/Button.vue";
 
 export default {

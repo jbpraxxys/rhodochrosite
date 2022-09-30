@@ -139,6 +139,27 @@
       @confirm="processArchive"
       @cancel="showArchiveModal = false"
     />
+
+    <ImportModal
+      title="Import Admins"
+      content="Are you sure you wish to import this file"
+      action-text="Import"
+      :show="showModal"
+      :manifest-route="route('admin.admin-management.manifest')"
+      @cancel="showModal = false"
+      @confirm="importData"
+    >
+      <template v-slot:body>
+        <dropzone
+          :label="'Import'"
+          :id="'import'"
+          :description="'CSV, XLSX upto 2MB'"
+          :preview-file="true"
+          v-model:file="importFile"
+          accept=".csv,.xls,.xlsx"
+        />
+      </template>
+    </ImportModal>
   </admin-layout>
 </template>
 
@@ -154,42 +175,49 @@ import Tabs from "@/Components/Tabs.vue";
 import Filter from "@/Components/Filter.vue";
 import { computed, ref, watch } from "vue";
 import {
-  UserAddIcon,
-  PencilAltIcon,
+  UserPlusIcon,
+  PencilSquareIcon,
   TrashIcon,
-  SearchIcon,
-  RefreshIcon,
-  XIcon,
-  DownloadIcon,
-} from "@heroicons/vue/solid";
-// import { Link } from "@inertiajs/inertia-vue3";
+  MagnifyingGlassIcon,
+  ArrowPathIcon,
+  XCircleIcon,
+  ArrowDownTrayIcon,
+  ArrowUpTrayIcon,
+} from "@heroicons/vue/24/solid";
+import { Link } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import DeleteModal from "@/Components/DeleteModal.vue";
 import Pagination from "@/Components/Pagination.vue";
 import DatePicker from "@/Components/DatePicker.vue";
 import throttle from "lodash/throttle";
 import pickBy from "lodash/pickBy";
+import ImportModal from "@/Components/ImportModal.vue";
+import Dropzone from "@/Components/Dropzone.vue";
+
 export default {
   components: {
     AdminLayout,
     DeleteModal,
     Pagination,
-    UserAddIcon,
-    PencilAltIcon,
+    UserPlusIcon,
+    PencilSquareIcon,
     TrashIcon,
-    SearchIcon,
-    RefreshIcon,
-    XIcon,
-    DownloadIcon,
-    // Link,
-    Filter,
-    Tabs,
+    MagnifyingGlassIcon,
+    ArrowPathIcon,
+    XCircleIcon,
+    ArrowDownTrayIcon,
+    ArrowUpTrayIcon,
+    Link,
+    ImportModal,
+    Dropzone,
     ExportButton,
     CreateButton,
     EditButton,
     DeleteButton,
     RestoreButton,
     DataTable,
+    Tabs,
+    Filter,
     DatePicker
   },
   props: [
@@ -291,6 +319,29 @@ export default {
       );
     }
 
+    /*---------------*
+     * Import Modal  *
+     *---------------*/
+    const showModal = ref(false);
+    const importFile = ref(null);
+
+    function importModal() {
+      showModal.value = true;
+    }
+
+    function importData() {
+      Inertia.post(
+        route("admin.admin-management.import"),
+        {
+          file: importFile.value,
+        },
+        {
+          preserveState: false,
+          preserveScroll: true,
+        }
+      );
+    }
+
     return {
       breadcrumbs,
       // tabs
@@ -303,15 +354,15 @@ export default {
       searchText,
       headers,
       // Delete Modal
-      // showDeleteModal,
-      // selectDelete,
-      // processDelete,
-      // deleteItemName,
-      // Archive
       showArchiveModal,
       selectArchive,
       processArchive,
       archiveItemName,
+      // Import
+      showModal,
+      importFile,
+      importModal,
+      importData,
     };
   },
 };

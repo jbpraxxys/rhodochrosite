@@ -118,13 +118,13 @@ import DeleteButton from "@/Components/ActionButtons/DeleteButton.vue";
 import RestoreButton from "@/Components/ActionButtons/RestoreButton.vue";
 import { computed, ref, watch } from "vue";
 import {
-  SearchIcon,
+  MagnifyingGlassIcon,
   TrashIcon,
-  RefreshIcon,
+  ArrowPathIcon,
   PlusIcon,
-  XIcon,
-  PencilAltIcon,
-} from "@heroicons/vue/solid";
+  XCircleIcon,
+  PencilSquareIcon,
+} from "@heroicons/vue/24/solid";
 import { Link } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import RestoreModal from "@/Components/RestoreModal.vue";
@@ -143,16 +143,16 @@ export default {
     DataTable,
     Pagination,
     Link,
-    SearchIcon,
+    MagnifyingGlassIcon,
     TrashIcon,
-    RefreshIcon,
+    ArrowPathIcon,
     PlusIcon,
-    XIcon,
-    PencilAltIcon,
     Filter,
     EditButton,
     DeleteButton,
     RestoreButton,
+    XCircleIcon,
+    PencilSquareIcon,
   },
   props: ["items", "activeCount", "archivedCount", "selectedTab", "query"],
   setup(props) {
