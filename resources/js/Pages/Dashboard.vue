@@ -401,7 +401,7 @@
                               'group flex items-center px-4 py-2 text-sm',
                             ]"
                           >
-                            <DocumentDuplicateIcon
+                            <Square2StackIcon
                               class="
                                 mr-3
                                 h-5
@@ -494,7 +494,7 @@ import {
 import {
   ChevronRightIcon,
   EllipsisVerticalIcon,
-  DocumentDuplicateIcon,
+  Square2StackIcon,
   PencilSquareIcon,
   MagnifyingGlassIcon,
   ArrowsUpDownIcon,
@@ -553,7 +553,7 @@ export default {
     TransitionRoot,
     ChevronRightIcon,
     EllipsisVerticalIcon,
-    DocumentDuplicateIcon,
+    Square2StackIcon,
     Bars3CenterLeftIcon,
     PencilSquareIcon,
     MagnifyingGlassIcon,

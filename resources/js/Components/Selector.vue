@@ -53,7 +53,7 @@
           "
           title="Clear Filter"
         >
-          <XIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+          <XMarkIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
         </span>
       </template>
       <template v-else>

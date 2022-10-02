@@ -10,7 +10,7 @@
             class="mr-2 h-10"
             @click="open = true"
           >
-            <FilterIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+            <FunnelIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
             Filter
           </jet-button>
           <template v-if="buttonItems">
@@ -18,7 +18,7 @@
           </template>
         </template>
         <jet-button type="button" secondary class="h-10" @click="refresh">
-          <RefreshIcon class="-ml-0.5 h-4 w-4" aria-hidden="true" />
+          <ArrowPathIcon class="-ml-0.5 h-4 w-4" aria-hidden="true" />
         </jet-button>
       </div>
       <div class="flex items-center gap-3">
@@ -38,7 +38,7 @@
                 "
                 aria-hidden="true"
               >
-                <SearchIcon
+                <MagnifyingGlassIcon
                   class="mr-3 h-4 w-4 text-gray-600"
                   aria-hidden="true"
                 />
@@ -66,7 +66,7 @@
                 @click="updateSearchText(null)"
                 class="absolute inset-y-0 right-0 pr-3 flex items-center z-10"
               >
-                <XIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                <XMarkIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -168,21 +168,21 @@ import {
   TransitionRoot,
 } from "@headlessui/vue";
 import {
-  XIcon,
-  SelectorIcon,
-  FilterIcon,
-  RefreshIcon,
-  SearchIcon,
+  XMarkIcon,
+  ChevronUpDownIcon,
+  FunnelIcon,
+  ArrowPathIcon,
+  MagnifyingGlassIcon,
 } from "@heroicons/vue/24/outline";
 import JetButton from "@/Jetstream/Button.vue";
 
 export default {
   components: {
-    SelectorIcon,
-    XIcon,
-    SearchIcon,
-    FilterIcon,
-    RefreshIcon,
+    ChevronUpDownIcon,
+    XMarkIcon,
+    MagnifyingGlassIcon,
+    FunnelIcon,
+    ArrowPathIcon,
     JetButton,
     Dialog,
     DialogPanel,
