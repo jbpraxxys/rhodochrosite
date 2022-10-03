@@ -56,12 +56,12 @@
 
 <script>
 
-import { SelectorIcon } from "@heroicons/vue/24/outline";
+import { ChevronUpDownIcon } from "@heroicons/vue/24/outline";
 
 
 export default {
   components: {
-    SelectorIcon,
+    ChevronUpDownIcon,
   },
 
   props: {

@@ -55,14 +55,14 @@
 <script>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import { computed } from "vue";
-import { PencilAltIcon } from "@heroicons/vue/24/solid";
+import { PencilSquareIcon } from "@heroicons/vue/24/solid";
 import { Link } from "@inertiajs/inertia-vue3";
 import DataTable from "@/Components/DataTable.vue";
 import EditButton from "@/Components/ActionButtons/EditButton.vue";
 export default {
   components: {
     AdminLayout,
-    PencilAltIcon,
+    PencilSquareIcon,
     Link,
     DataTable,
     EditButton

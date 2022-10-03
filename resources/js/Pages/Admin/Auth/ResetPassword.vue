@@ -52,7 +52,7 @@
                       class="h-5 w-5 my-auto mx-auto text-gray-500"
                       aria-hidden="true"
                     />
-                    <EyeOffIcon
+                    <EyeSlashIcon
                       v-if="!hidden"
                       class="h-5 w-5 my-auto mx-auto text-gray-500"
                       aria-hidden="true"
@@ -85,7 +85,7 @@
                       class="h-5 w-5 my-auto mx-auto text-gray-500"
                       aria-hidden="true"
                     />
-                    <EyeOffIcon
+                    <EyeSlashIcon
                       v-if="!hidden2"
                       class="h-5 w-5 my-auto mx-auto text-gray-500"
                       aria-hidden="true"
@@ -117,7 +117,7 @@ import JetButton from "@/Jetstream/Button.vue";
 import JetInput from "@/Jetstream/Input.vue";
 import JetLabel from "@/Jetstream/Label.vue";
 import JetValidationErrors from "@/Jetstream/ValidationErrors.vue";
-import { EyeIcon, EyeOffIcon } from "@heroicons/vue/24/solid";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/vue/24/solid";
 export default {
   components: {
     Head,
@@ -128,7 +128,7 @@ export default {
     JetLabel,
     JetValidationErrors,
     EyeIcon,
-    EyeOffIcon
+    EyeSlashIcon
   },
 
   props: {
