@@ -36,8 +36,12 @@
           <SSForms></SSForms>
         </div>
         <div v-if="activetab ==='4'">
-          <h3 class="font-bold mb-8">Button</h3>
+          <h3 class="font-bold mb-8">Buttons</h3>
           <SSButtons></SSButtons>
+        </div>
+        <div v-if="activetab ==='5'">
+          <h3 class="font-bold mb-8">Cards</h3>
+          <SSCards></SSCards>
         </div>
       </div>
     </div>
@@ -48,14 +52,16 @@
 import SSColors from '../Pages/ssColors.vue';
 import SSTypography from '../Pages/ssTypography.vue';
 import SSForms from '../Pages/ssForms.vue';
-import SSButtons from '../Pages/ssButtons.vue'
+import SSButtons from '../Pages/ssButtons.vue';
+import SSCards from '../Pages/ssCards.vue';
 
   export default {
     components: {
         SSColors,
         SSTypography,
         SSForms,
-        SSButtons
+        SSButtons,
+        SSCards
     },
 
     data: () => ({
@@ -64,7 +70,8 @@ import SSButtons from '../Pages/ssButtons.vue'
             { id: '1', name: 'Colors'},
             { id: '2', name: 'Typography'},
             { id: '3', name: 'Forms'},
-            { id: '4', name: 'Buttons'}
+            { id: '4', name: 'Buttons'},
+            { id: '5', name: 'Cards'},
         ]
     })
   }
