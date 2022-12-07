@@ -12,15 +12,24 @@ const tailwindcss = require('tailwindcss');
  |
  */
 
-mix.sass('resources/sass/app.scss', 'public/assets/guest/app.css');
-mix.sass('resources/css/app.scss', 'public/assets/admin/app.css');
+
+mix.sass(
+  'resources/sass/app.scss', // src
+  'public/assets/guest/app.css', // output
+  {}, // sass-loader plugin options
+  [ tailwindcss('./tailwind.config.js') ] // postcss plugins
+);
+
+mix.sass(
+  'resources/css/app.scss', // src
+  'public/assets/admin/app.css', // output
+  {}, // sass-loader plugin options
+  [ tailwindcss('./tailwind.admin.config.js') ] // postcss plugins
+);
 
 mix
   .js("resources/js/app.js", "public/js")
   .vue()
-  .options({
-    postCss: [ tailwindcss('./tailwind.config.js') ],
-  })
   .version()
   .webpackConfig(require("./webpack.config"));
 
