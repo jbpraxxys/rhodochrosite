@@ -43,10 +43,8 @@ Route::get('/stylesheet', function () {
 // });
 
 Route::get('/', function () {
-	// dd(CmsPage::where('slug', 'home')->first()->content);
-	return view('guest.pages.home', [
-		'page' => CmsPage::where('slug', 'home')->first(),
-	]);
+	return Inertia::render('User/Home/Index', [
+    ]);
 });
 
 // Route::get('/about-us', function () {

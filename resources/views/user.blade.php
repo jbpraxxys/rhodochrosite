@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scrollbar-style scroll-smooth overflow-x-hidden">
     <head>
         <meta name="base" content="{{ url('/') }}">
         <meta charset="utf-8">
@@ -8,11 +8,8 @@
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('assets/admin/app.css') }}">
+        <link rel="stylesheet" href="{{ mix('assets/guest/app.css') }}">
 
         <!-- Scripts -->
         @routes
@@ -24,5 +21,7 @@
         @env ('local')
             <script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>
         @endenv
+
+        <script src='https://www.google.com/recaptcha/api.js' async defer></script>
     </body>
 </html>
