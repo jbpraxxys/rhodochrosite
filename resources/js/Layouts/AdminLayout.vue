@@ -12,7 +12,7 @@
                 class="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden"
             >
                 <button
-                    class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-300 lg:hidden"
+                    class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-300 lg:hidden"
                     @click="sidebarOpen = true"
                 >
                     <span class="sr-only">Open sidebar</span>

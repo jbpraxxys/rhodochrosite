@@ -60,12 +60,12 @@
 										rounded-full
 										shadow
 										text-gray-800
-										bg-yellow-300
-										hover:bg-yellow-200
+										bg-primary-300
+										hover:bg-primary-200
 										focus:outline-none
 										focus:ring-2
 										focus:ring-offset-2
-										focus:ring-yellow-300
+										focus:ring-primary-300
 									"
 								>
 									<PlusIcon

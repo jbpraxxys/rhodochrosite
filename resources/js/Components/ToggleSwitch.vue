@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="flex justify-between items-center py-4 px-5 rounded-lg mb-4"
-		:class="[value ? 'bg-yellow-50' : 'bg-white']"
+		:class="[value ? 'bg-primary-50' : 'bg-white']"
 	>
 		<div
 			class="cursor-pointer select-none"
@@ -16,7 +16,7 @@
 			<Switch
 				v-model="value"
 				@update:modelValue="$emit('change', value)"
-				:class="value ? 'bg-yellow-300' : 'bg-gray-300'"
+				:class="value ? 'bg-primary-300' : 'bg-gray-300'"
 				class="relative inline-flex h-6 w-11 items-center rounded-full"
 			>
 				<span class="sr-only">{{ label }}</span>
