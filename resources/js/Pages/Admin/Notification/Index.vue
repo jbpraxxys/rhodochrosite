@@ -35,12 +35,12 @@
             rounded-full
             shadow
             text-gray-800
-            bg-yellow-300
-            hover:bg-yellow-200
+            bg-primary-300
+            hover:bg-primary-200
             focus:outline-none
             focus:ring-2
             focus:ring-offset-2
-            focus:ring-yellow-300
+            focus:ring-primary-300
           "
         >
           <ArrowPathIcon class="h-4 w-4" aria-hidden="true" />
@@ -59,12 +59,12 @@
             rounded-full
             shadow
             text-gray-800
-            bg-yellow-300
-            hover:bg-yellow-200
+            bg-primary-300
+            hover:bg-primary-200
             focus:outline-none
             focus:ring-2
             focus:ring-offset-2
-            focus:ring-yellow-300
+            focus:ring-primary-300
           "
           v-show="!activeTab"
         >
@@ -120,12 +120,12 @@
                   rounded-full
                   shadow
                   text-gray-700
-                  bg-yellow-300
-                  hover:bg-yellow-200
+                  bg-primary-300
+                  hover:bg-primary-200
                   focus:outline-none
                   focus:ring-2
                   focus:ring-offset-2
-                  focus:ring-yellow-300
+                  focus:ring-primary-300
                 "
               >
                 <EyeIcon class="p-0.5 h-5 w-5" aria-hidden="true" />

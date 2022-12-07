@@ -1,11 +1,7 @@
 <template>
     
     <div class="grid grid-cols-2 gap-4">
-        <div>
-            <ButtonView></ButtonView>
-        </div>
-        <div>
-        </div>
+        <ButtonView></ButtonView>
     </div>
 
 </template>

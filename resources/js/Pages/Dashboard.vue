@@ -59,7 +59,7 @@
                   focus:outline-none
                   focus:ring-2
                   focus:ring-offset-2
-                  focus:ring-yellow-300
+                  focus:ring-primary-300
                 "
               >
                 <span class="sr-only">Open options</span>
@@ -335,7 +335,7 @@
                       focus:outline-none
                       focus:ring-2
                       focus:ring-offset-2
-                      focus:ring-yellow-300
+                      focus:ring-primary-300
                     "
                   >
                     <span class="sr-only">Open options</span>

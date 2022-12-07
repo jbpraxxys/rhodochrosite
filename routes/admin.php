@@ -23,7 +23,7 @@ use Inertia\Inertia;
  */
 
 Route::get('/', function () {
-    return redirect()->route('admin.dashboard');
+    return redirect()->route('admin.dashboard.index');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
