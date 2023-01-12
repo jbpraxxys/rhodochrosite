@@ -2,7 +2,7 @@
     <div>
         <!-- Static sidebar for desktop -->
         <div 
-        class="h-full border-r border-gray-200 bg-white
+        class="h-full border-r border-gray-200 bg-white overflow-auto
         fixed top-0 z-50 transition-all	duration-300 shadow-2xl
         lg:left-0 lg:relative lg:shadow-none"
         :class="show ? 'left-0' : 'left-[-100%]'">
