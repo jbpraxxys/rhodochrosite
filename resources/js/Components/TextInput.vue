@@ -1,10 +1,10 @@
 <template>
     <div>
-        <label :for="id" class="block text-sm text-gray-900">{{
+        <label :for="id" class="block text-sm text-gray-900 mb-1">{{
             label
         }}</label>
         <div
-            class="mt-1 relative rounded-lg"
+            class="relative rounded-lg"
             :class="add_on_right || add_on_left ? 'flex' : ''"
         >
             <textarea

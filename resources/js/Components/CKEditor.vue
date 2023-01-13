@@ -1,9 +1,9 @@
 <template>
   <div>
-    <label :for="id" class="block text-sm font-medium text-gray-700">{{
+    <label :for="id" class="block text-sm text-gray-900 mb-1">{{
       label
     }}</label>
-    <div class="mt-1 relative rounded-md shadow-sm">
+    <div class="relative rounded-md shadow-sm">
       <ckeditor
         :editor="editor"
         :model-value="modelValue"
