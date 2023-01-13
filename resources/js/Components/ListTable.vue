@@ -81,17 +81,15 @@
                   p-1
                   border border-transparent
                   rounded-full
-                  shadow
-                  text-gray-700
-                  bg-primary-300
-                  hover:bg-primary-200
+                  text-gray-600
+                  hover:text-blue-400
                   focus:outline-none
-                  focus:ring-2
-                  focus:ring-offset-2
-                  focus:ring-primary-300
+                  focus:ring-1
+                  focus:ring-offset-1
+                  focus:ring-blue-500
                 "
               >
-                <PencilSquareIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
+                <PencilSquareIcon class="h-5 w-5" aria-hidden="true" />
               </button>
               <!-- Delete Button -->
               <button
@@ -103,17 +101,15 @@
                   p-1
                   border border-transparent
                   rounded-full
-                  shadow
-                  text-gray-700
-                  bg-red-400
-                  hover:bg-red-300
+                  text-gray-600
+                  hover:text-red-400
                   focus:outline-none
-                  focus:ring-2
-                  focus:ring-offset-2
-                  focus:ring-red-400
+                  focus:ring-1
+                  focus:ring-offset-1
+                  focus:ring-red-500
                 "
               >
-                <TrashIcon class="p-0.5 h-5 w-5" aria-hidden="true" />
+                <TrashIcon class="h-5 w-5" aria-hidden="true" />
               </button>
             </td>
           </tr>
@@ -121,32 +117,14 @@
       </draggable>
     </table>
     <div class="text-center mt-4">
-      <button
+      <jet-button
         v-if="status === STATUSES.default"
         @click="status = STATUSES.creating"
         type="button"
-        class="
-          inline-flex
-          items-center
-          px-3
-          py-1.5
-          border border-transparent
-          text-xs
-          font-medium
-          rounded-full
-          shadow
-          text-gray-800
-          bg-primary-300
-          hover:bg-primary-200
-          focus:outline-none
-          focus:ring-2
-          focus:ring-offset-2
-          focus:ring-primary-300
-        "
       >
         <PlusIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
         Add
-      </button>
+      </jet-button>
     </div>
 
     <!------------------
@@ -160,7 +138,7 @@
         <!-- Text -->
         <div
           v-if="item.type === 'text' || item.type === 'url'"
-          class="col-span-5"
+          class="col-span-5 mb-4"
         >
           <text-input
             v-model="createForm[`${id}_${item.id}`]"
@@ -172,8 +150,43 @@
           </p>
         </div>
 
+        <!-------------------
+          | Textarea
+          -------------------->
+        <div 
+          v-if="item.type === 'textarea'" 
+          class="col-span-5 mb-4"
+        >
+          <text-input
+            :textarea="true"
+            v-model="createForm[`${id}_${item.id}`]"
+            :label="item.label"
+            :id="`${item.id}`"
+          />
+          <p class="text-gray-400 text-sm mt-1">
+            {{ item.description }}
+          </p>
+        </div>
+
+        <!-------------------
+        | HTML Editor
+        -------------------->
+        <div 
+          v-if="item.type === 'htmleditor'" 
+          class="col-span-5 mb-4"
+        >
+          <ckeditor
+            v-model="createForm[`${id}_${item.id}`]"
+            :label="item.label"
+            :id="`${item.id}`"
+          ></ckeditor>
+        </div>
+
         <!-- Images -->
-        <div class="col-span-5" v-if="item.type === 'image'">
+        <div 
+          v-if="item.type === 'image'"
+          class="col-span-5 mb-4" 
+        >
           <label
             :for="id"
             class="block text-sm font-medium text-gray-700 mb-1"
@@ -195,59 +208,20 @@
       >
         {{ errors }}
       </p>
-      <div class="text-center mt-4" v-if="status !== STATUSES.default">
-        <button
-          @click="save"
-          type="button"
-          class="
-            inline-flex
-            items-center
-            px-3
-            py-1.5
-            border border-transparent
-            text-xs
-            font-medium
-            rounded-full
-            shadow
-            text-gray-800
-            bg-primary-300
-            hover:bg-primary-200
-            focus:outline-none
-            focus:ring-2
-            focus:ring-offset-2
-            focus:ring-primary-300
-            mx-1
-          "
-        >
-          <PencilSquareIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
-          Save
-        </button>
-        <button
-          @click="cancel"
-          type="button"
-          class="
-            inline-flex
-            items-center
-            px-3
-            py-1.5
-            border border-transparent
-            text-xs
-            font-medium
-            rounded-full
-            shadow
-            text-gray-800
-            bg-red-400
-            hover:bg-red-300
-            focus:outline-none
-            focus:ring-2
-            focus:ring-offset-2
-            focus:ring-red-400
-            mx-1
-          "
-        >
+      <div class="text-center mt-4 space-x-2" v-if="status !== STATUSES.default">
+        <jet-button
+        @click="cancel"
+        type="button"
+        outlined>
           <XCircleIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
           Cancel
-        </button>
+        </jet-button>
+        <jet-button
+        @click="save"
+        type="button">
+          <PencilSquareIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+          Save
+        </jet-button>
       </div>
       <!-- End Editor -->
     </div>
@@ -260,10 +234,13 @@ import {
   XCircleIcon,
   PencilSquareIcon,
   TrashIcon,
-} from "@heroicons/vue/24/solid";
+} from "@heroicons/vue/24/outline";
 import { computed, ref, nextTick } from "vue";
 import TextInput from "@/Components/TextInput.vue";
 import Dropzone from "@/Components/Dropzone.vue";
+import ckeditor from  "@/Components/CKEditor.vue";
+import JetButton from "@/Jetstream/Button.vue";
+
 import draggable from "vuedraggable";
 import { usePage } from "@inertiajs/inertia-vue3";
 export default {
@@ -274,7 +251,9 @@ export default {
     TrashIcon,
     TextInput,
     Dropzone,
+    ckeditor,
     draggable,
+    JetButton
   },
   props: {
     list: {

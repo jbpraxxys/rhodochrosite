@@ -1,6 +1,6 @@
 <template>
     <Link :href="'/'">
-        <img style="max-width: 480px; min-width: 360px; margin: auto;" src="/images/logo.png" alt="Super 8">
+        <img style="max-width: 480px; min-width: 360px; margin: auto;" src="/icons/logo.png" alt="logo">
     </Link>
 </template>
 

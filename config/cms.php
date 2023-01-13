@@ -78,6 +78,20 @@ return [
                                     'rules' => 'required',
                                     'summary_field' => true,
                                 ],
+                                [
+                                    'id' => 'title2',
+                                    'label' => 'Title',
+                                    'type' => 'textarea',
+                                    'rules' => 'required',
+                                    'summary_field' => false,
+                                ],
+                                [
+                                    'id' => 'title3',
+                                    'label' => 'Title',
+                                    'type' => 'htmleditor',
+                                    'rules' => 'required',
+                                    'summary_field' => false,
+                                ],
                             ]
                         ],
                     ],

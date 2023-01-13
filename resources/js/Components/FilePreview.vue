@@ -3,8 +3,10 @@
     <div class="flex items-center justify-start p-3 gap-2 w-full">
       <img
         :src="source"
-        class="w-10 h-10 rounded-lg"
+        class="w-10 h-10 rounded-lg cursor-pointer"
+        title="View Image"
         v-if="fileType.includes('image/')"
+        @click="$emit('file:download')"
       />
       <img
         src="/icons/ic-items.svg"
@@ -17,7 +19,7 @@
         <p class="text-sm text-[#111827] truncate max-w-[280px]">
           {{ fileName }}
         </p>
-        <p class="text-sm text-[#6B7280]">{{ formatBytes(size) }}</p>
+        <p v-if="size > 0" class="text-sm text-[#6B7280]">{{ formatBytes(size) }}</p>
       </div>
     </div>
     <div class="flex items-center justify-end w-[88px]">
@@ -54,7 +56,7 @@ export default {
     },
     fileName: {
       type: String,
-      required: true,
+      default: '',
     },
     size: {
       type: Number,

@@ -38,18 +38,16 @@ Route::get('/stylesheet', function () {
     return Inertia::render('Stylesheet/Partials/SSContent');
 });
 
-// Route::get('/', function () {
-//     return view('guest.pages.home');
+// fetch header footer content
+// Route::prefix('cms')
+//     ->name('cms.general.')
+//     ->controller(CmsPageController::class)
+//     ->group(function () {
+//         Route::post('/footer', 'fetchHeader')->name('fetchHeader');
+//         Route::post('/header', 'fetchFooter')->name('fetchFooter');
 // });
 
 Route::get('/', function () {
 	return Inertia::render('User/Home/Index', [
     ]);
 });
-
-// Route::get('/about-us', function () {
-// 	// dd(CmsPage::where('slug', 'home')->first()->content);
-// 	return view('guest.pages.about', [
-// 		'page' => CmsPage::where('slug', 'about')->first(),
-// 	]);
-// });
