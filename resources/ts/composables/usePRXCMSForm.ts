@@ -1,4 +1,4 @@
-import { useForm } from "@inertiajs/inertia-vue3";
+import { useForm } from "@inertiajs/vue3";
 import { watch } from "vue";
 export default function usePRXCRMForm(page, schema, submitUrl) {
   const formData = buildFormData(page, schema);

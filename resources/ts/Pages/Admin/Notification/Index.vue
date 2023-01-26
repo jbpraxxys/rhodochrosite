@@ -140,14 +140,14 @@
 <script>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import DataTable from "@/Components/DataTable.vue";
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/vue3";
 import Tabs from "@/Components/Tabs.vue";
 import { ArrowPathIcon, EnvelopeOpenIcon, EyeIcon } from "@heroicons/vue/24/solid";
 import Datepicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 import pickBy from "lodash/pickBy";
 import Pagination from "@/Components/Pagination.vue";
-import { Inertia } from "@inertiajs/inertia";
+import { router } from "@inertiajs/vue3";
 import { ref, watch } from "vue";
 import throttle from "lodash/throttle";
 

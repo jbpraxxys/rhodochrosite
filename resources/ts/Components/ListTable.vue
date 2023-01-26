@@ -242,7 +242,7 @@ import ckeditor from  "@/Components/CKEditor.vue";
 import JetButton from "@/Jetstream/Button.vue";
 
 import draggable from "vuedraggable";
-import { usePage } from "@inertiajs/inertia-vue3";
+import { usePage } from "@inertiajs/vue3";
 export default {
   components: {
     PlusIcon,
@@ -380,7 +380,7 @@ export default {
       });
     }
 
-    const storage_url = computed(() => usePage().props.value.storage_url);
+    const storage_url = computed(() => usePage().props.storage_url);
     function renderUrl(url) {
       return url !== null && url.startsWith("data:")
         ? url

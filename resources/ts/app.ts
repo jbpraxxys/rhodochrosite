@@ -1,22 +1,19 @@
 require("./bootstrap");
 
+
 import {createApp, h} from "vue";
-import {App as InertiaApp, plugin as InertiaPlugin, Link} from "@inertiajs/inertia-vue3";
-import {InertiaProgress} from "@inertiajs/progress";
+import { createInertiaApp } from '@inertiajs/vue3';
 
-const el = document.getElementById("app");
+const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
-const app = createApp({
-    render : () =>
-        h(InertiaApp, {
-            initialPage      : JSON.parse(el.dataset.page),
-            resolveComponent : (name) => require(`./Pages/${name}`).default,
-        }),
-});
-app.mixin({ methods : { route: window.route }});
-app.use(InertiaPlugin);
-app.component('inertia-link', Link)
-app.mount(el);
-
-
-InertiaProgress.init({color : "#4B5563"});
+createInertiaApp({
+    progress: { color: '#4B5563' },
+    title: (title) => `${title} - ${appName}`,
+    resolve: (name) => require(`./Pages/${name}.vue`),
+    setup({ el, App, props, plugin }) {
+        createApp({ render: () => h(App, props) })
+            .use(plugin)
+            .mixin({ methods: { route } })
+            .mount(el)
+    },
+})

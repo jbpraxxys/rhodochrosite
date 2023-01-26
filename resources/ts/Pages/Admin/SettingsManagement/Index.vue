@@ -56,7 +56,7 @@
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import { computed } from "vue";
 import { PencilSquareIcon } from "@heroicons/vue/24/solid";
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/vue3";
 import DataTable from "@/Components/DataTable.vue";
 import EditButton from "@/Components/ActionButtons/EditButton.vue";
 export default {

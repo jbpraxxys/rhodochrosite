@@ -32,7 +32,7 @@
 
 <script>
 import { ChevronRightIcon, HomeIcon } from "@heroicons/vue/24/solid";
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/vue3";
 
 export default {
   components: {

@@ -208,7 +208,8 @@
 
 
 <script setup lang="ts">
-import { Link, usePage } from "@inertiajs/inertia-vue3";
+import { computed } from 'vue'; 
+import { Link, usePage } from "@inertiajs/vue3";
 import {
     Disclosure,
     DisclosureButton,
@@ -229,7 +230,7 @@ const props = defineProps ({
     }
 });
 
-const page = usePage<any>().props.value;
+const page = computed<any>(() => usePage().props.user);
 
 interface navigationType {
     section: string,

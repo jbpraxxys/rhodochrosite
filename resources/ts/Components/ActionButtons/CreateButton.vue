@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/vue3";
 import { PlusIcon } from "@heroicons/vue/24/solid";
 
 export default {

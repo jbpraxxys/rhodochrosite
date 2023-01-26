@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import { Inertia } from "@inertiajs/inertia";
+import { router } from "@inertiajs/vue3";
 import pickBy from "lodash/pickBy";
 
 export default {

@@ -70,7 +70,7 @@ import {
   ChatBubbleBottomCenterTextIcon,
 } from "@heroicons/vue/24/solid";
 import { ref, computed } from "vue";
-import { usePage } from "@inertiajs/inertia-vue3";
+import { usePage } from "@inertiajs/vue3";
 import { TransitionRoot } from "@headlessui/vue";
 
 export default {
@@ -82,9 +82,9 @@ export default {
     TransitionRoot,
   },
   setup() {
-    const success = computed(() => usePage().props.value.flash.success);
-    const danger = computed(() => usePage().props.value.flash.danger);
-    const warning = computed(() => usePage().props.value.flash.warning);
+    const success = computed(() => usePage().props.flash.success);
+    const danger = computed(() => usePage().props.flash.danger);
+    const warning = computed(() => usePage().props.flash.warning);
     const show = ref(
       success.value !== null || danger.value !== null || warning.value !== null
     );

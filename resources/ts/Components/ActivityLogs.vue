@@ -126,7 +126,7 @@ import TextInput from "@/Components/TextInput.vue";
 
 import throttle from "lodash/throttle";
 import pickBy from "lodash/pickBy";
-import { Inertia } from "@inertiajs/inertia";
+import { router } from "@inertiajs/vue3";
 import { computed, ref, watch } from "vue";
 
 export default {

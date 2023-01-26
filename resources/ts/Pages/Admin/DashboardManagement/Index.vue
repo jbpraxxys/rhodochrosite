@@ -200,7 +200,7 @@
 </template>
 
 <script>
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/vue3";
 import Breadcrumbs from "@/Components/Breadcrumbs.vue";
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import DataTable from "@/Components/DataTable.vue";

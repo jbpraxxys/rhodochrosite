@@ -158,7 +158,7 @@
 </template>
 
 <script>
-import { Inertia } from "@inertiajs/inertia";
+import { router } from "@inertiajs/vue3";
 import { ref } from "vue";
 import {
   Dialog,

@@ -64,9 +64,9 @@
 </template>
 
 <script>
-import { Inertia } from "@inertiajs/inertia";
+import { router } from "@inertiajs/vue3";
 import { ref, computed } from "vue";
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/vue3";
 import FlashMessages from "@/Components/FlashMessages.vue";
 import SidebarMenu from "@/Components/SidebarMenu.vue";
 import HeaderMenu from "@/Components/HeaderMenu.vue";

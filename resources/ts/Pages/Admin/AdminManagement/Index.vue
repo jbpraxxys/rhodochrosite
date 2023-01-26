@@ -176,8 +176,8 @@ import {
     ArrowDownTrayIcon,
     ArrowUpTrayIcon,
 } from "@heroicons/vue/24/solid";
-import { Link } from "@inertiajs/inertia-vue3";
-import { Inertia } from "@inertiajs/inertia";
+import { Link } from "@inertiajs/vue3";
+import { router } from "@inertiajs/vue3";
 import DeleteModal from "@/Components/DeleteModal.vue";
 import Pagination from "@/Components/Pagination.vue";
 import DatePicker from "@/Components/DatePicker.vue";

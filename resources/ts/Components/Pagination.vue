@@ -187,7 +187,7 @@
 
 <script>
 import Selector from "@/Components/Selector.vue";
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/vue3";
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from "@heroicons/vue/24/solid";
 import { ref } from "vue";
 

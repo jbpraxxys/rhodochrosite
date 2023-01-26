@@ -114,7 +114,7 @@
 
 <script>
 import { ref, computed } from "vue";
-import { usePage } from "@inertiajs/inertia-vue3";
+import { usePage } from "@inertiajs/vue3";
 import { ExclamationCircleIcon } from "@heroicons/vue/24/solid";
 import { useDropzone } from "vue3-dropzone";
 import FilePreview from "@/Components/FilePreview.vue";
@@ -248,7 +248,7 @@ export default {
             });
 
         // displayed image
-        const storageUrl = computed(() => usePage().props.value.storage_url);
+        const storageUrl = computed(() => usePage().props.storage_url);
         const displaySrc = computed(() => {
             if (acceptedFileSrcs.value.length) {
                 return acceptedFileSrcs.value[0];
