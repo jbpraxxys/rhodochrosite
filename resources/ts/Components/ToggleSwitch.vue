@@ -14,14 +14,13 @@
 		</div>
 		<div class="flex items-center">
 			<Switch
-				v-model="value"
-				@update:modelValue="$emit('change', value)"
-				:class="value ? 'bg-primary-300' : 'bg-gray-300'"
+				v-model="switchValue"
+				:class="switchValue ? 'bg-primary-300' : 'bg-gray-300'"
 				class="relative inline-flex h-6 w-11 items-center rounded-full"
 			>
 				<span class="sr-only">{{ label }}</span>
 				<span
-					:class="value ? 'translate-x-6' : 'translate-x-1'"
+					:class="switchValue ? 'translate-x-6' : 'translate-x-1'"
 					class="inline-block h-4 w-4 transform rounded-full bg-white"
 				/>
 			</Switch>
@@ -30,6 +29,7 @@
 </template>
 
 <script>
+import { computed } from 'vue';
 import { Switch } from "@headlessui/vue";
 
 export default {
@@ -51,5 +51,19 @@ export default {
 			required: false,
 		},
 	},
+	setup(props, { emit }) {
+		const switchValue = computed ({
+			get() {
+				return props.value;
+			},
+			set(value) {
+				emit('change', value);
+			}
+		});
+
+		return {
+			switchValue
+		}
+	}
 };
 </script>

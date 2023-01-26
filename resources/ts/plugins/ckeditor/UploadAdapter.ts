@@ -1,4 +1,7 @@
 export const UploadAdapter = class UploadAdapter {
+    loader: any;
+    xhr: any;
+
     constructor( loader ) {
         // The file loader instance to use during the upload.
         this.loader = loader;
@@ -24,13 +27,15 @@ export const UploadAdapter = class UploadAdapter {
     // Initializes the XMLHttpRequest object using the URL passed to the constructor.
     _initRequest() {
         const xhr = this.xhr = new XMLHttpRequest();
-        console.log(document.head.querySelector('meta[name="base"]').content)
+        const base = document.head.querySelector('meta[name="base"]') as HTMLMetaElement;
+        const csrf = document.head.querySelector('meta[name="csrf-token"]') as HTMLMetaElement;
+        
         // Note that your request may look different. It is up to you and your editor
         // integration to choose the right communication channel. This example uses
         // a POST request with JSON as a data structure but your configuration
         // could be different.
-        xhr.open( 'POST', document.head.querySelector('meta[name="base"]').content + '/ckeditor/upload', true );
-        xhr.setRequestHeader("X-CSRF-TOKEN", document.head.querySelector('meta[name="csrf-token"]').content);
+        xhr.open( 'POST', base.content + '/ckeditor/upload', true );
+        xhr.setRequestHeader("X-CSRF-TOKEN", csrf.content);
         xhr.responseType = 'json';
     }
 

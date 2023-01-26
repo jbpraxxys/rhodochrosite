@@ -6,6 +6,7 @@
     <div class="mt-1 relative rounded-md shadow-sm">
       <DatePicker
         :uid="id"
+        v-model="value"
         :disabled="disabled"
         :placeholder="placeholder"
         :timePicker="timePicker"
@@ -14,8 +15,6 @@
         :range="range"
         :presetRanges="presetRanges"
         inputClassName="frm__date-picker"
-        @update:modelValue="updateDate"
-        v-model="value"
       />
     </div>
     <p
@@ -30,7 +29,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { computed } from 'vue';
 import DatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 
@@ -89,14 +88,16 @@ export default {
     },
   },
   setup(props, { emit }) {
-    const updateDate = (value) => {
-      emit("update:modelValue", value);
-    };
-
-    const value = ref(props.modelValue);
+    const value = computed({
+      get() {
+        return props.modelValue;
+      },
+      set(value) {
+        emit("update:modelValue", value);
+      }
+    });
 
     return {
-      updateDate,
       value
     };
   },
