@@ -14,28 +14,46 @@ const tailwindcss = require('tailwindcss');
 
 
 mix.sass(
-  'resources/sass/app.scss', // src
-  'public/assets/guest/app.css', // output
-  {}, // sass-loader plugin options
-  [ tailwindcss('./tailwind.config.js') ] // postcss plugins
+    'resources/sass/app.scss', // src
+    'public/assets/guest/app.css', // output
+    {}, // sass-loader plugin options
+    [ tailwindcss('./tailwind.config.js') ] // postcss plugins
 );
 
 mix.sass(
-  'resources/css/app.scss', // src
-  'public/assets/admin/app.css', // output
-  {}, // sass-loader plugin options
-  [ tailwindcss('./tailwind.admin.config.js') ] // postcss plugins
+    'resources/css/app.scss', // src
+    'public/assets/admin/app.css', // output
+    {}, // sass-loader plugin options
+    [ tailwindcss('./tailwind.admin.config.js') ] // postcss plugins
 );
 
 mix
-  .js("resources/js/app.js", "public/js")
-  .vue()
-  .version()
-  .webpackConfig(require("./webpack.config"));
+    .js("resources/ts/app.ts", "public/js")
+    .vue()
+    .version()
+    .webpackConfig({
+        module  : {
+            rules : [
+                {
+                    test    : /\.tsx?$/,
+                    loader  : 'ts-loader',
+                    options : {appendTsSuffixTo : [/\.vue$/]},
+                    exclude : /node_modules/,
+                },
+            ],
+        },
+        resolve : {
+            extensions : ['*', '.js', '.jsx', '.vue', '.ts', '.tsx'],
+        },
+    })
+    .alias({
+        '@' : 'resources/ts',
+    })
+    .webpackConfig(require('./webpack.config'));
 
 
 if (mix.inProduction()) {
-  mix.version();
+    mix.version();
 } else {
-  mix.browserSync("http://localhost:8000");
+    mix.browserSync("http://localhost:8000");
 }
