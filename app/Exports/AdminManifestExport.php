@@ -2,7 +2,6 @@
 
 namespace App\Exports;
 
-use App\Models\Department;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
@@ -14,7 +13,7 @@ class AdminManifestExport implements WithHeadings, WithEvents, ShouldAutoSize
 {
     public function headings(): array
     {
-        return ["First Name", "Last Name", "Email", "Job Title", "Department"];
+        return ["First Name", "Last Name", "Email", "Job Title"];
     }
 
     public function registerEvents(): array
@@ -24,9 +23,9 @@ class AdminManifestExport implements WithHeadings, WithEvents, ShouldAutoSize
                 /** @var Sheet $sheet */
                 $sheet = $event->sheet;
 
-                $departments = Department::select(DB::raw("CONCAT(id, ' - ', name) AS value"))->pluck('value')->map(function ($value) {
-                    return str_replace(',', ' ', $value);
-                })->toArray();
+                // $departments = Department::select(DB::raw("CONCAT(id, ' - ', name) AS value"))->pluck('value')->map(function ($value) {
+                //     return str_replace(',', ' ', $value);
+                // })->toArray();
 
                 $validation = $sheet->getCell('E2')->getDataValidation();
                 $validation->setType(DataValidation::TYPE_LIST);
@@ -39,7 +38,7 @@ class AdminManifestExport implements WithHeadings, WithEvents, ShouldAutoSize
                 $validation->setError('Option is not in list.');
                 $validation->setPromptTitle('Pick from the list');
                 $validation->setPrompt('Please pick an option from the drop-down list.');
-                $validation->setFormula1('"' . implode(' ,', $departments) . '"');
+                // $validation->setFormula1('"' . implode(' ,', $departments) . '"');
 
                 /**
                  * validation for Department

@@ -56,7 +56,7 @@
                     class="w-[180px] mr-2"
                 ></selector>
             </div>
-            <TextInput
+            <jet-input
                 :lead-icon="'/images/icons/ic-search.svg'"
                 type="text"
                 name="input"
@@ -122,7 +122,6 @@ import DatePicker from "@/Components/DatePicker.vue";
 import DataTable from "@/Components/DataTable.vue";
 import Pagination from "@/Components/Pagination.vue";
 import EditButton from "@/Components/ActionButtons/EditButton.vue";
-import TextInput from "@/Components/TextInput.vue";
 
 import throttle from "lodash/throttle";
 import pickBy from "lodash/pickBy";
@@ -137,7 +136,6 @@ export default {
         DataTable,
         Pagination,
         EditButton,
-        TextInput,
     },
     props: {
         logs: {

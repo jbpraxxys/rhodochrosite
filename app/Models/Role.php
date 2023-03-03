@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\PrettyLog;
 use App\Traits\ReadableTimestamp;
+use App\Traits\RendersSelect;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Scout\Searchable;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -16,6 +17,9 @@ class Role extends SpatieRole
     use LogsActivity;
     use PrettyLog;
     use ReadableTimestamp;
+    use RendersSelect;
+
+    private const SELECT_COLUMN = 'name';
 
     public $asYouType = true;
 

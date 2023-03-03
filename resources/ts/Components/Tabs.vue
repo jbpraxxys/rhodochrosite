@@ -109,7 +109,7 @@ export default {
         }
 
         function selectTab(value) {
-            Inertia.get(
+            router.get(
                 props.tabRoute,
                 pickBy({ tab: value }), // removes falsey values
                 {

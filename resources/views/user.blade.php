@@ -12,7 +12,7 @@
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('assets/guest/app.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/user.css') }}">
 
         <!-- Scripts -->
         @routes

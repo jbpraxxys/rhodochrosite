@@ -4,7 +4,7 @@ namespace App\Imports;
 
 use App\Imports\Traits\RendersFailure;
 use App\Models\Admin;
-use App\Models\Department;
+// use App\Models\Department;
 use App\Notifications\Admins\Welcome;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
@@ -32,14 +32,14 @@ class AdminsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
      */
     public function model(array $row)
     {
-        $department = Department::find(explode(' - ', $row['Department'])[0]);
+        // $department = Department::find(explode(' - ', $row['Department'])[0]);
 
         $admin = new Admin([
             'first_name' => $row['First Name'],
             'last_name' => $row['Last Name'],
             'email' => $row['Email'],
             'title' => $row['Job Title'],
-            'department_id' => $department?->id,
+            // 'department_id' => $department?->id,
             'email_verified_at' => Carbon::now(),
             'password' => Hash::make(Str::random(24)),
         ]);
@@ -60,7 +60,7 @@ class AdminsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOnFa
             'Last Name' => ['required', 'max:50'],
             'Email' => ['required', 'max:50', 'email', 'unique:admins'],
             'Job Title' => ['required', 'max:50'],
-            'Department' => ['required'],
+            // 'Department' => ['required'],
         ];
     }
 }

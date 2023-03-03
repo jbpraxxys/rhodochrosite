@@ -1,3 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@import '../fonts/nunito/stylesheet.scss';
+
+@import './styles/forms.scss';

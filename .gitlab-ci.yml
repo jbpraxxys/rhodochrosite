@@ -1,4 +1,4 @@
-image: localhost:5000/laravel9:latest
+image: registry.praxxys.ph:5000/laravel9:latest
 
 include:
   - template: Code-Quality.gitlab-ci.yml
@@ -8,6 +8,8 @@ stages:
 
 unit_test:
   stage: test
+  tags:
+    - dispatcher
   before_script:
     - service mariadb start
   script:

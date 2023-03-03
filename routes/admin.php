@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\Admin\ActivityLogsController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -121,6 +122,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::get('edit/{cmsPage}', 'edit')->name('edit');
             Route::post('edit/{cmsPage}', 'update');
         });
+
+
+        Route::post('ckeditor/upload', [CkeditorController::class, 'upload']);
 
         
 });

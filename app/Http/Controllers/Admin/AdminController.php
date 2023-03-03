@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Imports\AdminsImport;
 use App\Mail\AdminsExportEmail;
 use App\Models\Admin;
-use App\Models\Department;
+// use App\Models\Department;
+use App\Models\Role;
 use App\Notifications\Admins\Welcome;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -29,7 +30,10 @@ class AdminController extends Controller
     {
         $admins = Admin::query();
 
-        // Handle search requests
+        $tab = $request->input('tab');
+        $date = $request->input('date');
+
+        # Search
         if ($request->input('query')) {
             $search_query = Admin::search($request->input('query'));
 
@@ -42,26 +46,36 @@ class AdminController extends Controller
             $admins = $admins->whereIn('id', $ids);
         }
 
-        $admins = $admins->with('department:id,name');
+        // $admins = $admins->with('department:id,name');
 
-        // Filter tab
-        if ($request->tab === 'archived') {
+        # Tab
+        if ($tab === 'archived') {
             $admins = $admins->onlyTrashed();
         }
 
+        # Date
+        if ($date) {
+            $admins = $admins->whereBetween('created_at', [
+                Carbon::parse($date)->startOfDay(),
+                Carbon::parse($date)->endOfDay()
+            ]);
+        }
+
         // Setup pagination
-        $admins = $admins->paginate(10)->appends(request()->query());
+        $admins = $admins->with('role')->paginate(10)->appends(request()->query());
+
         // Process counts
         $active_count = Admin::count();
         $archived_count = Admin::onlyTrashed()->count();
 
         return Inertia::render('Admin/AdminManagement/Index', [
             'items' => $admins,
-            'archived' => Admin::with('department:id,name')->whereNotNull('deleted_at')->get(),
+            'archived' => Admin::whereNotNull('deleted_at')->get(),
             'activeCount' => $active_count,
             'archivedCount' => $archived_count,
             'query' => $request->input('query'), // return search query
             'selectedTab' => $request->input('tab'), // return selected tab
+            'filterDate' => $date
         ]);
     }
 
@@ -74,7 +88,7 @@ class AdminController extends Controller
     public function create()
     {
         return Inertia::render('Admin/AdminManagement/Create', [
-            'departments' => Department::renderSelect(),
+            'roles' => Role::renderSelect()
         ]);
     }
 
@@ -88,7 +102,7 @@ class AdminController extends Controller
     {
         return Inertia::render('Admin/AdminManagement/Edit', [
             'admin' => $admin,
-            'departments' => Department::renderSelect(),
+            'roles' => Role::renderSelect()
         ]);
     }
 
@@ -104,7 +118,7 @@ class AdminController extends Controller
             'first_name' => ['required', 'max:50'],
             'last_name' => ['required', 'max:50'],
             'title' => ['required', 'max:50'],
-            'department_id' => ['required', 'integer'],
+            'role_id' => ['required'],
             'email' => ['required', 'max:50', 'email', 'unique:admins'],
         ]);
 
@@ -137,7 +151,7 @@ class AdminController extends Controller
             'last_name' => ['required', 'max:50'],
             'title' => ['required', 'max:50'],
             'email' => ['required', 'max:50', 'email', 'unique:admins,email,' . $admin->id],
-            'department_id' => ['required', 'integer'],
+            'role_id' => ['required'],
         ]);
 
         $admin->update($vars);
@@ -194,7 +208,7 @@ class AdminController extends Controller
             $admins = $admins->whereIn('id', $ids);
         }
 
-        $admins = $admins->with('department:id,name');
+        // $admins = $admins->with('department:id,name');
 
         // Filter tab
         if ($request->tab === 'archived') {

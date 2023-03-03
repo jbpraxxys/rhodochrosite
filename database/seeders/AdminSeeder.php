@@ -22,7 +22,7 @@ class AdminSeeder extends Seeder
                 'email' => 'admin@praxxys.ph',
                 'title' => 'Admin',
                 'password' => Hash::make('password'),
-                'department_id' => 6
+                'role_id' => 1
             ]
         ];
 

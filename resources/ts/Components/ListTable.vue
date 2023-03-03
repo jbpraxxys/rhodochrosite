@@ -140,7 +140,7 @@
           v-if="item.type === 'text' || item.type === 'url'"
           class="col-span-5 mb-4"
         >
-          <text-input
+          <jet-input
             v-model="createForm[`${id}_${item.id}`]"
             :label="item.label"
             :id="`${item.id}`"
@@ -157,7 +157,7 @@
           v-if="item.type === 'textarea'" 
           class="col-span-5 mb-4"
         >
-          <text-input
+          <jet-input
             :textarea="true"
             v-model="createForm[`${id}_${item.id}`]"
             :label="item.label"
@@ -236,7 +236,6 @@ import {
   TrashIcon,
 } from "@heroicons/vue/24/outline";
 import { computed, ref, nextTick } from "vue";
-import TextInput from "@/Components/TextInput.vue";
 import Dropzone from "@/Components/Dropzone.vue";
 import ckeditor from  "@/Components/CKEditor.vue";
 import JetButton from "@/Jetstream/Button.vue";
@@ -249,7 +248,6 @@ export default {
     XCircleIcon,
     PencilSquareIcon,
     TrashIcon,
-    TextInput,
     Dropzone,
     ckeditor,
     draggable,
