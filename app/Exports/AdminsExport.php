@@ -37,7 +37,7 @@ class AdminsExport implements FromCollection, WithMapping, WithHeadings, WithEve
             $admin->first_name,
             $admin->last_name,
             $admin->email,
-            // $admin->department->name,
+            $admin->department->name,
             $admin->title,
             Date::dateTimeToExcel($admin->created_at),
         ];
@@ -53,7 +53,7 @@ class AdminsExport implements FromCollection, WithMapping, WithHeadings, WithEve
             'First Name',
             'Last Name',
             'Email',
-            // 'Department',
+            'Department',
             'Title',
             'Created At',
         ];
