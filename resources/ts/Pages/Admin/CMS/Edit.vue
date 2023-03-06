@@ -35,7 +35,7 @@
                                         v-if="item.type === 'text' || item.type === 'url'"
                                         class="col-span-12"
                                     >
-                                        <text-input
+                                        <jet-input
                                             v-model="form[section.id + '_' + item.id]"
                                             :label="item.label"
                                             :id="`${section.id}_${item.id}`"
@@ -53,7 +53,7 @@
                                         v-if="item.type === 'textarea'" 
                                         class="col-span-12"
                                     >
-                                        <text-input
+                                        <jet-input
                                             :textarea="true"
                                             v-model="form[section.id + '_' + item.id]"
                                             :label="item.label"
@@ -135,7 +135,7 @@
                         <div class="mt-5 md:mt-0 md:col-span-8">
                             <div class="grid grid-cols-12 gap-6">
                                 <div class="col-span-12">
-                                    <text-input
+                                    <jet-input
                                         v-model="form.title"
                                         label="Title"
                                         id="seo_title"
@@ -145,7 +145,7 @@
                                 </div>
 
                                 <div class="col-span-12">
-                                    <text-input
+                                    <jet-input
                                         v-model="form.description"
                                         label="Description"
                                         id="seo_description"
@@ -155,7 +155,7 @@
                                 </div>
 
                                 <div class="col-span-12">
-                                    <text-input
+                                    <jet-input
                                         v-model="form.keywords"
                                         label="Keywords"
                                         id="seo_keywords"
@@ -181,7 +181,6 @@
 
 <script>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
-import TextInput from "@/Components/TextInput.vue";
 import Dropzone from "@/Components/Dropzone.vue";
 import ListTable from "@/Components/ListTable.vue";
 import useListTable from "@/composables/useListTable";
@@ -195,7 +194,6 @@ export default {
     components: {
         AdminLayout,
         PencilSquareIcon,
-        TextInput,
         Selector,
         Dropzone,
         ListTable,

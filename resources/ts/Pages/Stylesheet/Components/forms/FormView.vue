@@ -2,7 +2,7 @@
     
     <div>
         <div class="mb-4">
-            <TextInput
+            <jet-input
                 type="text"
                 name="text-input"
                 id="text-input"
@@ -13,7 +13,7 @@
         </div>
 
         <div class="mb-4">
-            <text-input
+            <jet-input
             label="Price"
             placeholder="Price"
             id="price"
@@ -25,7 +25,7 @@
         </div>
 
         <div class="mb-4">
-            <text-input
+            <jet-input
             label="Height"
             placeholder="Height"
             id="height"
@@ -43,7 +43,7 @@
             />
         </div>
         <div class="mb-4">
-            <TextInput
+            <jet-input
                 textarea
                 name="textarea-input"
                 id="textarea-input"
@@ -134,7 +134,6 @@
 
 </template>
 <script>
-import TextInput from "@/Components/TextInput.vue";
 import Selector from "@/Components/Selector.vue";
 
 // import TextField from 'Components/inputs/TextField.vue';
@@ -147,7 +146,6 @@ import Dropzone from '@/Components/Dropzone.vue';
 
 export default {
     components: {
-        TextInput,
         Selector,
         // TextField,
         // Password,

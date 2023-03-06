@@ -1,0 +1,10 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import '../fonts/poppins/stylesheet.scss';
+
+@import './styles/ckeditor.scss';
+@import './styles/typography.scss';
+@import './styles/pages.scss';
+@import './styles/forms.scss';

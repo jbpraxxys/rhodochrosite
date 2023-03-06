@@ -14,21 +14,22 @@ const tailwindcss = require('tailwindcss');
 
 
 mix.sass(
-    'resources/sass/app.scss', // src
-    'public/assets/guest/app.css', // output
+    'resources/scss/user.scss', // src
+    'public/css/user.css', // output
     {}, // sass-loader plugin options
     [ tailwindcss('./tailwind.config.js') ] // postcss plugins
 );
 
 mix.sass(
-    'resources/css/app.scss', // src
-    'public/assets/admin/app.css', // output
+    'resources/scss/admin.scss', // src
+    'public/css/admin.css', // output
     {}, // sass-loader plugin options
     [ tailwindcss('./tailwind.admin.config.js') ] // postcss plugins
 );
 
 mix
     .js("resources/ts/app.ts", "public/js")
+    .js("resources/ts/admin.ts", "public/js")
     .vue()
     .version()
     .webpackConfig({

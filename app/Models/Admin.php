@@ -42,7 +42,7 @@ class Admin extends Authenticatable
         'email',
         'password',
         'title',
-        'department_id',
+        'role_id',
     ];
 
     /**
@@ -76,9 +76,9 @@ class Admin extends Authenticatable
         'name',
     ];
 
-    public function department()
+    public function role()
     {
-        return $this->belongsTo(Department::class);
+        return $this->belongsTo(Role::class);
     }
 
     /**
@@ -104,7 +104,6 @@ class Admin extends Authenticatable
             'last_name' => $this->last_name,
             'email' => $this->email,
             'title' => $this->title,
-            'department' => $this->department->name,
         ];
 
         return $array;

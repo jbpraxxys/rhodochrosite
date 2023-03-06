@@ -34,7 +34,7 @@ export const UploadAdapter = class UploadAdapter {
         // integration to choose the right communication channel. This example uses
         // a POST request with JSON as a data structure but your configuration
         // could be different.
-        xhr.open( 'POST', base.content + '/ckeditor/upload', true );
+        xhr.open( 'POST', base.content + '/admin/ckeditor/upload', true );
         xhr.setRequestHeader("X-CSRF-TOKEN", csrf.content);
         xhr.responseType = 'json';
     }

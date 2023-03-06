@@ -2,11 +2,11 @@
     <admin-layout title="Admin Management" :breadcrumb-pages="breadcrumbs">
         <!-- Tabs -->
         <div>
-            <tabs
+            <Tabs
                 :tabs="tabs"
                 :button-items="true"
                 :active-tab="activeTab"
-                @update:tab="(value) => (activeTab = value)"
+                @update:tab="(value: string) => (activeTab = value)"
                 :tab-route="route('admin.admin-management.index')"
             >
                 <template #buttons v-if="activeTab !== 'activity_logs'">
@@ -16,7 +16,7 @@
                     />
                     <create-button :route="route('admin.admin-management.create')" />
                 </template>
-            </tabs>
+            </Tabs>
             
 
             <!-- Filter -->
@@ -75,7 +75,7 @@
                             <td
                                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                             >
-                                {{ "None" }}
+                                {{ item.role.name }}
                             </td>
                             <td
                                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
@@ -112,24 +112,19 @@
             <pagination :items="items" />
         </div>
 
-        <!-- <template v-if="activeTab === 'activity_logs'">
-            <activity-logs
-                :logs="logs"
-                :result-route="route('admin.admin-management.index')"
-                tab="activity_logs"
-                :query="searchLog"
-                :event="filterEvent"
-                :rows="rows"
-            />
-        </template> -->
-
-        
         <DeleteModal
             title="Archive Admin"
             :show="showArchiveModal"
             :item-name="archiveItemName"
             @confirm="processArchive"
             @cancel="showArchiveModal = false"
+        />
+
+        <RestoreModal
+            title="Restore Admin"
+            :show="showRestoreModal"
+            @confirm="processRestore"
+            @cancel="showRestoreModal = false"
         />
 
         <ImportModal
@@ -155,207 +150,139 @@
     </admin-layout>
 </template>
 
-<script>
-import AdminLayout from "@/Layouts/AdminLayout.vue";
-import ExportButton from "@/Components/ActionButtons/ExportButton.vue";
-import CreateButton from "@/Components/ActionButtons/CreateButton.vue";
-import EditButton from "@/Components/ActionButtons/EditButton.vue";
-import DeleteButton from "@/Components/ActionButtons/DeleteButton.vue";
-import RestoreButton from "@/Components/ActionButtons/RestoreButton.vue";
-import DataTable from "@/Components/DataTable.vue";
-import Tabs from "@/Components/Tabs.vue";
-import Filter from "@/Components/Filter.vue";
+<script setup lang="ts">
 import { computed, ref, watch } from "vue";
-import {
-    UserPlusIcon,
-    PencilSquareIcon,
-    TrashIcon,
-    MagnifyingGlassIcon,
-    ArrowPathIcon,
-    XCircleIcon,
-    ArrowDownTrayIcon,
-    ArrowUpTrayIcon,
-} from "@heroicons/vue/24/solid";
-import { Link } from "@inertiajs/vue3";
 import { router } from "@inertiajs/vue3";
-import DeleteModal from "@/Components/DeleteModal.vue";
-import Pagination from "@/Components/Pagination.vue";
-import DatePicker from "@/Components/DatePicker.vue";
 import throttle from "lodash/throttle";
 import pickBy from "lodash/pickBy";
-import ImportModal from "@/Components/ImportModal.vue";
-import Dropzone from "@/Components/Dropzone.vue";
 
-export default {
-    components: {
-        AdminLayout,
-        DeleteModal,
-        Pagination,
-        UserPlusIcon,
-        PencilSquareIcon,
-        TrashIcon,
-        MagnifyingGlassIcon,
-        ArrowPathIcon,
-        XCircleIcon,
-        ArrowDownTrayIcon,
-        ArrowUpTrayIcon,
-        Link,
-        ImportModal,
-        Dropzone,
-        ExportButton,
-        CreateButton,
-        EditButton,
-        DeleteButton,
-        RestoreButton,
-        DataTable,
-        Tabs,
-        Filter,
-        DatePicker
+const props = defineProps([
+    "items",
+    "activeCount",
+    "archivedCount",
+    "selectedTab",
+    "query",
+    "filterDate",
+]);
+
+/**---------------*
+ * VARS
+ *----------------*/
+const items = computed(() => props.items);
+
+const searchText = ref<string>(props.query);
+const activeTab = ref<string>(props.selectedTab);
+const filterDate = ref<string>(props.filterDate);
+const showArchiveModal = ref<boolean>(false);
+const showRestoreModal = ref<boolean>(false);
+const selectedItem = ref<any>(null);
+
+const tabs: { name: string, value?: string, count?: Number }[] = [
+    {
+        name: 'Active',
+        value: null,
+        count: props.activeCount
     },
-    props: [
-        "items",
-        "activeCount",
-        "archivedCount",
-        "selectedTab",
-        "query",
-    ],
-    setup(props) {
-        const activeTab = ref(props.selectedTab);
+    {
+        name: 'Archived',
+        value: 'archived',
+        count: props.archivedCount
+    }
+];
 
-        /*--------------------*
-         * Table Data/Init Vars
-         *--------------------*/
-        const items = computed(() => props.items);
+const headers: { text: string }[] = [
+    { text: 'Admin' },
+    { text: 'Role' },
+    { text: 'Date Created'}
+];
 
-        /*--------------*
-         * Table Search
-         *--------------*/
-        const searchText = ref(props.query);
-        watch(
-            searchText,
-            throttle((val) => {
-                Inertia.get(
-                    route("admin.admin-management.index"),
-                    pickBy({ query: val, tab: props.selectedTab }), // removes falsey values
-                    {
-                        preserveState: true,
-                    }
-                );
-            }, 1000)
-        );
-        /*---------------*
-         * Breadcrumbs
-         *---------------*/
-        const breadcrumbs = [
-            { name: "Admin Management", href: "#", current: true },
-        ];
+/**---------------*
+ * METHODS
+ *----------------*/
+const applyFilters = (): void => {
+    router.get(
+        route(route().current()),
+        pickBy({
+            date: filterDate.value,
+            tab: props.selectedTab
+        }),
+        {
+            preserveState: true
+        }
+    )
+}
 
-        /*---------------*
-         * Tabs
-         *---------------*/
-        const tabs = [
+const archiveItemName = computed(() =>
+    selectedItem.value ? selectedItem.value.name : ""
+);
+
+const selectArchive = (item: object): void => {
+    selectedItem.value = item;
+    showArchiveModal.value = true;
+}
+
+const selectRestore = (item: object): void => {
+    selectedItem.value = item;
+    showRestoreModal.value = true;
+}
+
+const processArchive = (): void => {
+    router.delete(
+        route('admin.admin-management.delete', selectedItem.value.id),
+        {
+            preserveState: false
+        }
+    )
+}
+
+const processRestore =(): void => {
+    router.post(
+        route("admin.admin-management.restore"),
+        { id: selectedItem.value.id },
+        { preserveState: false }
+    )
+}
+
+/*---------------*
+* Import Modal  *
+*---------------*/
+const showModal = ref(false);
+const importFile = ref(null);
+
+const importModal = () => {
+    showModal.value = true;
+}
+
+const importData = () => {
+    router.post(
+        route("admin.admin-management.import"),
+        {
+            file: importFile.value,
+        },
+        {
+            preserveState: false,
+            preserveScroll: true,
+        }
+    );
+}
+
+/**---------------*
+ * WATCHERS
+ *----------------*/
+
+watch(
+    searchText,
+    throttle((val: string) => {
+        router.get(
+            route("admin.admin-management.index"),
+            pickBy({ 
+                query: val, 
+                tab: props.selectedTab 
+            }), // removes falsey values
             {
-                name: "Active",
-                value: null,
-                href: "#",
-                count: props.activeCount,
-            },
-            {
-                name: "Archived",
-                value: "archived",
-                href: "#",
-                count: props.archivedCount,
-            },
-        ];
-
-        const headers = [
-            { text: "Admin", value: "admin", width: "50%" },
-            { text: "Role", value: "role" },
-            { text: "Date Created", value: "dateCreated" },
-        ];
-
-        // function isSelectedTab(value) {
-        //   return props.selectedTab === value;
-        // }
-        // function selectTab(value) {
-        //   Inertia.get(
-        //     route("admin.admin-management.index"),
-        //     pickBy({ tab: value }), // removes falsey values
-        //     {
-        //       preserveState: false,
-        //     }
-        //   );
-        // }
-
-        /*---------------*
-         * Delete Modal  *
-         *---------------*/
-
-
-        /*---------------*
-         * Archive Modal  *
-         *---------------*/
-        const showArchiveModal = ref(false);
-        const selectedItem = ref(null);
-        const archiveItemName = computed(() =>
-            selectedItem.value ? selectedItem.value.name : ""
+                preserveState: true,
+            }
         );
-        function selectArchive(item) {
-            selectedItem.value = item;
-            showArchiveModal.value = true;
-        }
-        function processArchive() {
-            Inertia.delete(
-                route("admin.admin-management.delete", selectedItem.value.id),
-                { preserveState: false }
-            );
-        }
-
-        /*---------------*
-         * Import Modal  *
-         *---------------*/
-        const showModal = ref(false);
-        const importFile = ref(null);
-
-        function importModal() {
-            showModal.value = true;
-        }
-
-        function importData() {
-            Inertia.post(
-                route("admin.admin-management.import"),
-                {
-                    file: importFile.value,
-                },
-                {
-                    preserveState: false,
-                    preserveScroll: true,
-                }
-            );
-        }
-
-        return {
-            breadcrumbs,
-            // tabs
-            tabs,
-            activeTab,
-            // selectTab,
-            // isSelectedTab,
-            // Table
-            items,
-            searchText,
-            headers,
-            // Delete Modal
-            showArchiveModal,
-            selectArchive,
-            processArchive,
-            archiveItemName,
-            // Import
-            showModal,
-            importFile,
-            importModal,
-            importData,
-        };
-    },
-};
+    }, 1000)
+);
 </script>

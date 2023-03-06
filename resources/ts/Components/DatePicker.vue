@@ -3,7 +3,7 @@
     <label :for="id" class="block text-sm font-medium text-gray-700">{{
       label
     }}</label>
-    <div class="mt-1 relative rounded-md shadow-sm">
+    <div class="mt-1 relative rounded-md">
       <DatePicker
         :uid="id"
         v-model="value"
@@ -14,7 +14,7 @@
         :enableTimePicker="enableTimePicker"
         :range="range"
         :presetRanges="presetRanges"
-        inputClassName="frm__date-picker"
+        class="frm__date-picker font-sans"
       />
     </div>
     <p

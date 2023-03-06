@@ -103,7 +103,7 @@ export default {
 
         function goBack() {
             const url = props.backUrl;
-            Inertia.visit(url);
+            router.visit(url);
         }
 
         return {
