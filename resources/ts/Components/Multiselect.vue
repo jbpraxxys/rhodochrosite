@@ -12,6 +12,7 @@
             :create-option="false"
             class="frm-multiselect"
             :options="options"
+            :placeholder="placeholder"
         />
         <p v-if="helper" class="mt-2 text-xs text-gray-500">
             {{ helper }}
@@ -39,6 +40,10 @@ export default {
             default: null,
         },
         helper: {
+            type: String,
+            default: null,
+        },
+        placeholder: {
             type: String,
             default: null,
         },
