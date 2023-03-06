@@ -174,7 +174,6 @@ import {
   ArrowPathIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/vue/24/outline";
-import JetButton from "@/Jetstream/Button.vue";
 
 export default {
   components: {
@@ -183,7 +182,6 @@ export default {
     MagnifyingGlassIcon,
     FunnelIcon,
     ArrowPathIcon,
-    JetButton,
     Dialog,
     DialogPanel,
     DialogTitle,
@@ -230,7 +228,7 @@ export default {
         data["tab"] = tab;
       }
 
-      Inertia.visit(window.location.href.split("?")[0], {
+      router.visit(window.location.href.split("?")[0], {
         preserveState: false,
         preserveScroll: true,
         replace: true,

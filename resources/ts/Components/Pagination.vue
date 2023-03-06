@@ -187,7 +187,7 @@
 
 <script>
 import Selector from "@/Components/Selector.vue";
-import { Link } from "@inertiajs/vue3";
+import { Link, router } from "@inertiajs/vue3";
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from "@heroicons/vue/24/solid";
 import { ref } from "vue";
 
@@ -243,7 +243,7 @@ export default {
                 delete params.page;
             }
 
-            Inertia.replace(route(route().current(), params), {
+            router.replace(route(route().current(), params), {
                 data: data,
                 replace: false,
                 preserveState: true,

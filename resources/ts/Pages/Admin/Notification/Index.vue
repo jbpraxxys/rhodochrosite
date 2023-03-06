@@ -200,7 +200,7 @@ export default {
     watch(
       date,
       throttle((val) => {
-        Inertia.get(
+        router.get(
           route("admin.notification.index"),
           pickBy({
             date: val,
@@ -220,7 +220,7 @@ export default {
       if (!isSelectedTab(tab.value)) {
         activeTab.value = tab.value;
 
-        Inertia.get(
+        router.get(
           route("admin.notification.index"),
           pickBy({ tab: tab.value }), // removes falsey values
           {
@@ -231,7 +231,7 @@ export default {
     }
 
     function markAllRead() {
-      Inertia.patch(
+      router.patch(
         route("admin.notification.read-all"),
         {},
         {
@@ -241,7 +241,7 @@ export default {
     }
 
     function refresh() {
-      Inertia.get(
+      router.get(
         route("admin.notification.index"),
         pickBy({
           date: props.date,

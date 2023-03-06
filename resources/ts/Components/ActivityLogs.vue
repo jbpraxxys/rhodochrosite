@@ -178,7 +178,7 @@ export default {
         watch(
             filterEvent,
             throttle((val) => {
-                Inertia.get(
+                router.get(
                     props.resultRoute,
                     pickBy({
                         log_event: val,
@@ -196,7 +196,7 @@ export default {
         watch(
             searchText,
             throttle((val) => {
-                Inertia.get(
+                router.get(
                     props.resultRoute,
                     pickBy({
                         log_event: props.event,
