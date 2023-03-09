@@ -6,14 +6,14 @@ use App\Traits\PrettyLog;
 use App\Traits\ReadableTimestamp;
 use App\Traits\RendersSelect;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Scout\Searchable;
+// use Laravel\Scout\Searchable;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Models\Role as SpatieRole;
 
 class Role extends SpatieRole
 {
     use SoftDeletes;
-    use Searchable;
+    // use Searchable;
     use LogsActivity;
     use PrettyLog;
     use ReadableTimestamp;
@@ -37,13 +37,13 @@ class Role extends SpatieRole
      *
      * @return array
      */
-    public function toSearchableArray()
-    {
-        $array = [
-            'id' => $this->id,
-            'name' => $this->name,
-        ];
+    // public function toSearchableArray()
+    // {
+    //     $array = [
+    //         'id' => $this->id,
+    //         'name' => $this->name,
+    //     ];
 
-        return $array;
-    }
+    //     return $array;
+    // }
 }

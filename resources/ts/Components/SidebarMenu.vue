@@ -39,7 +39,7 @@
                     />
                 </div>
                 <div class="flex-1 flex flex-col overflow-y-auto">
-                    <div class="px-4 mb-6">
+                    <!-- <div class="px-4 mb-6">
                         <span
                             class="flex min-w-0 items-center justify-between space-x-3"
                         >
@@ -56,6 +56,25 @@
                                 <span class="text-gray-500 text-sm truncate">{{
                                     $page.props.user.email
                                 }}</span>
+                            </span>
+                        </span>
+                    </div> -->
+
+                    <div class="px-4 mb-6">
+                        <span
+                            class="flex min-w-0 items-center justify-between space-x-3"
+                        >
+                            <img
+                                class="w-10 h-10 bg-gray-300 rounded-full object-cover"
+                                src="https://via.placeholder.com/40x40"
+                                alt=""
+                            />
+                            <span class="flex-1 flex flex-col min-w-0">
+                                <span
+                                    class="text-gray-900 text-sm font-medium truncate"
+                                    >Elizabeth Diaz</span
+                                >
+                                <span class="text-gray-500 text-sm truncate">Marketing</span>
                             </span>
                         </span>
                     </div>
