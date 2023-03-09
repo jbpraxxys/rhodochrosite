@@ -71,7 +71,6 @@
                       </template>
                   </DataTable>
               </div>
-              <pagination></pagination>
           </div>
       </div>
       <div class="w-3/12 h-screen">

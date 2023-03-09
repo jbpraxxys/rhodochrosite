@@ -11,7 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-use Laravel\Scout\Searchable;
+// use Laravel\Scout\Searchable;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -23,7 +23,7 @@ class Admin extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use SoftDeletes;
-    use Searchable;
+    // use Searchable;
     use HasRoles;
     use LogsActivity;
     use PrettyLog;
@@ -96,18 +96,18 @@ class Admin extends Authenticatable
      *
      * @return array
      */
-    public function toSearchableArray()
-    {
-        $array = [
-            'id' => $this->id,
-            'first_name' => $this->first_name,
-            'last_name' => $this->last_name,
-            'email' => $this->email,
-            'title' => $this->title,
-        ];
+    // public function toSearchableArray()
+    // {
+    //     $array = [
+    //         'id' => $this->id,
+    //         'first_name' => $this->first_name,
+    //         'last_name' => $this->last_name,
+    //         'email' => $this->email,
+    //         'title' => $this->title,
+    //     ];
 
-        return $array;
-    }
+    //     return $array;
+    // }
 
     /**
      * Get the default profile photo URL if no profile photo has been uploaded.
