@@ -9,13 +9,13 @@
     </Head>
     <div>
         <Header 
-        :header="headerfooter"
+        :header="header"
         />
         
         <slot />
 
         <Footer
-        :footer="headerfooter"
+        :footer="footer"
         />
     </div>
 </template>
@@ -42,20 +42,21 @@ defineProps({
     }
 })
 
-const headerfooter = ref([]); 
-const fetchHeaderFooter = () => {
-    window.axios.post(route('web.cms.general.fetchHeaderFooter'))
-    .then(({ data }) => {
-        headerfooter.value = data[0].content;
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-}
+
+const header = ref<object>(null);
+const footer = ref<object>(null);
+
+// METHODS
+const fetchLayout = () => {
+    window.axios.post(route("cms.layout")).then((response) => {
+        header.value = response.data.header?.content;
+        footer.value = response.data.footer?.content;
+    });
+};
 
 const origin = window.location.origin;
 
 onMounted(() => {
-    fetchHeaderFooter();
+    // fetchLayout();
 })
 </script>

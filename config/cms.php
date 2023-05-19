@@ -140,12 +140,13 @@ return [
                 ]
             ]
         ],
+        // Header
         [
-            'slug' => 'header_footer',
-            'label' => 'General: Header & Footer',
+            'slug' => 'header',
+            'label' => 'General: Header',
             'sections' => [
                 [
-                    'id' => 'header',
+                    'id' => 'content',
                     'label' => 'Header',
                     'description' => '',
                     'items' => [
@@ -154,21 +155,32 @@ return [
                             'type' => 'image',
                             'label' => 'Logo',
                             'description' => 'Max file size: 2MB',
-                            'rules' => 'required'
                         ],
                     ],
                 ],
+            ],
+        ],
+        // Footer
+        [
+            'slug' => 'footer',
+            'label' => 'General: Footer',
+            'sections' => [
                 [
-                    'id' => 'footer',
+                    'id' => 'content',
                     'label' => 'Footer',
                     'description' => '',
                     'items' => [
                         [
-                            'id' => 'title1',
-                            'type' => 'text',
-                            'label' => 'Column Title 1',
+                            'id' => 'logo',
+                            'type' => 'image',
+                            'label' => 'Footer Logo',
+                            'description' => 'Max file size: 2MB',
+                        ],
+                        [
+                            'id' => 'copyright',
+                            'type' => 'textarea',
+                            'label' => 'Copyright Text',
                             'description' => '',
-                            'rules' => 'required'
                         ],
                         [
                             'id' => 'social_accts',
@@ -187,17 +199,16 @@ return [
                                     'id' => 'icon',
                                     'label' => 'Icon',
                                     'type' => 'image',
-                                    'description' => 'Dimension: 28px x 28px | Max file size: 2MB',
+                                    'description' => 'Max file size: 2MB',
                                     'rules' => 'required',
                                     'summary_field' => true,
                                 ],
                             ]
                         ],
-                    ],
-                ],
-            ],
+                    ]
+                ]
+            ]
         ],
-
         [
             'slug' => 'api_keys',
             'label' => 'General: API Keys',

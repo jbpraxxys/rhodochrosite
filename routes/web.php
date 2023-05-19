@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\CkeditorController;
+use App\Http\Controllers\User\Cms\CmsController;
 
 
 /*
@@ -38,14 +39,17 @@ Route::get('/stylesheet', function () {
     return Inertia::render('Stylesheet/Partials/SSContent');
 });
 
-// fetch header footer content
+/*
+|--------------------------------------------------------------------------
+| CMS
+|--------------------------------------------------------------------------
+ */
 // Route::prefix('cms')
-//     ->name('cms.general.')
-//     ->controller(CmsPageController::class)
+//     ->name('cms.')
+//     ->controller(CmsController::class)
 //     ->group(function () {
-//         Route::post('/footer', 'fetchHeader')->name('fetchHeader');
-//         Route::post('/header', 'fetchFooter')->name('fetchFooter');
-// });
+//         Route::post('/layout', 'layout')->name('layout');
+//     });
 
 Route::get('/', function () {
 	return Inertia::render('User/Pages/Home/Index', [
