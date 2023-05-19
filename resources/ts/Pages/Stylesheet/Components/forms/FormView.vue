@@ -2,7 +2,7 @@
     
     <div>
         <div class="mb-4">
-            <jet-input
+            <v-input
                 type="text"
                 name="text-input"
                 id="text-input"
@@ -13,29 +13,29 @@
         </div>
 
         <div class="mb-4">
-            <jet-input
-            label="Price"
-            placeholder="Price"
-            id="price"
-            :add_on_left="true"
-            add_on_text="₱"
-            type="number"
+            <v-input
+                label="Price"
+                placeholder="Price"
+                id="price"
+                :add_on_left="true"
+                add_on_text="₱"
+                type="number"
             />
 
         </div>
 
         <div class="mb-4">
-            <jet-input
-            label="Height"
-            placeholder="Height"
-            id="height"
-            :add_on_right="true"
-            add_on_text="cm"
-            type="number"
+            <v-input
+                label="Height"
+                placeholder="Height"
+                id="height"
+                :add_on_right="true"
+                add_on_text="cm"
+                type="number"
             />
         </div>
         <div class="mb-4">
-            <selector
+            <v-selector
                 :options="sampleOptions"
                 label="Sample Selector"
                 id="selector-id"
@@ -43,7 +43,7 @@
             />
         </div>
         <div class="mb-4">
-            <jet-input
+            <v-input
                 textarea
                 name="textarea-input"
                 id="textarea-input"
@@ -134,27 +134,8 @@
 
 </template>
 <script>
-import Selector from "@/Components/Selector.vue";
-
-// import TextField from 'Components/inputs/TextField.vue';
-// import TextArea from 'Components/inputs/TextArea.vue';
-// import TextEditor from 'Components/inputs/TextEditor.vue';
-// import Password from 'Components/inputs/Password.vue';
-// import DatePicker from 'Components/inputs/DatePicker.vue';
-// import Selector from 'Components/inputs/Selector.vue';
-import Dropzone from '@/Components/Dropzone.vue';
 
 export default {
-    components: {
-        Selector,
-        // TextField,
-        // Password,
-        // TextArea,
-        // TextEditor,
-        // DatePicker,
-        // Selector,
-        Dropzone
-    },
     data: () => ({
         sampleOptions: [
             { id: '1', value: 'Colors'},

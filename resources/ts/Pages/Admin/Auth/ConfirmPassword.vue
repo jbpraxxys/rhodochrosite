@@ -14,8 +14,14 @@
 
         <form @submit.prevent="submit">
             <div>
-                <jet-label for="password" value="Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" autofocus />
+                <password-input 
+                    v-model="form.password"
+                    label="Password"
+                    placeholder="Your password"
+                    id="password"
+                    name="password"
+                    required autocomplete="current-password"
+                />
             </div>
 
             <div class="flex justify-end mt-4">
@@ -31,20 +37,16 @@
     import { Head } from "@inertiajs/vue3";
     import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
     import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
-    import JetButton from '@/Jetstream/Button.vue'
-    import JetInput from '@/Jetstream/Input.vue'
-    import JetLabel from '@/Jetstream/Label.vue'
-    import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
+    import JetValidationErrors from "@/Components/Inputs/ValidationErrors.vue";
+    import PasswordInput from "@/Components/Inputs/PasswordInput.vue";
 
     export default {
         components: {
             Head,
             JetAuthenticationCard,
             JetAuthenticationCardLogo,
-            JetButton,
-            JetInput,
-            JetLabel,
-            JetValidationErrors
+            JetValidationErrors,
+            PasswordInput
         },
 
         data() {

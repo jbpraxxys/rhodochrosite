@@ -1,10 +1,11 @@
 <template>
     <Head>
         <title inertia>{{ seoTitle }}</title>
-        <meta property="og:image" :content="seoImage">
+        <meta itemprop="image" :content="seoImage ? seoImage : origin + '/icons/logo.png'">
+        <meta name="twitter:image" :content="seoImage ? seoImage : origin + '/icons/logo.png'">
+        <meta property="og:image" :content="seoImage ? seoImage : origin + '/icons/logo.png'">
         <meta property="og:title" :content="seoTitle">
         <meta property="og:description" :content="seoDescription">
-        <link rel="icon" :href="'/storage/' + headerfooter.logo_favicon" sizes="32x32">
     </Head>
     <div>
         <Header 
@@ -51,6 +52,8 @@ const fetchHeaderFooter = () => {
         console.log(err)
     })
 }
+
+const origin = window.location.origin;
 
 onMounted(() => {
     fetchHeaderFooter();

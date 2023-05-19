@@ -18,15 +18,6 @@
                     <span class="sr-only">Open sidebar</span>
                     <Bars3CenterLeftIcon class="h-6 w-6" aria-hidden="true" />
                 </button>
-                <button
-                    class="px-4 border-r border-gray-200 text-gray-500 lg:hidden"
-                >
-                    <img
-                        class="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                    />
-                </button>
             </div>
             <!--  -->
 
@@ -67,9 +58,9 @@
 import { router } from "@inertiajs/vue3";
 import { ref, computed } from "vue";
 import { Link } from "@inertiajs/vue3";
-import FlashMessages from "@/Components/FlashMessages.vue";
-import SidebarMenu from "@/Components/SidebarMenu.vue";
-import HeaderMenu from "@/Components/HeaderMenu.vue";
+import FlashMessages from "@/Components/Modals/FlashMessages.vue";
+import SidebarMenu from "@/Components/Partials/SidebarMenu.vue";
+import HeaderMenu from "@/Components/Partials/HeaderMenu.vue";
 
 import {
     Bars3CenterLeftIcon,

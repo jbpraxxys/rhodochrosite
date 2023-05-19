@@ -20,7 +20,6 @@
                                 {{ page.updated_at }}
                             </td>
                             <td
-                                v-if="!noAction"
                                 class="
                                     px-6
                                     py-4
@@ -42,13 +41,11 @@
 
 <script>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
-import DataTable from "@/Components/DataTable.vue";
 import EditButton from "@/Components/ActionButtons/EditButton.vue";
 import { computed } from "vue";
 export default {
     components: {
         AdminLayout,
-        DataTable,
         EditButton
     },
     props: ["items"],

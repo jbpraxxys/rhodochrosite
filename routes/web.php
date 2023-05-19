@@ -48,6 +48,6 @@ Route::get('/stylesheet', function () {
 // });
 
 Route::get('/', function () {
-	return Inertia::render('User/Home/Index', [
+	return Inertia::render('User/Pages/Home/Index', [
     ]);
 });

@@ -72,12 +72,12 @@
                                         v-if="item.type === 'htmleditor'" 
                                         class="col-span-12"
                                     >
-                                        <ckeditor
+                                        <CKEditor
                                             v-model="form[section.id + '_' + item.id]"
                                             :label="item.label"
                                             :id="`${section.id}_${item.id}`"
                                             :error="form.errors[section.id + '_' + item.id]"
-                                        ></ckeditor>
+                                        ></CKEditor>
                                     </div>
 
                                     <!-------------------
@@ -181,24 +181,16 @@
 
 <script>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
-import Dropzone from "@/Components/Dropzone.vue";
-import ListTable from "@/Components/ListTable.vue";
+import ListTable from "@/Components/Partials/ListTable.vue";
 import useListTable from "@/composables/useListTable";
 import { PencilSquareIcon } from "@heroicons/vue/24/solid";
 import usePRXCMSForm from "@/composables/usePRXCMSForm";
-import Selector from "@/Components/Selector.vue";
-import ckeditor from  "@/Components/CKEditor.vue";
-import JetButton from "@/Jetstream/Button.vue";
 
 export default {
     components: {
         AdminLayout,
         PencilSquareIcon,
-        Selector,
-        Dropzone,
         ListTable,
-        ckeditor,
-        JetButton
     },
     props: ["page", "schema"],
     setup(props) {

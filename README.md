@@ -10,7 +10,7 @@ Run the following commands
 composer update
 
 # Install node modules
-npm install
+npm update
 
 # Compile assets for development
 npm run dev / npm run watch

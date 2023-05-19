@@ -21,13 +21,25 @@
             </div>
 
             <div class="mt-4">
-                <jet-label for="password" value="Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
+                <password-input 
+                    v-model="form.password"
+                    label="Password"
+                    placeholder="Your password"
+                    id="password"
+                    name="password"
+                    required autocomplete="new-password"
+                />
             </div>
 
             <div class="mt-4">
-                <jet-label for="password_confirmation" value="Confirm Password" />
-                <jet-input id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
+                <password-input 
+                    v-model="form.password_confirmation"
+                    label="Confirm Password"
+                    placeholder="Your password"
+                    id="password_confirmation"
+                    name="password_confirmation"
+                    required autocomplete="confirm-password"
+                />
             </div>
 
             <div class="mt-4" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
@@ -58,11 +70,8 @@
 <script>
     import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
     import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
-    import JetButton from '@/Jetstream/Button.vue'
-    import JetInput from '@/Jetstream/Input.vue'
-    import JetCheckbox from '@/Jetstream/Checkbox.vue'
-    import JetLabel from '@/Jetstream/Label.vue'
-    import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
+    import JetValidationErrors from "@/Components/Inputs/ValidationErrors.vue";
+    import PasswordInput from "@/Components/Inputs/PasswordInput.vue";
     import { Head, Link } from "@inertiajs/vue3";
 
     export default {
@@ -70,11 +79,8 @@
             Head,
             JetAuthenticationCard,
             JetAuthenticationCardLogo,
-            JetButton,
-            JetInput,
-            JetCheckbox,
-            JetLabel,
             JetValidationErrors,
+            PasswordInput,
             Link,
         },
 

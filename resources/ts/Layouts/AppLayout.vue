@@ -234,10 +234,10 @@
 <script>
     import JetApplicationMark from '@/Jetstream/ApplicationMark.vue'
     import JetBanner from '@/Jetstream/Banner.vue'
-    import JetDropdown from '@/Jetstream/Dropdown.vue'
-    import JetDropdownLink from '@/Jetstream/DropdownLink.vue'
-    import JetNavLink from '@/Jetstream/NavLink.vue'
-    import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue'
+    import JetDropdown from '@/Components/Inputs/Dropdown.vue'
+    import JetDropdownLink from '@/Components/Inputs/DropdownLink.vue'
+    import JetNavLink from '@/Components/Inputs/NavLink.vue'
+    import JetResponsiveNavLink from '@/Components/Inputs/ResponsiveNavLink.vue'
     import { Head, Link } from "@inertiajs/vue3";
 
     export default {

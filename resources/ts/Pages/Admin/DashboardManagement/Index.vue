@@ -200,9 +200,8 @@
 
 <script>
 import { Link } from "@inertiajs/vue3";
-import Breadcrumbs from "@/Components/Breadcrumbs.vue";
+import Breadcrumbs from "@/Components/Partials/Breadcrumbs.vue";
 import AdminLayout from "@/Layouts/AdminLayout.vue";
-import DataTable from "@/Components/DataTable.vue";
 import {
   Menu,
   MenuButton,
@@ -247,8 +246,7 @@ export default {
     XMarkIcon,
     AdminLayout,
     Link,
-    Breadcrumbs,
-    DataTable
+    Breadcrumbs
   },
   setup() {
     const headers = [

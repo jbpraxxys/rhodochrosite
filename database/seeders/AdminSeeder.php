@@ -32,7 +32,7 @@ class AdminSeeder extends Seeder
 
         // Create fake Admins
         Admin::factory()
-            ->count(50)
+            ->count(10)
             ->create();
     }
 }
