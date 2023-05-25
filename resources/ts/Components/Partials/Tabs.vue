@@ -40,7 +40,6 @@
                             : 'text-gray-900 hover:text-gray-800 hover:border-gray-200',
                         'whitespace-nowrap flex py-4 px-1 text-sm cursor-pointer relative',
                     ]"
-                    href=""
                     :aria-current="tab.current ? 'page' : undefined"
                 >
                     {{ tab.name }}

@@ -16,6 +16,7 @@
                 :close-on-select="closeOnSelect"
                 :create-option="createOption"
                 class="frm-multiselect"
+                v-modal="modelValue"
                 @change="$emit('change')"
                 @select="$emit('select')"
                 @clear="$emit('clear')"
