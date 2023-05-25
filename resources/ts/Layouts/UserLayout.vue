@@ -48,7 +48,7 @@ const footer = ref<object>(null);
 
 // METHODS
 const fetchLayout = () => {
-    window.axios.post(route("cms.layout")).then((response) => {
+    window.axios.post(route("web.cms.layout")).then((response) => {
         header.value = response.data.header?.content;
         footer.value = response.data.footer?.content;
     });
