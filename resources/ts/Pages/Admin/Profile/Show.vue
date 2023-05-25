@@ -5,19 +5,19 @@
         <div v-if="$page.props.jetstream.canUpdateProfileInformation">
           <update-profile-information-form :user="$page.props.user" />
 
-          <jet-section-border />
+          <section-border />
         </div>
 
         <div v-if="$page.props.jetstream.canUpdatePassword">
           <update-password-form class="mt-10 sm:mt-0" />
 
-          <jet-section-border />
+          <section-border />
         </div>
 
         <div v-if="$page.props.jetstream.canManageTwoFactorAuthentication">
           <two-factor-authentication-form class="mt-10 sm:mt-0" />
 
-          <jet-section-border />
+          <section-border />
         </div>
 
         <logout-other-browser-sessions-form
@@ -26,7 +26,7 @@
         />
 
         <!-- <template v-if="$page.props.jetstream.hasAccountDeletionFeatures">
-          <jet-section-border />
+          <section-border />
 
           <delete-user-form class="mt-10 sm:mt-0" />
         </template> -->
@@ -37,12 +37,12 @@
 
 <script>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
-import DeleteUserForm from "@/Pages/Profile/Partials/DeleteUserForm.vue";
-import JetSectionBorder from "@/Jetstream/SectionBorder.vue";
-import LogoutOtherBrowserSessionsForm from "@/Pages/Profile/Partials/LogoutOtherBrowserSessionsForm.vue";
-import TwoFactorAuthenticationForm from "@/Pages/Profile/Partials/TwoFactorAuthenticationForm.vue";
-import UpdatePasswordForm from "@/Pages/Profile/Partials/UpdatePasswordForm.vue";
-import UpdateProfileInformationForm from "@/Pages/Profile/Partials/UpdateProfileInformationForm.vue";
+import DeleteUserForm from "./Partials/DeleteUserForm.vue";
+import SectionBorder from '@/Components/Partials/SectionBorder.vue'
+import LogoutOtherBrowserSessionsForm from "./Partials/LogoutOtherBrowserSessionsForm.vue";
+import TwoFactorAuthenticationForm from "./Partials/TwoFactorAuthenticationForm.vue";
+import UpdatePasswordForm from "./Partials/UpdatePasswordForm.vue";
+import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm.vue";
 
 export default {
   props: ["sessions"],
@@ -50,7 +50,7 @@ export default {
   components: {
     AdminLayout,
     DeleteUserForm,
-    JetSectionBorder,
+    SectionBorder,
     LogoutOtherBrowserSessionsForm,
     TwoFactorAuthenticationForm,
     UpdatePasswordForm,

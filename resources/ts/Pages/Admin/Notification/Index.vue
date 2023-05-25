@@ -76,7 +76,7 @@
 
     <DataTable
       :headers="headers"
-      :no-action="noAction"
+      :no-action="false"
       :is-empty="notifications.data.length === 0"
     >
       <template v-slot:body>
@@ -106,7 +106,6 @@
               </div>
             </td>
             <td
-              v-if="!noAction"
               class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
             >
               <Link
@@ -139,14 +138,11 @@
 </template>
 <script>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
-import DataTable from "@/Components/DataTable.vue";
 import { Link } from "@inertiajs/vue3";
-import Tabs from "@/Components/Tabs.vue";
 import { ArrowPathIcon, EnvelopeOpenIcon, EyeIcon } from "@heroicons/vue/24/solid";
 import Datepicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 import pickBy from "lodash/pickBy";
-import Pagination from "@/Components/Pagination.vue";
 import { router } from "@inertiajs/vue3";
 import { ref, watch } from "vue";
 import throttle from "lodash/throttle";
@@ -154,14 +150,11 @@ import throttle from "lodash/throttle";
 export default {
   components: {
     AdminLayout,
-    DataTable,
     Link,
-    Tabs,
     EyeIcon,
     ArrowPathIcon,
     EnvelopeOpenIcon,
     Datepicker,
-    Pagination,
   },
   props: [
     "notifications",

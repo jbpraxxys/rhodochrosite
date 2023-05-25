@@ -24,9 +24,13 @@ import usePRXForm from "@/composables/usePRXForm";
 // Components
 import FormSection from "./FormSection.vue";
 
-const props = defineProps([ 
-     "roles"
-])
+const props = defineProps({
+    roles: {
+        type : Object,
+        default: () => {},
+        require: true,
+    },
+});
 
 /*---------------*
 * Variables

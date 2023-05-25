@@ -19,7 +19,7 @@ unit_test:
         - php artisan migrate --seed --env=testing
         - php artisan dusk:chrome-driver --detect
         - npm install
-        - npm run dev
+        - npm run prod
         - cp .env.testing .env
         - php artisan serve --env=testing &
         - php artisan dusk --env=testing

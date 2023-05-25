@@ -11,7 +11,7 @@
               sm:rounded-lg
             "
           >
-            <DataTable :headers="headers" :no-action="noAction">
+            <DataTable :headers="headers" :no-action="false">
               <template v-slot:body>
                 <template v-for="i in 3" :key="i">
                   <tr>
@@ -21,7 +21,6 @@
                       lorem
                     </td>
                     <td
-                      v-if="!noAction"
                       class="
                         px-6
                         py-4
@@ -56,14 +55,12 @@ import AdminLayout from "@/Layouts/AdminLayout.vue";
 import { computed } from "vue";
 import { PencilSquareIcon } from "@heroicons/vue/24/solid";
 import { Link } from "@inertiajs/vue3";
-import DataTable from "@/Components/DataTable.vue";
 import EditButton from "@/Components/ActionButtons/EditButton.vue";
 export default {
   components: {
     AdminLayout,
     PencilSquareIcon,
     Link,
-    DataTable,
     EditButton
   },
   props: ["items"],

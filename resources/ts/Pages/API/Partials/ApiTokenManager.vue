@@ -15,7 +15,7 @@
                 <div class="col-span-6 sm:col-span-4">
                     <jet-label for="name" value="Name" />
                     <jet-input id="name" type="text" class="mt-1 block w-full" v-model="createApiTokenForm.name" autofocus />
-                    <jet-input-error :message="createApiTokenForm.errors.name" class="mt-2" />
+                    <input-error :message="createApiTokenForm.errors.name" class="mt-2" />
                 </div>
 
                 <!-- Token Permissions -->
@@ -45,7 +45,7 @@
         </jet-form-section>
 
         <div v-if="tokens.length > 0">
-            <jet-section-border />
+            <section-border />
 
             <!-- Manage API Tokens -->
             <div class="mt-10 sm:mt-0">
@@ -106,9 +106,9 @@
             </template>
 
             <template #footer>
-                <jet-secondary-button @click="displayingToken = false">
+                <secondary-button @click="displayingToken = false">
                     Close
-                </jet-secondary-button>
+                </secondary-button>
             </template>
         </jet-dialog-modal>
 
@@ -130,9 +130,9 @@
             </template>
 
             <template #footer>
-                <jet-secondary-button @click="managingPermissionsFor = null">
+                <secondary-button @click="managingPermissionsFor = null">
                     Cancel
-                </jet-secondary-button>
+                </secondary-button>
 
                 <jet-button class="ml-2" @click="updateApiToken" :class="{ 'opacity-25': updateApiTokenForm.processing }" :disabled="updateApiTokenForm.processing">
                     Save
@@ -151,9 +151,9 @@
             </template>
 
             <template #footer>
-                <jet-secondary-button @click="apiTokenBeingDeleted = null">
+                <secondary-button @click="apiTokenBeingDeleted = null">
                     Cancel
-                </jet-secondary-button>
+                </secondary-button>
 
                 <jet-danger-button class="ml-2" @click="deleteApiToken" :class="{ 'opacity-25': deleteApiTokenForm.processing }" :disabled="deleteApiTokenForm.processing">
                     Delete
@@ -164,35 +164,25 @@
 </template>
 
 <script>
-    import JetActionMessage from '@/Jetstream/ActionMessage.vue'
-    import JetActionSection from '@/Jetstream/ActionSection.vue'
-    import JetButton from '@/Jetstream/Button.vue'
-    import JetConfirmationModal from '@/Jetstream/ConfirmationModal.vue'
-    import JetDangerButton from '@/Jetstream/DangerButton.vue'
-    import JetDialogModal from '@/Jetstream/DialogModal.vue'
-    import JetFormSection from '@/Jetstream/FormSection.vue'
-    import JetInput from '@/Jetstream/Input.vue'
-    import JetCheckbox from '@/Jetstream/Checkbox.vue'
-    import JetInputError from '@/Jetstream/InputError.vue'
-    import JetLabel from '@/Jetstream/Label.vue'
-    import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
-    import JetSectionBorder from '@/Jetstream/SectionBorder.vue'
+    import JetActionMessage from "@/Components/Modals/JetActionMessage.vue";
+    import JetActionSection from "@/Components/Partials/JetActionSection.vue";
+    import JetConfirmationModal from '@/Components/Modals/ConfirmationModal.vue'
+    import JetDangerButton from "@/Components/ActionButtons/DangerButton.vue";
+    import JetDialogModal from "@/Components/Modals/DialogModal.vue";
+    import InputError from "@/Components/Inputs/InputError.vue";
+    import SecondaryButton from "@/Components/ActionButtons/SecondaryButton.vue";
+    import SectionBorder from '@/Components/Partials/SectionBorder.vue'
 
     export default {
         components: {
             JetActionMessage,
             JetActionSection,
-            JetButton,
             JetConfirmationModal,
             JetDangerButton,
             JetDialogModal,
-            JetFormSection,
-            JetInput,
-            JetCheckbox,
-            JetInputError,
-            JetLabel,
-            JetSecondaryButton,
-            JetSectionBorder,
+            InputError,
+            SecondaryButton,
+            SectionBorder,
         },
 
         props: [

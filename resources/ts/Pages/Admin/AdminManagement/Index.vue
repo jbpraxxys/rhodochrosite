@@ -1,5 +1,5 @@
 <template>
-    <admin-layout title="Admin Management" :breadcrumb-pages="breadcrumbs">
+    <admin-layout title="Admin Management">
         <!-- Tabs -->
         <div>
             <Tabs
@@ -9,12 +9,16 @@
                 @update:tab="(value: string) => (activeTab = value)"
                 :tab-route="route('admin.admin-management.index')"
             >
-                <template #buttons v-if="activeTab !== 'activity_logs'">
-                    <export-button
-                        :route="route('admin.admin-management.index', { action: 'export' })"
+            <template #buttons>
+                    <ExportButton
+                        v-if="activeTab !== 'activity_logs'"
+                        :routeLink="route('admin.admin-management.index', { action: 'export' })"
                         class="mr-2"
                     />
-                    <create-button :route="route('admin.admin-management.create')" />
+                    <CreateButton  
+                        v-if="activeTab !== 'activity_logs'"
+                        :routeLink="route('admin.admin-management.create')" 
+                    />
                 </template>
             </Tabs>
             
@@ -46,7 +50,7 @@
         <div v-if="activeTab !== 'activity_logs'">
             <DataTable 
                 :headers="headers" 
-                :no-action="noAction"
+                :no-action="false"
                 :count="items.data.length"
             >
                 <template v-slot:body>
@@ -84,7 +88,6 @@
                             </td>
 
                             <td
-                                v-if="!noAction"
                                 class="
                                     px-6
                                     py-4
@@ -156,14 +159,33 @@ import { router } from "@inertiajs/vue3";
 import throttle from "lodash/throttle";
 import pickBy from "lodash/pickBy";
 
-const props = defineProps([
-    "items",
-    "activeCount",
-    "archivedCount",
-    "selectedTab",
-    "query",
-    "filterDate",
-]);
+const props = defineProps({
+    items: {
+        type : Object,
+        default: () => {},
+        require: true,
+    },
+    activeCount: {
+        type : Number,
+        default: 0
+    },
+    archivedCount: {
+        type : Number,
+        default: 0
+    },
+    selectedTab: {
+        type : String,
+        default: null
+    },
+    query: {
+        type : String,
+        default: null
+    },
+    filterDate: {
+        type : String,
+        default: null
+    }
+});
 
 /**---------------*
  * VARS

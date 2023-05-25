@@ -1,20 +1,21 @@
 <template>
     <Head>
         <title inertia>{{ seoTitle }}</title>
-        <meta property="og:image" :content="seoImage">
+        <meta itemprop="image" :content="seoImage ? seoImage : origin + '/icons/logo.png'">
+        <meta name="twitter:image" :content="seoImage ? seoImage : origin + '/icons/logo.png'">
+        <meta property="og:image" :content="seoImage ? seoImage : origin + '/icons/logo.png'">
         <meta property="og:title" :content="seoTitle">
         <meta property="og:description" :content="seoDescription">
-        <link rel="icon" :href="'/storage/' + headerfooter.logo_favicon" sizes="32x32">
     </Head>
     <div>
         <Header 
-        :header="headerfooter"
+        :header="header"
         />
         
         <slot />
 
         <Footer
-        :footer="headerfooter"
+        :footer="footer"
         />
     </div>
 </template>
@@ -41,18 +42,21 @@ defineProps({
     }
 })
 
-const headerfooter = ref([]); 
-const fetchHeaderFooter = () => {
-    window.axios.post(route('web.cms.general.fetchHeaderFooter'))
-    .then(({ data }) => {
-        headerfooter.value = data[0].content;
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-}
+
+const header = ref<object>(null);
+const footer = ref<object>(null);
+
+// METHODS
+const fetchLayout = () => {
+    window.axios.post(route("web.cms.layout")).then((response) => {
+        header.value = response.data.header?.content;
+        footer.value = response.data.footer?.content;
+    });
+};
+
+const origin = window.location.origin;
 
 onMounted(() => {
-    fetchHeaderFooter();
+    // fetchLayout();
 })
 </script>

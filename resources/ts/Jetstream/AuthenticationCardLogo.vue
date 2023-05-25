@@ -1,6 +1,6 @@
 <template>
-    <Link :href="'/'">
-        <img style="max-width: 480px; min-width: 360px; margin: auto;" src="/icons/logo.png" alt="logo">
+    <Link :href="'/admin/login'">
+        <img  src="/icons/logo.png" alt="logo" :class="customImageClass" class="mx-auto">
     </Link>
 </template>
 
@@ -11,5 +11,12 @@
         components: {
             Link,
         },
+
+        props: {
+            customImageClass: {
+                type: String,
+                default: null,
+            },
+        }
     }
 </script>

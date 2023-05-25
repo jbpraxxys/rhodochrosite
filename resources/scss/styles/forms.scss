@@ -1,3 +1,16 @@
+// Number inputs
+@layer base {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance:textfield;
+    }
+}
+
 // datepicker
 .dp__input {
     font-size: 0.875rem !important;
@@ -69,5 +82,69 @@
     .multiselect-option.is-selected,
     .multiselect-option.is-selected.is-pointed {
         background: theme("colors.primary.700") !important;
+    }
+}
+
+// For Tables need to have text center align
+.header-frm-table {
+
+    &.first {
+        .th-parent:nth-child(1) {
+            text-align: center;
+        }
+    }
+
+    &.two {
+        .th-parent:nth-child(2) {
+            text-align: center;
+        }
+    }
+
+    &.three {
+        .th-parent:nth-child(3) {
+            text-align: center;
+        }
+    }
+
+    &.four {
+        .th-parent:nth-child(4) {
+            text-align: center;
+        }
+    }
+
+    &.five {
+        .th-parent:nth-child(5) {
+            text-align: center;
+        }
+    }
+
+    &.six {
+        .th-parent:nth-child(6) {
+            text-align: center;
+        }
+    }
+
+    &.seven {
+        .th-parent:nth-child(7) {
+            text-align: center;
+        }
+    }
+
+    &.eight {
+        .th-parent:nth-child(8) {
+            text-align: center;
+        }
+    }
+
+    &.nine {
+        .th-parent:nth-child(9) {
+            text-align: center;
+        }
+    }
+
+    &.ten {
+        .th-parent:nth-child(10) {
+            text-align: center;
+        }
     }
 }

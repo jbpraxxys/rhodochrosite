@@ -1,5 +1,5 @@
 <template>
-    <admin-layout title="Roles & Permissions" :breadcrumb-pages="breadcrumbs">
+    <admin-layout title="Roles & Permissions">
         <!-- Tabs -->
         <div>
             <Tabs
@@ -9,8 +9,11 @@
                 @update:tab="(value) => (activeTab = value)"
                 :tab-route="route('admin.role-permission-management.index')"
             >
-                <template #buttons v-if="activeTab !== 'activity_logs'">
-                    <create-button :route="route('admin.role-permission-management.create')" />
+                <template #buttons>
+                    <CreateButton 
+                        v-if="activeTab !== 'activity_logs'"
+                        :routeLink="route('admin.role-permission-management.create')" 
+                    />
                 </template>
             </Tabs>
 
@@ -23,7 +26,7 @@
                     :custom-filters="activeTab !== 'activity_logs'"
                 >
                     <template #fields>
-                        <div class="mb-6">
+                        <div class="space-y-6">
                             <date-picker
                                 id="filterDate"
                                 label="Date Created"
@@ -40,7 +43,7 @@
 
         <DataTable
             :headers="headers"
-            :no-action="noAction"
+            :no-action="false"
             :count="items.data.length"
         >
             <template v-slot:body>
@@ -66,7 +69,6 @@
                         </td>
 
                         <td
-                            v-if="!noAction"
                             class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
                         >
                             <template v-if="activeTab !== 'archived'">

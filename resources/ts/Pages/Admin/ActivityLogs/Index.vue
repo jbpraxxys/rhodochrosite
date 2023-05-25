@@ -12,7 +12,7 @@
 <script>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import { computed, ref, watch } from "vue";
-import ActivityLogs from "@/Components/ActivityLogs.vue";
+import ActivityLogs from "@/Components/Partials/ActivityLogs.vue";
 
 export default {
   components: {

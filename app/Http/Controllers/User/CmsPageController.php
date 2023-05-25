@@ -7,17 +7,11 @@ use Illuminate\Http\Request;
 
 class CmsPageController extends Controller
 {
-    // public function fetchHeader()
+    // public function layout()
     // {
     //     return response()->json([
-    //         CmsPage::where('slug', 'header')->first()
-    //     ]);
-    // }
-
-    // public function fetchFooter()
-    // {
-    //     return response()->json([
-    //         CmsPage::where('slug', 'footer')->first()
+    //         'header' => CmsPage::where('slug', 'header')->first(),
+    //         'footer' => CmsPage::where('slug', 'footer')->first(),
     //     ]);
     // }
 }
