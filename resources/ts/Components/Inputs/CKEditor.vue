@@ -4,13 +4,13 @@
             label
         }}</label>
         <div class="relative rounded-md shadow-sm">
-            <CKEditor
+            <ckeditor
                 :editor="editor"
                 :model-value="modelValue"
                 @input="$emit('update:modelValue', $event)"
                 :config="editorConfig"
                 class="h-40"
-            ></CKEditor>
+            ></ckeditor>
             <div
                 v-if="error"
                 class="
