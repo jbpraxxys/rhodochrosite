@@ -28,7 +28,7 @@
                                 "
                             >
                                 <edit-button
-                                    :route="route('admin.cms.edit', page.id)"
+                                    :routeLink="route('admin.cms.edit', page.id)"
                                 />
                             </td>
                         </tr>
