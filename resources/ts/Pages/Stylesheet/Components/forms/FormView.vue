@@ -25,6 +25,17 @@
 
         <div class="mb-4">
             <v-text-input
+                label="Price"
+                placeholder="Price"
+                id="price"
+                :add_on_left="true"
+                add_on_text="₱"
+                type="number"
+            />
+        </div>
+
+        <div class="mb-4">
+            <v-text-input
                 error="error"
                 type="text"
                 name="text-input"
