@@ -1,18 +1,21 @@
 <template>
     <button
         :type="btnType"
-        class="inline-flex items-center font-bold px-4 py-3 text-sm transition text-center justify-center disabled:opacity-25 border btn"
-        
-        :class="
+        class="inline-flex items-center font-bold px-4 py-3 text-sm transition text-center justify-center border btn"
+        :class="[
+            disabled ? 'pointer-events-none disabled:opacity-25' : '',
+            fill ? 'hover:bg-white text-white active:text-white' : 'bg-transparent hover:text-white',
+            fillColor == 'primary' ? 'bg-primary-800 border-primary-800 hover:text-primary-800 active:bg-primary-900' :
+            fillColor == 'gray' ? 'bg-gray-800 border-gray-800 hover:text-gray-800 active:bg-gray-900' :
+            fillColor == 'blue' ? 'bg-blue-800 border-blue-800 hover:text-blue-800 active:bg-blue-900' : '',
+            fillColor == 'primary-outline' ? 'border-primary-800 text-primary-800 hover:bg-primary-800 active:bg-primary-900' :
+            fillColor == 'gray-outline' ? 'border-gray-800 text-gray-800 hover:bg-gray-800 active:bg-gray-900' :
+            fillColor == 'blue-outline' ? 'border-blue-800 text-blue-800 hover:bg-blue-800 active:bg-blue-900' : '',
+            size == 'sm' ? 'h-10' : 
+            size == 'md' ? 'h-12' : 'h-[60px]',
+            block ? 'flex w-full' : 'inline-flex',
             customClass,
-			primary
-				? 'bg-primary-800 border-primary-800 text-white hover:text-primary-800 hover:bg-white focus:outline-none active:bg-primary-900 active:text-white disabled:opacity-25 '
-				: secondary
-                ? 'bg-white border-primary-800 text-primary-800 hover:text-white hover:bg-primary-800 focus:outline-none active:bg-primary-900 disabled:opacity-25'
-                : tertiary
-                ? 'border-0 text-primary-800 hover:text-primary-700 active:text-primary-900 px-0 py-0'
-                : ''
-		"
+        ]"
     >
       <slot></slot>
     </button>
@@ -20,34 +23,35 @@
   
 <script setup lang="ts">
 import { PropType } from 'vue';
-
-
 export type ButtonType = 'button' | 'submit' | 'reset'
 
-const props = defineProps({
+const props = defineProps ({
     btnType: {
         type: String as PropType<ButtonType>,
         default: "button",
     },
-    primary: {
-        type: Boolean,
-        default: false,
-    },
-    secondary: {
-        type: Boolean,
-        default: false,
-    },
-    tertiary: {
+    disabled: {
         type: Boolean,
         default: false,
     },
     customClass: {
-        type: String,
-        default: "primary large", // primary | secondary | tertiary &&& large | medium | small
+        type: String
     },
-    btnWidth: {
+    size: {
+        type: String, // sm, md, lg
+        default: "lg"
+    },
+    fillColor: {
         type: String,
-        default: ""
+        default: "primary", // primary | gray | blue
+    },
+    fill: {
+        type: Boolean,
+        default: true
+    },
+    block: {
+        type: Boolean,
+        default: false,
     },
 });
 </script>

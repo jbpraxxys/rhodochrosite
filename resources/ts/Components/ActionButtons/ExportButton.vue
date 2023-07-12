@@ -6,6 +6,7 @@
 </template>
 
 <script setup lang="ts">
+import JetButton from "@/Components/ActionButtons/JetButton.vue";
 import { ArrowDownTrayIcon } from "@heroicons/vue/24/solid";
 
 const props = defineProps({

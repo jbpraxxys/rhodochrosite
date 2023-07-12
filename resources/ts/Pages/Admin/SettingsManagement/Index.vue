@@ -31,7 +31,7 @@
                     >
                       <edit-button
                         class="mr-3"
-                        route="#"
+                        routeLink="#"
                       />
                     </td>
                   </tr>

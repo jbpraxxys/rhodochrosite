@@ -5,8 +5,8 @@
     :disabled="disabled"
     @update:model-value="$emit('update:modelValue', $event.id)"
     >
-        <ListboxLabel class="block text-sm text-gray-900 mb-1">
-            {{ label }}
+        <ListboxLabel v-if="label" class="block text-sm text-gray-900 mb-1">
+            {{ label }}<span v-if="required" class="text-red-600 ml-0.5">*</span>
         </ListboxLabel>
         <div class="relative">
             <ListboxButton
@@ -25,11 +25,12 @@
                 focus:outline-none focus:ring-1
                 disabled:bg-gray-100
             "
-            :class="
-            error
-            ? 'focus:ring-red-500 focus:border-red-500 border-red-500'
-            : 'focus:ring-gray-900 focus:border-gray-900 border-gray-300'
-            "
+            :class="[
+                error
+                    ? 'focus:ring-red-500 focus:border-red-500 border-red-500'
+                    : 'focus:ring-gray-900 focus:border-gray-900 border-gray-300',
+                readonly ? 'pointer-events-none cursor-default' : ''
+            ]"
             >
                 <span v-if="selected" class="block truncate text-sm">{{
                         selected
@@ -183,6 +184,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        required: {
+            type: Boolean,
+            default: false
+        }
     },
     setup(props, { emit }) {
         const selected = computed(() => {

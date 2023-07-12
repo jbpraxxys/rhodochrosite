@@ -34,6 +34,7 @@
 </template>
 
 <script setup lang="ts">
+import JetInput from "@/Components/Inputs/Input.vue";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/vue/24/solid";
 import { ref } from "vue";
 

@@ -98,7 +98,7 @@
                                 <template v-if="selectedTab !== 'archived'">
                                     <edit-button
                                         class="mr-3"
-                                        :route="route('admin.admin-management.edit', item.id)"
+                                        :routeLink="route('admin.admin-management.edit', item.id)"
                                     />
                                     <delete-button @click="selectArchive(item)" />
                                 </template>

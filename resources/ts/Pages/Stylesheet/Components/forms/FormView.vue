@@ -1,49 +1,118 @@
 <template>
     
     <div>
+        <h4 class="mb-4 text-gray-600 font-medium">User Forms</h4>
         <div class="mb-4">
-            <v-input
+            <v-text-input
                 type="text"
                 name="text-input"
                 id="text-input"
                 placeholder="Sample Placeholder"
                 label="Sample Label"
             />
-
         </div>
 
         <div class="mb-4">
-            <v-input
-                label="Price"
-                placeholder="Price"
-                id="price"
-                :add_on_left="true"
-                add_on_text="₱"
-                type="number"
-            />
-
-        </div>
-
-        <div class="mb-4">
-            <v-input
-                label="Height"
-                placeholder="Height"
-                id="height"
-                :add_on_right="true"
-                add_on_text="cm"
-                type="number"
+            <v-text-input
+                textarea
+                type="text"
+                name="text-input"
+                id="text-input"
+                placeholder="Sample Placeholder"
+                label="Sample Label"
             />
         </div>
+
         <div class="mb-4">
+            <v-text-input
+                error="error"
+                type="text"
+                name="text-input"
+                id="text-input"
+                placeholder="Sample Placeholder"
+                label="Sample Label"
+            />
+        </div>
+
+        <div class="mb-4">
+            <v-password-input
+                name="text-password"
+                id="text-password"
+                placeholder="Sample Placeholder"
+                label="Sample Label"
+            />
+        </div>
+
+        <div class="mb-4">
+            <v-date-picker
+                name="text-input"
+                id="text-input"
+                placeholder="Sample Placeholder"
+                label="Sample Label"
+            />
+        </div>
+
+        <div class="mb-4">
+            <v-checkbox>
+                <p>Regular Savings Deposit</p>
+            </v-checkbox>
+        </div>
+
+        <div>
             <v-selector
-                :options="sampleOptions"
+                :options="[{ id: '1', value: 'Sample'}]"
+                label="Sample Selector"
+                placeholder="Sample Selector"
+                id="selector-id"
+                name="selector-name"
+            />
+        </div>
+
+        <div class="w-full border-t border-gray-200 my-20"></div>
+
+        <h4 class="mb-4 text-gray-600 font-medium">Admin Forms</h4>
+        <div class="mb-4">
+            <jet-input
+                type="text"
+                name="text-input"
+                id="text-input"
+                placeholder="Sample Placeholder"
+                label="Sample Label"
+            />
+        </div>
+
+        <div class="mb-4">
+            <jet-input
+            label="Price"
+            placeholder="Price"
+            id="price"
+            :add_on_left="true"
+            add_on_text="₱"
+            type="number"
+            />
+
+        </div>
+
+        <div class="mb-4">
+            <jet-input
+            label="Height"
+            placeholder="Height"
+            id="height"
+            :add_on_right="true"
+            add_on_text="cm"
+            type="number"
+            />
+        </div>
+        <div class="mb-4">
+            <selector
+                :options="[{ id: '1', value: 'Sample'}]"
                 label="Sample Selector"
                 id="selector-id"
                 name="selector-name"
             />
         </div>
         <div class="mb-4">
-            <v-input
+            <jet-input
                 textarea
                 name="textarea-input"
                 id="textarea-input"
@@ -133,17 +202,8 @@
     </div>
 
 </template>
-<script>
-
-export default {
-    data: () => ({
-        sampleOptions: [
-            { id: '1', value: 'Colors'},
-            { id: '2', value: 'Typography'},
-            { id: '3', value: 'Forms'},
-            { id: '4', value: 'Buttons'},
-            { id: '5', value: 'Cards'}
-        ]
-    })
-}
+<script setup lang="ts">
+import JetInput from "@/Components/Inputs/Input.vue";
+import Selector from "@/Components/Inputs/Selector.vue";
+import Dropzone from "@/Components/Inputs/Dropzone.vue";
 </script>
