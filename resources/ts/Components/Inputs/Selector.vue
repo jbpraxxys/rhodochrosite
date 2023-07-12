@@ -32,10 +32,15 @@
                 readonly ? 'pointer-events-none cursor-default' : ''
             ]"
             >
-                <span v-if="selected" class="block truncate text-sm">{{
-                        selected
-                }}</span>
-                <span v-else class="block text-sm">{{ placeholder }}</span>
+                <span v-if="selected"
+                class="block truncate text-sm">
+                    {{ selected }}
+                </span>
+                <span
+                    v-else
+                    class="block text-sm">
+                    {{ placeholder }}
+                </span>
             </ListboxButton>
             <template v-if="modelValue && !disabled">
                 <span
@@ -69,7 +74,6 @@
                     "
                 >
                     <ChevronDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
-
                 </span>
             </template>
 
@@ -104,14 +108,15 @@
                         :value="item"
                         :disabled="item.unavailable"
                         :hidden="item.hidden"
+                        @click="select(item.id)"
                     >
                         <li
                             :class="[
                                 modelValue == item.id
-                                    ? 'bg-gray-300'
-                                    : item.unavailable
-                                    ? 'text-gray-900'
-                                    : 'text-gray-900 hover:bg-gray-300',
+                                ? 'bg-gray-300'
+                                : item.unavailable
+                                ? 'text-gray-900'
+                                : 'text-gray-900 hover:bg-gray-300',
                                 'cursor-default select-none relative py-2 px-3',
                             ]"
                         >
@@ -138,8 +143,8 @@
     </Listbox>
 </template>
 
-<script>
-import { computed, ref } from "vue";
+<script setup lang="ts">
+import { computed } from "vue";
 import {
     Listbox,
     ListboxButton,
@@ -149,67 +154,58 @@ import {
 } from "@headlessui/vue";
 import { XMarkIcon, ChevronDownIcon } from "@heroicons/vue/24/solid";
 
-export default {
-    components: {
-        Listbox,
-        ListboxButton,
-        ListboxLabel,
-        ListboxOption,
-        ListboxOptions,
-        XMarkIcon,
-        ChevronDownIcon,
+const props = defineProps({
+    modelValue: {
+        default: null,
+        required: true,
     },
-    props: {
-        modelValue: {
-            default: null,
-            required: true,
-        },
-        options: {
-            type: Array,
-            required: true,
-        },
-        label: {
-            type: String,
-            default: "",
-        },
-        error: {
-            type: String,
-            default: "",
-        },
-        placeholder: {
-            type: String,
-            default: "",
-        },
-        disabled: {
-            type: Boolean,
-            default: false,
-        },
-        required: {
-            type: Boolean,
-            default: false
-        }
+    options: {
+        type: Object,
+        required: true,
     },
-    setup(props, { emit }) {
-        const selected = computed(() => {
-            const result = Object.values(props.options).filter(
-                (option) => option.id == props.modelValue
-            )[0];
-
-            if (typeof result !== "undefined") {
-                return result.value;
-            } else {
-                return props.placeholder;
-            }
-        });
-
-        function clearValue() {
-            emit("update:modelValue", null);
-        }
-
-        return {
-            selected,
-            clearValue,
-        };
+    label: {
+        type: String,
+        default: "",
     },
-};
+    error: {
+        type: String,
+        default: "",
+    },
+    placeholder: {
+        type: String,
+        default: "",
+    },
+    disabled: {
+        type: Boolean,
+        default: false,
+    },
+    required: {
+        type: Boolean,
+        default: false
+    },
+    readonly: {
+        type: Boolean,
+        default: false
+    }
+});
+
+const emit = defineEmits(['update:modelValue'])
+
+const selected = computed(() => {
+    const option = props.options.find(x => x.id == props.modelValue);
+    if(option) {
+        return option.value;
+    }
+    else {
+        return props.placeholder;
+    }
+});
+
+const select = (id) => {
+    emit('update:modelValue', id);
+}
+
+const clearValue = () => {
+    emit("update:modelValue", null);
+}
 </script>

@@ -118,6 +118,7 @@
             <selector
                 :options="[{ id: '1', value: 'Sample'}]"
                 label="Sample Selector"
+                placeholder="Sample Selector"
                 id="selector-id"
                 name="selector-name"
             />
