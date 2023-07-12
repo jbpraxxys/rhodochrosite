@@ -9,7 +9,6 @@
         <div class="w-1/2">
             <jet-authentication-card>
                 <template #title>
-                    
                     <h3 class="text-lg font-bold mt-4">Admin</h3>
                     <p class="text-sm text-gray-500">Kindly input your credentials to continue</p>
                 </template>
@@ -34,7 +33,7 @@
                     </div>
 
                     <div class="mt-4">
-                        <password-input 
+                        <password-input
                             v-model="form.password"
                             label="Password"
                             placeholder="Your password"
@@ -75,8 +74,6 @@
             </jet-authentication-card>
         </div>
     </div>
-
-    
 </template>
 
 <script>

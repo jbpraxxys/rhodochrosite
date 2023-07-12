@@ -1,7 +1,7 @@
 <template>
     <div>
         <label class="block text-sm text-gray-900 mb-1">
-            {{ label }}
+            {{ label }}<span v-if="required" class="text-red-600 ml-0.5">*</span>
         </label>
         <div class="relative">
             <button v-if="canCopy" type="button" class="frm-multiselect_copy cursor-pointer">
@@ -93,6 +93,10 @@ const props = defineProps({
     canClearStat: {
         type: Boolean,
         default: false
+    },
+    required: {
+        type: Boolean,
+        default: false,
     },
 });
 

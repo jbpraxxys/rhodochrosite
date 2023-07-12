@@ -1,9 +1,9 @@
 <template>
     <div class="relative">
-        <UserInput
+        <v-text-input
             :modelValue="modelValue"
             :type="hidden ? 'password' : 'text'"
-            label="Current Password"
+            :label="label"
             :placeholder="placeholder"
             :name="name"
             :id="id"

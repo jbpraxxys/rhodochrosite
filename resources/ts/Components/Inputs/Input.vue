@@ -2,7 +2,7 @@
     <div>
         <label :for="id" class="block text-sm text-gray-900 mb-1">{{
             label
-        }}</label>
+        }}<span v-if="required" class="text-red-600 ml-0.5">*</span></label>
         <div
             class="relative rounded-lg"
             :class="add_on_right || add_on_left ? 'flex' : ''"
@@ -34,6 +34,8 @@
                 @input="$emit('update:modelValue', $event.target.value)"
                 :disabled="disabled"
                 :maxlength="maxlength"
+                :required="required"
+                :readonly=readonly
             />
 
             <span
@@ -84,6 +86,8 @@
                 :max="max"
                 :step="step"
                 :maxlength="maxlength"
+                :required="required"
+                :readonly=readonly
             />
 
             <span
@@ -221,6 +225,14 @@ export default {
             type: Number,
         },
         showInputLimit: {
+            type: Boolean,
+            default: false,
+        },
+        required: {
+            type: Boolean,
+            default: false,
+        },
+        readonly: {
             type: Boolean,
             default: false,
         },

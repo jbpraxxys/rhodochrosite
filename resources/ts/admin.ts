@@ -47,7 +47,7 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)
-            .mixin({ 
+            .mixin({
                 methods: { route },
                 components: {
                     AdminLayout,
@@ -78,7 +78,7 @@ createInertiaApp({
                     Multiselect,
                     Head,
                     Link
-                }    
+                }
             })
             .mount(el)
     },

@@ -74,7 +74,7 @@
                             <template v-if="activeTab !== 'archived'">
                                 <edit-button
                                     class="mr-3"
-                                    :route="route('admin.role-permission-management.edit', role.id)"
+                                    :routeLink="route('admin.role-permission-management.edit', role.id)"
                                 />
                                 <delete-button @click="selectDelete(role)" />
                             </template>

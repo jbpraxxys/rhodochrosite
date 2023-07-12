@@ -3,11 +3,7 @@
         <modal :id="id" :show="show" :max-width="maxWidth" :closeable="closeable" @close="close" :cstmClass="cstmClass">
             <div class="bg-white px-9 py-[60px] rounded-none border">
                 <div class="flex flex-col items-center text-center space-y-3 mb-6">
-                    <img
-                        src="/icons/ic-confirm.svg"
-                        class="h-[43px] w-[43px] object-contain"
-                        alt="delete_icon"
-                    />
+                    <CheckCircleIcon class="h-10 w-10 text-green-600" aria-hidden="true" />
                     <p class="text-xl font-bold text-primary-800">{{  title }}</p>
                     <p class="">{{ description }}</p>
                     <slot name="headerText"></slot>
@@ -23,12 +19,14 @@
 
 <script>
 import Modal from '@/Components/Modals/Modal.vue';
+import { CheckCircleIcon } from "@heroicons/vue/24/solid";
 
 export default {
     emits: ['close'],
 
     components: {
         Modal,
+        CheckCircleIcon
     },
 
     props: {

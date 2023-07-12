@@ -1,8 +1,8 @@
 <template>
     <div>
-        <label :for="id" class="block text-sm font-medium text-gray-700">{{
+        <label v-if="label" :for="id" class="block text-sm font-medium text-gray-700">{{
             label
-        }}</label>
+        }}<span v-if="required" class="text-red-600 ml-2">*</span></label>
         <div class="mt-1 relative rounded-md">
             <DatePicker
                 :uid="id"
@@ -14,6 +14,8 @@
                 :enableTimePicker="enableTimePicker"
                 :range="range"
                 :presetRanges="presetRanges"
+                :readonly=readonly
+                :required="required"
                 class="frm__date-picker font-sans"
             />
         </div>
@@ -29,7 +31,7 @@
 </template>
 
 <script>
-import { computed } from 'vue';
+import { computed } from "vue";
 import DatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 
@@ -83,6 +85,14 @@ export default {
             default: {},
         },
         spaceConfirm: {
+            type: Boolean,
+            default: false,
+        },
+        required: {
+            type: Boolean,
+            default: false,
+        },
+        readonly: {
             type: Boolean,
             default: false,
         },
