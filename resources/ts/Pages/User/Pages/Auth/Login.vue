@@ -6,7 +6,7 @@
                     <h1 class="font-bold">Login</h1>
                 </div>
                 <div class="flex flex-col gap-7">
-                    <UserInput
+                    <v-text-input
                         v-model="form.email"
                         label="Email"
                         placeholder="Your email"
@@ -14,7 +14,7 @@
                         name="email"
                         :error="form.errors.email"
                     />
-                    <UserPasswordInput 
+                    <v-password-input 
                         v-model="form.password"
                         label="Password"
                         placeholder="Your password"
@@ -25,16 +25,16 @@
                 </div>
                 <div class="mb-7 mt-1 flex items-center justify-between">
                     <div class="flex items-center">
-                        <UserCheckbox id="keepLogin" class="mr-2 w-4 h-4"></UserCheckbox>
+                        <v-checkbox id="keepLogin" class="mr-2 w-4 h-4"></v-checkbox>
                         <label for="keepLogin" class="leading-6 text-sm text-neutral-400 inline-block">Keep me logged in</label>
                     </div>
                     <a href="/forgot-password" class="text-sm leading-6 text-primary-800 hover:text-secondary">Forgot password?</a>
                 </div>
                 <div class="mb-8 text-center">
                     <a href="/account/details/profile">
-                        <UserButton>
+                        <v-button>
                             Login
-                        </UserButton>
+                        </v-button>
                     </a>
                 </div>
                 <div class="mb-8 flex items-center justify-between">
@@ -44,20 +44,20 @@
                 </div>
                 <div class="mb-10 grid 2xs:grid-cols-2 grid-cols-1 gap-6">
                     <div class="col-span-1">
-                        <UserButton
+                        <v-button
                             customClass="w-full secondary large"
                         >
                             <img src="/icons/ic-facebook-2.svg" alt="facebook_icon" class="w-5 h-5 object-contain mr-2">
                             <span>Facebook</span>
-                        </UserButton>
+                        </v-button>
                     </div>
                     <div class="col-span-1">
-                        <UserButton
+                        <v-button
                             customClass="w-full secondary large"
                         >
                             <img src="/icons/ic-gmail.svg" alt="facebook_icon" class="w-5 h-5 object-contain mr-2">
                             <span>Gmail</span>
-                        </UserButton>
+                        </v-button>
                     </div>
                 </div>
                 <div class="w-full text-center">

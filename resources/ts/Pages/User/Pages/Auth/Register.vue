@@ -6,7 +6,7 @@
                     <h1 class="font-bold">Sign Up</h1>
                 </div>
                 <div class="flex flex-col gap-7">
-                    <UserInput
+                    <v-text-input
                         v-model="form.email"
                         label="Email"
                         placeholder="Your email"
@@ -14,7 +14,7 @@
                         name="email"
                         :error="form.errors.email"
                     />
-                    <UserInput
+                    <v-text-input
                         v-model="form.firstName"
                         label="First Name"
                         placeholder="Your first name"
@@ -22,7 +22,7 @@
                         name="firstName"
                         :error="form.errors.firstName"
                     />
-                    <UserInput
+                    <v-text-input
                         v-model="form.lastName"
                         label="Last Name"
                         placeholder="Your last name"
@@ -30,7 +30,7 @@
                         name="lastName"
                         :error="form.errors.lastName"
                     />
-                    <UserInput
+                    <v-text-input
                         v-model="form.phoneNumber"
                         label="Phone Number"
                         placeholder="Your phone number"
@@ -40,11 +40,10 @@
                         add_on_text="+63 |"
                         type="tel" 
                         :error="form.errors.phoneNumber"
-                        customInputClass="pl-[54px]"
                         :maxlength="10"
                         @keypress="numberonly"
                     />
-                    <UserPasswordInput 
+                    <v-password-input 
                         v-model="form.password"
                         label="Password"
                         placeholder="Your password"
@@ -52,7 +51,7 @@
                         name="password"
                         :error="form.errors.password"
                     />
-                    <UserPasswordInput 
+                    <v-password-input 
                         v-model="form.confirmPassword"
                         label="Confirm Password"
                         placeholder="Your password"
@@ -63,15 +62,15 @@
                 </div>
                 <div class="mb-7 mt-2 w-full">
                     <div class="flex items-start">
-                        <UserCheckbox id="termsCondition" class="mr-2 mt-1 w-4 h-4"></UserCheckbox>
+                        <v-checkbox id="termsCondition" class="mr-2 mt-1 w-4 h-4"></v-checkbox>
                         <label for="termsCondition" class="leading-6 text-sm text-neutral-400 inline-block">By clicking the submit button below, I hereby agree to and accept Furniture Source’s Terms and Conditions governing my use of this website.</label>
                     </div>
                 </div>
                 <div class="mb-8 text-center">
                     <a href="/otp">
-                        <UserButton>
+                        <v-button>
                             Sign Up
-                        </UserButton>
+                        </v-button>
                     </a>
                 </div>
                 <div class="mb-8 flex items-center justify-between">
@@ -81,20 +80,20 @@
                 </div>
                 <div class="mb-10 grid 2xs:grid-cols-2 grid-cols-1 gap-6">
                     <div class="col-span-1">
-                        <UserButton
+                        <v-button
                             customClass="w-full secondary large"
                         >
                             <img src="/icons/ic-facebook-2.svg" alt="facebook_icon" class="w-5 h-5 object-contain mr-2">
                             <span>Facebook</span>
-                        </UserButton>
+                        </v-button>
                     </div>
                     <div class="col-span-1">
-                        <UserButton
+                        <v-button
                             customClass="w-full secondary large"
                         >
                             <img src="/icons/ic-gmail.svg" alt="facebook_icon" class="w-5 h-5 object-contain mr-2">
                             <span>Gmail</span>
-                        </UserButton>
+                        </v-button>
                     </div>
                 </div>
                 <div class="w-full text-center">

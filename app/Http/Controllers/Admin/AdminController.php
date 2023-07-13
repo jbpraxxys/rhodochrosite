@@ -35,7 +35,11 @@ class AdminController extends Controller
 
         # Search
         if ($request->input('query')) {
-            $search_query = Admin::search($request->input('query'));
+            // $search_query = Admin::search($request->input('query'));
+            $search_query = Admin::where('first_name', 'like', "%{$request->input('query')}%")
+                ->orWhere('last_name', 'like', "%{$request->input('query')}%")
+                ->orWhere('email', 'like', "%{$request->input('query')}%")
+                ->orWhere('title', 'like', "%{$request->input('query')}%");
 
             // Filter tab
             if ($request->tab === 'archived') {

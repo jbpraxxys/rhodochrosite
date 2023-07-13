@@ -11,13 +11,11 @@
 
         <form @submit.prevent="submit">
             <div>
-                <jet-label for="name" value="Name" />
-                <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
+                <jet-input id="name" type="text" label="Name" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
-                <jet-label for="email" value="Email" />
-                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required />
+                <jet-input id="email" type="email" label="Email" class="mt-1 block w-full" v-model="form.email" required />
             </div>
 
             <div class="mt-4">

@@ -20,10 +20,10 @@
 
                 <form @submit.prevent="submit">
                     <div>
-                        <jet-label for="email" value="Email Address" />
                         <jet-input
                             id="email"
                             type="email"
+                            label="Email Address"
                             class="mt-1 block w-full"
                             v-model="form.email"
                             required

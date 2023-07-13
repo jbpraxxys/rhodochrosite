@@ -6,7 +6,7 @@
                     <h1 class="font-bold">Reset Password</h1>
                 </div>
                 <div class="flex flex-col gap-7  mb-7">
-                    <UserPasswordInput 
+                    <v-password-input 
                         v-model="form.password"
                         label="Password"
                         placeholder="Your password"
@@ -14,7 +14,7 @@
                         name="password"
                         :error="form.errors.password"
                     />
-                    <UserPasswordInput 
+                    <v-password-input 
                         v-model="form.confirmPassword"
                         label="Confirm Password"
                         placeholder="Your password"
@@ -24,9 +24,9 @@
                     />
                 </div>
                 <div class="text-center">
-                    <UserButton btnType="submit">
+                    <v-button btnType="submit">
                         Reset Password
-                    </UserButton>
+                    </v-button>
                 </div>
             </div>
         </div>
