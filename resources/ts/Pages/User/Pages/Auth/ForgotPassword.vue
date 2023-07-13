@@ -6,7 +6,7 @@
                     <h1 class="font-bold">Forgot Password</h1>
                 </div>
                 <div class="flex flex-col gap-7 mb-7">
-                    <UserInput
+                    <v-text-input
                         v-model="form.email"
                         label="Email"
                         placeholder="Your email"
@@ -16,9 +16,9 @@
                     />
                 </div>
                 <div class="mb-8 text-center">
-                    <UserButton btnType="submit">
+                    <v-button btnType="submit">
                         Send Reset Password Request
-                    </UserButton>
+                    </v-button>
                 </div>
                 <div class="w-full text-center">
                     <p class="text-[#ADB5BD]">Don't have an account yet? 

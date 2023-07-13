@@ -66,11 +66,11 @@
 
       <!-- First Name -->
       <div class="col-span-6">
-        <jet-label for="first_name" value="First Name" />
         <jet-input
           id="first_name"
           type="text"
           class="mt-1 block w-full"
+          label="First Name"
           v-model="form.first_name"
           autocomplete="first_name"
         />
@@ -79,11 +79,11 @@
 
       <!-- Last Name -->
       <div class="col-span-6">
-        <jet-label for="last_name" value="Last Name" />
         <jet-input
           id="last_name"
           type="text"
           class="mt-1 block w-full"
+          label="Last Name"
           v-model="form.last_name"
           autocomplete="last_name"
         />

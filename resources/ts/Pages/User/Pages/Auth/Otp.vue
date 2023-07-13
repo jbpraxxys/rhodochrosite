@@ -44,7 +44,7 @@
                             </p>
                         </div>
                         <div class="flex items-center mt-6">
-                            <jet-button class="w-full flex justify-center" :disabled="disabled"> Verify </jet-button>
+                            <v-button class="w-full flex justify-center" :disabled="disabled"> Verify </v-button>
                         </div>
                     </form>
                     <div class="mt-6 text-center">
@@ -63,7 +63,7 @@
         
                     <form @submit.prevent="submitNewPassword">
                         <div class="relative">
-                            <password-input 
+                            <v-password-input 
                                 v-model="form.password"
                                 label="New Password"
                                 placeholder="Your password"
@@ -78,7 +78,7 @@
                         </div>
         
                         <div class="relative mt-6">
-                            <password-input 
+                            <v-password-input 
                                 v-model="form.password_confirmation"
                                 label="Confirm New Password"
                                 placeholder="Your password"
@@ -89,7 +89,7 @@
                         </div>
         
                         <div class="flex items-center mt-6">
-                            <jet-button class="w-full flex justify-center"> Reset Password </jet-button>
+                            <v-button class="w-full flex justify-center"> Reset Password </v-button>
                         </div>
                     </form>
                     <div class="mt-6 text-center">

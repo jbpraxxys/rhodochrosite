@@ -21,11 +21,11 @@
 
                 <form @submit.prevent="submit">
                     <div>
-                        <jet-label for="email" value="Email Address" />
                         <jet-input
                             id="email"
                             type="email"
                             class="mt-1 block w-full"
+                            label="Email Address"
                             v-model="form.email"
                             required
                             autofocus
