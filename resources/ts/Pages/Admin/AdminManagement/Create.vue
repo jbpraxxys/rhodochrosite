@@ -19,7 +19,7 @@
 <script setup lang="ts">
 // Packages
 import { ref } from "vue";
-import usePRXForm from "@/composables/usePRXForm";
+import usePRXForm from "@/composables/usePRXForm.ts";
 
 // Components
 import FormSection from "./FormSection.vue";

@@ -182,9 +182,9 @@
 <script>
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import ListTable from "@/Components/Partials/ListTable.vue";
-import useListTable from "@/composables/useListTable";
+import useListTable from "@/composables/useListTable.ts";
 import { PencilSquareIcon } from "@heroicons/vue/24/solid";
-import usePRXCMSForm from "@/composables/usePRXCMSForm";
+import usePRXCMSForm from "@/composables/usePRXCMSForm.ts";
 
 export default {
     components: {

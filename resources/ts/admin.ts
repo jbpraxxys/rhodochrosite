@@ -1,4 +1,5 @@
-require("./bootstrap");
+import "./bootstrap";
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
 
 import {createApp, h} from "vue";
@@ -43,7 +44,7 @@ const appName = window.document.getElementsByTagName('title')[0]?.innerText || '
 createInertiaApp({
     progress: { color: '#4B5563' },
     title: (title) => `Admin - ${appName}`,
-    resolve: (name) => require(`./Pages/${name}.vue`),
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)
