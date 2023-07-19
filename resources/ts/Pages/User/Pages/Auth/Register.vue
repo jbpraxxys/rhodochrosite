@@ -110,7 +110,7 @@
 
 <script setup lang="ts">
 import { useForm } from "@inertiajs/vue3";
-import { numberonly } from '@/composables/useNumberOnly';
+import { numberonly } from '@/composables/useNumberOnly.ts';
 
 const form = useForm({
     email: null,
