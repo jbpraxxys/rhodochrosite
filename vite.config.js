@@ -8,6 +8,8 @@ export default defineConfig({
         laravel([
             'resources/scss/user.scss',
             'resources/ts/app.ts',
+            'resources/scss/admin.scss',
+            'resources/ts/admin.ts',
         ]),
         // react(),
         vue({
