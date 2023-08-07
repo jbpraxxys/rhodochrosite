@@ -82,7 +82,7 @@
 import { ExclamationCircleIcon } from "@heroicons/vue/24/solid";
 import CKEditor from "@ckeditor/ckeditor5-vue";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { UploadAdapter } from '../../plugins/ckeditor/UploadAdapter';
+import { UploadAdapter } from '../../plugins/ckeditor/UploadAdapter.ts';
 export default {
     components: {
         ExclamationCircleIcon: ExclamationCircleIcon,
@@ -131,7 +131,11 @@ export default {
                     name: this.name,
                     height: 500,
                     mediaEmbed: { previewsInData: true },
-                    extraPlugins: [ this.uploadAdapterPlugin ],
+                    extraPlugins: [ function (editor) {
+                        editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+                                return new UploadAdapter(loader);
+                        }
+                    }],
                     link: {
                         addTargetToExternalLinks: true,
                     },
@@ -161,14 +165,6 @@ export default {
                 };
         },
     },
-
-     methods: {
-        uploadAdapterPlugin(editor) {
-                editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
-                        return new UploadAdapter(loader);
-                };
-        },
-    }
 
 };
 </script>
