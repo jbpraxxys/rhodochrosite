@@ -11,18 +11,16 @@
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/user.css') }}">
-
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/favicon/apple-touch-icon.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/favicon/favicon-32x32.png') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/favicon/favicon-16x16.png') }}">
         <meta name="msapplication-TileColor" content="#010066">
         <meta name="theme-color" content="#010066">
 
-        <!-- Scripts -->
         @routes
-        <script src="{{ mix('js/app.js') }}" defer></script>
+
+        <!-- Styles & Scripts -->
+        @vite(['resources/scss/user.scss', 'resources/ts/app.ts'])
     </head>
     <body class="font-sans antialiased">
         @inertia
@@ -113,7 +111,7 @@
         <!-- End of Tawk.to Code Snippet --> 
 
         @env ('local')
-            <script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>
+            <!-- <script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script> -->
         @endenv
 
         <script src='https://www.google.com/recaptcha/api.js' async defer></script>

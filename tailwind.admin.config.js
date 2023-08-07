@@ -1,4 +1,8 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+import defaultTheme from 'tailwindcss/defaultTheme';
+import aspectRatio from '@tailwindcss/aspect-ratio';
+import containerQueries from '@tailwindcss/container-queries';
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
 
 module.exports = {
     mode: "jit",
@@ -38,11 +42,10 @@ module.exports = {
     },
 
     plugins: [
-        require('@tailwindcss/aspect-ratio'),
-        require('@tailwindcss/container-queries'),
-        require("@tailwindcss/forms"), 
-        require('@tailwindcss/line-clamp'),
-        require("@tailwindcss/typography"), 
+        aspectRatio,
+        containerQueries,
+        forms,
+        typography,
     ],
     darkMode: "class",
 };
