@@ -127,7 +127,7 @@ export default {
             default: "",
         },
         file: {
-            type: String,
+            type: File || String,
         },
         error: {
             type: String,

@@ -80,7 +80,7 @@
                             <template v-if="key === 0">
                                 <Link
                                     v-if="key === 0"
-                                    :href="items.first_page_url"
+                                    :href="items.first_page_url ?? '#'"
                                     class="
                                         relative
                                         inline-flex
@@ -102,7 +102,7 @@
 
                                 <Link
                                     v-if="key === 0"
-                                    :href="link.url"
+                                    :href="link.url ?? '#'"
                                     class="
                                         relative
                                         inline-flex
@@ -124,7 +124,7 @@
 
                             <template v-else-if="key === items.links.length - 1">
                                 <Link
-                                    :href="link.url"
+                                    :href="link.url ?? '#'"
                                     class="
                                         relative
                                         inline-flex
@@ -144,7 +144,7 @@
                                 </Link>
 
                                 <Link
-                                    :href="items.last_page_url"
+                                    :href="items.last_page_url ?? '#'"
                                     class="
                                         relative
                                         inline-flex
@@ -167,7 +167,7 @@
 
                             <Link
                                 v-else
-                                :href="link.url"
+                                :href="link.url ?? '#'"
                                 aria-current="page"
                                 :class="
                                     link.active

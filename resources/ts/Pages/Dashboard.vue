@@ -475,8 +475,8 @@
   </admin-layout>
 </template>
 
-<script>
-import { Link } from "@inertiajs/vue3";
+<script lang="ts" setup>
+import { Link, router } from "@inertiajs/vue3";
 import Breadcrumbs from "@/Components/Partials/Breadcrumbs.vue";
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import {
@@ -543,38 +543,7 @@ const projects = [
 ];
 const pinnedProjects = projects.filter((project) => project.pinned);
 
-export default {
-  components: {
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuItems,
-    TransitionChild,
-    TransitionRoot,
-    ChevronRightIcon,
-    EllipsisVerticalIcon,
-    Square2StackIcon,
-    Bars3CenterLeftIcon,
-    PencilSquareIcon,
-    MagnifyingGlassIcon,
-    ArrowsUpDownIcon,
-    TrashIcon,
-    UserPlusIcon,
-    XCircleIcon,
-    AdminLayout,
-    Link,
-    Breadcrumbs,
-  },
-  setup() {
-    return {
-      projects,
-      pinnedProjects,
-    };
-  },
-  methods: {
-    logout() {
-      this.$inertia.post(route("logout"));
-    },
-  },
-};
+const logout = () => {
+    router.post(route("logout"));
+}
 </script>

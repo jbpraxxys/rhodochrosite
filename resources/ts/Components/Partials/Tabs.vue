@@ -32,7 +32,7 @@
                 <Link
                     v-for="tab in tabs"
                     :key="tab.name"
-                    :href="tab.value"
+                    :href="tab.value ?? ''"
                     @click.prevent="selectTab(tab.value)"
                     :class="[
                         isSelectedTab(tab.value)
@@ -77,55 +77,49 @@
     </div>
 </template>
 
-<script>
+<script lang="ts" setup>
 import { router } from "@inertiajs/vue3";
 import pickBy from "lodash/pickBy";
 
-export default {
-    props: {
-        tabs: {
-            type: Array,
-            default: [],
-        },
-        buttonItems: {
-            type: Boolean,
-            default: false,
-        },
-        activeTab: {
-            type: String,
-            default: null,
-        },
-        tabRoute: {
-            type: String,
-            required: true,
-        },
-        preserveState: {
-            type: Boolean,
-            default: false,
-        },
+const props = defineProps({
+    tabs: {
+        type: Array,
+        default: [],
     },
-    setup(props, { emit }) {
-        function isSelectedTab(value) {
-            return props.activeTab === value;
-        }
-
-        function selectTab(value) {
-            router.get(
-                props.tabRoute,
-                pickBy({ tab: value }), // removes falsey values
-                {
-                    preserveState: props.preserveState,
-                    onSuccess: () => {
-                        emit("update:tab", value);
-                    },
-                }
-            );
-        }
-
-        return {
-            isSelectedTab,
-            selectTab,
-        };
+    buttonItems: {
+        type: Boolean,
+        default: false,
     },
-};
+    activeTab: {
+        type: String,
+        default: null,
+    },
+    tabRoute: {
+        type: String,
+        required: true,
+    },
+    preserveState: {
+        type: Boolean,
+        default: false,
+    },
+})
+
+const emit = defineEmits(['update:tab'])
+
+function isSelectedTab(value) {
+    return props.activeTab === value;
+}
+
+function selectTab(value) {
+    router.get(
+        props.tabRoute,
+        pickBy({ tab: value }), // removes falsey values
+        {
+            preserveState: props.preserveState,
+            onSuccess: () => {
+                emit("update:tab", value);
+            },
+        }
+    );
+}
 </script>

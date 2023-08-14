@@ -76,16 +76,6 @@
 
 </template>
 
-<script>
+<script lang="ts" setup>
 // import tailwindConfig from './tailwind.config.js'
-
-export default {
-  setup() {
-
-
-
-    return {
-    };
-  },
-};
 </script>
