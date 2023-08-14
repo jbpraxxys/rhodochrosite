@@ -45,7 +45,6 @@ defineProps({
     },
     fileType: {
         type: String,
-        required: true,
         default: "image/*",
     },
     fileName: {
