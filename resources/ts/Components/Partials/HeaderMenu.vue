@@ -3,7 +3,7 @@
         <ol class="flex items-center space-x-6">
             <li v-for="item in navigation" :key="item">
                 <div class="">
-                    <Link 
+                    <Link
                     :href="item.href"
                     class="relative"
                     :class="[
@@ -41,51 +41,39 @@
     </nav>
 </template>
 
-<script>
-import { Link } from "@inertiajs/vue3";
+<script lang="ts" setup>
+import { Link, router } from "@inertiajs/vue3";
 import {
     UserIcon,
     BellIcon,
     ArrowRightOnRectangleIcon
 } from "@heroicons/vue/24/outline";
-export default {
-    components: {
-        ArrowRightOnRectangleIcon,
-        Link,
+defineProps: ({
+    pages: {
+        type: Array,
+        default: [],
     },
-    props: {
-        pages: {
-            type: Array,
-            default: [],
-        },
-    },
-    setup() {
-        const navigation = [
-            {
-                name: "Profile",
-                href: route("admin.profile.show"),
-                icon: UserIcon,
-            },
-            {
-                name: "Notification",
-                href: route("admin.notification.index"),
-                icon: BellIcon,
-            },
-        ]
+})
 
-        return {
-            navigation,
-        }
+const navigation = [
+    {
+        name: "Profile",
+        href: route("admin.profile.show"),
+        icon: UserIcon,
     },
-    methods: {
-        logout() {
-            this.$inertia.post(route("admin.logout"));
-        },
+    {
+        name: "Notification",
+        href: route("admin.notification.index"),
+        icon: BellIcon,
+    },
+]
 
-        isCurrentUrl(href) {
-            const currentUrl = this.$page.url.substr(1);
-            return href.endsWith(currentUrl);
-        },
-    },
-};
+const logout = () => {
+    router.post(route("admin.logout"));
+},
+
+isCurrentUrl = (href) => {
+    const currentUrl = window.location.href;
+    return href.endsWith(currentUrl);
+}
 </script>

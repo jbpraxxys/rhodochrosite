@@ -2,11 +2,10 @@
   <admin-layout title="Notifications">
     <tabs
       :tabs="tabs"
-      :input-items="true"
       :button-items="true"
       :active-tab="activeTab"
       @update:activeTab="(newValue) => (activeTab = newValue)"
-      :page-route="route('admin.notification.index')"
+      :tabRoute="route('admin.notification.index')"
     >
       <template #inputs>
         <div class="flex items-center justify-end gap-4">

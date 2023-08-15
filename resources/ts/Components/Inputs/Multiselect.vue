@@ -16,7 +16,7 @@
                 :close-on-select="closeOnSelect"
                 :create-option="createOption"
                 class="frm-multiselect"
-                v-modal="modelValue"
+                v-model="modelValue"
                 @change="$emit('change')"
                 @select="$emit('select')"
                 @clear="$emit('clear')"
@@ -99,6 +99,8 @@ const props = defineProps({
         default: false,
     },
 });
+
+const modelValue = props.modelValue;
 
 const emit = defineEmits<{
     ( e: 'update:modelValue', val: object): void

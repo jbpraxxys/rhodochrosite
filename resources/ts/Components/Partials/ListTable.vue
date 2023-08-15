@@ -153,8 +153,8 @@
                 <!-------------------
                     | Textarea
                     -------------------->
-                <div 
-                    v-if="item.type === 'textarea'" 
+                <div
+                    v-if="item.type === 'textarea'"
                     class="col-span-5 mb-4"
                 >
                     <jet-input
@@ -171,27 +171,23 @@
                 <!-------------------
                 | HTML Editor
                 -------------------->
-                <div 
-                    v-if="item.type === 'htmleditor'" 
+                <div
+                    v-if="item.type === 'htmleditor'"
                     class="col-span-5 mb-4"
                 >
                     <CKEditor
                         v-model="createForm[`${id}_${item.id}`]"
                         :label="item.label"
                         :id="`${item.id}`"
+                        inListTable
                     ></CKEditor>
                 </div>
 
                 <!-- Images -->
-                <div 
+                <div
                     v-if="item.type === 'image'"
-                    class="col-span-5 mb-4" 
+                    class="col-span-5 mb-4"
                 >
-                    <label
-                        :for="id"
-                        class="block text-sm font-medium text-gray-700 mb-1"
-                        >{{ item.label }}</label
-                    >
                     <dropzone
                         v-model:path="createForm[`${id}_${item.id}`]"
                         v-model:file="createForm[`${id}_${item.id}` + '_file']"

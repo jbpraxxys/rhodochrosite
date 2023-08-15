@@ -62,7 +62,7 @@
     </TransitionRoot>
 </template>
 
-<script>
+<script lang="ts" setup>
 import {
     CheckCircleIcon,
     XCircleIcon,
@@ -73,52 +73,32 @@ import { ref, computed } from "vue";
 import { usePage } from "@inertiajs/vue3";
 import { TransitionRoot } from "@headlessui/vue";
 
-export default {
-    components: {
-        CheckCircleIcon,
-        XCircleIcon,
-        ExclamationCircleIcon,
-        ChatBubbleBottomCenterTextIcon,
-        TransitionRoot,
-    },
-    setup() {
-        const success = computed(() => usePage().props.flash.success);
-        const danger = computed(() => usePage().props.flash.danger);
-        const warning = computed(() => usePage().props.flash.warning);
-        const show = ref(
-            success.value !== null || danger.value !== null || warning.value !== null
-        );
+const success = computed(() => usePage<any>().props.flash.success);
+const danger = computed(() => usePage<any>().props.flash.danger);
+const warning = computed(() => usePage<any>().props.flash.warning);
+const show = ref(
+    success.value !== null || danger.value !== null || warning.value !== null
+);
 
-        function message() {
-            if (success.value !== null) {
-                return success.value;
-            } else if (danger.value !== null) {
-                return danger.value;
-            } else if (warning.value !== null) {
-                return warning.value;
-            }
-        }
+const message = () => {
+    if (success.value !== null) {
+        return success.value;
+    } else if (danger.value !== null) {
+        return danger.value;
+    } else if (warning.value !== null) {
+        return warning.value;
+    }
+}
 
-        function color() {
-            if (success.value !== null) {
-                return "green";
-            } else if (danger.value !== null) {
-                return "red";
-            } else if (warning.value !== null) {
-                return "yellow";
-            } else {
-                return "slate";
-            }
-        }
-
-        return {
-            success,
-            danger,
-            warning,
-            show,
-            message,
-            color,
-        };
-    },
-};
+const color = () => {
+    if (success.value !== null) {
+        return "green";
+    } else if (danger.value !== null) {
+        return "red";
+    } else if (warning.value !== null) {
+        return "yellow";
+    } else {
+        return "slate";
+    }
+}
 </script>

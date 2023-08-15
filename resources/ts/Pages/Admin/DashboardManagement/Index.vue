@@ -5,7 +5,7 @@
           <div class="w-full h-[260px] p-6 border border-gray-300 rounded-lg mb-2">
               <div class="flex items-center justify-between mb-6">
                   <p class="text-sm text-gray-900">Sales over time</p>
-                  <MenuAlt3Icon class="w-5 h-5 text-gray-500"/>
+                  <Bars3CenterLeftIcon class="w-5 h-5 text-gray-500"/>
               </div>
               <div class="w-full h-[128px] mb-6"></div>
               <div class="flex justify-end gap-4">
@@ -22,7 +22,7 @@
           <div class="w-full h-[260px] p-6 border border-gray-300 rounded-lg mb-6">
               <div class="flex items-center justify-between mb-6">
                   <p class="text-sm text-gray-900">Customers over time</p>
-                  <MenuAlt3Icon class="w-5 h-5 text-gray-500"/>
+                  <Bars3CenterLeftIcon class="w-5 h-5 text-gray-500"/>
               </div>
               <div class="w-full h-[128px] mb-6"></div>
               <div class="flex justify-end gap-4">
@@ -39,7 +39,7 @@
           <div class="w-full border border-gray-300 rounded-lg">
               <div class="p-6 flex items-center justify-between">
                   <p class="text-sm text-gray-900">Top Products</p>
-                  <MenuAlt3Icon class="w-5 h-5 text-gray-500"/>
+                  <Bars3CenterLeftIcon class="w-5 h-5 text-gray-500"/>
               </div>
               <div>
                   <DataTable
@@ -198,8 +198,9 @@
   </admin-layout>
 </template>
 
-<script>
-import { Link } from "@inertiajs/vue3";
+<script lang="ts" setup>
+
+import { router } from "@inertiajs/vue3";
 import Breadcrumbs from "@/Components/Partials/Breadcrumbs.vue";
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import {
@@ -225,30 +226,6 @@ import {
   UserPlusIcon,
 } from "@heroicons/vue/24/solid";
 
-
-export default {
-  components: {
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuItems,
-    TransitionChild,
-    TransitionRoot,
-    ChevronRightIcon,
-    EllipsisVerticalIcon,
-    Square2StackIcon,
-    Bars3CenterLeftIcon,
-    PencilSquareIcon,
-    MagnifyingGlassIcon,
-    ChevronUpDownIcon,
-    TrashIcon,
-    UserPlusIcon,
-    XMarkIcon,
-    AdminLayout,
-    Link,
-    Breadcrumbs
-  },
-  setup() {
     const headers = [
         { text: 'Product', value: 'product' },
         { text: 'Category', value: 'category' },
@@ -298,15 +275,7 @@ export default {
         },
     ]
 
-    return {
-      headers,
-      products
-    };
-  },
-  methods: {
-    logout() {
-      this.$inertia.post(route("logout"));
-    },
-  },
-};
+const logout = () => {
+    router.post(route("logout"));
+}
 </script>

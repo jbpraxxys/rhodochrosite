@@ -36,57 +36,45 @@
         </div>
     </div>
 </template>
-<script>
+<script lang="ts" setup>
 import { ArrowDownTrayIcon, TrashIcon } from "@heroicons/vue/24/solid";
 
-export default {
-    components: {
-        ArrowDownTrayIcon,
-        TrashIcon,
+defineProps({
+    source: {
+        type: String,
     },
-    props: {
-        source: {
-            type: String,
-            required: true,
-        },
-        fileType: {
-            type: String,
-            required: true,
-            default: "image/*",
-        },
-        fileName: {
-            type: String,
-            default: '',
-        },
-        size: {
-            type: Number,
-            default: 0,
-        },
-        allowDownload: {
-            type: Boolean,
-            default: true,
-        },
-        allowDelete: {
-            type: Boolean,
-            default: true,
-        },
+    fileType: {
+        type: String,
+        default: "image/*",
     },
-    setup() {
-        function formatBytes(bytes, decimals = 2) {
-            if (bytes === 0) return "0 Bytes";
-
-            const k = 1024;
-            const dm = decimals < 0 ? 0 : decimals;
-            const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
-
-            const i = Math.floor(Math.log(bytes) / Math.log(k));
-
-            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
-        }
-
-        return {
-            formatBytes,
-        };
+    fileName: {
+        type: String,
+        default: '',
     },
-};
+    size: {
+        type: Number,
+        default: 0,
+    },
+    allowDownload: {
+        type: Boolean,
+        default: true,
+    },
+    allowDelete: {
+        type: Boolean,
+        default: true,
+    },
+})
+
+const formatBytes = (bytes, decimals = 2) => {
+    if (bytes === 0) return "0 Bytes";
+
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+}
+
 </script>

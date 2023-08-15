@@ -15,13 +15,13 @@
                         :routeLink="route('admin.admin-management.index', { action: 'export' })"
                         class="mr-2"
                     />
-                    <CreateButton  
+                    <CreateButton
                         v-if="activeTab !== 'activity_logs'"
-                        :routeLink="route('admin.admin-management.create')" 
+                        :routeLink="route('admin.admin-management.create')"
                     />
                 </template>
             </Tabs>
-            
+
 
             <!-- Filter -->
             <div class="py-3 px-6" v-if="activeTab !== 'activity_logs'">
@@ -48,8 +48,8 @@
         </div>
 
         <div v-if="activeTab !== 'activity_logs'">
-            <DataTable 
-                :headers="headers" 
+            <DataTable
+                :headers="headers"
                 :no-action="false"
                 :count="items.data.length"
             >
@@ -297,9 +297,9 @@ watch(
     throttle((val: string) => {
         router.get(
             route("admin.admin-management.index"),
-            pickBy({ 
-                query: val, 
-                tab: props.selectedTab 
+            pickBy({
+                query: val,
+                tab: props.selectedTab
             }), // removes falsey values
             {
                 preserveState: true,

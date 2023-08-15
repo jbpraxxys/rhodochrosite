@@ -36,6 +36,7 @@ import Multiselect from '@/Components/Inputs/Multiselect.vue';
 
 import RestoreModal from "@/Components/Modals/RestoreModal.vue";
 import DeleteModal from "@/Components/Modals/DeleteModal.vue";
+import ImportModal from "@/Components/Modals/ImportModal.vue";
 
 import { Head, Link } from '@inertiajs/vue3';
 
@@ -75,6 +76,7 @@ createInertiaApp({
                     Dropzone,
                     RestoreModal,
                     DeleteModal,
+                    ImportModal,
                     ToggleSwitch,
                     Multiselect,
                     Head,
