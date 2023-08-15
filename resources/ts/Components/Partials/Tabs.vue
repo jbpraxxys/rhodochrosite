@@ -106,11 +106,11 @@ const props = defineProps({
 
 const emit = defineEmits(['update:tab'])
 
-function isSelectedTab(value) {
+const isSelectedTab = (value) => {
     return props.activeTab === value;
 }
 
-function selectTab(value) {
+const selectTab = (value) => {
     router.get(
         props.tabRoute,
         pickBy({ tab: value }), // removes falsey values
