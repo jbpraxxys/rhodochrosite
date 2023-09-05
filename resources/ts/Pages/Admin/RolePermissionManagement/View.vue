@@ -48,18 +48,18 @@
             <div v-if="activeTab !== 'activity_logs'" class="border-l border-b border-r rounded-b-lg overflow-hidden">
                 <DataTable
                     :headers="headers"
-                    :no-action="false"
+                    no-action
                     :count="5"
                 >
                     <template v-slot:body>
                         <template v-for="item in permissions" :key="item">
                             <tr>
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="w-[84%] px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                 >
                                     <div class="flex items-center">
                                         <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900">
+                                            <div class="text-sm font-semibold text-gray-900">
                                                 {{ item.name }}
                                             </div>
                                             <div class="text-sm text-gray-500">
@@ -70,22 +70,22 @@
                                 </td>
                                 
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="w-[8%] px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                 >
-                                    <CheckIcon class="w-5 h-5" />
+                                    <CheckIcon class="w-5 h-5" v-if="item.permissionStatus===true"/>
                                 </td>
 
                                 <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                    class="w-[8%] px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                 >
-                                    <CheckIcon class="w-5 h-5" />
+                                    <CheckIcon class="w-5 h-5" v-if="item.permissionStatus===false" />
                                 </td>
                                
                             </tr>
                         </template>
                     </template>
                 </DataTable>
-                <pagination :items="roles" />
+                <pagination :items="role" />
             </div>
         </div>
     </admin-layout>
@@ -99,16 +99,12 @@ import pickBy from "lodash/pickBy";
 import { CheckIcon } from "@heroicons/vue/24/outline";
 
 const props = defineProps({
-    roles: {
+    role: {
         type : Object,
         default: () => {},
         require: true,
     },
-    activeCount: {
-        type : Number,
-        default: 0
-    },
-    archivedCount: {
+    usersCount: {
         type : Number,
         default: 0
     },
@@ -129,7 +125,7 @@ const props = defineProps({
 /**---------------*
  * VARS
  *----------------*/
-const roles = computed(() => props.roles);
+const role = computed(() => props.role);
 
 const searchText = ref<string>(props.query);
 const activeTab = ref<string>(props.selectedTab);
@@ -140,14 +136,13 @@ const selectedItem = ref<any>(null);
 
 const tabs: { name: string, value?: string, count?: Number }[] = [
     {
-        name: 'Active',
+        name: 'Permissions',
         value: null,
-        count: props.activeCount
     },
     {
-        name: 'Archived',
-        value: 'archived',
-        count: props.archivedCount
+        name: 'Users',
+        value: 'users',
+        count: props.usersCount
     }
 ];
 
@@ -159,7 +154,7 @@ const headers: { text: string }[] = [
 
 const pages = [
     {
-        href: route("admin.role-permission-management.view"),
+        href: route("admin.role-permission-management.index"),
         name: "Roles",
     },
     {
@@ -171,27 +166,33 @@ const pages = [
 const permissions = [
     {
         name: "Manage Dashboard",
-        description: "Allow the Admin to access the dashboard"
+        description: "Allow the Admin to access the dashboard",
+        permissionStatus: true
     },
     {
         name: "Manage Trips",
-        description: "Allow the Admin to access the trips"
+        description: "Allow the Admin to access the trips",
+        permissionStatus: false
     },
     {
         name: "Manage Cash Liquidation",
-        description: "Allow the Admin to access the cash liquidation"
+        description: "Allow the Admin to access the cash liquidation",
+        permissionStatus: true
     },
     {
         name: "Manage Doc Liquidation",
-        description: "Allow the Admin to access the doc liquidation"
+        description: "Allow the Admin to access the doc liquidation",
+        permissionStatus: true
     },
     {
         name: "Manage Invoice",
-        description: "Allow the Admin to access the invoice"
+        description: "Allow the Admin to access the invoice",
+        permissionStatus: false
     },
     {
         name: "Manage Payroll",
-        description: "Allow the Admin to access the payroll"
+        description: "Allow the Admin to access the payroll",
+        permissionStatus: true
     },
 ]
 
@@ -218,7 +219,7 @@ watch(
     searchText,
     throttle((val: string) => {
         router.get(
-            route("admin.admin-management.index"),
+            route("admin.role-permission-management.index"),
             pickBy({
                 query: val,
                 tab: props.selectedTab
