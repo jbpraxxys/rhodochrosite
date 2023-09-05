@@ -49,114 +49,45 @@
                 <DataTable
                     :headers="headers"
                     :no-action="false"
-                    :count="items.data.length"
+                    :count="5"
                 >
                     <template v-slot:body>
-                        <template v-for="item in items.data" :key="item">
+                        <template v-for="item in permissions" :key="item">
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    <jet-checkbox />
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ item.id }}
-                                </td>
                                 <td
                                     class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                 >
                                     <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                            <img
-                                                class="h-10 w-10 rounded-full object-cover"
-                                                :src="item.profile_photo_url"
-                                            />
-                                        </div>
                                         <div class="ml-4">
                                             <div class="text-sm font-medium text-gray-900">
                                                 {{ item.name }}
                                             </div>
                                             <div class="text-sm text-gray-500">
-                                                {{ item.email }}
+                                                {{ item.description }}
                                             </div>
                                         </div>
                                     </div>
                                 </td>
+                                
                                 <td
                                     class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                 >
-                                    <jet-status-pill 
-                                    :text="item.role.name" 
-                                    :custom-class="item.role.name === 'Superadmin' ? 'bg-blue-50 text-blue-600' : 'bg-gray-50 text-gray-600'"
-                                    />
+                                    <CheckIcon class="w-5 h-5" />
                                 </td>
+
                                 <td
                                     class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                 >
-                                    {{ item.created_at }}
+                                    <CheckIcon class="w-5 h-5" />
                                 </td>
-
-                                <td
-                                    class="
-                                        px-6
-                                        py-4
-                                        whitespace-nowrap
-                                        text-sm text-gray-500 text-center
-                                    "
-                                >
-                                    <template v-if="selectedTab !== 'archived'">
-                                        <edit-button
-                                            class="mr-3"
-                                            :routeLink="route('admin.admin-management.view', item.id)"
-                                        />
-                                    </template>
-
-                                    <restore-button
-                                        v-if="selectedTab === 'archived'"
-                                        @click="selectRestore(item)"
-                                    />
-                                </td>
+                               
                             </tr>
                         </template>
                     </template>
                 </DataTable>
-                <pagination :items="items" />
+                <pagination :items="roles" />
             </div>
         </div>
-
-        <DeleteModal
-            title="Archive Admin"
-            :show="showArchiveModal"
-            :item-name="archiveItemName"
-            @confirm="processArchive"
-            @cancel="showArchiveModal = false"
-        />
-
-        <RestoreModal
-            title="Restore Admin"
-            :show="showRestoreModal"
-            @confirm="processRestore"
-            @cancel="showRestoreModal = false"
-        />
-
-        <ImportModal
-            title="Import Admins"
-            content="Are you sure you wish to import this file"
-            action-text="Import"
-            :show="showModal"
-            :manifest-route="route('admin.admin-management.manifest')"
-            @cancel="showModal = false"
-            @confirm="importData"
-        >
-            <template v-slot:body>
-                <dropzone
-                    :label="'Import'"
-                    :id="'import'"
-                    :description="'CSV, XLSX upto 2MB'"
-                    :preview-file="true"
-                    v-model:file="importFile"
-                    accept=".csv,.xls,.xlsx"
-                />
-            </template>
-        </ImportModal>
     </admin-layout>
 </template>
 
@@ -165,9 +96,10 @@ import { computed, ref, watch } from "vue";
 import { router } from "@inertiajs/vue3";
 import throttle from "lodash/throttle";
 import pickBy from "lodash/pickBy";
+import { CheckIcon } from "@heroicons/vue/24/outline";
 
 const props = defineProps({
-    items: {
+    roles: {
         type : Object,
         default: () => {},
         require: true,
@@ -197,7 +129,7 @@ const props = defineProps({
 /**---------------*
  * VARS
  *----------------*/
-const items = computed(() => props.items);
+const roles = computed(() => props.roles);
 
 const searchText = ref<string>(props.query);
 const activeTab = ref<string>(props.selectedTab);
@@ -220,24 +152,48 @@ const tabs: { name: string, value?: string, count?: Number }[] = [
 ];
 
 const headers: { text: string }[] = [
-    { text: '' },
-    { text: 'ID' },
-    { text: 'Admin' },
-    { text: 'Role' },
-    { text: 'Date Created'}
+    { text: 'Permission' },
+    { text: 'Yes' },
+    { text: 'No' },
 ];
 
 const pages = [
-
     {
-        href: route("admin.admin-management.index"),
-        name: "Admins",
+        href: route("admin.role-permission-management.view"),
+        name: "Roles",
     },
     {
         href: "",
-        name: "Index",
+        name: "View",
     },
 ];
+
+const permissions = [
+    {
+        name: "Manage Dashboard",
+        description: "Allow the Admin to access the dashboard"
+    },
+    {
+        name: "Manage Trips",
+        description: "Allow the Admin to access the trips"
+    },
+    {
+        name: "Manage Cash Liquidation",
+        description: "Allow the Admin to access the cash liquidation"
+    },
+    {
+        name: "Manage Doc Liquidation",
+        description: "Allow the Admin to access the doc liquidation"
+    },
+    {
+        name: "Manage Invoice",
+        description: "Allow the Admin to access the invoice"
+    },
+    {
+        name: "Manage Payroll",
+        description: "Allow the Admin to access the payroll"
+    },
+]
 
 /**---------------*
  * METHODS
@@ -254,61 +210,6 @@ const applyFilters = (): void => {
         }
     )
 }
-
-const archiveItemName = computed(() =>
-    selectedItem.value ? selectedItem.value.name : ""
-);
-
-const selectArchive = (item: object): void => {
-    selectedItem.value = item;
-    showArchiveModal.value = true;
-}
-
-const selectRestore = (item: object): void => {
-    selectedItem.value = item;
-    showRestoreModal.value = true;
-}
-
-const processArchive = (): void => {
-    router.delete(
-        route('admin.admin-management.delete', selectedItem.value.id),
-        {
-            preserveState: false
-        }
-    )
-}
-
-const processRestore =(): void => {
-    router.post(
-        route("admin.admin-management.restore"),
-        { id: selectedItem.value.id },
-        { preserveState: false }
-    )
-}
-
-/*---------------*
-* Import Modal  *
-*---------------*/
-const showModal = ref(false);
-const importFile = ref(null);
-
-const importModal = () => {
-    showModal.value = true;
-}
-
-const importData = () => {
-    router.post(
-        route("admin.admin-management.import"),
-        {
-            file: importFile.value,
-        },
-        {
-            preserveState: false,
-            preserveScroll: true,
-        }
-    );
-}
-
 /**---------------*
  * WATCHERS
  *----------------*/

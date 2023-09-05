@@ -33,25 +33,18 @@
                     <template v-slot:body>
                         <template v-for="role in items.data" :key="role.name">
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td class="w-full px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-900">
                                         {{ role.name }}
                                     </div>
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900 flex items-center">
-                                        <div v-for="i in 4" class="w-10 h-10 bg-gray-200 border-2 border-white rounded-full -ml-2"></div>
-                                        <p class="text-gray-500 ml-2">+63</p>
-                                    </div>
-                                </td>
-
                                 <td
                                     class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium"
                                 >
                                     <template v-if="activeTab !== 'archived'">
                                         <edit-button
                                             class="mr-3"
-                                            :routeLink="route('admin.role-permission-management.edit', role.id)"
+                                            :routeLink="route('admin.role-permission-management.view', role.id)"
                                         />
                                     </template>
                                 </td>
@@ -109,18 +102,17 @@ const tabs: { name: string, value?: string, count?: Number }[] = [
 
 const headers: { text: string }[] = [
     { text: 'Role' },
-    { text: 'Members'},
     { text: ''}
 ];
 
 const pages = [
-{
-        href: route("admin.dashboard.index"),
-        name: "Dashboard",
-    },
     {
         href: route("admin.role-permission-management.index"),
         name: "Roles",
+    },
+    {
+        href: "",
+        name: "Index",
     },
 ];
 
