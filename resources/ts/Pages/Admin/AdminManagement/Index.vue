@@ -1,30 +1,29 @@
 <template>
-    <admin-layout title="Admin Management">
-        <!-- Tabs -->
-        <div>
-            <Tabs
-                :tabs="tabs"
-                :button-items="true"
-                :active-tab="activeTab"
-                @update:tab="(value: string) => (activeTab = value)"
-                :tab-route="route('admin.admin-management.index')"
-            >
-            <template #buttons>
-                    <ExportButton
-                        v-if="activeTab !== 'activity_logs'"
-                        :routeLink="route('admin.admin-management.index', { action: 'export' })"
-                        class="mr-2"
-                    />
-                    <CreateButton
-                        v-if="activeTab !== 'activity_logs'"
-                        :routeLink="route('admin.admin-management.create')"
-                    />
-                </template>
-            </Tabs>
+    <admin-layout :pages="pages" title="Admins">
+        <template #actionButtons>
+            <ExportButton
+                v-if="activeTab !== 'activity_logs'"
+                :routeLink="route('admin.admin-management.index', { action: 'export' })"
+                class="mr-2"
+            />
+            <CreateButton
+                v-if="activeTab !== 'activity_logs'"
+                :routeLink="route('admin.admin-management.create')"
+            />
+        </template>
 
+        <!-- Tabs -->
+        <Tabs
+            :tabs="tabs"
+            :button-items="true"
+            :active-tab="activeTab"
+            @update:tab="(value: string) => (activeTab = value)"
+            :tab-route="route('admin.admin-management.index')"
+        />
+        <div class="px-12 py-6">
 
             <!-- Filter -->
-            <div class="py-3 px-6" v-if="activeTab !== 'activity_logs'">
+            <div class="px-6 py-4 border-l border-t border-r  rounded-t-lg" v-if="activeTab !== 'activity_logs'">
                 <Filter
                     :search="searchText"
                     @update:searchText="(value) => (searchText = value)"
@@ -45,74 +44,82 @@
                     </template>
                 </Filter>
             </div>
-        </div>
 
-        <div v-if="activeTab !== 'activity_logs'">
-            <DataTable
-                :headers="headers"
-                :no-action="false"
-                :count="items.data.length"
-            >
-                <template v-slot:body>
-                    <template v-for="item in items.data" :key="item">
-                        <tr>
-                            <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                            >
-                                <div class="flex items-center">
-                                    <div class="flex-shrink-0 h-10 w-10">
-                                        <img
-                                            class="h-10 w-10 rounded-full object-cover"
-                                            :src="item.profile_photo_url"
-                                        />
-                                    </div>
-                                    <div class="ml-4">
-                                        <div class="text-sm font-medium text-gray-900">
-                                            {{ item.name }}
+            <div v-if="activeTab !== 'activity_logs'" class="border-l border-b border-r rounded-b-lg overflow-hidden">
+                <DataTable
+                    :headers="headers"
+                    :no-action="false"
+                    :count="items.data.length"
+                >
+                    <template v-slot:body>
+                        <template v-for="item in items.data" :key="item">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <jet-checkbox />
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    {{ item.id }}
+                                </td>
+                                <td
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                >
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10">
+                                            <img
+                                                class="h-10 w-10 rounded-full object-cover"
+                                                :src="item.profile_photo_url"
+                                            />
                                         </div>
-                                        <div class="text-sm text-gray-500">
-                                            {{ item.email }}
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">
+                                                {{ item.name }}
+                                            </div>
+                                            <div class="text-sm text-gray-500">
+                                                {{ item.email }}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                            >
-                                {{ item.role.name }}
-                            </td>
-                            <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                            >
-                                {{ item.created_at }}
-                            </td>
-
-                            <td
-                                class="
-                                    px-6
-                                    py-4
-                                    whitespace-nowrap
-                                    text-sm text-gray-500 text-center
-                                "
-                            >
-                                <template v-if="selectedTab !== 'archived'">
-                                    <edit-button
-                                        class="mr-3"
-                                        :routeLink="route('admin.admin-management.edit', item.id)"
+                                </td>
+                                <td
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                >
+                                    <jet-status-pill 
+                                    :text="item.role.name" 
+                                    :custom-class="item.role.name === 'Superadmin' ? 'bg-blue-50 text-blue-600' : 'bg-gray-50 text-gray-600'"
                                     />
-                                    <delete-button @click="selectArchive(item)" />
-                                </template>
+                                </td>
+                                <td
+                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                                >
+                                    {{ item.created_at }}
+                                </td>
 
-                                <restore-button
-                                    v-if="selectedTab === 'archived'"
-                                    @click="selectRestore(item)"
-                                />
-                            </td>
-                        </tr>
+                                <td
+                                    class="
+                                        px-6
+                                        py-4
+                                        whitespace-nowrap
+                                        text-sm text-gray-500 text-center
+                                    "
+                                >
+                                    <template v-if="selectedTab !== 'archived'">
+                                        <edit-button
+                                            class="mr-3"
+                                            :routeLink="route('admin.admin-management.view', item.id)"
+                                        />
+                                    </template>
+
+                                    <restore-button
+                                        v-if="selectedTab === 'archived'"
+                                        @click="selectRestore(item)"
+                                    />
+                                </td>
+                            </tr>
+                        </template>
                     </template>
-                </template>
-            </DataTable>
-            <pagination :items="items" />
+                </DataTable>
+                <pagination :items="items" />
+            </div>
         </div>
 
         <DeleteModal
@@ -213,9 +220,22 @@ const tabs: { name: string, value?: string, count?: Number }[] = [
 ];
 
 const headers: { text: string }[] = [
+    { text: '' },
+    { text: 'ID' },
     { text: 'Admin' },
     { text: 'Role' },
     { text: 'Date Created'}
+];
+
+const pages = [
+    {
+        href: "/",
+        name: "Dashboard",
+    },
+    {
+        href: "/admin/admin-management/index",
+        name: "Admins",
+    },
 ];
 
 /**---------------*
