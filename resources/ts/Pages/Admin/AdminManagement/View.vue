@@ -116,11 +116,11 @@ const tabs: { name: string, value?: string, count?: Number }[] = [
 
 const pages = [
     {
-        href: "/",
+        href: route("admin.dashboard.index"),
         name: "Dashboard",
     },
     {
-        href: "/admin/admin-management/index",
+        href: route("admin.admin-management.index"),
         name: "Admins",
     },
     {

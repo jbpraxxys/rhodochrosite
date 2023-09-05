@@ -1,5 +1,5 @@
 <template>
-    <admin-layout :pages="pages" title="Admins">
+    <admin-layout :pages="pages" title="Admin">
         <template #actionButtons>
             <ExportButton
                 v-if="activeTab !== 'activity_logs'"
@@ -228,13 +228,14 @@ const headers: { text: string }[] = [
 ];
 
 const pages = [
+
     {
-        href: "/",
-        name: "Dashboard",
+        href: route("admin.admin-management.index"),
+        name: "Admins",
     },
     {
-        href: "/admin/admin-management/index",
-        name: "Admins",
+        href: "",
+        name: "Index",
     },
 ];
 
