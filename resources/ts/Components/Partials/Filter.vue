@@ -1,65 +1,9 @@
 <template>
     <div>
         <div class="flex justify-between">
-            <div v-if="customFilter" class="flex justify-start items-center">
-                <template v-if="customFilters">
-                    <jet-button
-                        v-if="sidebarFilters"
-                        type="button"
-                        secondary
-                        class="mr-2 h-10 !rounded-lg !text-gray-500"
-                        @click="open = true"
-                    >
-                        <FunnelIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
-                        Filter
-                    </jet-button>
-                    <template v-if="buttonItems">
-                        <slot name="buttons" />
-                    </template>
-                    <jet-button type="button" class="h-10 !px-3 !rounded-lg !bg-gray-300 hover:!bg-primary-700 active:!bg-primary-900 !border-gray-300 focus:!border-primary-800" @click="refresh">
-                        <ArrowPathIcon class="-ml-0.5 h-4 w-4" aria-hidden="true" />
-                    </jet-button>
-                </template>
-            </div>
-            <div v-if="dashFilter" class="flex justify-start items-center">
-                <Menu as="div" class="relative inline-block text-left">
-                    <div>
-                        <MenuButton class="flex items-center justify-between gap-2 px-3 py-2.5 text-sm font-normal text-gray-500 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-primary-800">
-                            {{ dashFilterLabel }}
-                            <CalendarIcon class="w-5 h-5" aria-hidden="true" />
-                        </MenuButton>
-                    </div>
-                    <transition enter-active-class="transition duration-100 ease-out" enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100" leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100" leave-to-class="transform scale-95 opacity-0">
-                        <MenuItems class="absolute left-0 mt-2 origin-top-left bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none w-max">
-                            <div class="py-1">
-
-                                <MenuItem 
-                                    v-for="date in dates"
-                                    :key="date.value" 
-                                    v-slot="{ active }" 
-                                    @click.prevent="selectDate(date.id)" 
-                                    >
-                                    <a href="#" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-900', 'block px-4 py-2 text-sm']">
-                                        {{ date.value }}
-                                    </a>
-                                </MenuItem>
-
-                                <MenuItem v-slot="{ active }">
-                                    <a @click.prevent="openFilter = true" :class="[active ? 'bg-primary-800 text-white' : 'text-gray-900', 'block px-4 py-2 text-sm cursor-pointer']">Custom Range</a>
-                                </MenuItem>
-                            </div>
-                        </MenuItems>
-                    </transition>
-                </Menu>
-                <jet-button type="button" class="ml-2 h-10 !px-3 !rounded-lg !bg-gray-300 hover:!bg-primary-700 active:!bg-primary-900 !border-gray-300 focus:!border-primary-800" @click="refresh">
-                    <ArrowPathIcon class="-ml-0.5 h-4 w-4" aria-hidden="true" />
-                </jet-button>
-            </div>
-
-
-            <div class="flex items-center gap-3">
+            <div class="w-full pr-2 flex items-center gap-3">
                 <template v-if="textFilters">
-                    <div>
+                    <div class="w-full">
                         <label for="search" class="sr-only">Search</label>
                         <div class="relative rounded-md">
                             <div
@@ -85,10 +29,11 @@
                                 name="search"
                                 id="search"
                                 class="
-                                    focus:ring-primary-800 focus:border-primary-800
+                                    focus:ring-blue-800 focus:border-blue-800
                                     block
                                     w-full
                                     pl-10
+                                    placeholder:text-gray-300
                                     sm:text-sm
                                     border-gray-300
                                     rounded-lg
@@ -111,6 +56,70 @@
                 <template v-if="rightButtonItems">
                     <slot name="rightButtons" />
                 </template>
+            </div>
+            <div v-if="customFilter" class="flex justify-start items-center">
+                <template v-if="customFilters">
+                    <jet-button
+                        v-if="sidebarFilters"
+                        type="button"
+                        secondary
+                        class="mr-2 h-10 !rounded-lg !text-gray-600 font-semibold"
+                        @click="open = true"
+                    >
+                        <FunnelIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+                        Filter
+                    </jet-button>
+                    <jet-button
+                        v-if="sortItems"
+                        type="button"
+                        secondary
+                        class="mr-2 h-10 !rounded-lg !text-gray-600 font-semibold"
+                        @click="open = true"
+                    >
+                        <ArrowsUpDownIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+                        Sort
+                    </jet-button>
+                    <template v-if="buttonItems">
+                        <slot name="buttons" />
+                    </template>
+                    <jet-button v-if="refreshItems" type="button" class="h-10 !px-3 !rounded-lg !bg-gray-300 hover:!bg-blue-700 active:!bg-blue-900 !border-gray-300 focus:!border-blue-800" @click="refresh">
+                        <ArrowPathIcon class="-ml-0.5 h-4 w-4" aria-hidden="true" />
+                    </jet-button>
+                </template>
+            </div>
+            <div v-if="dashFilter" class="flex justify-start items-center">
+                <Menu as="div" class="relative inline-block text-left">
+                    <div>
+                        <MenuButton class="flex items-center justify-between gap-2 px-3 py-2.5 text-sm font-normal text-gray-500 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-800">
+                            {{ dashFilterLabel }}
+                            <CalendarIcon class="w-5 h-5" aria-hidden="true" />
+                        </MenuButton>
+                    </div>
+                    <transition enter-active-class="transition duration-100 ease-out" enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100" leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100" leave-to-class="transform scale-95 opacity-0">
+                        <MenuItems class="absolute left-0 mt-2 origin-top-left bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none w-max">
+                            <div class="py-1">
+
+                                <MenuItem 
+                                    v-for="date in dates"
+                                    :key="date.value" 
+                                    v-slot="{ active }" 
+                                    @click.prevent="selectDate(date.id)" 
+                                    >
+                                    <a href="#" :class="[active ? 'bg-gray-900 text-white' : 'text-gray-900', 'block px-4 py-2 text-sm']">
+                                        {{ date.value }}
+                                    </a>
+                                </MenuItem>
+
+                                <MenuItem v-slot="{ active }">
+                                    <a @click.prevent="openFilter = true" :class="[active ? 'bg-blue-800 text-white' : 'text-gray-900', 'block px-4 py-2 text-sm cursor-pointer']">Custom Range</a>
+                                </MenuItem>
+                            </div>
+                        </MenuItems>
+                    </transition>
+                </Menu>
+                <jet-button type="button" class="ml-2 h-10 !px-3 !rounded-lg !bg-gray-300 hover:!bg-blue-700 active:!bg-blue-900 !border-gray-300 focus:!border-blue-800" @click="refresh">
+                    <ArrowPathIcon class="-ml-0.5 h-4 w-4" aria-hidden="true" />
+                </jet-button>
             </div>
         </div>
 
@@ -216,27 +225,29 @@ import {
 } from "@heroicons/vue/24/outline";
 
 import {
+ArrowsUpDownIcon,
     CalendarIcon,
 } from "@heroicons/vue/24/solid";
 
 export default {
     components: {
-        ChevronUpDownIcon,
-        XMarkIcon,
-        MagnifyingGlassIcon,
-        FunnelIcon,
-        ArrowPathIcon,
-        CalendarIcon,
-        Menu,
-        MenuButton,
-        MenuItem,
-        MenuItems,
-        Dialog,
-        DialogPanel,
-        DialogTitle,
-        TransitionChild,
-        TransitionRoot,
-    },
+    ChevronUpDownIcon,
+    XMarkIcon,
+    MagnifyingGlassIcon,
+    FunnelIcon,
+    ArrowPathIcon,
+    CalendarIcon,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
+    Dialog,
+    DialogPanel,
+    DialogTitle,
+    TransitionChild,
+    TransitionRoot,
+    ArrowsUpDownIcon
+},
     props: {
         textFilters: {
             type: Boolean,
@@ -258,7 +269,15 @@ export default {
             type: Boolean,
             default: true,
         },
+        sortItems: {
+            type: Boolean,
+            default: true,
+        },
         buttonItems: {
+            type: Boolean,
+            default: false,
+        },
+        refreshItems: {
             type: Boolean,
             default: false,
         },

@@ -11,6 +11,7 @@ import Tabs from "@/Components/Partials/Tabs.vue";
 import Filter from "@/Components/Partials/Filter.vue";
 import DataTable from "@/Components/Partials/DataTable.vue";
 import Pagination from "@/Components/Partials/Pagination.vue";
+import SectionHeader from "@/Components/Partials/SectionHeader.vue";
 
 import CreateButton from "@/Components/ActionButtons/CreateButton.vue";
 import DeleteButton from "@/Components/ActionButtons/DeleteButton.vue";
@@ -57,6 +58,7 @@ createInertiaApp({
                     Filter,
                     DataTable,
                     Pagination,
+                    SectionHeader,
                     CreateButton,
                     DeleteButton,
                     EditButton,

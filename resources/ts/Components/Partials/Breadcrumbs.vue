@@ -1,14 +1,14 @@
 <template>
     <nav class="flex" aria-label="Breadcrumb">
-        <ol class="flex items-center space-x-4">
+        <ol class="flex items-center space-x-3">
             <li>
                 <div>
                     <Link
-                        :href="route('admin.dashboard')"
-                        class="text-gray-400 hover:text-gray-500"
+                        :href="route('admin.dashboard.index')"
+                        class="text-gray-500 hover:text-gray-600 flex items-center"
                     >
-                        <HomeIcon class="flex-shrink-0 h-5 w-5" aria-hidden="true" />
-                        <span class="sr-only">Home</span>
+                        <img src="/icons/nav/ic-dashboard.svg" alt="dashboard">
+                        <span class="ml-2 text-sm">Dashboard</span>
                     </Link>
                 </div>
             </li>
@@ -20,7 +20,7 @@
                     />
                     <Link
                         :href="page.href"
-                        class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
+                        class="ml-2 text-sm font-medium text-gray-500 hover:text-gray-700"
                         :aria-current="page.current ? 'page' : undefined"
                         >{{ page.name }}
                     </Link>
