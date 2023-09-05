@@ -1,17 +1,5 @@
 <template>
-    <admin-layout :pages="pages" title="Admin">
-        <template #actionButtons>
-            <ExportButton
-                v-if="activeTab !== 'activity_logs'"
-                :routeLink="route('admin.admin-management.index', { action: 'export' })"
-                class="mr-2"
-            />
-            <CreateButton
-                v-if="activeTab !== 'activity_logs'"
-                :routeLink="route('admin.admin-management.create')"
-            />
-        </template>
-
+    <admin-layout :pages="pages">
         <!-- Tabs -->
         <Tabs
             :tabs="tabs"
@@ -21,34 +9,11 @@
             :tab-route="route('admin.admin-management.index')"
         />
         <div class="px-12 py-6">
-
-            <!-- Filter -->
-            <div class="px-6 py-4 border-l border-t border-r  rounded-t-lg" v-if="activeTab !== 'activity_logs'">
-                <Filter
-                    :search="searchText"
-                    @update:searchText="(value) => (searchText = value)"
-                    @update:filters="applyFilters"
-                    :custom-filters="activeTab !== 'activity_logs'"
-                >
-                    <template #fields>
-                        <div class="mb-6">
-                            <date-picker
-                                id="filterDate"
-                                label="Date Created"
-                                placeholder="Filter Date Created"
-                                v-model="filterDate"
-                                :enableTimePicker="false"
-                                @update:modelValue="(value) => (filterDate = value)"
-                            />
-                        </div>
-                    </template>
-                </Filter>
-            </div>
-
-            <div v-if="activeTab !== 'activity_logs'" class="border-l border-b border-r rounded-b-lg overflow-hidden">
+            <div v-if="activeTab !== 'activity_logs'" class="border rounded-lg overflow-hidden">
                 <DataTable
                     :headers="headers"
                     no-action
+                    no-border
                     :count="5"
                 >
                     <template v-slot:body>
