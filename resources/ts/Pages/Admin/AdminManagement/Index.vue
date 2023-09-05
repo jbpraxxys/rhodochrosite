@@ -1,19 +1,16 @@
 <template>
-    <admin-layout>
-        <!-- Section Header -->
-        <section-header :pages="pages" title="Admins">
-            <template #buttons>
-                <ExportButton
-                    v-if="activeTab !== 'activity_logs'"
-                    :routeLink="route('admin.admin-management.index', { action: 'export' })"
-                    class="mr-2"
-                />
-                <CreateButton
-                    v-if="activeTab !== 'activity_logs'"
-                    :routeLink="route('admin.admin-management.create')"
-                />
-            </template>
-        </section-header>
+    <admin-layout :pages="pages" title="Admins">
+        <template #actionButtons>
+            <ExportButton
+                v-if="activeTab !== 'activity_logs'"
+                :routeLink="route('admin.admin-management.index', { action: 'export' })"
+                class="mr-2"
+            />
+            <CreateButton
+                v-if="activeTab !== 'activity_logs'"
+                :routeLink="route('admin.admin-management.create')"
+            />
+        </template>
 
         <!-- Tabs -->
         <Tabs
@@ -231,6 +228,10 @@ const headers: { text: string }[] = [
 ];
 
 const pages = [
+    {
+        href: "/",
+        name: "Dashboard",
+    },
     {
         href: "/admin/admin-management/index",
         name: "Admins",
