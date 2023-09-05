@@ -1,7 +1,7 @@
 <template>
     <button
         :type="btnType"
-        class="inline-flex items-center font-bold px-4 py-3 text-sm transition text-center justify-center border btn"
+        class="inline-flex items-center font-bold px-4 py-3 text-sm transition text-center justify-center border rounded btn"
         :class="[
             disabled ? 'pointer-events-none disabled:opacity-25' : '',
             fill ? 'hover:bg-white text-white active:text-white' : 'bg-transparent hover:text-white',

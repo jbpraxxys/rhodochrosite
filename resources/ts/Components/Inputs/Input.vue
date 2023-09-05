@@ -75,7 +75,7 @@
                         ? 'text-gray-800 border-gray-300 placeholder-gray-500 flex-1 min-w-0 block w-full px-3 py-2.5 rounded-none rounded-r-md focus:ring-gray-900 focus:border-gray-900 text-sm border-gray-300'
                         : add_on_right
                         ? 'text-gray-800 border-gray-300 placeholder-gray-500 flex-1 min-w-0 block w-full px-3 py-2.5 rounded-none rounded-l-md focus:ring-gray-900 focus:border-gray-900 text-sm border-gray-300'
-                        : 'text-gray-800 border-gray-300 placeholder-gray-500 focus:ring-gray-900 focus:border-gray-900 disabled:bg-gray-200',
+                        : 'text-gray-800 border-gray-300 placeholder-gray-500 focus:ring-0 focus:border-gray-300 disabled:bg-gray-200',
                         customInputClass
                 "
                 :placeholder="placeholder"

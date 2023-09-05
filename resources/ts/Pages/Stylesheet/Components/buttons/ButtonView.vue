@@ -8,22 +8,47 @@
                 <RestoreButton />
             </div>
             <div class="mb-4">
-                <CreateButton />
+                <CreateButton/>
             </div>
-            <div class="mb-4">
+            <h4 class="mb-4 text-gray-600 font-medium">Import Export</h4>
+            <div class="mb-4 space-x-4">
                 <ExportButton />
+                <ImportButton />
+                
             </div>
-    
-            <div class="mb-4">
+            <h4 class="mb-4 text-gray-600 font-medium">Primary & Secondary</h4>
+            <div class="mb-4 space-x-4">
                 <jet-button
                 type="button"
+
                 >
-                    Save Changes
+                    Primary
+                </jet-button>
+                <jet-button
+                type="button"
+                secondary
+                >
+                    Secondary
+                </jet-button>
+            </div>
+            <h4 class="mb-4 text-gray-600 font-medium">Button w/ Icons</h4>
+            <div class="mb-4 flex space-x-4">
+                <jet-button
+                type="button"
+                arrowIcon
+                >
+                    Primary
+                </jet-button>
+                <jet-button
+                type="button"
+                checkCircleIcon
+                >
+                    Secondary
                 </jet-button>
             </div>
         </div>
 
-        <div class="w-full border-t border-gray-200 my-20"></div>
+        <!-- <div class="w-full border-t border-gray-200 my-20"></div>
 
         <h4 class="mb-4 text-gray-600 font-medium">User Buttons</h4>
         <div class="w-full grid grid-cols-1 gap-8 mb-8">
@@ -79,7 +104,7 @@
                     </v-back-button>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     
 
@@ -91,5 +116,6 @@ import EditButton from "@/Components/ActionButtons/EditButton.vue";
 import ExportButton from "@/Components/ActionButtons/ExportButton.vue";
 import RestoreButton from "@/Components/ActionButtons/RestoreButton.vue";
 import JetButton from "@/Components/ActionButtons/JetButton.vue";
+import ImportButton from "@/Components/ActionButtons/ImportButton.vue";
 
 </script>

@@ -9,6 +9,7 @@
             border border-transparent
             rounded-xl
             text-primary
+            font-semibold
             shadow-[0_0_4px_0px_rgb(17,24,39,0.25)]
             bg-blue-600
             hover:bg-blue-500
