@@ -287,8 +287,8 @@ const navigation: generalNavType[] = [
             },
             {
                 name: 'Roles',
-                href: '#',
-                parentUrl: "admin.role-management.*",
+                href: route("admin.role-permission-management.index"),
+                parentUrl: "admin.role-permission-management.*",
                 icon: FolderIcon,
                 allowed: true,
             }
