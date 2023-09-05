@@ -56,6 +56,13 @@ class RolePermissionController extends Controller
         ]);
     }
 
+    public function view(Role $role)
+    {
+        return Inertia::render('Admin/RolePermissionManagement/View', [
+            'role' => $role
+        ]);
+    }
+
     /**
      * RolePermission Edit
      *
