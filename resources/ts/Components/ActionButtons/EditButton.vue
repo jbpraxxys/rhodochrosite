@@ -6,9 +6,9 @@
             inline-flex
             items-center
             p-1
-            border border-transparent
             rounded-xl
-            font-semibold
+            hover:text-gray-700
+            active:text-gray-700
             focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-blue-500
         "
     >
