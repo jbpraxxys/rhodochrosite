@@ -83,6 +83,14 @@ class AdminController extends Controller
         ]);
     }
 
+    public function view(Admin $admin)
+    {
+        return Inertia::render('Admin/AdminManagement/View', [
+            'admin' => $admin,
+            'roles' => Role::renderSelect()
+        ]);
+    }
+
     /**
      * Admin create
      *

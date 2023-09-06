@@ -1,5 +1,5 @@
 <template>
-    <jet-button type="button" secondary @click="action">
+    <jet-button type="button" import_export @click="action">
         <ArrowDownTrayIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
         Export
     </jet-button>

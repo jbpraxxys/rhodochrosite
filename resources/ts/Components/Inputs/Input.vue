@@ -25,8 +25,8 @@
                 "
                 :class="
                     error
-                        ? 'text-red-900 border-red-300 placeholder-red-300 focus:ring-red-500 focus:border-red-500'
-                        : 'text-gray-800 border-gray-300 placeholder-gray-500 focus:ring-gray-900 focus:border-gray-900 disabled:bg-gray-200',
+                        ? 'text-red-900 border-red-300 placeholder-red-300 focus:border-red-500'
+                        : 'text-gray-800 border-gray-300 placeholder-gray-500  disabled:bg-gray-200',
                         customInputClass
                 "
                 :placeholder="placeholder"
@@ -72,10 +72,10 @@
                     error
                         ? 'text-red-900 border-red-300 placeholder-red-300 focus:ring-red-500 focus:border-red-500'
                         : add_on_left
-                        ? 'text-gray-800 border-gray-300 placeholder-gray-500 flex-1 min-w-0 block w-full px-3 py-2.5 rounded-none rounded-r-md focus:ring-gray-900 focus:border-gray-900 text-sm border-gray-300'
+                        ? 'text-gray-800 border-gray-300 placeholder-gray-500 flex-1 min-w-0 block w-full px-3 py-2.5 rounded-none rounded-r-md text-sm'
                         : add_on_right
-                        ? 'text-gray-800 border-gray-300 placeholder-gray-500 flex-1 min-w-0 block w-full px-3 py-2.5 rounded-none rounded-l-md focus:ring-gray-900 focus:border-gray-900 text-sm border-gray-300'
-                        : 'text-gray-800 border-gray-300 placeholder-gray-500 focus:ring-gray-900 focus:border-gray-900 disabled:bg-gray-200',
+                        ? 'text-gray-800 border-gray-300 placeholder-gray-500 flex-1 min-w-0 block w-full px-3 py-2.5 rounded-none rounded-l-md text-sm'
+                        : 'text-gray-800 border-gray-300 placeholder-gray-500  disabled:bg-gray-200',
                         customInputClass
                 "
                 :placeholder="placeholder"

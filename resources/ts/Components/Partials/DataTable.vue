@@ -7,10 +7,9 @@
             <div 
                 class="
                     overflow-x-auto 
-                    border-t 
-                    border-b 
                     border-gray-200
                 "
+                :class="noBorder ? '' : 'border-t border-b'"
             >
                 <table 
                     class="
@@ -132,6 +131,10 @@ export default {
             default: 0,
             type: Number,
         },
+        noBorder: {
+            type: Boolean,
+            default: false
+        }
     },
 };
 </script>

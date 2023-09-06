@@ -8,19 +8,20 @@
             border-0
             rounded-xl
             text-sm
+            font-semibold
             transition
             ring-0
             focus:outline-none focus:border-0 focus:ring-0
             disabled:opacity-25
-            bg-primary-800
+            bg-primary-600
             hover:bg-primary-700
             active:bg-primary-900
             text-white
         "
         :href="routeLink"
     >
-        <PlusIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
         {{ text }}
+        <PlusIcon class="ml-2 h-4 w-4"  aria-hidden="true" />
     </Link>
 </template>
 

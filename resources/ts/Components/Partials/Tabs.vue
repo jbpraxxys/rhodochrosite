@@ -12,7 +12,7 @@
                 py-2
                 text-base
                 border-gray-300
-                focus:outline-none focus:ring-indigo-500 focus:border-indigo-500
+                focus:outline-none focus:ring-blue-500 focus:border-blue-500
                 sm:text-smi
                 rounded-md
             "
@@ -36,8 +36,8 @@
                     @click.prevent="selectTab(tab.value)"
                     :class="[
                         isSelectedTab(tab.value)
-                            ? 'text-primary-800'
-                            : 'text-gray-900 hover:text-gray-800 hover:border-gray-200',
+                            ? 'text-blue-800'
+                            : 'text-gray-400 hover:text-gray-600 hover:border-gray-200',
                         'whitespace-nowrap flex py-4 px-1 text-sm cursor-pointer relative',
                     ]"
                     :aria-current="tab.current ? 'page' : undefined"
@@ -47,15 +47,15 @@
                         v-if="tab.count"
                         :class="[
                             isSelectedTab(tab.value)
-                                ? 'bg-primary-50 text-primary-800'
-                                : 'bg-gray-100 text-gray-900',
+                                ? 'bg-blue-50 text-blue-800'
+                                : 'bg-gray-100 text-gray-400',
                             'hidden ml-3 py-0.5 px-2.5 rounded-xl text-xs md:inline-block',
                         ]"
                         >{{ tab.count }}</span
                     >
                     <span
                         class="
-                            bg-primary-800
+                            bg-blue-800
                             w-full
                             inline-block
                             h-1

@@ -2,7 +2,7 @@
 
     <div class="w-6/12">
         <div class="mb-8">
-            <h1 class="text-3xl	font-bold mb-2">Nunito</h1>
+            <h1 class="text-3xl	font-bold mb-2">Inter</h1>
             <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
             <p>abcdefghijklmnopqrstuvwxyz</p>
             <p>0123456789</p>
