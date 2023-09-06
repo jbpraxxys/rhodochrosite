@@ -2,22 +2,25 @@
     <div class="relative h-screen flex overflow-hidden bg-white dark:bg-gray-800">
 
         <sidebar-menu
-        :show="sidebarOpen"
-        @close="sidebarOpen = false"/>
+        :expanded="expanded"
+        :mouseenter="mouseenter"
+        @mouseenter="mouseenter = true"
+        @mouseleave="mouseenter = false"
+        />
 
-        <div class="flex flex-col w-0 flex-1 overflow-hidden">
+        <div 
+        class="flex flex-col w-0 flex-1 overflow-hidden transition-all duration-500" 
+        :class="expanded ? 'ml-60' : 'ml-20'">
             <div class="flex items-center justify-between px-4 py-2 border-b border-gray-100">
-                <div>
-                    <!-- mobile menu -->
-                    <div class="w-10 h-10 p-2.5">
-                        <Bars3BottomLeftIcon class="w-5 h-5"/>
-                    </div>
+                <div class="w-10 h-10 p-2.5 cursor-pointer"
+                @click="expandedSidebar">
+                    <Bars3BottomLeftIcon class="w-5 h-5"/>
                 </div>
                 <header-menu />
             </div>
             <main class="relative overflow-y-auto focus:outline-none">
                 <div class="flex items-center justify-between py-8 px-12 border-b border-gray-100">
-                    <div>
+                    <div class="space-y-3">
                         <breadcrumbs 
                         v-if="pages"
                         :pages="pages" />
@@ -70,12 +73,11 @@ const props = defineProps({
     },
 })
 
-const sidebarOpen = ref(false);
+const expanded = ref(true);
+const mouseenter = ref(false);
 
-const canBack = computed(() => props.showBack);
-
-const goBack = () => {
-    const url = props.backUrl;
-    router.visit(url);
+const expandedSidebar = () => {
+    expanded.value = !expanded.value;
 }
+
 </script>

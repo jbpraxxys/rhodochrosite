@@ -36,7 +36,7 @@
                     @click.prevent="selectTab(tab.value)"
                     :class="[
                         isSelectedTab(tab.value)
-                            ? 'text-blue-800'
+                            ? 'text-primary-600'
                             : 'text-gray-400 hover:text-gray-600 hover:border-gray-200',
                         'whitespace-nowrap flex py-4 px-1 text-sm cursor-pointer relative',
                     ]"
@@ -47,7 +47,7 @@
                         v-if="tab.count"
                         :class="[
                             isSelectedTab(tab.value)
-                                ? 'bg-blue-50 text-blue-800'
+                                ? 'bg-primary-50 text-primary-600'
                                 : 'bg-gray-100 text-gray-400',
                             'hidden ml-3 py-0.5 px-2.5 rounded-xl text-xs md:inline-block',
                         ]"
@@ -55,11 +55,10 @@
                     >
                     <span
                         class="
-                            bg-blue-800
+                            bg-primary-600
                             w-full
                             inline-block
                             h-1
-                            rounded-tl-lg rounded-tr-lg
                             absolute
                             -bottom-2
                             left-0
@@ -77,14 +76,13 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { router } from "@inertiajs/vue3";
 import pickBy from "lodash/pickBy";
 
 const props = defineProps({
     tabs: {
-        type: Array,
-        default: [],
+        type: Object,
     },
     buttonItems: {
         type: Boolean,
