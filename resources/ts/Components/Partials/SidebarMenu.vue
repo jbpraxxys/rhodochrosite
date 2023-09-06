@@ -21,7 +21,7 @@
                 >
                     <div class="w-full" v-if="expanded ? true : mouseenter">
                         <p class="text-sm font-semibold text-primary-600 whitespace-nowrap">One Roadway</p>
-                        <p class="text-sm font-semibold text-gray-400 whitespace-nowrap">Trucking Services</p>
+                        <p class="text-sm font-semibold text-gray-400 whitespace-nowrap">Trucking Services, Inc.</p>
                     </div>
                 </transition>
             </div>

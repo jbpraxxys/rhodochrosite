@@ -12,21 +12,16 @@
             :error="error"
         />
         <div class="absolute right-0 bottom-0">
+            
             <button
                 type="button"
                 tabindex="-1"
                 class="border-0 h-11 w-11"
                 @click="hidden = !hidden"
             >
-                <EyeIcon
-                    v-if="hidden"
-                    class="h-5 w-5 my-auto mx-auto text-[#8B9AB1]"
-                    aria-hidden="true"
-                />
-                <EyeSlashIcon
-                    v-if="!hidden"
-                    class="h-5 w-5 my-auto mx-auto text-[#8B9AB1]"
-                    aria-hidden="true"
+                <component
+                :is="hidden ? EyeIcon : EyeSlashIcon" 
+                class="h-5 w-5 my-auto mx-auto text-gray-500"
                 />
             </button>
         </div>
@@ -35,7 +30,7 @@
 
 <script setup lang="ts">
 import JetInput from "@/Components/Inputs/Input.vue";
-import { EyeIcon, EyeSlashIcon } from "@heroicons/vue/24/solid";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/vue/24/outline";
 import { ref } from "vue";
 
 defineProps({

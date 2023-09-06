@@ -56,7 +56,7 @@
                         </Link>
                     </div>
                     <div class="divider border-t border-gray-100 my-1"></div>
-                    <div class="">
+                    <div class="" @click="logout">
                         <Link class="flex items-center py-3 px-6 text-sm">
                             <component
                                 :is="ArrowRightOnRectangleIcon"
@@ -77,8 +77,6 @@ import {
     LockClosedIcon,
     BellIcon,
     UserIcon,
-    HeartIcon,
-    QuestionMarkCircleIcon,
     ArrowRightOnRectangleIcon
 } from "@heroicons/vue/24/outline";
 import { 
@@ -87,17 +85,9 @@ import {
     PopoverPanel 
 } from '@headlessui/vue'
 
+import { router } from "@inertiajs/vue3";
 
-// const navigation = [
-//     {
-//         name: "Profile",
-//         href: route("admin.profile.show"),
-//         icon: UserIcon,
-//     },
-//     // {
-//     //     name: "Notification",
-//     //     href: route("admin.notification.index"),
-//     //     icon: BellIcon,
-//     // },
-// ]
+const logout = () => {
+    router.post(route("admin.logout"));
+}
 </script>

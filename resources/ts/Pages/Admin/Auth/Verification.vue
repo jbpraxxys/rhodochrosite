@@ -1,17 +1,11 @@
 <template>
     <Head title="Reset Password" />
-    <div class="flex flex-wrap items-center h-screen">
-        <div class="w-1/2 text-center px-10">
-            <jet-authentication-card-logo />
-        </div>
-
-        <div class="w-1/2">
-            <jet-authentication-card>
-                <template #title>
-                    <h3 class="text-lg font-bold mt-4">Reset Password</h3>
-                    <p class="text-sm text-gray-500">6-digit code has been sent to sample@email.com</p>
-                </template>
-
+    <div class="flex flex-col justify-center items-center h-screen">
+        <div class="w-[392px] max-w-[392px] rounded-lg border border-gray-100 p-8">
+            <jet-authentication-card
+            title="Reset Password"
+            description="6-digit code has been sent to sample@email.com">
+            
                 <jet-validation-errors class="mb-4" />
 
                 <form @submit.prevent="submit">
@@ -20,7 +14,7 @@
                             <jet-input
                                 id="otp1"
                                 type="text"
-                                class="mt-1 block w-full text-center"
+                                class="block w-full text-center"
                                 required
                                 autofocus
                             />
@@ -29,7 +23,7 @@
                             <jet-input
                                 id="otp2"
                                 type="text"
-                                class="mt-1 block w-full text-center"
+                                class="block w-full text-center"
                                 required
                                 autofocus
                             />
@@ -38,7 +32,7 @@
                             <jet-input
                                 id="otp3"
                                 type="text"
-                                class="mt-1 block w-full text-center"
+                                class="block w-full text-center"
                                 required
                                 autofocus
                             />
@@ -47,7 +41,7 @@
                             <jet-input
                                 id="otp4"
                                 type="text"
-                                class="mt-1 block w-full text-center"
+                                class="block w-full text-center"
                                 required
                                 autofocus
                             />
@@ -56,7 +50,7 @@
                             <jet-input
                                 id="otp5"
                                 type="text"
-                                class="mt-1 block w-full text-center"
+                                class="block w-full text-center"
                                 required
                                 autofocus
                             />
@@ -65,7 +59,7 @@
                             <jet-input
                                 id="otp6"
                                 type="text"
-                                class="mt-1 block w-full text-center"
+                                class="block w-full text-center"
                                 required
                                 autofocus
                             />
@@ -81,7 +75,11 @@
                             Verify
                         </jet-button>
                     </div>
-                    <a href="/admin/login" class="text-primary-500 text-sm text-center block mt-6">Return to Login</a>
+                    <Link 
+                    href="/admin/login" 
+                    class="text-primary-500 text-sm text-center block mt-6">
+                        Return to Login
+                    </Link>
                 </form>
             </jet-authentication-card>
         </div>

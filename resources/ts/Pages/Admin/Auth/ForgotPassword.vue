@@ -1,17 +1,12 @@
 <template>
     <Head title="Forgot Password" />
-    <div class="flex flex-wrap items-center h-screen">
-        <div class="w-1/2 text-center px-10">
-            <jet-authentication-card-logo />
-        </div>
 
-        <div class="w-1/2">
-            <jet-authentication-card>
-                <template #title>
-                    <h3 class="text-lg font-bold mt-4">Forgot Password</h3>
-                    <p class="text-sm text-gray-500">Kindly provide your email address</p>
-                </template>
-
+    <div class="flex flex-col justify-center items-center h-screen">
+        <div class="w-[392px] max-w-[392px] rounded-lg border border-gray-100 p-8">
+            <jet-authentication-card
+            title="Forgot Password"
+            description="Provide your credentials to continue">
+            
                 <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
                     {{ status }}
                 </div>
@@ -19,19 +14,17 @@
                 <jet-validation-errors class="mb-4" />
 
                 <form @submit.prevent="submit">
-                    <div>
-                        <jet-input
-                            id="email"
-                            type="email"
-                            label="Email Address"
-                            class="mt-1 block w-full"
-                            v-model="form.email"
-                            required
-                            autofocus
-                        />
-                    </div>
+                    <jet-input
+                        id="email"
+                        type="email"
+                        label="Email Address"
+                        class="block w-full"
+                        v-model="form.email"
+                        required
+                        autofocus
+                    />
 
-                    <div class="flex items-center mt-4">
+                    <div class="flex items-center mt-6">
                         <jet-button
                             class="w-full flex justify-center"
                             :class="{ 'opacity-25': form.processing }"
@@ -40,7 +33,11 @@
                             Submit
                         </jet-button>
                     </div>
-                    <a href="/admin/login" class="text-primary-500 text-sm text-center block mt-6">Return to Login</a>
+                    <Link 
+                    href="/admin/login" 
+                    class="text-primary-500 text-sm text-center block mt-6">
+                        Return to Login
+                    </Link>
                 </form>
             </jet-authentication-card>
         </div>
