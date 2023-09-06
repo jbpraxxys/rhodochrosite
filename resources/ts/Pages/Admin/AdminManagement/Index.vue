@@ -1,11 +1,6 @@
 <template>
     <admin-layout :pages="pages" title="Admin">
         <template #actionButtons>
-            <ExportButton
-                v-if="activeTab !== 'activity_logs'"
-                :routeLink="route('admin.admin-management.index', { action: 'export' })"
-                class="mr-2"
-            />
             <CreateButton
                 v-if="activeTab !== 'activity_logs'"
                 :routeLink="route('admin.admin-management.create')"
@@ -54,22 +49,10 @@
                     <template v-slot:body>
                         <template v-for="item in items.data" :key="item">
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    <jet-checkbox />
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ item.id }}
-                                </td>
                                 <td
                                     class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                 >
                                     <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                            <img
-                                                class="h-10 w-10 rounded-full object-cover"
-                                                :src="item.profile_photo_url"
-                                            />
-                                        </div>
                                         <div class="ml-4">
                                             <div class="text-sm font-medium text-gray-900">
                                                 {{ item.name }}
@@ -83,10 +66,7 @@
                                 <td
                                     class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                                 >
-                                    <jet-status-pill 
-                                    :text="item.role.name" 
-                                    :custom-class="item.role.name === 'Superadmin' ? 'bg-blue-50 text-blue-600' : 'bg-gray-50 text-gray-600'"
-                                    />
+                                    {{ item.role.name }}
                                 </td>
                                 <td
                                     class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
@@ -107,6 +87,7 @@
                                             class="mr-3"
                                             :routeLink="route('admin.admin-management.view', item.id)"
                                         />
+                                        <delete-button @click="selectArchive(item)" />
                                     </template>
 
                                     <restore-button
@@ -180,6 +161,10 @@ const props = defineProps({
         type : Number,
         default: 0
     },
+    activityLogCount: {
+        type : Number,
+        default: 0
+    },
     selectedTab: {
         type : String,
         default: null
@@ -216,12 +201,15 @@ const tabs: { name: string, value?: string, count?: Number }[] = [
         name: 'Archived',
         value: 'archived',
         count: props.archivedCount
+    },
+    {
+        name: 'Activity Log',
+        value: 'activityLog',
+        count: props.activityLogCount
     }
 ];
 
 const headers: { text: string }[] = [
-    { text: '' },
-    { text: 'ID' },
     { text: 'Admin' },
     { text: 'Role' },
     { text: 'Date Created'}

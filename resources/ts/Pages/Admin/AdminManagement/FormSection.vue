@@ -11,6 +11,7 @@
         <template #form>
             <div class="col-span-6">
                 <jet-input
+                    required
                     v-model="form.first_name"
                     label="First Name"
                     id="first_name"
@@ -19,6 +20,7 @@
             </div>
             <div class="col-span-6">
                 <jet-input
+                    required
                     v-model="form.last_name"
                     label="Last Name"
                     id="last_name"
@@ -39,11 +41,13 @@
 
             <div class="col-span-6">
                 <jet-input
-                    v-model="form.title"
-                    label="Job Title"
-                    id="title"
-                    name="title"
-                    :error="form.errors.title"
+                    v-model="form.contact_number"
+                    label="Contact Number"
+                    id="contact_number"
+                    name="contact_number"
+                    :error="form.errors.contact_number"
+                    add_on_left
+                    add_on_text="+63"
                 />
             </div>
 

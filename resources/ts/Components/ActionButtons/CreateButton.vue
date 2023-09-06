@@ -19,8 +19,8 @@
         "
         :href="routeLink"
     >
-        <PlusIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
         {{ text }}
+        <PlusIcon class="-mr-0.5 ml-2 h-4 w-4" aria-hidden="true" />
     </Link>
 </template>
 
