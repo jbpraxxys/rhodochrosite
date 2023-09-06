@@ -1,13 +1,12 @@
 <template>
-    <admin-layout
-    title="Edit Admin"
-    :show-back="true"
-    :back-url="route('admin.admin-management.index')"
-    >
-        <div class="p-4 md:p-7">
+    <admin-layout :pages="pages">
+        <div class="">
             <FormSection 
             :form="form"
             :roles="roles">
+                <jet-button secondary class="mr-2"><a :href="route('admin.admin-management.view', admin.id)">
+                    Cancel
+                </a></jet-button>
                 <jet-button @click="submit">
                     Save Changes
                 </jet-button>
@@ -48,6 +47,17 @@ const formData = {
     title: props.admin.title,
     role_id: props.admin.role_id
 };
+
+const pages = [
+    {
+        href: route("admin.admin-management.index"),
+        name: "Admins",
+    },
+    {
+        href: "",
+        name: "Edit",
+    },
+];
 
 /*--------------*
 * Functions

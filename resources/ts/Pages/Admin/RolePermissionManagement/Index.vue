@@ -1,24 +1,8 @@
 <template>
-    <admin-layout title="Roles & Permissions">
-        <!-- Tabs -->
-        <div>
-            <Tabs
-                :tabs="tabs"
-                :button-items="true"
-                :active-tab="activeTab"
-                @update:tab="(value) => (activeTab = value)"
-                :tab-route="route('admin.role-permission-management.index')"
-            >
-                <template #buttons>
-                    <CreateButton 
-                        v-if="activeTab !== 'activity_logs'"
-                        :routeLink="route('admin.role-permission-management.create')" 
-                    />
-                </template>
-            </Tabs>
-
+    <admin-layout :pages="pages" title="Roles">
+        <div class="px-12 py-6">
             <!-- Filter -->
-            <div class="py-3 px-6" v-if="activeTab !== 'activity_logs'">
+            <div class="px-6 py-4 border-l border-t border-r  rounded-t-lg" v-if="activeTab !== 'activity_logs'">
                 <Filter
                     :search="searchText"
                     @update:searchText="(value) => (searchText = value)"
@@ -26,7 +10,7 @@
                     :custom-filters="activeTab !== 'activity_logs'"
                 >
                     <template #fields>
-                        <div class="space-y-6">
+                        <div class="mb-6">
                             <date-picker
                                 id="filterDate"
                                 label="Date Created"
@@ -39,74 +23,39 @@
                     </template>
                 </Filter>
             </div>
+
+            <div v-if="activeTab !== 'activity_logs'" class="border-l border-b border-r rounded-b-lg overflow-hidden">
+                <DataTable
+                    :headers="headers"
+                    :no-action="true"
+                    :count="items.data.length"
+                >
+                    <template v-slot:body>
+                        <template v-for="role in items.data" :key="role.name">
+                            <tr>
+                                <td class="w-full px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">
+                                        {{ role.name }}
+                                    </div>
+                                </td>
+                                <td
+                                    class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium"
+                                >
+                                    <template v-if="activeTab !== 'archived'">
+                                        <edit-button
+                                            class="mr-3"
+                                            :routeLink="route('admin.role-permission-management.view', role.id)"
+                                        />
+                                    </template>
+                                </td>
+                            </tr>
+                        </template>
+                    </template>
+                </DataTable>
+                <pagination :items="items" />
+            </div>
         </div>
 
-        <DataTable
-            :headers="headers"
-            :no-action="false"
-            :count="items.data.length"
-        >
-            <template v-slot:body>
-                <template v-for="role in items.data" :key="role.name">
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm text-gray-900">
-                                {{ role.id }}
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm text-gray-900">
-                                {{ role.name }}
-                            </div>
-                            <div class="text-sm text-gray-500">
-                                {{ role.description }}
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm text-gray-900">
-                                {{ role.created_at }}
-                            </div>
-                        </td>
-
-                        <td
-                            class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
-                        >
-                            <template v-if="activeTab !== 'archived'">
-                                <edit-button
-                                    class="mr-3"
-                                    :routeLink="route('admin.role-permission-management.edit', role.id)"
-                                />
-                                <delete-button @click="selectDelete(role)" />
-                            </template>
-
-                            <restore-button
-                                v-if="selectedTab === 'archived'"
-                                @click="selectRestore(role)"
-                            />
-                            
-                        </td>
-                    </tr>
-                </template>
-            </template>
-        </DataTable>
-
-        <pagination class="mb-4" :items="items" />
-
-        <restore-modal
-            title="Restore Admin"
-            :show="showRestoreModal"
-            :item-name="restoreItemName"
-            @confirm="processRestore"
-            @cancel="showRestoreModal = false"
-        ></restore-modal>
-
-        <delete-modal
-            title="Archive Admin"
-            :show="showDeleteModal"
-            :item-name="deleteItemName"
-            @confirm="processDelete"
-            @cancel="showDeleteModal = false"
-        ></delete-modal>
     </admin-layout>
 </template>
 
@@ -152,9 +101,19 @@ const tabs: { name: string, value?: string, count?: Number }[] = [
 ];
 
 const headers: { text: string }[] = [
-    { text: '#' },
-    { text: 'Role Name' },
-    { text: 'Date Created'}
+    { text: 'Role' },
+    { text: ''}
+];
+
+const pages = [
+    {
+        href: route("admin.role-permission-management.index"),
+        name: "Roles",
+    },
+    {
+        href: "",
+        name: "Index",
+    },
 ];
 
 /**---------------*

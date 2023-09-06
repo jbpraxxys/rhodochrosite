@@ -45,6 +45,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         ->controller(AdminController::class)
         ->group(function () {
             Route::get('index', 'index')->name('index');
+            Route::get('view/{admin}', 'view')->name('view');
             Route::get('create', 'create')->name('create');
             Route::get('edit/{admin}', 'edit')->name('edit');
             Route::post('store', 'store')->name('store');
@@ -62,6 +63,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         ->controller(RolePermissionController::class)
         ->group(function () {
             Route::get('index', 'index')->name('index');
+            Route::get('view/{role}', 'view')->name('view');
             Route::get('edit/{role}', 'edit')->name('edit');
             Route::post('edit/{role}', 'update')->name('update');
             Route::get('create', 'create')->name('create');

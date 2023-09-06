@@ -1,9 +1,5 @@
 <template>
-    <admin-layout
-    title="Create Admin"
-    :show-back="true"
-    :back-url="route('admin.admin-management.index')"
-    >
+    <admin-layout :pages="pages">
         <div class="p-4 md:p-7">
             <FormSection 
             :form="form"
@@ -43,6 +39,18 @@ const formData = {
     title: null,
     role_id: null
 };
+
+
+const pages = [
+    {
+        href: route("admin.admin-management.index"),
+        name: "Admins",
+    },
+    {
+        href: "",
+        name: "Create",
+    },
+];
 
 /*--------------*
 * Functions
