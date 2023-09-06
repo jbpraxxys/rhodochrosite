@@ -1,26 +1,54 @@
 <template>
-    <div class="w-60 h-screen max-h-screen bg-white border-r border-gray-100 overflow-auto transition-all">
+    <div 
+    class="fixed z-50 h-screen max-h-screen bg-white border-r border-gray-100 overflow-auto transition-all duration-500 scroll-mr-1 snap-start"
+    :class="[
+        expanded ? 'w-60' : '',
+        expanded ? '' : mouseenter ? 'w-60' : 'w-[84px]'
+    ]">
         <div class="p-8">
             <div class="flex items-center space-x-3">
                 <img 
                 class="flex-shrink-0"
                 src="/icons/logo.svg" 
                 alt="logo">
-                <div class="w-full">
-                    <p class="text-sm font-semibold text-primary-600">One Roadway</p>
-                    <p class="text-sm font-semibold text-gray-400">Trucking Services</p>
-                </div>
+                <transition
+                enter-active-class="transition duration-300 ease-out delay-300"
+                enter-from-class="transform opacity-0"
+                enter-to-class="transform opacity-100"
+                leave-active-class="transition duration-300 ease-out"
+                leave-from-class="transform opacity-100"
+                leave-to-class="transform opacity-0"
+                >
+                    <div class="w-full" v-if="expanded ? true : mouseenter">
+                        <p class="text-sm font-semibold text-primary-600 whitespace-nowrap">One Roadway</p>
+                        <p class="text-sm font-semibold text-gray-400 whitespace-nowrap">Trucking Services</p>
+                    </div>
+                </transition>
             </div>
         </div>
 
         <div class="p-4 space-y-8">
             <div v-for="item in navigation" :key="item.name">
-                <p class="text-xs font-semibold uppercase text-gray-600 mb-2">{{ item.name }}</p>
+                <transition
+                enter-active-class="transition duration-300 ease-out delay-300"
+                enter-from-class="transform opacity-0"
+                enter-to-class="transform opacity-100"
+                leave-active-class="transition duration-300 ease-out"
+                leave-from-class="transform opacity-100"
+                leave-to-class="transform opacity-0"
+                >
+                    <p
+                    v-if="expanded ? true : mouseenter"
+                    class="text-xs font-semibold uppercase text-gray-600 mb-2 whitespace-nowrap"
+                    >
+                        {{ item.name }}
+                    </p>
+                </transition>
                 <div v-for="menu in item.children">
                     <template v-if="!menu.children">
                         <Link
                         :href="menu.href"
-                        class="flex items-center w-full py-3 px-4 rounded-lg"
+                        class="flex items-center w-full py-3 px-4 rounded-lg transition hover:bg-primary-50"
                         :class="[
                             isCurrentUrl(menu.parentUrl)
                                 ? 'bg-primary-50 text-primary-500'
@@ -29,11 +57,23 @@
                             <component
                                 :is="menu.icon"
                                 aria-hidden="true"
-                                class="w-5 h-5 flex-shrink-0 mr-3"
+                                class="w-5 h-5 flex-shrink-0"
                             />
-                            <span class="text-sm">
-                                {{ menu.name }}
-                            </span>
+                            <transition
+                            enter-active-class="transition duration-300 ease-out delay-300"
+                            enter-from-class="transform opacity-0"
+                            enter-to-class="transform opacity-100"
+                            leave-active-class="transition duration-300 ease-out"
+                            leave-from-class="transform opacity-100"
+                            leave-to-class="transform opacity-0"
+                            >
+                                <span 
+                                v-if="expanded ? true : mouseenter"
+                                class="text-sm ml-3 whitespace-nowrap" 
+                                >
+                                    {{ menu.name }}
+                                </span>
+                            </transition>
                         </Link>
                     </template>
 
@@ -50,9 +90,18 @@
                                     aria-hidden="true"
                                     class="w-5 h-5 flex-shrink-0 mr-3"
                                 />
-                                <span class="text-sm">
-                                    {{ menu.name }}
-                                </span>
+                                <transition
+                                enter-active-class="transition duration-300 ease-out delay-300"
+                                enter-from-class="transform opacity-0"
+                                enter-to-class="transform opacity-100"
+                                leave-active-class="transition duration-300 ease-out"
+                                leave-from-class="transform opacity-100"
+                                leave-to-class="transform opacity-0"
+                                >
+                                    <span class="text-sm ml-3" v-if="expanded ? true : mouseenter">
+                                        {{ menu.name }}
+                                    </span>
+                                </transition>
                                 <ChevronDownIcon 
                                 class="w-5 h-5 ml-auto"/>
                             </DisclosureButton>
@@ -108,10 +157,20 @@ import {
     NewspaperIcon,
     ClockIcon,
     ChartBarIcon,
-
-
     ChevronDownIcon,
 } from "@heroicons/vue/24/outline";
+
+defineProps({
+    expanded: {
+        type: Boolean,
+        default: true
+    },
+    mouseenter: {
+        type: Boolean,
+        default: true
+    }
+})
+
 
 interface generalNavType {
     name: string,

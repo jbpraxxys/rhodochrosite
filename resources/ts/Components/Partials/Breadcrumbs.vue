@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center space-x-4 mb-3">
+    <div class="flex items-center space-x-4">
         <div v-for="(page, index) in pages" :key="page.name">
             <div class="flex items-center">
                 <ChevronRightIcon
