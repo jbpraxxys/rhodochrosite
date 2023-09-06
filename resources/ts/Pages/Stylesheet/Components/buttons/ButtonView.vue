@@ -10,14 +10,12 @@
             <div class="mb-4">
                 <CreateButton/>
             </div>
-            <h4 class="mb-4 text-gray-600 font-medium">Import Export</h4>
             <div class="mb-4 space-x-4">
                 <ExportButton />
                 <ImportButton />
                 
             </div>
-            <h4 class="mb-4 text-gray-600 font-medium">Primary & Secondary</h4>
-            <div class="mb-4 space-x-4">
+            <div class="mb-4 flex space-x-4">
                 <jet-button
                 type="button"
 
@@ -30,8 +28,13 @@
                 >
                     Secondary
                 </jet-button>
+                <jet-button
+                type="button"
+                textButton
+                >
+                    Text
+                </jet-button>
             </div>
-            <h4 class="mb-4 text-gray-600 font-medium">Button w/ Icons</h4>
             <div class="mb-4 flex space-x-4">
                 <jet-button
                 type="button"

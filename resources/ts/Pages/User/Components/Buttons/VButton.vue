@@ -5,14 +5,14 @@
         :class="[
             disabled ? 'pointer-events-none disabled:opacity-25' : '',
             fill ? 'hover:bg-white text-white active:text-white' : 'bg-transparent hover:text-white',
-            fillColor == 'primary' ? 'bg-primary-800 border-primary-800 hover:text-primary-800 active:bg-primary-900' :
-            fillColor == 'gray' ? 'bg-gray-800 border-gray-800 hover:text-gray-800 active:bg-gray-900' :
+            fillColor == 'primary' ? 'bg-primary-600 border-primary-600 hover:text-primary-600 active:bg-primary-900' :
+            fillColor == 'red' ? 'bg-red-600 border-red-600 hover:text-red-600 active:bg-red-600' :
             fillColor == 'blue' ? 'bg-blue-800 border-blue-800 hover:text-blue-800 active:bg-blue-900' : '',
-            fillColor == 'primary-outline' ? 'border-primary-800 text-primary-800 hover:bg-primary-800 active:bg-primary-900' :
-            fillColor == 'gray-outline' ? 'border-gray-800 text-gray-800 hover:bg-gray-800 active:bg-gray-900' :
+            fillColor == 'primary-outline' ? 'border-primary-600 text-primary-600 hover:bg-primary-600 active:bg-primary-900' :
+            fillColor == 'gray-outline' ? 'border-gray-300 text-gray-800 hover:bg-gray-300 active:bg-gray-900' :
             fillColor == 'blue-outline' ? 'border-blue-800 text-blue-800 hover:bg-blue-800 active:bg-blue-900' : '',
             size == 'sm' ? 'h-10' : 
-            size == 'md' ? 'h-12' : 'h-[60px]',
+            size == 'md' ? 'h-12' : 'h-[44px]',
             block ? 'flex w-full' : 'inline-flex',
             customClass,
         ]"

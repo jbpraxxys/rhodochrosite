@@ -16,7 +16,9 @@
         :class="[
             secondary
                 ? 'bg-white border-primary-600 text-primary-600 hover:text-gray-700 focus:outline-none active:text-gray-800 active:bg-gray-50 disabled:opacity-25 '
-                : import_export ? 'bg-white border-gray-100 text-gray-500 hover:text-gray-700 focus:outline-none active:text-gray-800 active:bg-gray-50 disabled:opacity-25 ':'border-primary-600 focus:outline-none focus:border-gray-900 disabled:opacity-25 bg-primary-600 hover:bg-primary-700 active:bg-primary-900 text-white'
+                : import_export ? 'bg-white border-gray-100 text-gray-500 hover:text-gray-700 focus:outline-none active:text-gray-800 active:bg-gray-50 disabled:opacity-25 '
+                : textButton ? 'bg-white border-none text-primary-600 hover:text-primary-700 focus:outline-none active:text-primary-800 active:bg-gray-50 disabled:opacity-25'
+                :'border-primary-600 focus:outline-none focus:border-gray-900 disabled:opacity-25 bg-primary-600 hover:bg-primary-700 active:bg-primary-900 text-white'
         ]"
     >
         <slot></slot>
@@ -46,6 +48,10 @@ const props = defineProps({
     },
     import_export:{
         type: Boolean,
+        default:false,
+    },
+    textButton:{
+        type:Boolean,
         default:false,
     }
 });
