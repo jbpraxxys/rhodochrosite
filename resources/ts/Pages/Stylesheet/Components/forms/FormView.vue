@@ -1,7 +1,7 @@
 <template>
     
     <div>
-        <h4 class="mb-4 text-gray-600 font-medium">User Forms</h4>
+        <!-- <h4 class="mb-4 text-gray-600 font-medium">User Forms</h4>
         <div class="mb-4">
             <v-text-input
                 type="text"
@@ -79,7 +79,7 @@
             />
         </div>
 
-        <div class="w-full border-t border-gray-200 my-20"></div>
+        <div class="w-full border-t border-gray-200 my-20"></div> -->
 
         <h4 class="mb-4 text-gray-600 font-medium">Admin Forms</h4>
         <div class="mb-4">

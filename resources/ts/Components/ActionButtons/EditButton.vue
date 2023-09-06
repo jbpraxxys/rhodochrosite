@@ -12,7 +12,7 @@
             focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-blue-500
         "
     >
-        <EyeIcon class="p-0.5 h-6 w-6" aria-hidden="true" />
+        <EyeIcon class="p-0.5 h-6 w-6 text-gray-500" aria-hidden="true" />
     </Link>
 </template>
 

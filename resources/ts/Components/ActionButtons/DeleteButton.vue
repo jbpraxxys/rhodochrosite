@@ -8,6 +8,7 @@
             p-1
             border border-transparent
             rounded-xl
+            text-gray-500
             hover:text-gray-700
             active:text-gray-700
             focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-red-400

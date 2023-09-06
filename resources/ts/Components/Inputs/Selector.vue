@@ -73,7 +73,7 @@
                         cursor-pointer
                     "
                 >
-                    <ChevronDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                    <ChevronUpDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
                 </span>
             </template>
 
@@ -116,7 +116,7 @@
                                 ? 'bg-gray-300'
                                 : item.unavailable
                                 ? 'text-gray-900'
-                                : 'text-gray-900 hover:bg-gray-300',
+                                : 'text-gray-900 hover:bg-primary-50',
                                 'cursor-default select-none relative py-2 px-3',
                             ]"
                         >
@@ -152,7 +152,7 @@ import {
     ListboxOption,
     ListboxOptions,
 } from "@headlessui/vue";
-import { XMarkIcon, ChevronDownIcon } from "@heroicons/vue/24/solid";
+import { XMarkIcon, ChevronUpDownIcon } from "@heroicons/vue/24/solid";
 
 const props = defineProps({
     modelValue: {

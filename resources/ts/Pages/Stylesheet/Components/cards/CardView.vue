@@ -31,7 +31,7 @@
         >
             <template #button>
                 <div class="flex items-center justify-end">
-                    <v-button @click="showConfirmModal = false" fill="outline" class="mr-2">Cancel</v-button>
+                    <v-button @click="showConfirmModal = false" :fill='false' fillColor="gray-outline" class="mr-2">Cancel</v-button>
                     <v-button @click="openSuccessModal()">Proceed</v-button>
                 </div>
             </template>
@@ -45,8 +45,8 @@
         >
             <template #button>
                 <div class="flex items-center justify-end">
-                    <v-button @click="showDeleteModal = false" fill="outline" class="mr-2">Cancel</v-button>
-                    <v-button @click="openSuccessModal()">Proceed</v-button>
+                    <v-button @click="showDeleteModal = false" :fill='false' fillColor="gray-outline" class="mr-2">Cancel</v-button>
+                    <v-button @click="openSuccessModal()" fillColor="red">Proceed</v-button>
                 </div>
             </template>
 
