@@ -1,67 +1,55 @@
 <template>
     <Head title="Log in" />
 
-    <div class="flex flex-wrap items-center h-screen">
-        <div class="w-1/2 text-center px-10">
-            <jet-authentication-card-logo />
-        </div>
-
-        <div class="w-1/2">
-            <jet-authentication-card>
-                <template #title>
-                    <h3 class="text-lg font-bold mt-4">Admin</h3>
-                    <p class="text-sm text-gray-500">Kindly input your credentials to continue</p>
-                </template>
-
-                <jet-validation-errors class="mb-4" />
-
-                <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-                    {{ status }}
-                </div>
-
+    <div class="flex flex-col justify-center items-center h-screen">
+        <div class="w-[392px] max-w-[392px] rounded-lg border border-gray-100 p-8">
+            <jet-authentication-card
+            title="Admin"
+            description="Provide your credentials to continue"
+            >
                 <form @submit.prevent="submit">
-                    <div>
+                    <div class="mb-6">
                         <jet-input
+                            v-model="form.email"
+                            label="Email Address"
                             id="email"
                             type="email"
+                            name="email"
                             class="mt-1 block w-full"
-                            label="Email Address"
-                            v-model="form.email"
                             required
                             autofocus
                         />
                     </div>
 
-                    <div class="mt-4">
+                    <div class="mb-6">
                         <password-input
                             v-model="form.password"
                             label="Password"
-                            placeholder="Your password"
                             id="password"
                             name="password"
-                            required autocomplete="current-password"
+                            required 
+                            autocomplete="current-password"
                         />
                     </div>
-                    <div class="flex items-center justify-between mt-4">
+
+                    <div class="flex items-center justify-between mb-6">
                         <div class="flex items-center">
                             <jet-checkbox name="remember" v-model:checked="form.remember" />
-                            <label for="remember-me" class="ml-2 block text-sm text-gray-900">
+                            <label for="remember-me" class="ml-2 block text-xs text-gray-500">
                                 Remember me
                             </label>
                         </div>
 
-                        <div class="text-sm">
-                            <Link
-                                v-if="canResetPassword"
-                                :href="route('admin.password.request')"
-                                class="font-semi-bold text-gray-800 hover:text-gray-500"
-                            >
-                                Forgot your password?
-                            </Link>
-                        </div>
+                        <Link
+                            v-if="canResetPassword"
+                            :href="route('admin.password.request')"
+                            class="text-xs text-primary-600"
+                        >
+                            Forgot your password?
+                        </Link>
                     </div>
 
-                    <div class="flex items-center mt-4">
+                    <div class="flex items-center">
                         <jet-button
                             class="w-full flex justify-center"
                             :class="{ 'opacity-25': form.processing }"
