@@ -17,90 +17,73 @@
         />
         <div class="px-12 py-6">
 
-            <!-- Filter -->
-            <div class="px-6 py-4 border-l border-t border-r  rounded-t-lg" v-if="activeTab !== 'activity_logs'">
-                <Filter
+            <table-container>
+                <template #header>
+                    <filter-box
                     :search="searchText"
                     @update:searchText="(value) => (searchText = value)"
                     @update:filters="applyFilters"
-                    :custom-filters="activeTab !== 'activity_logs'"
-                >
-                    <template #fields>
-                        <div class="mb-6">
-                            <date-picker
-                                id="filterDate"
-                                label="Date Created"
-                                placeholder="Filter Date Created"
-                                v-model="filterDate"
-                                :enableTimePicker="false"
-                                @update:modelValue="(value) => (filterDate = value)"
-                            />
-                        </div>
-                    </template>
-                </Filter>
-            </div>
+                    :custom-filters="activeTab !== 'activity_logs'">
+                        <template #fields>
+                            <div class="mb-6">
+                                <date-picker
+                                    id="filterDate"
+                                    label="Date Created"
+                                    placeholder="Filter Date Created"
+                                    v-model="filterDate"
+                                    :enableTimePicker="false"
+                                    @update:modelValue="(value) => (filterDate = value)"
+                                />
+                            </div>
+                        </template>
+                    </filter-box>
+                </template>
 
-            <div v-if="activeTab !== 'activity_logs'" class="border-l border-b border-r rounded-b-lg overflow-hidden">
-                <DataTable
-                    :headers="headers"
-                    :no-action="false"
-                    :count="items.data.length"
-                >
-                    <template v-slot:body>
-                        <template v-for="item in items.data" :key="item">
-                            <tr>
-                                <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                                >
-                                    <div class="flex items-center">
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900">
-                                                {{ item.name }}
-                                            </div>
-                                            <div class="text-sm text-gray-500">
-                                                {{ item.email }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                                >
-                                    {{ item.role.name }}
-                                </td>
-                                <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
-                                >
-                                    {{ item.created_at }}
-                                </td>
-
-                                <td
-                                    class="
-                                        px-6
-                                        py-4
-                                        whitespace-nowrap
-                                        text-sm text-gray-500 text-center
-                                    "
-                                >
-                                    <template v-if="selectedTab !== 'archived'">
+                <template #body>
+                    <data-table
+                        :headers="headers"
+                        :no-action="false"
+                        :count="items.data.length"
+                    >
+                        <template v-slot:body>
+                            <template v-for="item in items.data" :key="item">
+                                <tr>
+                                    <td>
+                                        {{ item.name }}
+                                    </td>
+                                    <td>
+                                        {{ item.role.name }}
+                                    </td>
+                                    <td>
+                                        {{ item.created_at }}
+                                    </td>
+    
+                                    <td class="text-center">
                                         <edit-button
-                                            class="mr-3"
-                                            :routeLink="route('admin.admin-management.view', item.id)"
+                                        v-if="selectedTab !== 'archived'"
+                                        :routeLink="route('admin.admin-management.view', item.id)"
                                         />
-                                        <delete-button @click="selectArchive(item)" />
-                                    </template>
-
-                                    <restore-button
+    
+                                        <delete-button 
+                                        v-if="selectedTab !== 'archived'"
+                                        @click="selectArchive(item)" />
+    
+                                        <restore-button
                                         v-if="selectedTab === 'archived'"
                                         @click="selectRestore(item)"
-                                    />
-                                </td>
-                            </tr>
+                                        />
+                                    </td>
+                                </tr>
+                            </template>
                         </template>
-                    </template>
-                </DataTable>
-                <pagination :items="items" />
-            </div>
+                    </data-table>
+
+                </template>
+
+                <template #footer>
+                    <pagination :items="items" />
+                </template>
+            </table-container>
         </div>
 
         <DeleteModal

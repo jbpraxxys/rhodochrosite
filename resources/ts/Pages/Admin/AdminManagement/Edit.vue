@@ -4,12 +4,16 @@
             <FormSection 
             :form="form"
             :roles="roles">
-                <jet-button secondary class="mr-2"><a :href="route('admin.admin-management.view', admin.id)">
-                    Cancel
-                </a></jet-button>
-                <jet-button @click="submit">
+                <a :href="route('admin.admin-management.view', admin.id)">
+                    <action-button 
+                    fill="outline" 
+                    class="mr-2">
+                        Cancel
+                    </action-button>
+                </a>
+                <action-button @click="submit">
                     Save Changes
-                </jet-button>
+                </action-button>
             </FormSection>
         </div>
     </admin-layout>

@@ -5,7 +5,7 @@
     :disabled="disabled"
     @update:model-value="$emit('update:modelValue', $event.id)"
     >
-        <ListboxLabel v-if="label" class="block text-sm text-gray-900 mb-1">
+        <ListboxLabel v-if="label" class="block text-sm text-gray-500 mb-2">
             {{ label }}<span v-if="required" class="text-red-600 ml-0.5">*</span>
         </ListboxLabel>
         <div class="relative">
@@ -15,10 +15,9 @@
                 w-full
                 bg-white
                 border
-                rounded-md
-                pl-3
+                rounded
+                pl-4
                 pr-10
-                py-2.5
                 h-11
                 text-left
                 cursor-default
@@ -28,7 +27,7 @@
             :class="[
                 error
                     ? 'focus:ring-red-500 focus:border-red-500 border-red-500'
-                    : 'focus:ring-gray-900 focus:border-gray-900 border-gray-300',
+                    : 'focus:ring-primary-500 focus:border-primary-500 border-gray-100',
                 readonly ? 'pointer-events-none cursor-default' : ''
             ]"
             >
@@ -57,7 +56,7 @@
                     "
                     title="Clear Filter"
                 >
-                    <XMarkIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                    <XMarkIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
                 </span>
             </template>
             <template v-else>
@@ -73,7 +72,7 @@
                         cursor-pointer
                     "
                 >
-                    <ChevronUpDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                    <ChevronUpDownIcon class="h-5 w-5 text-gray-500" aria-hidden="true" />
                 </span>
             </template>
 

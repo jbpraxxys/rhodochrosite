@@ -1,124 +1,312 @@
 <template>
-    <div>
-        <div class="w-full">
-            <h4 class="mb-4 text-gray-600 font-medium">Admin Buttons</h4>
-            <div class="mb-8">
-                <EditButton />
-                <DeleteButton />
-                <RestoreButton />
+    <div class="">
+        <div class="mb-10 space-y-4">
+            <div class="flex items-start w-[70%] space-x-10">
+                <p class="w-3/12">Primary Button</p>
+                <div class="w-3/12">
+                    <p class="text-sm text-gray-500 ">Small</p>
+                </div>
+                <div class="w-3/12">
+                    <p class="text-sm text-gray-500 ">Default</p>
+                </div>
+                <div class="w-3/12">
+                    <p class="text-sm text-gray-500 ">Large</p>
+                </div>
             </div>
-            <div class="mb-4">
-                <CreateButton/>
+            <div class="flex items-center w-[70%] space-x-10">
+                <p class="text-sm text-gray-500 w-3/12">Icon Only</p>
+                <div class="w-3/12">
+                    <action-button
+                    size="small">
+                        <Squares2X2Icon class="w-5 h-5" />
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button>
+                        <Squares2X2Icon class="w-5 h-5" />
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    size="large">
+                        <Squares2X2Icon class="w-5 h-5" />
+                    </action-button>
+                </div>
             </div>
-            <div class="mb-4 space-x-4">
-                <ExportButton />
-                <ImportButton />
-                
+            <div class="flex items-center w-[70%] space-x-10">
+                <p class="text-sm text-gray-500 w-3/12">Text Only</p>
+                <div class="w-3/12">
+                    <action-button
+                    size="small">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button>
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    size="large">
+                        Button
+                    </action-button>
+                </div>
             </div>
-            <div class="mb-4 flex space-x-4">
-                <jet-button
-                type="button"
-
-                >
-                    Primary
-                </jet-button>
-                <jet-button
-                type="button"
-                secondary
-                >
-                    Secondary
-                </jet-button>
-                <jet-button
-                type="button"
-                textButton
-                >
-                    Text
-                </jet-button>
+            <div class="flex items-center w-[70%] space-x-10">
+                <p class="text-sm text-gray-500 w-3/12">Text + Leading Icon</p>
+                <div class="w-3/12">
+                    <action-button
+                    size="small"
+                    :leading-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    :leading-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    size="large"
+                    :leading-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
             </div>
-            <div class="mb-4 flex space-x-4">
-                <jet-button
-                type="button"
-                arrowIcon
-                >
-                    Primary
-                </jet-button>
-                <jet-button
-                type="button"
-                checkCircleIcon
-                >
-                    Secondary
-                </jet-button>
+            <div class="flex items-center w-[70%] space-x-10">
+                <p class="text-sm text-gray-500 w-3/12">Text + Trailing Icon</p>
+                <div class="w-3/12">
+                    <action-button
+                    size="small"
+                    :trailing-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    :trailing-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    size="large"
+                    :trailing-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
             </div>
         </div>
-
-        <!-- <div class="w-full border-t border-gray-200 my-20"></div>
-
-        <h4 class="mb-4 text-gray-600 font-medium">User Buttons</h4>
-        <div class="w-full grid grid-cols-1 gap-8 mb-8">
-            <div class="col-span-1">
-                <p class="font-semibold mb-4">Button Colors</p>
-                <div class="flex space-x-3">
-                    <v-button>
-                        Button Default
-                    </v-button>
-                    <v-button fillColor="gray">
-                        Button Gray
-                    </v-button>
-                    <v-button fillColor="blue">
-                        Button Yellow
-                    </v-button>
+        <div class="mb-10 space-y-4">
+            <p>Secondary Button</p>
+            <div class="flex items-center w-[70%] space-x-10">
+                <p class="text-sm text-gray-500 w-3/12">Icon Only</p>
+                <div class="w-3/12">
+                    <action-button
+                    size="small"
+                    fill="outline">
+                        <Squares2X2Icon class="w-5 h-5" />
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    fill="outline">
+                        <Squares2X2Icon class="w-5 h-5" />
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    size="large"
+                    fill="outline">
+                        <Squares2X2Icon class="w-5 h-5" />
+                    </action-button>
                 </div>
             </div>
-            <div class="col-span-1">
-                <p class="font-semibold mb-4">Button Size</p>
-                <div class="flex space-x-3">
-                    <v-button>
-                        Button Default
-                    </v-button>
-                    <v-button size="md">
-                        Button Medium
-                    </v-button>
-                    <v-button size="sm">
-                        Button Small
-                    </v-button>
+            <div class="flex items-center w-[70%] space-x-10">
+                <p class="text-sm text-gray-500 w-3/12">Text Only</p>
+                <div class="w-3/12">
+                    <action-button
+                    size="small"
+                    fill="outline">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    fill="outline">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    size="large"
+                    fill="outline">
+                        Button
+                    </action-button>
                 </div>
             </div>
-            <div class="col-span-1">
-                <p class="font-semibold mb-4">Button Fill</p>
-                <div class="flex space-x-3">
-                    <v-button>
-                        Button Fill
-                    </v-button>
-                    <v-button :fill="false" fillColor="primary-outline">
-                        Button Outline
-                    </v-button>
+            <div class="flex items-center w-[70%] space-x-10">
+                <p class="text-sm text-gray-500 w-3/12">Text + Leading Icon</p>
+                <div class="w-3/12">
+                    <action-button
+                    size="small"
+                    fill="outline"
+                    :leading-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    fill="outline"
+                    :leading-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    size="large"
+                    fill="outline"
+                    :leading-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
                 </div>
             </div>
-            <div class="col-span-1">
-                <p class="font-semibold mb-4">Button Mode</p>
-                <div class="flex flex-col space-y-3">
-                    <v-button block>
-                        Button Block
-                    </v-button>
-                    <v-back-button
-                        routeLink="/"
-                    >
-                        Back to Home
-                    </v-back-button>
+            <div class="flex items-center w-[70%] space-x-10">
+                <p class="text-sm text-gray-500 w-3/12">Text + Trailing Icon</p>
+                <div class="w-3/12">
+                    <action-button
+                    size="small"
+                    fill="outline"
+                    :trailing-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    fill="outline"
+                    :trailing-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    size="large"
+                    fill="outline"
+                    :trailing-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
                 </div>
             </div>
-        </div> -->
+        </div>
+        <div class="mb-10 space-y-4">
+            <p>Tertiary Button</p>
+            <div class="flex items-center w-[70%] space-x-10">
+                <p class="text-sm text-gray-500 w-3/12">Icon Only</p>
+                <div class="w-3/12">
+                    <action-button
+                    size="small"
+                    fill="none">
+                        <Squares2X2Icon class="w-5 h-5" />
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    fill="none">
+                        <Squares2X2Icon class="w-5 h-5" />
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    size="large"
+                    fill="none">
+                        <Squares2X2Icon class="w-5 h-5" />
+                    </action-button>
+                </div>
+            </div>
+            <div class="flex items-center w-[70%] space-x-10">
+                <p class="text-sm text-gray-500 w-3/12">Text Only</p>
+                <div class="w-3/12">
+                    <action-button
+                    size="small"
+                    fill="none">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    fill="none">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    size="large"
+                    fill="none">
+                        Button
+                    </action-button>
+                </div>
+            </div>
+            <div class="flex items-center w-[70%] space-x-10">
+                <p class="text-sm text-gray-500 w-3/12">Text + Leading Icon</p>
+                <div class="w-3/12">
+                    <action-button
+                    size="small"
+                    fill="none"
+                    :leading-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    fill="none"
+                    :leading-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    size="large"
+                    fill="none"
+                    :leading-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+            </div>
+            <div class="flex items-center w-[70%] space-x-10">
+                <p class="text-sm text-gray-500 w-3/12">Text + Trailing Icon</p>
+                <div class="w-3/12">
+                    <action-button
+                    size="small"
+                    fill="none"
+                    :trailing-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    fill="none"
+                    :trailing-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+                <div class="w-3/12">
+                    <action-button
+                    size="large"
+                    fill="none"
+                    :trailing-icon="Squares2X2Icon">
+                        Button
+                    </action-button>
+                </div>
+            </div>
+        </div>
     </div>
-    
-
 </template>
+
 <script setup lang="ts">
-import CreateButton from "@/Components/ActionButtons/CreateButton.vue";
-import DeleteButton from "@/Components/ActionButtons/DeleteButton.vue";
-import EditButton from "@/Components/ActionButtons/EditButton.vue";
-import ExportButton from "@/Components/ActionButtons/ExportButton.vue";
-import RestoreButton from "@/Components/ActionButtons/RestoreButton.vue";
-import JetButton from "@/Components/ActionButtons/JetButton.vue";
-import ImportButton from "@/Components/ActionButtons/ImportButton.vue";
+import { Squares2X2Icon } from "@heroicons/vue/24/solid";
+import ActionButton from "@/Components/ActionButtons/ActionButton.vue";
 
 </script>

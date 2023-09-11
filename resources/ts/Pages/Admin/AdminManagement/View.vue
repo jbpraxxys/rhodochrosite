@@ -23,9 +23,11 @@
                 </div>
             </div>
             <div class="py-4 px-6 w-full bg-gray-50 border-t border-gray-100 flex justify-end">
-                <jet-button><a :href="route('admin.admin-management.edit', admin.id)">
-                    Update Information
-                </a></jet-button>
+                <a :href="route('admin.admin-management.edit', admin.id)">
+                    <action-button>
+                        Update Information
+                    </action-button>
+                </a>
             </div>
         </div>
     </admin-layout>

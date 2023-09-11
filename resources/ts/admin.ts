@@ -7,6 +7,9 @@ import { createInertiaApp } from '@inertiajs/vue3';
 
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 
+import TableContainer from "@/Components/Containers/TableContainer.vue";
+import FilterBox from "@/Components/Containers/FilterBox.vue";
+import SearchForm from "@/Components/Forms/SearchForm.vue";
 import Tabs from "@/Components/Partials/Tabs.vue";
 import Filter from "@/Components/Partials/Filter.vue";
 import DataTable from "@/Components/Partials/DataTable.vue";
@@ -19,6 +22,7 @@ import ExportButton from "@/Components/ActionButtons/ExportButton.vue";
 import ImportButton from "@/Components/ActionButtons/ImportButton.vue";
 import RestoreButton from "@/Components/ActionButtons/RestoreButton.vue";
 import JetButton from "@/Components/ActionButtons/JetButton.vue";
+import ActionButton from "@/Components/ActionButtons/ActionButton.vue";
 
 import JetFormSection from "@/Components/Partials/FormSection.vue";
 import JetLabel from "@/Components/Inputs/Label.vue";
@@ -37,6 +41,7 @@ import Multiselect from '@/Components/Inputs/Multiselect.vue';
 import RestoreModal from "@/Components/Modals/RestoreModal.vue";
 import DeleteModal from "@/Components/Modals/DeleteModal.vue";
 import ImportModal from "@/Components/Modals/ImportModal.vue";
+import SidePanel from "@/Components/Modals/SidePanel.vue";
 
 import { Head, Link } from '@inertiajs/vue3';
 
@@ -53,10 +58,14 @@ createInertiaApp({
                 methods: { route },
                 components: {
                     AdminLayout,
+                    TableContainer,
+                    FilterBox,
+                    SearchForm,
                     Tabs,
                     Filter,
                     DataTable,
                     Pagination,
+                    ActionButton,
                     CreateButton,
                     DeleteButton,
                     EditButton,
@@ -77,6 +86,7 @@ createInertiaApp({
                     RestoreModal,
                     DeleteModal,
                     ImportModal,
+                    SidePanel,
                     ToggleSwitch,
                     Multiselect,
                     Head,

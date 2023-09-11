@@ -66,7 +66,7 @@ class AdminController extends Controller
         }
 
         // Setup pagination
-        $admins = $admins->with('role')->paginate(10)->appends(request()->query());
+        $admins = $admins->with('role')->paginate($request->input('rows') ?: 10)->appends(request()->query());
 
         // Process counts
         $active_count = Admin::count();

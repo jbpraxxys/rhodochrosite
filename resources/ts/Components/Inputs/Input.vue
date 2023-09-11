@@ -43,11 +43,12 @@
                 class="
                     inline-flex
                     items-center
-                    px-3
+                    px-4
                     rounded-l-md
-                    border border-r-0 border-gray-300
+                    border border-r-0 
+                    border-gray-100
                     bg-gray-50
-                    text-gray-900
+                    text-gray-500
                     text-sm
                 "
                 >{{ add_on_text }}</span
@@ -65,8 +66,8 @@
                     focus:outline-none
                     text-sm
                     rounded
-                    py-2.5
                     h-11
+                    px-4
                 "
                 :class="
                     error
@@ -75,7 +76,7 @@
                         ? 'border-gray-100 placeholder-gray-500 flex-1 min-w-0 block w-full px-3 py-2.5 rounded-none rounded-r-md text-sm'
                         : add_on_right
                         ? 'border-gray-100 placeholder-gray-500 flex-1 min-w-0 block w-full px-3 py-2.5 rounded-none rounded-l-md text-sm'
-                        : 'border-gray-100 placeholder-gray-500  disabled:bg-gray-200',
+                        : 'border-gray-100 placeholder-gray-500  disabled:bg-gray-200 focus:ring-primary-500 focus:border-primary-500',
                         customInputClass
                 "
                 :placeholder="placeholder"
@@ -95,11 +96,12 @@
                 class="
                     inline-flex
                     items-center
-                    px-3
+                    px-4
                     rounded-r-md
-                    border border-l-0 border-gray-300
+                    border border-l-0 
+                    border-gray-100
                     bg-gray-50
-                    text-gray-900
+                    text-gray-500
                     text-sm
                 "
                 >{{ add_on_text }}</span

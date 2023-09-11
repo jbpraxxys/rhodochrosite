@@ -1,33 +1,15 @@
 <template>
-    <Link
-        class="
-            inline-flex
-            items-center
-            px-4
-            py-3
-            border-0
-            rounded-xl
-            text-sm
-            font-semibold
-            transition
-            ring-0
-            focus:outline-none focus:border-0 focus:ring-0
-            disabled:opacity-25
-            bg-primary-600
-            hover:bg-primary-700
-            active:bg-primary-900
-            text-white
-        "
-        :href="routeLink"
-    >
-        {{ text }}
-        <PlusIcon class="ml-2 h-4 w-4"  aria-hidden="true" />
+    <Link :href="routeLink">
+        <action-button
+        :trailing-icon="PlusIcon">
+            {{ text }}
+        </action-button>
     </Link>
 </template>
 
 <script setup lang="ts">
-import { Link } from "@inertiajs/vue3";
 import { PlusIcon } from "@heroicons/vue/24/solid";
+import ActionButton from "@/Components/ActionButtons/ActionButton.vue";
 
 const props = defineProps({
     routeLink: {
