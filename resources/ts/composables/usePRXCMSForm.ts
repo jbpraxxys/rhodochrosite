@@ -35,6 +35,7 @@ function buildFormData(page, schema) {
     title: page.title || null,
     description: page.description || null,
     keywords: page.keywords || null,
+    og_image_path: page.og_image_path || null,
     robots_follow: page.robots_follow || true,
     robots_index: page.robots_index || true,
   };

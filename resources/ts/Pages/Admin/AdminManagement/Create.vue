@@ -1,12 +1,14 @@
 <template>
-    <admin-layout :pages="pages">
+    <admin-layout 
+    title="Create Admin"
+    :pages="pages">
         <div class="p-4 md:p-7">
             <FormSection 
             :form="form"
             :roles="roles">
-                <jet-button @click="submit">
+                <action-button @click="submit">
                     Create
-                </jet-button>
+                </action-button>
             </FormSection>
         </div>
     </admin-layout>
@@ -37,7 +39,7 @@ const formData = {
     last_name: null,
     email: null,
     title: null,
-    role_id: null
+    role_id: 1
 };
 
 

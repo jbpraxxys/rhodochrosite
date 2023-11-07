@@ -26,13 +26,10 @@ class AdminSeeder extends Seeder
             ]
         ];
 
+        Admin::truncate();
+
         foreach ($admins as $admin) {
             Admin::create($admin);
         }
-
-        // Create fake Admins
-        Admin::factory()
-            ->count(10)
-            ->create();
     }
 }

@@ -56,11 +56,11 @@
                                     <img
                                         class="m-auto object-contain"
                                         :src="renderUrl(listData[`${id}_${item.id}`][index])"
-                                        alt=""
+                                        alt="alt-image"
                                         width="120"
                                     />
                                 </div>
-                                <p v-else>{{ listData[`${id}_${item.id}`][index] }}</p>
+                                <p v-else v-html="listData[`${id}_${item.id}`][index]"></p>
                             </td>
                         </template>
                         <td
@@ -117,14 +117,14 @@
             </draggable>
         </table>
         <div class="text-center mt-4">
-            <jet-button
+            <action-button
                 v-if="status === STATUSES.default"
                 @click="status = STATUSES.creating"
                 type="button"
             >
                 <PlusIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
                 Add
-            </jet-button>
+            </action-button>
         </div>
 
         <!------------------
@@ -175,12 +175,15 @@
                     v-if="item.type === 'htmleditor'"
                     class="col-span-5 mb-4"
                 >
-                    <CKEditor
+                    <ck-editor
                         v-model="createForm[`${id}_${item.id}`]"
                         :label="item.label"
                         :id="`${item.id}`"
                         inListTable
-                    ></CKEditor>
+                    ></ck-editor>
+                    <p class="text-gray-400 text-sm mt-1">
+                        {{ item.description }}
+                    </p>
                 </div>
 
                 <!-- Images -->
@@ -205,19 +208,17 @@
                 {{ errors }}
             </p>
             <div class="text-center mt-4 space-x-2" v-if="status !== STATUSES.default">
-                <jet-button
+                <action-button
                 @click="cancel"
                 type="button"
-                outlined>
-                    <XCircleIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+                fill="outline">
                     Cancel
-                </jet-button>
-                <jet-button
+                </action-button>
+                <action-button
                 @click="save"
                 type="button">
-                    <PencilSquareIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
                     Save
-                </jet-button>
+                </action-button>
             </div>
             <!-- End Editor -->
         </div>

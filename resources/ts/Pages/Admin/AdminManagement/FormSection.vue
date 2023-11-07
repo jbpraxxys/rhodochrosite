@@ -5,7 +5,7 @@
         </template>
 
         <template #description>
-            Upon saving, the new user will receive an email notification for registration steps.
+            Relevant Information and other details
         </template>
 
         <template #form>
@@ -35,23 +35,23 @@
                     label="Email"
                     id="email"
                     name="email"
+                    required
                     :error="form.errors.email"
                 />
             </div>
 
             <div class="col-span-6">
                 <jet-input
-                    v-model="form.contact_number"
-                    label="Contact Number"
-                    id="contact_number"
-                    name="contact_number"
-                    :error="form.errors.contact_number"
-                    add_on_left
-                    add_on_text="+63"
+                    v-model="form.title"
+                    label="Job Title"
+                    id="title"
+                    name="title"
+                    required
+                    :error="form.errors.title"
                 />
             </div>
 
-            <div class="col-span-6">
+            <!-- <div class="col-span-6">
                 <selector
                     v-model="form.role_id"
                     :options="roles"
@@ -60,7 +60,7 @@
                     name="title"
                     :error="form.errors.role_id"
                 />
-            </div>
+            </div> -->
         </template>
 
         <template #actions>

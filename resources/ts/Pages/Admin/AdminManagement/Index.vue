@@ -52,9 +52,6 @@
                                         {{ item.name }}
                                     </td>
                                     <td>
-                                        {{ item.role.name }}
-                                    </td>
-                                    <td>
                                         {{ item.created_at }}
                                     </td>
     
@@ -185,16 +182,15 @@ const tabs: { name: string, value?: string, count?: Number }[] = [
         value: 'archived',
         count: props.archivedCount
     },
-    {
-        name: 'Activity Log',
-        value: 'activityLog',
-        count: props.activityLogCount
-    }
+    // {
+    //     name: 'Activity Log',
+    //     value: 'activityLog',
+    //     count: props.activityLogCount
+    // }
 ];
 
 const headers: { text: string }[] = [
     { text: 'Admin' },
-    { text: 'Role' },
     { text: 'Date Created'}
 ];
 

@@ -7,6 +7,7 @@
             :placeholder="placeholder"
             :name="name"
             :id="id"
+            :required="required"
             customInputClass="pr-11"
             @update:modelValue="(value: string) => $emit('update:modelValue', value)"
             :error="error"
@@ -20,7 +21,7 @@
                 @click="hidden = !hidden"
             >
                 <component
-                :is="hidden ? EyeIcon : EyeSlashIcon" 
+                :is="hidden ? EyeSlashIcon : EyeIcon" 
                 class="h-5 w-5 my-auto mx-auto text-gray-500"
                 />
             </button>
@@ -58,9 +59,8 @@ defineProps({
         type: String,
         default: null,
     },
-    type: {
-        type: String,
-        default: "text",
+    required: {
+        type: Boolean,
     },
 });
 

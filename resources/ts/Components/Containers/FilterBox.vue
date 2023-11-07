@@ -173,7 +173,7 @@ const props = defineProps({
 
 const open = ref(false);
 const searchText = ref(props.search);
-const emit = defineEmits(['click'])
+const emit = defineEmits(['update:searchText', 'update:filters'])
 
 const refresh = () => {
     const queryString = window.location.search;

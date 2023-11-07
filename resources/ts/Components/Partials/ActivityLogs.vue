@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="py-3 px-6">
-            <Filter
+            <FilterBox
                 :search="searchText"
                 @update:searchText="(value) => (searchText = value)"
                 @update:filters="getData"
@@ -42,7 +42,7 @@
                         />
                     </div>
                 </template>
-            </Filter>
+            </FilterBox>
         </div>
         <div class="flex items-center justify-between px-4 mt-4">
             <div class="flex">

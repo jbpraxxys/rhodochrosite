@@ -1,7 +1,7 @@
 <template>
     <admin-layout
-        :title="`Edit ${page.label}`"
-        :breadcrumb-pages="breadcrumbs"
+        :title="`${page.label}`"
+        :pages="breadcrumbs"
         :show-back="true"
         :back-url="route('admin.cms.index')"
     >
@@ -14,6 +14,7 @@
                         class="md:grid md:grid-cols-12 md:gap-6"
                     >
                         <div class="md:col-span-4">
+
                             <p class="text-sm font-bold text-gray-900">
                                 {{ section.label }}
                             </p>
@@ -72,12 +73,12 @@
                                         v-if="item.type === 'htmleditor'" 
                                         class="col-span-12"
                                     >
-                                        <CKEditor
+                                        <ck-editor
                                             v-model="form[section.id + '_' + item.id]"
                                             :label="item.label"
                                             :id="`${section.id}_${item.id}`"
                                             :error="form.errors[section.id + '_' + item.id]"
-                                        ></CKEditor>
+                                        ></ck-editor>
                                     </div>
 
                                     <!-------------------
@@ -149,9 +150,9 @@
                                         v-model="form.description"
                                         label="Description"
                                         id="seo_description"
+                                        textarea
                                         :error="form.errors.description"
                                     />
-                                    <p class="text-gray-400 text-sm mt-1">160 characters max</p>
                                 </div>
 
                                 <div class="col-span-12">
@@ -159,19 +160,31 @@
                                         v-model="form.keywords"
                                         label="Keywords"
                                         id="seo_keywords"
+                                        textarea
                                         :error="form.errors.keywords"
                                     />
                                     <p class="text-gray-400 text-sm mt-1">
                                         Comma-separated values
                                     </p>
                                 </div>
+
+                                <div class="col-span-12 mb-6">
+                                    <dropzone
+                                        v-model:path="form.og_image_path"
+                                        v-model:file="form.og_image_path"
+                                        label="SEO Meta Image"
+                                        id="seo_image"
+                                        description="Max file size: 2MB | Dimension: 1200px x 627px"
+                                        :error="form.errors.og_image_path"
+                                    ></dropzone>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-span-12 text-right">
-                        <jet-button @click="submit" type="button">
+                        <action-button @click="submit" type="button">
                             Save Changes
-                        </jet-button>
+                        </action-button>
                     </div>
                 </form>
             </div>
@@ -179,42 +192,27 @@
     </admin-layout>
 </template>
 
-<script>
+<script setup lang="ts">
 import AdminLayout from "@/Layouts/AdminLayout.vue";
 import ListTable from "@/Components/Partials/ListTable.vue";
 import useListTable from "@/composables/useListTable.ts";
-import { PencilSquareIcon } from "@heroicons/vue/24/solid";
 import usePRXCMSForm from "@/composables/usePRXCMSForm.ts";
 
-export default {
-    components: {
-        AdminLayout,
-        PencilSquareIcon,
-        ListTable,
+const props = defineProps([
+    "page", "schema"
+])
+const breadcrumbs = [
+    {
+        name: "CMS",
+        href: route("admin.cms.index"),
     },
-    props: ["page", "schema"],
-    setup(props) {
-        // Breadcrumbs
-        const breadcrumbs = [
-            {
-                name: "CMS",
-                href: route("admin.cms.index"),
-            },
-            { name: "Edit", href: "#" },
-        ];
+    { name: "Edit", href: "#" },
+];
 
-        const submitUrl = route("admin.cms.edit", props.page.id);
+const submitUrl = route("admin.cms.edit", props.page.id);
 
-        const { form, submit } = usePRXCMSForm(props.page, props.schema, submitUrl);
+const { form, submit } = usePRXCMSForm(props.page, props.schema, submitUrl);
 
-        const { updateList } = useListTable(form);
+const { updateList } = useListTable(form);
 
-        return {
-            breadcrumbs,
-            form,
-            submit,
-            updateList,
-        };
-    },
-};
 </script>

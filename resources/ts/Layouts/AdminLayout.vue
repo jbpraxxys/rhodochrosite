@@ -11,15 +11,15 @@
         <div 
         class="flex flex-col w-0 flex-1 overflow-hidden transition-all duration-500" 
         :class="expanded ? 'ml-60' : 'ml-20'">
-            <div class="flex items-center justify-between px-4 py-2 border-b border-gray-100">
-                <div class="w-10 h-10 p-2.5 cursor-pointer"
+            <div class="flex items-center justify-end px-4 py-2 border-b border-gray-100">
+                <!-- <div class="w-10 h-10 p-2.5 cursor-pointer"
                 @click="expandedSidebar">
                     <Bars3BottomLeftIcon class="w-5 h-5"/>
-                </div>
+                </div> -->
                 <header-menu />
             </div>
             <main class="relative overflow-y-auto focus:outline-none">
-                <div class="flex items-center justify-between py-8 px-12 border-b border-gray-100">
+                <div class="flex items-center justify-between py-8 px-7 border-b border-gray-100">
                     <div class="space-y-3">
                         <breadcrumbs 
                         v-if="pages"
@@ -41,6 +41,10 @@
 
                 <slot></slot>
             </main>
+
+            <div class="mt-auto w-full px-7 py-3 border-t border-gray-200 bg-gray-50" v-if="showButton">
+                <slot name="buttons"/>
+            </div>
         </div>
     </div>
 </template>
@@ -70,6 +74,10 @@ const props = defineProps({
     },
     pages: {
         type: Object,
+    },
+    showButton: {
+        type: Boolean,
+        default: false,
     },
 })
 

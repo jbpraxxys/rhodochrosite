@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-center space-x-2">
-        <Link 
+        <a 
         :href="route('admin.notification.index')"
         class="relative w-10 h-10 p-2.5 rounded-full bg-gray-100">
             <component
@@ -9,7 +9,7 @@
                 class="h-5 w-5 text-gray-600"
             />
             <span class="absolute top-2.5 right-2.5 bg-primary-600 w-2 h-2 rounded-full"></span>
-        </Link>
+        </a>
         <div class="h-10">
             <Popover class="relative">
                 <PopoverButton class="focus:outline-none">
@@ -36,7 +36,7 @@
                     </div>
                     <div class="divider border-t border-gray-100 my-1"></div>
                     <div class="">
-                        <Link 
+                        <a 
                         :href="route('admin.profile.show')"
                         class="flex items-center py-3 px-6 text-sm">
                             <component
@@ -45,26 +45,16 @@
                                 class="h-5 w-5 mr-3 text-primary-600"
                             />
                             Profile
-                        </Link>
-                        <Link class="flex items-center py-3 px-6 text-sm">
-                            <component
-                                :is="LockClosedIcon"
-                                aria-hidden="true"
-                                class="h-5 w-5 mr-3 text-primary-600"
-                            />
-                            Security
-                        </Link>
+                        </a>
                     </div>
                     <div class="divider border-t border-gray-100 my-1"></div>
-                    <div class="" @click="logout">
-                        <Link class="flex items-center py-3 px-6 text-sm">
-                            <component
-                                :is="ArrowRightOnRectangleIcon"
-                                aria-hidden="true"
-                                class="h-5 w-5 mr-3 text-primary-600"
-                            />
-                            Logout
-                        </Link>
+                    <div class="flex items-center py-3 px-6 text-sm cursor-pointer" @click="logout">
+                        <component
+                            :is="ArrowRightOnRectangleIcon"
+                            aria-hidden="true"
+                            class="h-5 w-5 mr-3 text-primary-600"
+                        />
+                        Logout
                     </div>
                 </PopoverPanel>
             </Popover>
@@ -74,7 +64,6 @@
 
 <script setup lang="ts">
 import {
-    LockClosedIcon,
     BellIcon,
     UserIcon,
     ArrowRightOnRectangleIcon

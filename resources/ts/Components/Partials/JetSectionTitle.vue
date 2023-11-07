@@ -1,5 +1,5 @@
 <template>
-    <div class="col-span-full md:col-span-5 flex justify-between">
+    <div class="">
         <div class="sm:px-0">
             <p class="text-sm font-bold text-gray-900">
                 <slot name="title"></slot>

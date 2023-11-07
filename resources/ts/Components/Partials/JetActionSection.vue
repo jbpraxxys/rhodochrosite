@@ -13,12 +13,7 @@
     </div>
 </template>
 
-<script>
-    import JetSectionTitle from "@/Components/Partials/JetSectionTitle.vue";
+<script setup lang="ts">
+import JetSectionTitle from "@/Components/Partials/JetSectionTitle.vue";
 
-    export default {
-        components: {
-            JetSectionTitle,
-        }
-    }
 </script>

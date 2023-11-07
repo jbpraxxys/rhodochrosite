@@ -9,7 +9,7 @@
         <meta property="og:type" content="website">
         <meta name="twitter:card" content="summary"></meta>
 
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ $title ?? '' ? $title . ' - ' . config('app.name', 'Laravel') : config('app.name', 'Laravel') }}</title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/favicon/apple-touch-icon.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/favicon/favicon-32x32.png') }}">
@@ -17,12 +17,21 @@
         <meta name="msapplication-TileColor" content="#010066">
         <meta name="theme-color" content="#010066">
 
+        <meta itemprop="image" content="{{ $og_image_path ?? '' }}">
+        <meta name="twitter:image" content="{{ $og_image_path ?? '' }}">
+        <meta property="og:image" content="{{ $og_image_path ?? '' }}">
+        <meta property="og:title" content="{!! $title ?? '' !!}">
+        <meta property="description" content="{!! $description ?? '' !!}">
+        <meta property="og:description" content="{!! $description ?? '' !!}">
+        <meta name="twitter:description" content="{!! $description ?? '' !!}">
+        <meta name="keywords" content="{!! $keywords ?? '' !!}">
+
         @routes
 
         <!-- Styles & Scripts -->
         @vite(['resources/scss/user.scss', 'resources/ts/app.ts'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased overflow-x-hidden">
         @inertia
 
         <!-- Facebook/Messenger Chat Code Snippet --> 

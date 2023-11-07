@@ -11,7 +11,6 @@ import TableContainer from "@/Components/Containers/TableContainer.vue";
 import FilterBox from "@/Components/Containers/FilterBox.vue";
 import SearchForm from "@/Components/Forms/SearchForm.vue";
 import Tabs from "@/Components/Partials/Tabs.vue";
-import Filter from "@/Components/Partials/Filter.vue";
 import DataTable from "@/Components/Partials/DataTable.vue";
 import Pagination from "@/Components/Partials/Pagination.vue";
 
@@ -62,7 +61,6 @@ createInertiaApp({
                     FilterBox,
                     SearchForm,
                     Tabs,
-                    Filter,
                     DataTable,
                     Pagination,
                     ActionButton,

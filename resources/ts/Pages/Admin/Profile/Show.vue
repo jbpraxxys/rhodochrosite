@@ -5,67 +5,52 @@
         <div v-if="$page.props.jetstream.canUpdateProfileInformation">
           <update-profile-information-form :user="$page.props.auth.user" />
 
-          <section-border />
-        </div>
+                  <JetSectionBorder />
+              </div>
 
-        <div v-if="$page.props.jetstream.canUpdatePassword">
-          <update-password-form class="mt-10 sm:mt-0" />
+              <div v-if="$page.props.jetstream.canUpdatePassword">
+                  <update-password-form class="mt-10 sm:mt-0" />
 
-          <section-border />
-        </div>
+              </div>
 
-        <div v-if="$page.props.jetstream.canManageTwoFactorAuthentication">
-          <two-factor-authentication-form class="mt-10 sm:mt-0" />
+              <!-- <div v-if="$page.props.jetstream.canManageTwoFactorAuthentication">
+                  <two-factor-authentication-form class="mt-10 sm:mt-0" />
 
-          <section-border />
-        </div>
+                  <JetSectionBorder />
+              </div>
 
-        <logout-other-browser-sessions-form
-          :sessions="sessions"
-          class="mt-10 sm:mt-0"
-        />
+              <logout-other-browser-sessions-form :sessions="sessions" class="mt-10 sm:mt-0" />
 
-        <!-- <template v-if="$page.props.jetstream.hasAccountDeletionFeatures">
-          <section-border />
+              <template v-if="$page.props.jetstream.hasAccountDeletionFeatures">
+                  <JetSectionBorder />
 
-          <delete-user-form class="mt-10 sm:mt-0" />
-        </template> -->
+                  <delete-user-form class="mt-10 sm:mt-0" />
+              </template> -->
+          </div>
       </div>
-    </div>
   </admin-layout>
 </template>
 
 <script>
-import AdminLayout from "@/Layouts/AdminLayout.vue";
-import DeleteUserForm from "./Partials/DeleteUserForm.vue";
-import SectionBorder from '@/Components/Partials/SectionBorder.vue'
-import LogoutOtherBrowserSessionsForm from "./Partials/LogoutOtherBrowserSessionsForm.vue";
-import TwoFactorAuthenticationForm from "./Partials/TwoFactorAuthenticationForm.vue";
-import UpdatePasswordForm from "./Partials/UpdatePasswordForm.vue";
-import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm.vue";
+  import AdminLayout from '@/Layouts/AdminLayout.vue'
+  import DeleteUserForm from '@/Pages/Admin/Profile/Partials/DeleteUserForm.vue'
+  import JetSectionBorder from '@/Components/Partials/SectionBorder.vue'
+  import LogoutOtherBrowserSessionsForm from '@/Pages/Admin/Profile/Partials/LogoutOtherBrowserSessionsForm.vue'
+  import TwoFactorAuthenticationForm from '@/Pages/Admin/Profile/Partials/TwoFactorAuthenticationForm.vue'
+  import UpdatePasswordForm from '@/Pages/Admin/Profile/Partials/UpdatePasswordForm.vue'
+  import UpdateProfileInformationForm from '@/Pages/Admin/Profile/Partials/UpdateProfileInformationForm.vue'
 
-export default {
-  props: ["sessions"],
+  export default {
+      props: ['sessions'],
 
-  components: {
-    AdminLayout,
-    DeleteUserForm,
-    SectionBorder,
-    LogoutOtherBrowserSessionsForm,
-    TwoFactorAuthenticationForm,
-    UpdatePasswordForm,
-    UpdateProfileInformationForm,
-  },
-
-  setup() {
-    const breadcrumbs = [
-      // { name: "Settings", href: "#", current: false },
-      { name: "Profile Settings", href: "#", current: true },
-    ];
-
-    return {
-      breadcrumbs,
-    };
-  },
-};
+      components: {
+          AdminLayout,
+          DeleteUserForm,
+          JetSectionBorder,
+          LogoutOtherBrowserSessionsForm,
+          TwoFactorAuthenticationForm,
+          UpdatePasswordForm,
+          UpdateProfileInformationForm,
+      },
+  }
 </script>

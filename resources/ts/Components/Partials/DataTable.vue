@@ -89,52 +89,43 @@
 
 </template>
 
-<script>
+<script setup lang="ts">
 
-import { ChevronUpDownIcon } from "@heroicons/vue/24/outline";
-
-
-export default {
-    components: {
-        ChevronUpDownIcon,
+defineProps({
+    headers: {
+        type: [ Array, null ],
     },
-
-    props: {
-        headers: {
-            type: [ Array, null ],
-        },
-
-        tableClass: {
-            default: null,
-            type: String
-        },
-
-        /* Text for empty list */
-        emptyText: {
-            default: 'No data to display.',
-            type: String
-        },
-
-        /* Hide action column */
-        noAction: {
-            default: false,
-            type: Boolean
-        },
-
-         /* Action header text */
-        actionText: {
-            default: 'Action',
-            type: String
-        },
-
-        count: {
-            default: 0,
-            type: Number,
-        },
-        noBorder: {
-            type: Boolean,
-            default: false
-        }
+    
+    tableClass: {
+        default: null,
+        type: String
     },
-};
+    
+    /* Text for empty list */
+    emptyText: {
+        default: 'No data to display.',
+        type: String
+    },
+    
+    /* Hide action column */
+    noAction: {
+        default: false,
+        type: Boolean
+    },
+    
+     /* Action header text */
+    actionText: {
+        default: 'Action',
+        type: String
+    },
+    
+    count: {
+        default: 0,
+        type: Number,
+    },
+    noBorder: {
+        type: Boolean,
+        default: false
+    }
+})
 </script>

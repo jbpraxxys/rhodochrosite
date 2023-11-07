@@ -9,9 +9,9 @@
             <div class="flex items-center space-x-3">
                 <img 
                 class="flex-shrink-0"
-                src="/icons/logo.svg" 
+                src="/icons/logo.png" 
                 alt="logo">
-                <transition
+                <!-- <transition
                 enter-active-class="transition duration-300 ease-out delay-300"
                 enter-from-class="transform opacity-0"
                 enter-to-class="transform opacity-100"
@@ -23,7 +23,7 @@
                         <p class="text-sm font-semibold text-primary-600 whitespace-nowrap">One Roadway</p>
                         <p class="text-sm font-semibold text-gray-400 whitespace-nowrap">Trucking Services, Inc.</p>
                     </div>
-                </transition>
+                </transition> -->
             </div>
         </div>
 
@@ -182,6 +182,22 @@ interface generalNavType {
 }
 
 const navigation: generalNavType[] = [
+    {
+        name: "Content Management",
+        href: '#',
+        parentUrl: "#",
+        icon: '',
+        allowed: true,
+        children: [
+            {
+                name: 'Pages',
+                href: route('admin.cms.index'),
+                parentUrl: "admin.cms.*",
+                icon: DocumentTextIcon,
+                allowed: true,
+            },
+        ]
+    },
     {
         name: "Menu",
         href: "#",

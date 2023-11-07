@@ -1,55 +1,79 @@
 <template>
     <div class="flex items-center justify-between border rounded-lg">
-        <div class="flex items-center justify-start p-3 gap-2 w-full">
-            <img
-                :src="source"
-                class="w-10 h-10 rounded-lg cursor-pointer"
-                title="View Image"
-                v-if="fileType.includes('image/')"
+        <div
+            class="flex items-center justify-start p-3 space-x-2 w-[calc(100%-120px)]"
+        >
+            <component
+                :is="VideoCameraIcon"
+                class="w-10 h-10 rounded-lg cursor-pointer flex-shrink-0"
+                v-if="fileType.includes('.mp4')"
                 @click="$emit('file:download')"
             />
             <img
-                src="/icons/ic-items.svg"
-                class="w-10 h-10 rounded-lg"
-                v-else-if="
-                    fileType.includes('text/csv') || fileType.includes('spreadsheetml')
-                "
+                :src="source"
+                class="w-10 h-10 rounded-lg cursor-pointer object-contain bg-neutral-50 flex-shrink-0"
+                title="View Image"
+                v-else-if="fileType.includes('image/')"
+                @click="$emit('file:download')"
             />
-            <div>
-                <p class="text-sm text-gray-900 truncate max-w-[280px]">
+            <component
+                :is="DocumentTextIcon"
+                class="w-10 h-10 rounded-lg cursor-pointer flex-shrink-0"
+                v-else
+                @click="$emit('file:download')"
+            />
+            <div class="w-[90%] max-w-[90%]">
+                <p class="text-sm text-[#111827] truncate">
                     {{ fileName }}
                 </p>
-                <p v-if="size > 0" class="text-sm text-gray-500">{{ formatBytes(size) }}</p>
+                <p v-if="size > 0" class="text-sm text-[#6B7280]">
+                    {{ formatBytes(size) }}
+                </p>
             </div>
         </div>
-        <div class="flex items-center justify-end w-[88px]">
+        <div class="flex items-center justify-end w-[88px] flex-shrink-0">
             <div class="border-l" v-if="allowDownload">
-                <button type="button" class="py-5 px-4" @click="$emit('file:download')">
-                    <ArrowDownTrayIcon class="w-5 h-5 text-gray-900" />
+                <button
+                    type="button"
+                    class="py-5 px-4"
+                    @click="$emit('file:download')"
+                >
+                    <ArrowDownTrayIcon class="w-5 h-5" />
                 </button>
             </div>
             <div class="border-l" v-if="allowDelete">
-                <button type="button" class="py-5 px-3" @click="$emit('file:delete')">
-                    <TrashIcon class="w-5 h-5 text-red-600" />
+                <button
+                    type="button"
+                    class="py-5 px-3"
+                    @click="$emit('file:delete')"
+                >
+                    <TrashIcon class="w-5 h-5" />
                 </button>
             </div>
         </div>
     </div>
 </template>
-<script lang="ts" setup>
-import { ArrowDownTrayIcon, TrashIcon } from "@heroicons/vue/24/solid";
+<script setup lang="ts">
+import {
+    ArrowDownTrayIcon,
+    TrashIcon,
+    VideoCameraIcon,
+    DocumentTextIcon,
+} from "@heroicons/vue/24/outline";
 
 defineProps({
     source: {
         type: String,
+        required: true,
     },
     fileType: {
         type: String,
+        required: true,
         default: "image/*",
     },
     fileName: {
         type: String,
-        default: '',
+        default: "",
     },
     size: {
         type: Number,
@@ -61,9 +85,9 @@ defineProps({
     },
     allowDelete: {
         type: Boolean,
-        default: true,
+        default: false,
     },
-})
+});
 
 const formatBytes = (bytes, decimals = 2) => {
     if (bytes === 0) return "0 Bytes";
@@ -75,6 +99,5 @@ const formatBytes = (bytes, decimals = 2) => {
     const i = Math.floor(Math.log(bytes) / Math.log(k));
 
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
-}
-
+};
 </script>

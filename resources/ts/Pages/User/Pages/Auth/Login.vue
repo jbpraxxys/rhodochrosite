@@ -20,6 +20,7 @@
                         placeholder="Your password"
                         id="password"
                         name="password"
+                        required
                         :error="form.errors.password"
                     />
                 </div>

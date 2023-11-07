@@ -1,11 +1,14 @@
 <template>
-    <admin-layout :pages="pages">
+    <admin-layout 
+    :pages="pages"
+    :title="'Edit ' + admin.name">
         <div class="">
             <FormSection 
             :form="form"
             :roles="roles">
                 <a :href="route('admin.admin-management.view', admin.id)">
                     <action-button 
+                    type="button"
                     fill="outline" 
                     class="mr-2">
                         Cancel
@@ -49,7 +52,7 @@ const formData = {
     last_name: props.admin.last_name,
     email: props.admin.email,
     title: props.admin.title,
-    role_id: props.admin.role_id
+    role_id: 1
 };
 
 const pages = [

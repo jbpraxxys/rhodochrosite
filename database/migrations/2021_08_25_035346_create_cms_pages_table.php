@@ -22,8 +22,8 @@ class CreateCmsPagesTable extends Migration
             $table->text('content')->nullable();
             // Meta data
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
-            $table->string('keywords')->nullable();
+            $table->text('description')->nullable();
+            $table->text('keywords')->nullable();
             $table->string('robots_follow')->nullable();
             $table->string('robots_index')->nullable();
             $table->string('og_image_path')->nullable();

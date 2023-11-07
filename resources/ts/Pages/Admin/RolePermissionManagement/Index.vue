@@ -3,7 +3,7 @@
         <div class="px-12 py-6">
             <!-- Filter -->
             <div class="px-6 py-4 border-l border-t border-r  rounded-t-lg" v-if="activeTab !== 'activity_logs'">
-                <Filter
+                <FilterBox
                     :search="searchText"
                     @update:searchText="(value) => (searchText = value)"
                     @update:filters="applyFilters"
@@ -21,7 +21,7 @@
                             />
                         </div>
                     </template>
-                </Filter>
+                </FilterBox>
             </div>
 
             <div v-if="activeTab !== 'activity_logs'" class="border-l border-b border-r rounded-b-lg overflow-hidden">

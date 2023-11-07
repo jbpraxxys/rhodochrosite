@@ -81,7 +81,7 @@
             </div>
 
             <!-- Mobile Number -->
-            <div class="col-span-6">
+            <!-- <div class="col-span-6">
                 <JetInput
                     placeholder="Mobile Number"
                     id="mobile_number"
@@ -94,16 +94,16 @@
                     label="Mobile Number"
                 />
                 <JetInputError :message="form.errors.mobileNumber" class="mt-2" />
-            </div>
+            </div> -->
         </template>
 
         <template #actions>            
-            <JetButton
+            <action-button
                 :class="{ 'opacity-25': form.processing }"
                 :disabled="form.processing"
                 >
                 Save Changes
-            </JetButton>
+            </action-button>
 
             <JetActionMessage :on="form.recentlySuccessful" class="ml-3">
                 Saved!

@@ -51,7 +51,7 @@ export type ButtonType = 'button' | 'submit' | 'reset'
 defineProps({
     btnType: {
         type: String as PropType<ButtonType>,
-        default: "button",
+        default: "submit",
     },
     disabled: {
         type: Boolean,

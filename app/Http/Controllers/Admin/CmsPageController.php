@@ -123,6 +123,13 @@ class CmsPageController extends Controller
         $cmsPage->title = $request->title;
         $cmsPage->description = $request->description;
         $cmsPage->keywords = $request->keywords;
+
+        if ($request->hasFile('og_image_path')) {
+            $file = $request->file('og_image_path');
+            $path = $file->store('cms_images');
+            $cmsPage->og_image_path = $path;
+        }
+        
         $cmsPage->robots_follow = $request->robots_follow;
         $cmsPage->robots_index = $request->robots_index;
     }

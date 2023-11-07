@@ -17,6 +17,7 @@ unit_test:
         - php artisan key:generate --env=testing
         - php artisan storage:link
         - php artisan migrate --seed --env=testing
+        - php artisan cms:sync --env=testing
         - php artisan dusk:chrome-driver --detect
         - npm install
         - npm run prod
