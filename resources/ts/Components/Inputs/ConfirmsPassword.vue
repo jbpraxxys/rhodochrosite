@@ -47,7 +47,6 @@
 <script>
 import JetDialogModal from "@/Components/Modals/DialogModal.vue";
 import JetInputError from "./InputError.vue";
-import SecondaryButton from "@/Components/ActionButtons/SecondaryButton.vue";
 
 export default {
     emits: ["confirmed"],
@@ -67,7 +66,6 @@ export default {
     components: {
         JetDialogModal,
         JetInputError,
-        SecondaryButton,
     },
 
     data() {

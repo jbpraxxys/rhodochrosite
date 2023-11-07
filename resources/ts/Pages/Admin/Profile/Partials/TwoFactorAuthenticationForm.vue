@@ -80,27 +80,29 @@
 
         <div v-else>
           <jet-confirms-password @confirmed="regenerateRecoveryCodes">
-            <secondary-button class="mr-3" v-if="recoveryCodes.length > 0">
+            <action-button class="mr-3" v-if="recoveryCodes.length > 0" fill="secondary">
               Regenerate Recovery Codes
-            </secondary-button>
+            </action-button>
           </jet-confirms-password>
 
           <jet-confirms-password @confirmed="showRecoveryCodes">
-            <secondary-button
+            <action-button
               class="mr-3"
+              fill="secondary"
               v-if="recoveryCodes.length === 0"
             >
               Show Recovery Codes
-            </secondary-button>
+            </action-button>
           </jet-confirms-password>
 
           <jet-confirms-password @confirmed="disableTwoFactorAuthentication">
-            <jet-danger-button
+            <action-button
               :class="{ 'opacity-25': disabling }"
               :disabled="disabling"
+              fill="danger"
             >
               Disable
-            </jet-danger-button>
+            </action-button>
           </jet-confirms-password>
         </div>
       </div>
@@ -111,15 +113,11 @@
 <script>
 import JetActionSection from "@/Components/Partials/JetActionSection.vue";
 import JetConfirmsPassword from "@/Components/Inputs/ConfirmsPassword.vue";
-import JetDangerButton from "@/Components/ActionButtons/DangerButton.vue";
-import SecondaryButton from "@/Components/ActionButtons/SecondaryButton.vue";
 
 export default {
   components: {
     JetActionSection,
     JetConfirmsPassword,
-    JetDangerButton,
-    SecondaryButton,
   },
 
   data() {

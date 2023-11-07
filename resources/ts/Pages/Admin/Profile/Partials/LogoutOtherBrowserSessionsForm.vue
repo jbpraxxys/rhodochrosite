@@ -107,9 +107,9 @@
         </template>
 
         <template #footer>
-          <secondary-button @click="closeModal">
+          <action-button @click="closeModal" fill="secondary">
             Cancel
-          </secondary-button>
+          </action-button>
 
           <action-button
             class="ml-2"
@@ -130,7 +130,6 @@ import JetActionMessage from "@/Components/Modals/JetActionMessage.vue";
 import JetActionSection from "@/Components/Partials/JetActionSection.vue";
 import JetDialogModal from "@/Components/Modals/DialogModal.vue";
 import InputError from "@/Components/Inputs/InputError.vue";
-import SecondaryButton from "@/Components/ActionButtons/SecondaryButton.vue";
 
 export default {
   props: ["sessions"],
@@ -140,7 +139,6 @@ export default {
     JetActionSection,
     JetDialogModal,
     InputError,
-    SecondaryButton,
   },
 
   data() {

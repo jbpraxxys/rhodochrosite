@@ -32,11 +32,22 @@
                             </span>
                         </div>
                     </div>
-                    <JetSecondaryButton class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto"> Select A New Photo </JetSecondaryButton>
+                    <action-button 
+                    class="mt-2 mr-2" 
+                    fill="secondary" 
+                    type="button" 
+                    @click.prevent="selectNewPhoto"> 
+                        Select A New Photo
+                    </action-button>
 
-                    <JetSecondaryButton type="button" class="mt-2" @click.prevent="deletePhoto" v-if="user.profile_photo_path" >
+                    <action-button 
+                    class="mt-2" 
+                    fill="secondary" 
+                    type="button" 
+                    @click.prevent="deletePhoto" 
+                    v-if="user.profile_photo_path" >
                         Remove Photo
-                    </JetSecondaryButton>
+                    </action-button>
 
                     <JetInputError :message="form.errors.photo" class="mt-2" />
                 </div>
@@ -115,14 +126,12 @@
 <script>
 import JetInputError from "@/Components/Inputs/InputError.vue";
 import JetActionMessage from "@/Components/Modals/JetActionMessage.vue";
-import JetSecondaryButton from "@/Components/ActionButtons/SecondaryButton.vue";
 import { numberonly } from '@/composables/useNumberOnly.ts';
 
 export default {
     components: {
         JetActionMessage,
         JetInputError,
-        JetSecondaryButton,
     },
 
     props: {

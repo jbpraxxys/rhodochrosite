@@ -105,9 +105,9 @@
             </template>
 
             <template #footer>
-                <secondary-button @click="displayingToken = false">
+                <action-button @click="displayingToken = false" fill="secondary">
                     Close
-                </secondary-button>
+                </action-button>
             </template>
         </jet-dialog-modal>
 
@@ -150,13 +150,13 @@
             </template>
 
             <template #footer>
-                <secondary-button @click="apiTokenBeingDeleted = null">
+                <action-button @click="apiTokenBeingDeleted = null" fill="secondary">
                     Cancel
-                </secondary-button>
+                </action-button>
 
-                <jet-danger-button class="ml-2" @click="deleteApiToken" :class="{ 'opacity-25': deleteApiTokenForm.processing }" :disabled="deleteApiTokenForm.processing">
+                <action-button class="ml-2" fill="danger" @click="deleteApiToken" :class="{ 'opacity-25': deleteApiTokenForm.processing }" :disabled="deleteApiTokenForm.processing">
                     Delete
-                </jet-danger-button>
+                </action-button>
             </template>
         </jet-confirmation-modal>
     </div>
@@ -166,10 +166,8 @@
     import JetActionMessage from "@/Components/Modals/JetActionMessage.vue";
     import JetActionSection from "@/Components/Partials/JetActionSection.vue";
     import JetConfirmationModal from '@/Components/Modals/ConfirmationModal.vue'
-    import JetDangerButton from "@/Components/ActionButtons/DangerButton.vue";
     import JetDialogModal from "@/Components/Modals/DialogModal.vue";
     import InputError from "@/Components/Inputs/InputError.vue";
-    import SecondaryButton from "@/Components/ActionButtons/SecondaryButton.vue";
     import SectionBorder from '@/Components/Partials/SectionBorder.vue'
 
     export default {
@@ -177,10 +175,8 @@
             JetActionMessage,
             JetActionSection,
             JetConfirmationModal,
-            JetDangerButton,
             JetDialogModal,
             InputError,
-            SecondaryButton,
             SectionBorder,
         },
 
