@@ -1,32 +1,5 @@
 <template>
-    <div class="sm:hidden">
-        <label for="tabs" class="sr-only">Select a tab</label>
-        <select
-            id="tabs"
-            name="tabs"
-            class="
-                block
-                w-full
-                pl-3
-                pr-10
-                py-2
-                text-base
-                border-gray-300
-                focus:outline-none focus:ring-blue-500 focus:border-blue-500
-                sm:text-smi
-                rounded-md
-            "
-        >
-            <option
-                v-for="tab in tabs"
-                :key="tab.name"
-                :selected="isSelectedTab(tab.value)"
-            >
-                {{ tab.name }}
-            </option>
-        </select>
-    </div>
-    <div class="hidden sm:block">
+    <div class="">
         <div class="border-b border-gray-200 flex justify-between">
             <nav class="-mb-px flex space-x-2 px-7 py-2" aria-label="Tabs">
                 <Link

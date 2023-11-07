@@ -19,9 +19,9 @@
             <FormSection 
             :form="form"
             >
-                <jet-button @click="submit">
+                <action-button @click="submit">
                     Save Changes
-                </jet-button>
+                </action-button>
             </FormSection>
         </div>
 

@@ -56,7 +56,7 @@
                     class="w-[180px] mr-2"
                 ></selector>
             </div>
-            <jet-input
+            <text-input
                 :lead-icon="'/images/icons/ic-search.svg'"
                 type="text"
                 name="input"

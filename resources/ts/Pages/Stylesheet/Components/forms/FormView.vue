@@ -83,7 +83,7 @@
 
         <h4 class="mb-4 text-gray-600 font-medium">Admin Forms</h4>
         <div class="mb-4">
-            <jet-input
+            <text-input
                 type="text"
                 name="text-input"
                 id="text-input"
@@ -93,7 +93,7 @@
         </div>
 
         <div class="mb-4">
-            <jet-input
+            <text-input
             label="Price"
             placeholder="Price"
             id="price"
@@ -105,7 +105,7 @@
         </div>
 
         <div class="mb-4">
-            <jet-input
+            <text-input
             label="Height"
             placeholder="Height"
             id="height"
@@ -124,7 +124,7 @@
             />
         </div>
         <div class="mb-4">
-            <jet-input
+            <text-input
                 textarea
                 name="textarea-input"
                 id="textarea-input"
@@ -215,7 +215,7 @@
 
 </template>
 <script setup lang="ts">
-import JetInput from "@/Components/Inputs/Input.vue";
+import TextInput from "@/Components/Inputs/TextInput.vue";
 import Selector from "@/Components/Inputs/Selector.vue";
 import Dropzone from "@/Components/Inputs/Dropzone.vue";
 </script>

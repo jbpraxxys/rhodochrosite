@@ -161,7 +161,7 @@ const props = defineProps({
     },
     description: {
         type: String,
-        default: "PNG, JPG, GIF up to 10MB",
+        default: "Max file size: 10MB", // Standard image desc: Max file size: 10MB | Dimension: 1366px x 600px
     },
     name: {
         type: String,

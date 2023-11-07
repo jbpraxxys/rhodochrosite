@@ -140,7 +140,7 @@
                     v-if="item.type === 'text' || item.type === 'url'"
                     class="col-span-5 mb-4"
                 >
-                    <jet-input
+                    <text-input
                         v-model="createForm[`${id}_${item.id}`]"
                         :label="item.label"
                         :id="`${item.id}`"
@@ -157,7 +157,7 @@
                     v-if="item.type === 'textarea'"
                     class="col-span-5 mb-4"
                 >
-                    <jet-input
+                    <text-input
                         :textarea="true"
                         v-model="createForm[`${id}_${item.id}`]"
                         :label="item.label"

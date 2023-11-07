@@ -10,7 +10,7 @@
 
         <template #form>
             <div class="col-span-6">
-                <jet-input
+                <text-input
                     required
                     v-model="form.first_name"
                     label="First Name"
@@ -19,7 +19,7 @@
                 />
             </div>
             <div class="col-span-6">
-                <jet-input
+                <text-input
                     required
                     v-model="form.last_name"
                     label="Last Name"
@@ -29,7 +29,7 @@
                 />
             </div>
             <div class="col-span-6">
-                <jet-input
+                <text-input
                     type="email"
                     v-model="form.email"
                     label="Email"
@@ -41,7 +41,7 @@
             </div>
 
             <div class="col-span-6">
-                <jet-input
+                <text-input
                     v-model="form.title"
                     label="Job Title"
                     id="title"

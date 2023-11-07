@@ -1,5 +1,5 @@
 <template>
-    <Link
+    <a
         :href="routeLink"
         class="
             mx-1
@@ -13,11 +13,10 @@
         "
     >
         <EyeIcon class="p-0.5 h-6 w-6 text-gray-500" aria-hidden="true" />
-    </Link>
+    </a>
 </template>
 
 <script setup lang="ts">
-import { Link } from "@inertiajs/vue3";
 import { EyeIcon } from "@heroicons/vue/24/outline";
 const props = defineProps({
     routeLink: {

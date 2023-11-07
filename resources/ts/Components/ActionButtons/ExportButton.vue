@@ -1,12 +1,15 @@
 <template>
-    <jet-button type="button" import_export @click="action">
-        <ArrowDownTrayIcon class="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+    <action-button 
+    type="button" 
+    @click="action"
+    fill="secondary"
+    :leading-icon="ArrowDownTrayIcon">
         Export
-    </jet-button>
+    </action-button>
 </template>
 
 <script setup lang="ts">
-import JetButton from "@/Components/ActionButtons/JetButton.vue";
+import ActionButton from "@/Components/ActionButtons/ActionButton.vue";
 import { ArrowDownTrayIcon } from "@heroicons/vue/24/solid";
 
 const props = defineProps({

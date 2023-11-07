@@ -76,9 +76,9 @@
       </div>
 
       <div class="flex items-center mt-5">
-        <jet-button @click="confirmLogout">
+        <action-button @click="confirmLogout">
           Log Out Other Browser Sessions
-        </jet-button>
+        </action-button>
 
         <jet-action-message :on="form.recentlySuccessful" class="ml-3">
           Done.
@@ -94,8 +94,7 @@
           your other browser sessions across all of your devices.
 
           <div class="mt-4">
-            <jet-input
-              type="password"
+            <password-input
               class="mt-1 block w-3/4"
               placeholder="Password"
               ref="password"
@@ -112,14 +111,14 @@
             Cancel
           </secondary-button>
 
-          <jet-button
+          <action-button
             class="ml-2"
             @click="logoutOtherBrowserSessions"
             :class="{ 'opacity-25': form.processing }"
             :disabled="form.processing"
           >
             Log Out Other Browser Sessions
-          </jet-button>
+          </action-button>
         </template>
       </jet-dialog-modal>
     </template>

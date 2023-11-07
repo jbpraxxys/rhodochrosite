@@ -25,12 +25,12 @@ import ActionButton from "@/Components/ActionButtons/ActionButton.vue";
 
 import JetFormSection from "@/Components/Partials/FormSection.vue";
 import JetLabel from "@/Components/Inputs/Label.vue";
-import JetInput from "@/Components/Inputs/Input.vue";
+import TextInput from "@/Components/Inputs/TextInput.vue";
 import JetCheckbox from "@/Components/Inputs/Checkbox.vue";
 import JetRadioInput from "@/Components/Inputs/RadioInput.vue";
 import JetStatusPill from "@/Components/Inputs/StatusPill.vue";
 
-import CKEditor from "@/Components/Inputs/CKEditor.vue";
+import CkEditor from "@/Components/Inputs/CKEditor.vue";
 import Selector from "@/Components/Inputs/Selector.vue";
 import DatePicker from "@/Components/Inputs/DatePicker.vue";
 import Dropzone from "@/Components/Inputs/Dropzone.vue";
@@ -41,6 +41,7 @@ import RestoreModal from "@/Components/Modals/RestoreModal.vue";
 import DeleteModal from "@/Components/Modals/DeleteModal.vue";
 import ImportModal from "@/Components/Modals/ImportModal.vue";
 import SidePanel from "@/Components/Modals/SidePanel.vue";
+import PageLoader from "@/Components/Loaders/PageLoader.vue";
 
 import { Head, Link } from '@inertiajs/vue3';
 
@@ -72,12 +73,12 @@ createInertiaApp({
                     RestoreButton,
                     JetFormSection,
                     JetLabel,
-                    JetInput,
+                    TextInput,
                     JetCheckbox,
                     JetRadioInput,
                     JetButton,
                     JetStatusPill,
-                    CKEditor,
+                    CkEditor,
                     Selector,
                     DatePicker,
                     Dropzone,
@@ -85,6 +86,7 @@ createInertiaApp({
                     DeleteModal,
                     ImportModal,
                     SidePanel,
+                    PageLoader,
                     ToggleSwitch,
                     Multiselect,
                     Head,

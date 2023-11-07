@@ -13,7 +13,7 @@
                 {{ content }}
 
                 <div class="mt-4">
-                    <jet-input
+                    <text-input
                         type="password"
                         class="mt-1 block w-3/4"
                         placeholder="Password"
@@ -27,18 +27,18 @@
             </template>
 
             <template #footer>
-                <secondary-button @click="closeModal">
+                <action-button fill="secondary" @click="closeModal">
                     Cancel
-                </secondary-button>
+                </action-button>
 
-                <jet-button
+                <action-button
                     class="ml-2"
                     @click="confirmPassword"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
                     {{ button }}
-                </jet-button>
+                </action-button>
             </template>
         </jet-dialog-modal>
     </span>

@@ -44,7 +44,7 @@
 
             <!-- First Name -->
             <div class="col-span-6">
-                <JetInput
+                <text-input
                     id="first_name"
                     type="text"
                     class="mt-1 block w-full"
@@ -57,7 +57,7 @@
 
             <!-- Last Name -->
             <div class="col-span-6">
-                <JetInput
+                <text-input
                     id="last_name"
                     type="text"
                     class="mt-1 block w-full"
@@ -70,7 +70,7 @@
 
             <!-- Email -->
             <div class="col-span-6">
-                <JetInput
+                <text-input
                     id="email"
                     type="email"
                     class="mt-1 block w-full"
@@ -82,7 +82,7 @@
 
             <!-- Mobile Number -->
             <!-- <div class="col-span-6">
-                <JetInput
+                <text-input
                     placeholder="Mobile Number"
                     id="mobile_number"
                     :add_on_left="true"
