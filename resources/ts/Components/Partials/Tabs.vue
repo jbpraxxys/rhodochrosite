@@ -2,7 +2,7 @@
     <div class="">
         <div class="border-b border-gray-200 flex justify-between">
             <nav class="-mb-px flex space-x-2 px-7 py-2" aria-label="Tabs">
-                <Link
+                <a
                     v-for="tab in tabs"
                     :key="tab.name"
                     :href="tab.value ?? ''"
@@ -38,7 +38,7 @@
                         "
                         v-if="isSelectedTab(tab.value)"
                       />
-                </Link>
+            </a>
             </nav>
             <div class="px-7 py-2 flex items-center">
                 <template v-if="buttonItems">

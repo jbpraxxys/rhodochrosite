@@ -51,7 +51,7 @@
 
                     <div class="flex items-center">
                         <action-button
-                            class="w-full flex justify-center"
+                            block
                             :class="{ 'opacity-25': form.processing }"
                             :disabled="form.processing"
                         >
