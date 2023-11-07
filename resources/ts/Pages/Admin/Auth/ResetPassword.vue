@@ -11,7 +11,7 @@
 
                 <form @submit.prevent="submit">
                     <div class="mb-6">
-                        <jet-input
+                        <text-input
                             id="email"
                             type="email"
                             label="Email"
@@ -42,13 +42,13 @@
                     </div>
 
                     <div class="flex items-center justify-end">
-                        <jet-button
+                        <action-button
                             class="w-full flex justify-center"
                             :class="{ 'opacity-25': form.processing }"
                             :disabled="form.processing"
                         >
                             Reset Password
-                        </jet-button>
+                        </action-button>
                     </div>
                 </form>
             </jet-authentication-card>

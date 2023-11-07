@@ -99,6 +99,7 @@
                         list-none
                         pl-0
                     "
+                    :class="topOptions ? 'bottom-12' : ''"
                 >
                     <ListboxOption
                         as="template"
@@ -183,6 +184,10 @@ const props = defineProps({
         default: false
     },
     readonly: {
+        type: Boolean,
+        default: false
+    },
+    topOptions: {
         type: Boolean,
         default: false
     }

@@ -10,7 +10,7 @@
 
         <template #form>
             <div class="col-span-6">
-                <jet-input
+                <text-input
                     v-model="form.name"
                     label="Name"
                     id="name"
@@ -18,7 +18,7 @@
                 />
             </div>
             <div class="col-span-6">
-                <jet-input
+                <text-input
                     v-model="form.description"
                     label="Description"
                     id="description"
@@ -29,9 +29,9 @@
         </template>
 
         <template #actions>
-            <jet-button @click="submit" type="button">
+            <action-button @click="submit" type="button">
                 Save Changes
-            </jet-button>
+            </action-button>
         </template>
     </jet-form-section>
 </template>

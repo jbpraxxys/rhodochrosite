@@ -146,96 +146,91 @@
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { ExclamationCircleIcon } from "@heroicons/vue/24/solid";
 
-export default {
-    components: {
-        ExclamationCircleIcon,
+defineProps({
+    modelValue: {
+        default: null,
+        required: true,
     },
-    props: {
-        modelValue: {
-            default: null,
-            required: true,
-        },
-        error: {
-            type: String,
-            default: null,
-        },
-        placeholder: {
-            type: String,
-            default: null,
-        },
-        name: {
-            type: String,
-            default: null,
-        },
-        id: {
-            type: String,
-            default: null,
-        },
-        label: {
-            type: String,
-            default: null,
-        },
-        type: {
-            type: String,
-            default: "text",
-        },
-        customInputClass: {
-            type: String,
-            default: null,
-        },
-        textarea: {
-            type: Boolean,
-            default: false,
-        },
-        textAreaRows: {
-            type: Number,
-            default: 10,
-        },
-        add_on_right: {
-            type: Boolean,
-            default: false,
-        },
-        add_on_text: {
-            type: String,
-            default: null,
-        },
-        add_on_left: {
-            type: Boolean,
-            default: false,
-        },
-        disabled: {
-            type: Boolean,
-            default: false,
-        },
-        min: {
-            type: Number,
-            default: 0,
-        },
-        max: {
-            type: Number,
-        },
-        step: {
-            type: Number,
-            default: 1,
-        },
-        maxlength: {
-            type: Number,
-        },
-        showInputLimit: {
-            type: Boolean,
-            default: false,
-        },
-        required: {
-            type: Boolean,
-            default: false,
-        },
-        readonly: {
-            type: Boolean,
-            default: false,
-        },
+    error: {
+        type: String,
+        default: null,
     },
-};
+    placeholder: {
+        type: String,
+        default: null,
+    },
+    name: {
+        type: String,
+        default: null,
+    },
+    id: {
+        type: String,
+        default: null,
+    },
+    label: {
+        type: String,
+        default: null,
+    },
+    type: {
+        type: String,
+        default: "text",
+    },
+    customInputClass: {
+        type: String,
+        default: null,
+    },
+    textarea: {
+        type: Boolean,
+        default: false,
+    },
+    textAreaRows: {
+        type: Number,
+        default: 10,
+    },
+    add_on_right: {
+        type: Boolean,
+        default: false,
+    },
+    add_on_text: {
+        type: String,
+        default: null,
+    },
+    add_on_left: {
+        type: Boolean,
+        default: false,
+    },
+    disabled: {
+        type: Boolean,
+        default: false,
+    },
+    min: {
+        type: Number,
+        default: 0,
+    },
+    max: {
+        type: Number,
+    },
+    step: {
+        type: Number,
+        default: 1,
+    },
+    maxlength: {
+        type: Number,
+    },
+    showInputLimit: {
+        type: Boolean,
+        default: false,
+    },
+    required: {
+        type: Boolean,
+        default: false,
+    },
+    readonly: {
+        type: Boolean,
+        default: false,
+    },
+})
 </script>

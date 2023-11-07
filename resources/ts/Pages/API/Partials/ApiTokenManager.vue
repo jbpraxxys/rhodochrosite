@@ -13,7 +13,7 @@
             <template #form>
                 <!-- Token Name -->
                 <div class="col-span-6 sm:col-span-4">
-                    <jet-input id="name" type="text" label="Name" class="mt-1 block w-full" v-model="createApiTokenForm.name" autofocus />
+                    <text-input id="name" type="text" label="Name" class="mt-1 block w-full" v-model="createApiTokenForm.name" autofocus />
                     <input-error :message="createApiTokenForm.errors.name" class="mt-2" />
                 </div>
 
@@ -37,9 +37,9 @@
                     Created.
                 </jet-action-message>
 
-                <jet-button :class="{ 'opacity-25': createApiTokenForm.processing }" :disabled="createApiTokenForm.processing">
+                <action-button :class="{ 'opacity-25': createApiTokenForm.processing }" :disabled="createApiTokenForm.processing">
                     Create
-                </jet-button>
+                </action-button>
             </template>
         </jet-form-section>
 
@@ -105,9 +105,9 @@
             </template>
 
             <template #footer>
-                <secondary-button @click="displayingToken = false">
+                <action-button @click="displayingToken = false" fill="secondary">
                     Close
-                </secondary-button>
+                </action-button>
             </template>
         </jet-dialog-modal>
 
@@ -133,9 +133,9 @@
                     Cancel
                 </secondary-button>
 
-                <jet-button class="ml-2" @click="updateApiToken" :class="{ 'opacity-25': updateApiTokenForm.processing }" :disabled="updateApiTokenForm.processing">
+                <action-button class="ml-2" @click="updateApiToken" :class="{ 'opacity-25': updateApiTokenForm.processing }" :disabled="updateApiTokenForm.processing">
                     Save
-                </jet-button>
+                </action-button>
             </template>
         </jet-dialog-modal>
 
@@ -150,13 +150,13 @@
             </template>
 
             <template #footer>
-                <secondary-button @click="apiTokenBeingDeleted = null">
+                <action-button @click="apiTokenBeingDeleted = null" fill="secondary">
                     Cancel
-                </secondary-button>
+                </action-button>
 
-                <jet-danger-button class="ml-2" @click="deleteApiToken" :class="{ 'opacity-25': deleteApiTokenForm.processing }" :disabled="deleteApiTokenForm.processing">
+                <action-button class="ml-2" fill="danger" @click="deleteApiToken" :class="{ 'opacity-25': deleteApiTokenForm.processing }" :disabled="deleteApiTokenForm.processing">
                     Delete
-                </jet-danger-button>
+                </action-button>
             </template>
         </jet-confirmation-modal>
     </div>
@@ -166,10 +166,8 @@
     import JetActionMessage from "@/Components/Modals/JetActionMessage.vue";
     import JetActionSection from "@/Components/Partials/JetActionSection.vue";
     import JetConfirmationModal from '@/Components/Modals/ConfirmationModal.vue'
-    import JetDangerButton from "@/Components/ActionButtons/DangerButton.vue";
     import JetDialogModal from "@/Components/Modals/DialogModal.vue";
     import InputError from "@/Components/Inputs/InputError.vue";
-    import SecondaryButton from "@/Components/ActionButtons/SecondaryButton.vue";
     import SectionBorder from '@/Components/Partials/SectionBorder.vue'
 
     export default {
@@ -177,10 +175,8 @@
             JetActionMessage,
             JetActionSection,
             JetConfirmationModal,
-            JetDangerButton,
             JetDialogModal,
             InputError,
-            SecondaryButton,
             SectionBorder,
         },
 

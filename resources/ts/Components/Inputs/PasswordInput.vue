@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-        <jet-input
+        <text-input
             :modelValue="modelValue"
             :type="hidden ? 'password' : 'text'"
             :label="label"
@@ -30,7 +30,6 @@
 </template>
 
 <script setup lang="ts">
-import JetInput from "@/Components/Inputs/Input.vue";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/vue/24/outline";
 import { ref } from "vue";
 

@@ -9,7 +9,7 @@
             >
                 <form @submit.prevent="submit">
                     <div class="mb-6">
-                        <jet-input
+                        <text-input
                             v-model="form.email"
                             label="Email Address"
                             id="email"
@@ -40,23 +40,23 @@
                             </label>
                         </div>
 
-                        <Link
+                        <a
                             v-if="canResetPassword"
                             :href="route('admin.password.request')"
                             class="text-xs text-primary-600"
                         >
                             Forgot your password?
-                        </Link>
+                        </a>
                     </div>
 
                     <div class="flex items-center">
-                        <jet-button
-                            class="w-full flex justify-center"
+                        <action-button
+                            block
                             :class="{ 'opacity-25': form.processing }"
                             :disabled="form.processing"
                         >
                             Log in
-                        </jet-button>
+                        </action-button>
                     </div>
                 </form>
             </jet-authentication-card>

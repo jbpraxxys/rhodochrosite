@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-    <div v-if="items.total > 3">
+    <div v-if="items.total > 10">
         <div class="flex items-center justify-between">
             <div class="flex items-center">
                 <selector
@@ -11,6 +11,7 @@
                     name="pagination-name"
                     class="w-[auto] mr-4"
                     placeholder="10 Rows"
+                    topOptions
                 />
 
                 <p class="text-sm text-gray-500">
@@ -32,27 +33,27 @@
             <div class="relative flex -space-x-px">
                 <template v-for="(link, key) in items.links" :key="link">
                     <template v-if="key === 0">
-                        <Link
+                        <a
                             v-if="key === 0"
                             :href="link.url ?? '#'"
                             class="relative inline-flex items-center justify-center w-11 h-11 border border-gray-100 bg-white text-gray-500 hover:bg-gray-50 rounded-l-lg"
                             >
                             <span class="sr-only">Previous</span>
                             <ChevronLeftIcon class="h-4 w-4" aria-hidden="true" />
-                        </Link>
+                        </a>
                     </template>
                     
                     <template v-else-if="key === items.links.length - 1">
-                        <Link
+                        <a
                             :href="link.url ?? '#'"
                             class="relative inline-flex items-center justify-center w-11 h-11 border border-gray-100 bg-white text-gray-500 hover:bg-gray-50 rounded-r-lg"
                         >
                             <span class="sr-only">Next</span>
                             <ChevronRightIcon class="h-4 w-4" aria-hidden="true" />
-                        </Link>
+                        </a>
                     </template>
 
-                    <Link
+                    <a
                         v-else
                         :href="link.url ?? '#'"
                         aria-current="page"
@@ -64,7 +65,7 @@
                         "
                     >
                         {{ link.label }}
-                    </Link>
+                    </a>
                 </template>
             </div>
         </div>
@@ -78,8 +79,6 @@ import { ref } from "vue";
 import { 
     ChevronLeftIcon, 
     ChevronRightIcon, 
-    ChevronDoubleLeftIcon, 
-    ChevronDoubleRightIcon 
 } from "@heroicons/vue/24/solid";
 
 const props = defineProps({

@@ -11,7 +11,7 @@
                 <form @submit.prevent="submit">
                     <div class="flex space-x-3">
                         <div>
-                            <jet-input
+                            <text-input
                                 id="otp1"
                                 type="text"
                                 class="block w-full text-center"
@@ -20,7 +20,7 @@
                             />
                         </div>
                         <div>
-                            <jet-input
+                            <text-input
                                 id="otp2"
                                 type="text"
                                 class="block w-full text-center"
@@ -29,7 +29,7 @@
                             />
                         </div>
                         <div>
-                            <jet-input
+                            <text-input
                                 id="otp3"
                                 type="text"
                                 class="block w-full text-center"
@@ -38,7 +38,7 @@
                             />
                         </div>
                         <div>
-                            <jet-input
+                            <text-input
                                 id="otp4"
                                 type="text"
                                 class="block w-full text-center"
@@ -47,7 +47,7 @@
                             />
                         </div>
                         <div>
-                            <jet-input
+                            <text-input
                                 id="otp5"
                                 type="text"
                                 class="block w-full text-center"
@@ -56,7 +56,7 @@
                             />
                         </div>
                         <div>
-                            <jet-input
+                            <text-input
                                 id="otp6"
                                 type="text"
                                 class="block w-full text-center"
@@ -67,13 +67,13 @@
                     </div>
                     <p class="text-sm text-gray-500 text-center mt-6">Didn't receive a code? <a href="" class="font-bold text-primary-500">Resend</a></p>
                     <div class="flex items-center mt-6">
-                        <jet-button
+                        <action-button
                             class="w-full flex justify-center"
                             :class="{ 'opacity-25': form.processing }"
                             :disabled="form.processing"
                         >
                             Verify
-                        </jet-button>
+                        </action-button>
                     </div>
                     <Link 
                     href="/admin/login" 

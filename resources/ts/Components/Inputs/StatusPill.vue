@@ -9,25 +9,23 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: {
-        customClass: {
-            type: String,
-            default: "black",
-        },
-        text: {
-            type: String,
-            required: true,
-        },
-        textColor: {
-            type: String,
-            default: "white",
-        },
-        nowrap: {
-            type: Boolean,
-            default: true,
-        },
+<script setup lang="ts">
+defineProps({
+    customClass: {
+        type: String,
+        default: "black",
     },
-};
+    text: {
+        type: String,
+        required: true,
+    },
+    textColor: {
+        type: String,
+        default: "white",
+    },
+    nowrap: {
+        type: Boolean,
+        default: true,
+    },
+})
 </script>

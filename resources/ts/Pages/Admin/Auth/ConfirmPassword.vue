@@ -25,9 +25,9 @@
             </div>
 
             <div class="flex justify-end mt-4">
-                <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <action-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Confirm
-                </jet-button>
+                </action-button>
             </div>
         </form>
     </jet-authentication-card>

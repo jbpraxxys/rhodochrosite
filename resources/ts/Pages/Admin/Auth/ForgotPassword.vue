@@ -14,7 +14,7 @@
                 <jet-validation-errors class="mb-4" />
 
                 <form @submit.prevent="submit">
-                    <jet-input
+                    <text-input
                         id="email"
                         type="email"
                         label="Email Address"
@@ -25,13 +25,13 @@
                     />
 
                     <div class="flex items-center mt-6">
-                        <jet-button
+                        <action-button
                             class="w-full flex justify-center"
                             :class="{ 'opacity-25': form.processing }"
                             :disabled="form.processing"
                         >
                             Submit
-                        </jet-button>
+                        </action-button>
                     </div>
                     <Link 
                     href="/admin/login" 

@@ -44,7 +44,7 @@
                             </p>
                         </div>
                         <div class="flex items-center mt-6">
-                            <jet-button class="w-full flex justify-center" :disabled="disabled"> Verify </jet-button>
+                            <action-button class="w-full flex justify-center" :disabled="disabled"> Verify </action-button>
                         </div>
                     </form>
                     <div class="mt-6 text-center">
@@ -89,7 +89,7 @@
                         </div>
         
                         <div class="flex items-center mt-6">
-                            <jet-button class="w-full flex justify-center"> Reset Password </jet-button>
+                            <action-button class="w-full flex justify-center"> Reset Password </action-button>
                         </div>
                     </form>
                     <div class="mt-6 text-center">

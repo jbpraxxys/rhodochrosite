@@ -109,7 +109,7 @@ class RolePermissionController extends Controller
         $this->setPermission($role, $request->input('permissions'));
 
         return to_route('admin.role-permission-management.index')
-            ->with('success', 'Role successfully edited!');
+            ->with('success', 'Saved!');
     }
 
     /**
@@ -148,7 +148,7 @@ class RolePermissionController extends Controller
         $this->setPermission($role, $vars['permissions']);
 
         return to_route('admin.role-permission-management.index')
-            ->with('success', 'Role successfully created!');
+            ->with('success', 'Saved!');
     }
 
     private function setPermission(Role $role, $permissions)
@@ -177,7 +177,7 @@ class RolePermissionController extends Controller
         $role->delete();
 
         return to_route('admin.role-permission-management.index')
-            ->with('success', 'Role successfully deleted!');
+            ->with('success', 'Deleted!');
     }
 
     /**
@@ -191,6 +191,6 @@ class RolePermissionController extends Controller
         Role::withTrashed()->findOrFail($request->id)->restore();
 
         return to_route('admin.role-permission-management.index')
-            ->with('success', 'Role successfully restored!');
+            ->with('success', 'Restored!');
     }
 }

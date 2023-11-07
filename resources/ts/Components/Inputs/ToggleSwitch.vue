@@ -28,42 +28,32 @@
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { computed } from 'vue';
 import { Switch } from "@headlessui/vue";
 
-export default {
-    components: {
-        Switch,
+const props = defineProps({
+    value: {
+        default: null,
+        required: true,
     },
-    emits: ["change"],
-    props: {
-        value: {
-            default: null,
-            required: true,
-        },
-        label: {
-            default: null,
-            required: true,
-        },
-        description: {
-            default: null,
-            required: false,
-        },
+    label: {
+        default: null,
+        required: true,
     },
-    setup(props, { emit }) {
-        const switchValue = computed ({
-            get() {
-                return props.value;
-            },
-            set(value) {
-                emit('change', value);
-            }
-        });
+    description: {
+        default: null,
+        required: false,
+    },
+})
 
-        return {
-            switchValue
-        }
+const emit = defineEmits(['change'])
+const switchValue = computed ({
+    get() {
+        return props.value;
+    },
+    set(value) {
+        emit('change', value);
     }
-};
+});
 </script>

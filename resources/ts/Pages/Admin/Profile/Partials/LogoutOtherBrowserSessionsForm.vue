@@ -76,9 +76,9 @@
       </div>
 
       <div class="flex items-center mt-5">
-        <jet-button @click="confirmLogout">
+        <action-button @click="confirmLogout">
           Log Out Other Browser Sessions
-        </jet-button>
+        </action-button>
 
         <jet-action-message :on="form.recentlySuccessful" class="ml-3">
           Done.
@@ -94,8 +94,7 @@
           your other browser sessions across all of your devices.
 
           <div class="mt-4">
-            <jet-input
-              type="password"
+            <password-input
               class="mt-1 block w-3/4"
               placeholder="Password"
               ref="password"
@@ -108,18 +107,18 @@
         </template>
 
         <template #footer>
-          <secondary-button @click="closeModal">
+          <action-button @click="closeModal" fill="secondary">
             Cancel
-          </secondary-button>
+          </action-button>
 
-          <jet-button
+          <action-button
             class="ml-2"
             @click="logoutOtherBrowserSessions"
             :class="{ 'opacity-25': form.processing }"
             :disabled="form.processing"
           >
             Log Out Other Browser Sessions
-          </jet-button>
+          </action-button>
         </template>
       </jet-dialog-modal>
     </template>
@@ -131,7 +130,6 @@ import JetActionMessage from "@/Components/Modals/JetActionMessage.vue";
 import JetActionSection from "@/Components/Partials/JetActionSection.vue";
 import JetDialogModal from "@/Components/Modals/DialogModal.vue";
 import InputError from "@/Components/Inputs/InputError.vue";
-import SecondaryButton from "@/Components/ActionButtons/SecondaryButton.vue";
 
 export default {
   props: ["sessions"],
@@ -141,7 +139,6 @@ export default {
     JetActionSection,
     JetDialogModal,
     InputError,
-    SecondaryButton,
   },
 
   data() {

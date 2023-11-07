@@ -151,17 +151,17 @@
                             Download Sample Manifest
                         </a>
                         <div class="mt-4 flex justify-end">
-                            <jet-button
+                            <action-button
                                 type="button"
                                 @click="$emit('cancel')"
-                                secondary
+                                fill="secondary"
                                 class="mr-2"
                             >
                                 {{ cancelText }}
-                            </jet-button>
-                            <jet-button type="button" @click="$emit('confirm')">
+                            </action-button>
+                            <action-button type="button" @click="$emit('confirm')">
                                 {{ actionText }}
-                            </jet-button>
+                            </action-button>
                         </div>
                     </div>
                 </TransitionChild>

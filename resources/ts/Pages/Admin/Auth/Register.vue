@@ -11,11 +11,11 @@
 
         <form @submit.prevent="submit">
             <div>
-                <jet-input id="name" type="text" label="Name" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
+                <text-input id="name" type="text" label="Name" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
-                <jet-input id="email" type="email" label="Email" class="mt-1 block w-full" v-model="form.email" required />
+                <text-input id="email" type="email" label="Email" class="mt-1 block w-full" v-model="form.email" required />
             </div>
 
             <div class="mt-4">
@@ -53,13 +53,13 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <Link :href="route('admin.login')" class="underline text-sm text-gray-600 hover:text-gray-900">
+                <a :href="route('admin.login')" class="underline text-sm text-gray-600 hover:text-gray-900">
                     Already registered?
-                </Link>
+                </a>
 
-                <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <action-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Register
-                </jet-button>
+                </action-button>
             </div>
         </form>
     </jet-authentication-card>

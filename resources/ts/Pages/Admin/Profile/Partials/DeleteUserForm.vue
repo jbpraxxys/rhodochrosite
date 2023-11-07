@@ -14,9 +14,9 @@
             </div>
 
             <div class="mt-5">
-                <jet-danger-button @click="confirmUserDeletion">
+                <action-button @click="confirmUserDeletion">
                     Delete Account
-                </jet-danger-button>
+                </action-button>
             </div>
 
             <!-- Delete Account Confirmation Modal -->
@@ -29,7 +29,7 @@
                     Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.
 
                     <div class="mt-4">
-                        <jet-input type="password" class="mt-1 block w-3/4" placeholder="Password"
+                        <password-input type="password" class="mt-1 block w-3/4" placeholder="Password"
                                     ref="password"
                                     v-model="form.password"
                                     @keyup.enter="deleteUser" />
@@ -39,13 +39,13 @@
                 </template>
 
                 <template #footer>
-                    <secondary-button @click="closeModal">
+                    <action-button @click="closeModal" fill="secondary">
                         Cancel
-                    </secondary-button>
+                    </action-button>
 
-                    <jet-danger-button class="ml-2" @click="deleteUser" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    <action-button class="ml-2" fill="danger" @click="deleteUser" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                         Delete Account
-                    </jet-danger-button>
+                    </action-button>
                 </template>
             </jet-dialog-modal>
         </template>
@@ -55,17 +55,13 @@
 <script>
     import JetActionSection from "@/Components/Partials/JetActionSection.vue";
     import JetDialogModal from "@/Components/Modals/DialogModal.vue";
-    import JetDangerButton from "@/Components/ActionButtons/DangerButton.vue";
     import InputError from "@/Components/Inputs/InputError.vue";
-    import SecondaryButton from "@/Components/ActionButtons/SecondaryButton.vue";
 
     export default {
         components: {
             JetActionSection,
-            JetDangerButton,
             JetDialogModal,
             InputError,
-            SecondaryButton,
         },
 
         data() {

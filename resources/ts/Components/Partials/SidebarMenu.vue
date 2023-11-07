@@ -46,7 +46,7 @@
                 </transition>
                 <div v-for="menu in item.children">
                     <template v-if="!menu.children">
-                        <Link
+                        <a
                         :href="menu.href"
                         class="flex items-center w-full py-3 px-4 rounded-lg transition hover:bg-primary-50"
                         :class="[
@@ -74,7 +74,7 @@
                                     {{ menu.name }}
                                 </span>
                             </transition>
-                        </Link>
+                        </a>
                     </template>
 
                     <template v-else>
@@ -107,7 +107,7 @@
                             </DisclosureButton>
                             <DisclosurePanel>
                                 <div v-for="submenu in menu.children">
-                                    <Link
+                                    <a
                                     :href="submenu.href"
                                     class="flex w-full py-3 pl-12 pr-4 text-sm text-gray-400"
                                     :class="[
@@ -122,7 +122,7 @@
                                         <!-- <span class="ml-auto">
                                             13
                                         </span> -->
-                                    </Link>
+                                    </a>
                                 </div>
                             </DisclosurePanel>
                         </Disclosure>

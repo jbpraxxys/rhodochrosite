@@ -8,7 +8,7 @@
         leave-from="opacity-100"
         leave-to="opacity-0"
     >
-        <div :class="`rounded-md bg-${color()}-50 p-4`">
+        <div v-if="message()" :class="`bg-${color()}-50 p-4`">
             <div class="flex">
                 <div class="flex-shrink-0">
                     <CheckCircleIcon
