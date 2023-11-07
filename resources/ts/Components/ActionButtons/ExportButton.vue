@@ -9,7 +9,6 @@
 </template>
 
 <script setup lang="ts">
-import ActionButton from "@/Components/ActionButtons/ActionButton.vue";
 import { ArrowDownTrayIcon } from "@heroicons/vue/24/solid";
 
 const props = defineProps({
