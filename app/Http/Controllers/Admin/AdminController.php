@@ -147,7 +147,7 @@ class AdminController extends Controller
 
         return redirect()
             ->route('admin.admin-management.index')
-            ->with('success', 'Admin successfully created!');
+            ->with('success', 'Saved!');
     }
 
     /**
@@ -170,7 +170,7 @@ class AdminController extends Controller
 
         return redirect()
             ->route('admin.admin-management.index')
-            ->with('success', 'Admin successfully edited!');
+            ->with('success', 'Saved!');
     }
 
     /**
@@ -185,7 +185,7 @@ class AdminController extends Controller
 
         return redirect()
             ->route('admin.admin-management.index')
-            ->with('success', 'Admin successfully deleted!');
+            ->with('success', 'Deleted!');
     }
 
     /**
@@ -200,7 +200,7 @@ class AdminController extends Controller
 
         return redirect()
             ->route('admin.admin-management.index')
-            ->with('success', 'Admin successfully restored!');
+            ->with('success', 'Restored!');
     }
 
     public function export(Request $request)

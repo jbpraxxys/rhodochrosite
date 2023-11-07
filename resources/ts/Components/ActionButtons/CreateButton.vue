@@ -1,10 +1,10 @@
 <template>
-    <Link :href="routeLink">
+    <a :href="routeLink">
         <action-button
         :trailing-icon="PlusIcon">
             {{ text }}
         </action-button>
-    </Link>
+    </a>
 </template>
 
 <script setup lang="ts">

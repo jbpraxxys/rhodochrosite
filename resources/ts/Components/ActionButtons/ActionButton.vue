@@ -75,11 +75,9 @@ defineProps({
         default: "primary", // primary | secondary
     },
     leadingIcon: {
-        type: String,
         default: null,
     },
     trailingIcon: {
-        type: String,
         default: null,
     }
 });
