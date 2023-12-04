@@ -394,6 +394,7 @@ return [
         [
             'slug' => 'terms-and-conditions',
             'label' => 'Terms and Conditions Page',
+            'show_metadata' => 1,
             'sections' => [
                 [
                     'id' => 'section1',

@@ -14,7 +14,7 @@
                 border-dashed
                 rounded
             "
-            :class="isDragActive ? 'border-gray-900' : 'border-gray-100'"
+            :class="isDragActive ? 'border-gray-900' : 'border-gray-200'"
             v-bind="getRootProps()"
         >
             <div class="space-x-2 text-center flex items-center">
@@ -63,7 +63,7 @@
                 </div>
             </div>
         </div>
-        <p class="text-xs text-gray-500 mt-1">{{ description }}</p>
+        <p class="text-xs text-gray-400 mt-1">{{ description }}</p>
 
         <div
             class="w-full mt-2 space-y-2"
@@ -161,7 +161,7 @@ const props = defineProps({
     },
     description: {
         type: String,
-        default: "Max file size: 10MB", // Standard image desc: Max file size: 10MB | Dimension: 1366px x 600px
+        default: "File type: webp | Max file size: 10MB", // Standard image desc: Max file size: 10MB | Dimension: 1366px x 600px
     },
     name: {
         type: String,
