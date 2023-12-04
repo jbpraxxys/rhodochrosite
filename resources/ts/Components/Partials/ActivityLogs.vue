@@ -1,10 +1,9 @@
 <template>
-    <div>
-        <div class="py-3 px-6">
+    <table-container>
+        <template #header>
             <FilterBox
                 :search="searchText"
                 @update:searchText="(value) => (searchText = value)"
-                @update:filters="getData"
             >
                 <template #fields>
                     <div class="mb-6">
@@ -43,7 +42,8 @@
                     </div>
                 </template>
             </FilterBox>
-        </div>
+        </template>
+
         <div class="flex items-center justify-between px-4 mt-4">
             <div class="flex">
                 <selector
@@ -66,55 +66,45 @@
             />
         </div>
 
-        <div class="mt-4">
+        <template #body>
             <DataTable
                 :headers="headers"
                 :no-action="true"
-                :is-empty="logs.data.length === 0"
+                :count="logs.data.length"
             >
                 <template v-slot:body>
                     <template v-for="log in logs.data" :key="log.id">
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">
-                                    {{ log.id }}
-                                </div>
+                            <td class="text-gray-900">
+                                {{ log.id }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">
-                                    {{ log.log_name }}
-                                </div>
+                            <td class="text-gray-900">
+                                {{ log.log_name }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">
-                                    {{ log.event }}
-                                </div>
+                            <td class="text-gray-900">
+                                {{ log.event }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-500">
-                                    {{ log.description }}
-                                </div>
+                            <td class="">
+                                {{ log.description }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">
-                                    {{ log.causer_name }}
-                                </div>
+                            <td class="text-gray-900">
+                                {{ log.causer_name }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">
-                                    {{ log.created_at }}
-                                </div>
+                            <td class="text-gray-900">
+                                {{ log.created_at }}
                             </td>
                         </tr>
                     </template>
                 </template>
             </DataTable>
-        </div>
+        </template>
 
-        <pagination class="mb-4" :items="logs" />
-    </div>
+        <template #footer>
+            <pagination :items="logs" />
+        </template>
+    </table-container>
 </template>
-<script>
+<script setup lang="ts">
 // Components
 
 import throttle from "lodash/throttle";
@@ -122,99 +112,102 @@ import pickBy from "lodash/pickBy";
 import { router } from "@inertiajs/vue3";
 import { computed, ref, watch } from "vue";
 
-export default {
-    components: {
-        
+const props = defineProps({
+    logs: {
+        type: Object,
+        default: {},
     },
-    props: {
-        logs: {
-            type: Object,
-            default: {},
-        },
-        resultRoute: {
-            type: String,
-            default: "",
-        },
-        tab: {
-            type: String,
-            default: "",
-        },
-        query: {
-            type: String,
-            default: "",
-        },
-        event: {
-            type: String,
-            default: "",
-        },
+    resultRoute: {
+        type: String,
+        default: "",
     },
-    setup(props) {
-        const logs = computed(() => props.logs);
+    tab: {
+        type: String,
+        default: "",
+    },
+    query: {
+        type: String,
+        default: "",
+    },
+    event: {
+        type: String,
+        default: "",
+    },
+})
 
-        const headers = [
-            { text: "#", value: "id" },
-            { text: "Log Name", value: "logName" },
-            { text: "Event", value: "event" },
-            { text: "Description", value: "description" },
-            { text: "Caused By", value: "causedBy" },
-            { text: "Date Received", value: "dateReceived" },
-        ];
+const logs = computed(() => props.logs);
 
-        /*--------------*
-         * Table Search
-         *--------------*/
-        const filterEvent = ref(props.event);
-        watch(
-            filterEvent,
-            throttle((val) => {
-                router.get(
-                    props.resultRoute,
-                    pickBy({
-                        log_event: val,
-                        log_query: props.query,
-                        tab: props.tab,
-                    }), // removes falsey values
-                    {
-                        preserveState: true,
-                    }
-                );
-            })
+const headers = [
+    { text: "#", value: "id" },
+    { text: "Log Name", value: "logName" },
+    { text: "Event", value: "event" },
+    { text: "Description", value: "description" },
+    { text: "Caused By", value: "causedBy" },
+    { text: "Date Received", value: "dateReceived" },
+];
+
+/**---------------*
+ * METHODS
+ *----------------*/
+//  const applyFilters = (): void => {
+//     router.get(
+//         route(route().current()),
+//         pickBy({
+//             date: filterDate.value,
+//             tab: props.selectedTab
+//         }),
+//         {
+//             preserveState: true
+//         }
+//     )
+// }
+
+/*--------------*
+ * Table Search
+ *--------------*/
+const filterEvent = ref(props.event);
+watch(
+    filterEvent,
+    throttle((val) => {
+        router.get(
+            props.resultRoute,
+            pickBy({
+                log_event: val,
+                log_query: props.query,
+                tab: props.tab,
+            }), // removes falsey values
+            {
+                preserveState: true,
+            }
         );
+    })
+);
 
-        const searchText = ref(props.query);
-        watch(
-            searchText,
-            throttle((val) => {
-                router.get(
-                    props.resultRoute,
-                    pickBy({
-                        log_event: props.event,
-                        log_query: val,
-                        tab: props.tab,
-                    }), // removes falsey values
-                    {
-                        preserveState: true,
-                    }
-                );
-            }, 1000)
+const searchText = ref(props.query);
+watch(
+    searchText,
+    throttle((val) => {
+        router.get(
+            props.resultRoute,
+            pickBy({
+                log_event: props.event,
+                log_query: val,
+                tab: props.tab,
+            }), // removes falsey values
+            {
+                preserveState: true,
+            }
         );
+    }, 1000)
+);
 
-        const events = [
-            { id: "created", value: "Created" },
-            { id: "updated", value: "Updated" },
-            { id: "deleted", value: "Deleted" },
-            { id: "restored", value: "Restored" },
-            { id: "mail", value: "Mail" },
-            { id: "notification", value: "Notification" },
-        ];
+const events = [
+    { id: "created", value: "Created" },
+    { id: "updated", value: "Updated" },
+    { id: "deleted", value: "Deleted" },
+    { id: "restored", value: "Restored" },
+    { id: "mail", value: "Mail" },
+    { id: "notification", value: "Notification" },
+];
 
-        return {
-            logs,
-            headers,
-            searchText,
-            filterEvent,
-            events,
-        };
-    },
-};
 </script>

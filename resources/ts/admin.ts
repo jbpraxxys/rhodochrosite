@@ -13,6 +13,7 @@ import SearchForm from "@/Components/Forms/SearchForm.vue";
 import Tabs from "@/Components/Partials/Tabs.vue";
 import DataTable from "@/Components/Partials/DataTable.vue";
 import Pagination from "@/Components/Partials/Pagination.vue";
+import ActivityLogs from "@/Components/Partials/ActivityLogs.vue";
 
 import ActionButton from "@/Components/ActionButtons/ActionButton.vue";
 import CreateButton from "@/Components/ActionButtons/CreateButton.vue";
@@ -63,6 +64,7 @@ createInertiaApp({
                     Tabs,
                     DataTable,
                     Pagination,
+                    ActivityLogs,
 
                     ActionButton,
                     CreateButton,

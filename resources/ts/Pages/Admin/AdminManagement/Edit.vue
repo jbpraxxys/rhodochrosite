@@ -1,7 +1,7 @@
 <template>
     <admin-layout 
     :pages="pages"
-    :title="'Edit ' + admin.name">
+    :title="admin.name">
         <div class="">
             <FormSection 
             :form="form"

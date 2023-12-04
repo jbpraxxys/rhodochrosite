@@ -24,7 +24,7 @@ use Inertia\Inertia;
  */
 
 Route::get('/', function () {
-    return redirect()->route('admin.dashboard.index');
+    return redirect()->route('admin.cms.index');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -33,12 +33,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     //     return Inertia::render('Dashboard');
     // })->name('dashboard');
 
-    Route::prefix('dashboard')
-        ->name('dashboard.')
-        ->controller(DashboardController::class)
-        ->group(function () {
-            Route::get('index', 'index')->name('index');
-        });
+    // Route::prefix('dashboard')
+    //     ->name('dashboard.')
+    //     ->controller(DashboardController::class)
+    //     ->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
 
     Route::prefix('admin-management')
         ->name('admin-management.')

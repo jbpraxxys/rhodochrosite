@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\Admin;
+use App\Models\CmsPage;
 use Inertia\Middleware;
 use Illuminate\Http\Request;
 use Spatie\Permission\Traits\HasRoles;
@@ -67,6 +68,7 @@ class HandleInertiaRequests extends Middleware
                     return null;
                 }
             },
+            'cms_header' => $request->routeIs('admin.*') ? '' : CmsPage::where('slug', 'header')->first()->content,
         ]);
     }
 }

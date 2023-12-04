@@ -1,9 +1,9 @@
 <template>
     <div>
-        <label :for="id" class="block text-sm text-gray-900 mb-1">{{
+        <label :for="id" class="block text-sm text-gray-500 mb-2">{{
             label
         }}</label>
-        <div class="relative rounded-md shadow-sm">
+        <div class="relative">
             <ckeditor
                 :editor="editor"
                 :model-value="modelValue"
@@ -41,6 +41,19 @@
 </template>
 
 <style>
+.ck.ck-toolbar,
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+    border-color: #e5e7eb;
+}
+
+.ck.ck-toolbar .ck.ck-toolbar__separator {
+    background: #e5e7eb;
+}
+
+.ck-editor {
+    font-size: 14px;
+}
+
 .ck-editor ul {
     display: block;
     list-style-type: disc;
