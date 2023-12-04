@@ -146,22 +146,6 @@ const headers = [
     { text: "Date Received", value: "dateReceived" },
 ];
 
-/**---------------*
- * METHODS
- *----------------*/
-//  const applyFilters = (): void => {
-//     router.get(
-//         route(route().current()),
-//         pickBy({
-//             date: filterDate.value,
-//             tab: props.selectedTab
-//         }),
-//         {
-//             preserveState: true
-//         }
-//     )
-// }
-
 /*--------------*
  * Table Search
  *--------------*/

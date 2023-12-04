@@ -18,6 +18,7 @@ class CreateCmsPagesTable extends Migration
             // Slug
             $table->string('slug', 20)->index();
             $table->string('label');
+            $table->boolean('show_metadata')->default(1);
             // Content
             $table->text('content')->nullable();
             // Meta data
