@@ -60,7 +60,7 @@ class CmsPageController extends Controller
      * @param  \App\Models\CmsPage  $cmsPage
      * @return \Inertia\Response
      */
-    public function edit(CmsPage $cmsPage)
+    public function edit(CmsPage $cmsPage, Request $request)
     {
         $schema = Arr::where(config('cms.schema'), function ($page) use ($cmsPage) {
             return $page['slug'] === $cmsPage->slug;
@@ -71,6 +71,7 @@ class CmsPageController extends Controller
         return Inertia::render('Admin/CMS/Edit', [
             'page' => $cmsPage,
             'schema' => $schema,
+            'selectedTab' => $request->input('tab'),
         ]);
     }
 
@@ -149,6 +150,7 @@ class CmsPageController extends Controller
                 switch ($item['type']) {
                     case 'text':
                     case 'textarea':
+                    case 'checkbox':
                     case 'url':
                         $content[$key] = $request->$key;
                         break;
@@ -169,6 +171,7 @@ class CmsPageController extends Controller
                                 switch ($list_item['type']) {
                                     case 'text':
                                     case 'textarea':
+                                    case 'checkbox':
                                     case 'url':
                                         $item_array[$list_item['id']] = $request->$item_key[$i];
                                         break;
@@ -204,6 +207,7 @@ class CmsPageController extends Controller
                     switch ($item['type']) {
                         case 'text':
                         case 'textarea':
+                        case 'checkbox':
                         case 'url':
                             $rules["{$section['id']}_{$item['id']}"] = $item['rules'];
                             break;

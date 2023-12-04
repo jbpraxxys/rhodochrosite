@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\ReadableTimestamp;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
 class CmsPage extends Model
 {
+    use ReadableTimestamp;
+    
     public $guarded = [];
 
     /**

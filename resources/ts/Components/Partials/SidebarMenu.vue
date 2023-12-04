@@ -385,7 +385,7 @@ const navigation: generalNavType[] = [
             },
             {
                 name: 'Logs',
-                href: '#',
+                href: route("admin.activity-logs.index"),
                 parentUrl: "#",
                 icon: DocumentTextIcon,
                 allowed: true,

@@ -1,208 +1,241 @@
 <template>
     <admin-layout
         :title="`${page.label}`"
-        :pages="breadcrumbs"
-        :show-back="true"
-        :back-url="route('admin.cms.index')"
+        :pages="pages"
+        showButton
     >
-        <div class="space-y-6">
-            <div class="bg-white px-7 py-5 sm:rounded-lg sm:p-6">
-                <form @submit.prevent="submit">
-                    <div
-                        v-for="section in schema.sections"
-                        :key="section.id"
-                        class="md:grid md:grid-cols-12 md:gap-6"
+        <!-- Tabs -->
+        <div>
+            <div class="border-b border-gray-200 flex justify-between">
+                <nav class="-mb-px flex space-x-2 px-7 py-2" aria-label="Tabs">
+                    <a
+                        v-for="tab in schema.sections"
+                        :key="tab.id"
+                        :href="tab.id ?? ''"
+                        @click.prevent="selectTab(tab.id)"
+                        :class="[
+                            isSelectedTab(tab.id)
+                                ? 'text-primary-600'
+                                : 'text-gray-400 hover:text-gray-600 hover:border-gray-200',
+                            'whitespace-nowrap flex py-4 px-1 text-sm cursor-pointer relative',
+                        ]"
                     >
-                        <div class="md:col-span-4">
-
-                            <p class="text-sm font-bold text-gray-900">
-                                {{ section.label }}
-                            </p>
-
-                            <p class="mt-1 text-sm text-gray-500">
-                                {{ section.description }}
-                            </p>
-                        </div>
-                        <div class="mt-5 md:mt-0 md:col-span-8">
-                            <div class="grid grid-cols-12 gap-6">
-                                <template
-                                    v-for="item in section.items"
-                                    :key="`${section.id}_${item.id}`"
-                                >
-                                    <!-------------------
-                                     | Text
-                                     -------------------->
-                                    <div
-                                        v-if="item.type === 'text' || item.type === 'url'"
-                                        class="col-span-12"
-                                    >
-                                        <text-input
-                                            v-model="form[section.id + '_' + item.id]"
-                                            :label="item.label"
-                                            :id="`${section.id}_${item.id}`"
-                                            :error="form.errors[section.id + '_' + item.id]"
-                                        />
-                                        <p class="text-gray-400 text-sm mt-1">
-                                            {{ item.description }}
-                                        </p>
-                                    </div>
-
-                                    <!-------------------
-                                     | Textarea
-                                     -------------------->
-                                    <div 
-                                        v-if="item.type === 'textarea'" 
-                                        class="col-span-12"
-                                    >
-                                        <text-input
-                                            :textarea="true"
-                                            v-model="form[section.id + '_' + item.id]"
-                                            :label="item.label"
-                                            :id="`${section.id}_${item.id}`"
-                                            :error="form.errors[section.id + '_' + item.id]"
-                                        />
-                                        <p class="text-gray-400 text-sm mt-1">
-                                            {{ item.description }}
-                                        </p>
-                                    </div>
-
-                                    <!-------------------
-                                     | HTML Editor
-                                     -------------------->
-                                    <div 
-                                        v-if="item.type === 'htmleditor'" 
-                                        class="col-span-12"
-                                    >
-                                        <ck-editor
-                                            v-model="form[section.id + '_' + item.id]"
-                                            :label="item.label"
-                                            :id="`${section.id}_${item.id}`"
-                                            :error="form.errors[section.id + '_' + item.id]"
-                                        ></ck-editor>
-                                    </div>
-
-                                    <!-------------------
-                                     | Images
-                                     -------------------->
-                                    <div 
-                                        v-if="item.type === 'image'"
-                                        class="col-span-12" 
-                                    >
-                                        <dropzone
-                                            v-model:path="form[section.id + '_' + item.id]"
-                                            v-model:file="form[section.id + '_' + item.id + '_file']"
-                                            :label="item.label"
-                                            :id="`${section.id}_${item.id}`"
-                                            :description="item.description"
-                                            :error="form.errors[section.id + '_' + item.id + '_file']"
-                                        ></dropzone>
-                                    </div>
-
-                                    <!-------------------
-                                     | List Table
-                                     -------------------->
-                                    <div class="col-span-12" v-if="item.type === 'list_table'">
-                                        <label
-                                            :for="item.id"
-                                            class="block text-sm text-gray-900 mb-1"
-                                            >{{ item.label }}</label
-                                        >
-                                        <list-table
-                                            :list="item"
-                                            :items="item.items"
-                                            :id="section.id + '_' + item.id"
-                                            :form="form"
-                                            @update-list="updateList"
-                                        ></list-table>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-                        <!-- Divider -->
-                        <div class="border-b border-gray-200 md:col-span-6 mt-6 mb-10"></div>
-                    </div>
-                    <div class="md:grid md:grid-cols-12 md:gap-6">
-                        <div class="md:col-span-4">
-                            <p class="text-sm font-bold text-gray-900">
-                                SEO Metadata
-                            </p>
-
-                            <p class="mt-1 text-sm text-gray-500">
-                                Enter your SEO data such as title, description, and keywords
-                                data.
-                            </p>
-                        </div>
-                        <!-- Meta Data -->
-                        <div class="mt-5 md:mt-0 md:col-span-8">
-                            <div class="grid grid-cols-12 gap-6">
-                                <div class="col-span-12">
-                                    <text-input
-                                        v-model="form.title"
-                                        label="Title"
-                                        id="seo_title"
-                                        :error="form.errors.title"
-                                    />
-                                    <p class="text-gray-400 text-sm mt-1">50-60 characters max</p>
-                                </div>
-
-                                <div class="col-span-12">
-                                    <text-input
-                                        v-model="form.description"
-                                        label="Description"
-                                        id="seo_description"
-                                        textarea
-                                        :error="form.errors.description"
-                                    />
-                                </div>
-
-                                <div class="col-span-12">
-                                    <text-input
-                                        v-model="form.keywords"
-                                        label="Keywords"
-                                        id="seo_keywords"
-                                        textarea
-                                        :error="form.errors.keywords"
-                                    />
-                                    <p class="text-gray-400 text-sm mt-1">
-                                        Comma-separated values
-                                    </p>
-                                </div>
-
-                                <div class="col-span-12 mb-6">
-                                    <dropzone
-                                        v-model:path="form.og_image_path"
-                                        v-model:file="form.og_image_path"
-                                        label="SEO Meta Image"
-                                        id="seo_image"
-                                        description="Max file size: 2MB | Dimension: 1200px x 627px"
-                                        :error="form.errors.og_image_path"
-                                    ></dropzone>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-span-12 text-right">
-                        <action-button @click="submit" type="button">
-                            Save Changes
-                        </action-button>
-                    </div>
-                </form>
+                        {{ tab.label }}
+                        <span 
+                        v-if="isSelectedTab(tab.id)"
+                        class="absolute -bottom-2 left-0 bg-primary-600 w-full inline-block h-1"
+                        />
+                    </a>
+                    <a
+                        v-if="page.show_metadata == 1"
+                        :href="'seo-meta-data' ?? ''"
+                        @click.prevent="selectTab('seo-meta-data')"
+                        :class="[
+                            isSelectedTab('seo-meta-data')
+                                ? 'text-primary-600'
+                                : 'text-gray-400 hover:text-gray-600 hover:border-gray-200',
+                            'whitespace-nowrap flex py-4 px-1 text-sm cursor-pointer relative',
+                        ]"
+                    >
+                        SEO Meta data
+                        <span 
+                        v-if="isSelectedTab('seo-meta-data')"
+                        class="absolute -bottom-2 left-0 bg-primary-600 w-full inline-block h-1"
+                        />
+                    </a>
+                </nav>
             </div>
         </div>
+
+        <div class="p-4 !pt-0 md:p-7" >
+            <template 
+            v-for="section in schema.sections"
+            :key="section.id">
+                <jet-form-section
+                v-if="activeTab == section.id"
+                :hasActions="false">
+                    <template #title>
+                        {{ section.label }}
+                    </template>
+
+                    <template #description>
+                        {{ section.description }}
+                    </template>
+
+                    <template #form>
+                        <template
+                            v-for="item in section.items"
+                            :key="`${section.id}_${item.id}`"
+                        >
+                            <!-------------------
+                            | Text
+                            -------------------->
+                            <div
+                                v-if="item.type === 'text' || item.type === 'url'"
+                                class="col-span-12"
+                            >
+                                <text-input
+                                    v-model="form[section.id + '_' + item.id]"
+                                    :label="item.label"
+                                    :id="`${section.id}_${item.id}`"
+                                    :error="form.errors[section.id + '_' + item.id]"
+                                />
+                                <p class="text-gray-400 text-xs mt-1" v-html="item.description"></p>
+                            </div>
+
+                            <!-------------------
+                            | Textarea
+                            -------------------->
+                            <div 
+                                v-if="item.type === 'textarea'" 
+                                class="col-span-12"
+                            >
+                                <text-input
+                                    :textarea="true"
+                                    v-model="form[section.id + '_' + item.id]"
+                                    :label="item.label"
+                                    :id="`${section.id}_${item.id}`"
+                                    :error="form.errors[section.id + '_' + item.id]"
+                                />
+                                <p class="text-gray-400 text-xs mt-1" v-html="item.description"></p>
+                            </div>
+
+                            <!-------------------
+                            | HTML Editor
+                            -------------------->
+                            <div 
+                                v-if="item.type === 'htmleditor'" 
+                                class="col-span-12"
+                            >
+                                <ck-editor
+                                    v-model="form[section.id + '_' + item.id]"
+                                    :label="item.label"
+                                    :id="`${section.id}_${item.id}`"
+                                    :error="form.errors[section.id + '_' + item.id]"
+                                ></ck-editor>
+                                <p class="text-gray-400 text-xs mt-1" v-html="item.description"></p>
+                            </div>
+
+                            <!-------------------
+                            | Images
+                            -------------------->
+                            <div 
+                                v-if="item.type === 'image'"
+                                class="col-span-12" 
+                            >
+                                <dropzone
+                                    v-model:path="form[section.id + '_' + item.id]"
+                                    v-model:file="form[section.id + '_' + item.id + '_file']"
+                                    :label="item.label"
+                                    :id="`${section.id}_${item.id}`"
+                                    :description="item.description"
+                                    :error="form.errors[section.id + '_' + item.id + '_file']"
+                                    :allow-delete="false"
+                                ></dropzone>
+                            </div>
+
+                            <!-------------------
+                            | List Table
+                            -------------------->
+                            <div class="col-span-12" v-if="item.type === 'list_table'">
+                                <label
+                                    :for="item.id"
+                                    class="block text-sm text-gray-500 mb-2"
+                                    >{{ item.label }}</label
+                                >
+                                <list-table
+                                    :list="item"
+                                    :items="item.items"
+                                    :id="section.id + '_' + item.id"
+                                    :form="form"
+                                    @update-list="updateList"
+                                ></list-table>
+                            </div>
+                        </template>
+                    </template>
+                </jet-form-section>
+            </template>
+        </div>
+        <div class="p-4 !pt-0 md:p-7" v-if="activeTab == 'seo-meta-data'">
+            <jet-form-section 
+            :hasActions="false">
+                <template #title>
+                    SEO Metadata
+                </template>
+
+                <template #description>
+                    Enter your SEO data such as title, description, keywords, and image.
+                </template>
+
+                <template #form>
+                    <div class="col-span-12">
+                        <text-input
+                            v-model="form.title"
+                            label="Title"
+                            id="seo_title"
+                            :error="form.errors.title"
+                        />
+                        <p class="text-gray-400 text-xs mt-1">50-60 characters max</p>
+                    </div>
+
+                    <div class="col-span-12">
+                        <text-input
+                            v-model="form.description"
+                            label="Description"
+                            id="seo_description"
+                            textarea
+                            :error="form.errors.description"
+                        />
+                    </div>
+
+                    <div class="col-span-12">
+                        <text-input
+                            v-model="form.keywords"
+                            label="Keywords"
+                            id="seo_keywords"
+                            textarea
+                            :error="form.errors.keywords"
+                        />
+                        <p class="text-gray-400 text-xs mt-1">
+                            Comma-separated values
+                        </p>
+                    </div>
+
+                    <div class="col-span-12">
+                        <dropzone
+                            v-model:path="form.og_image_path"
+                            v-model:file="form.og_image_path"
+                            label="Image"
+                            id="seo_image"
+                            description="Max file size: 2MB | Dimension: 1200px x 627px"
+                            :error="form.errors.og_image_path"
+                        ></dropzone>
+                    </div>
+                </template>
+            </jet-form-section>
+        </div>
+
+        <template #buttons>
+            <action-button @click="submit">
+                Save Changes
+            </action-button>
+        </template>
     </admin-layout>
 </template>
 
 <script setup lang="ts">
-import AdminLayout from "@/Layouts/AdminLayout.vue";
 import ListTable from "@/Components/Partials/ListTable.vue";
 import useListTable from "@/composables/useListTable.ts";
 import usePRXCMSForm from "@/composables/usePRXCMSForm.ts";
+import { ref } from "vue";
+import { router } from "@inertiajs/vue3";
+import pickBy from "lodash/pickBy";
 
 const props = defineProps([
-    "page", "schema"
+    "page", "schema", "selectedTab"
 ])
 
-const breadcrumbs = [
+const pages = [
     {
         name: "CMS",
         href: route("admin.cms.index"),
@@ -210,10 +243,29 @@ const breadcrumbs = [
     { name: "Edit", href: "#" },
 ];
 
+const activeTab = ref<string>(props.selectedTab);
+
 const submitUrl = route("admin.cms.edit", props.page.id);
 
 const { form, submit } = usePRXCMSForm(props.page, props.schema, submitUrl);
 
 const { updateList } = useListTable(form);
+
+const isSelectedTab = (value) => {
+    return props.selectedTab === value;
+}
+
+const selectTab = (value) => {
+    router.get(
+        route('admin.cms.edit', props.page.id),
+        pickBy({ tab: value }), // removes falsey values
+        {
+            preserveState: true,
+            onSuccess: () => {
+                activeTab.value = value;
+            },
+        }
+    );
+}
 
 </script>

@@ -27,7 +27,7 @@
             :class="[
                 error
                     ? 'focus:ring-red-500 focus:border-red-500 border-red-500'
-                    : 'focus:ring-primary-500 focus:border-primary-500 border-gray-100',
+                    : 'text-gray-800 border-gray-200 focus:ring-gray-900 focus:border-gray-900 disabled:bg-gray-200',
                 readonly ? 'pointer-events-none cursor-default' : ''
             ]"
             >

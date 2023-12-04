@@ -1,34 +1,28 @@
 <template>
     <admin-layout
-    title="CMS"
+    title="Pages"
     >
-        <div>
+        <div class="px-12 py-6">
             <DataTable 
             :headers="headers" 
-            :count="items.length">
+            :count="items.length"
+            noBorder
+            class="border border-gray-100 rounded-lg overflow-hidden">
                 <template v-slot:body>
                     <template v-for="page in items" :key="page.slug">
                         <tr>
-                            <td
-                                class="px-6 py-4 whitespace-nowrap"
-                            >
+                            <td>
                                 {{ page.label }}
                             </td>
-                            <td
-                                class="px-6 py-4 whitespace-nowrap"
-                            >
+                            <td>
                                 {{ page.updated_at }}
                             </td>
-                            <td
-                                class="
-                                    px-6
-                                    py-4
-                                    whitespace-nowrap
-                                    text-sm text-gray-500 text-center
-                                "
-                            >
+                            <td>
+                                {{ page.created_at }}
+                            </td>
+                            <td class="text-center">
                                 <edit-button
-                                    :routeLink="route('admin.cms.edit', page.id)"
+                                    :routeLink="route('admin.cms.edit', page.id) + '?tab=section1'"
                                 />
                             </td>
                         </tr>
@@ -39,32 +33,19 @@
     </admin-layout>
 </template>
 
-<script>
-import AdminLayout from "@/Layouts/AdminLayout.vue";
-import EditButton from "@/Components/ActionButtons/EditButton.vue";
+<script setup lang="ts">
 import { computed } from "vue";
-export default {
-    components: {
-        AdminLayout,
-        EditButton
-    },
-    props: ["items"],
-    setup(props) {
-        /*--------------------*
-         * Table Data/Init Vars
-         *--------------------*/
-        const items = computed(() => props.items);
 
-        const headers = [
-            { text: "Label", value: "Label" },
-            { text: "Last Updated", value: "Last Updated" },
-        ];
+const props = defineProps({
+    items: {
+        type: Object
+    }
+})
+const items = computed(() => props.items);
 
-        return {
-            // Table
-            items,
-            headers
-        };
-    },
-};
+const headers = [
+    { text: "Label", value: "Label" },
+    { text: "Last Updated", value: "Last Updated" },
+    { text: "Date Created", value: "Created" },
+];
 </script>

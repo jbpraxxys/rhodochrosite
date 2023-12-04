@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 trait ReadableTimestamp
 {
-    private function generateDate($value)
+    protected function generateDate($value = null, $format = 'M d, Y (H:i:s)')
     {
-        return Carbon::parse($value)->timezone(config('app.timezone'))->format('F d, Y - H:i:s');
+        return !is_null($value) ? Carbon::parse($value)->format($format) : null;
     }
 
     public function createdAt(): Attribute

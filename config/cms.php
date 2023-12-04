@@ -9,22 +9,22 @@ return [
     */
 
     'schema' => [
-        // Home Page
+        // Home
         [
             'slug' => 'home',
             'label' => 'Home Page',
+            'show_metadata' => 1,
             'sections' => [
                 [
                     'id' => 'section1',
-                    'label' => 'Section 1: Home Page Banner',
-                    'description' => 'Home Page Banner Section.',
+                    'label' => 'Section 1',
+                    'description' => 'Relevant data and other details',
                     'items' => [
                         [
                             'id' => 'title',
                             'type' => 'text',
                             'label' => 'Title',
-                            'description' => '50 characters max',
-                            'rules' => 'required|max:50',
+                            'description' => '',
                         ],
                         [
                             'id' => 'subtitle',
@@ -33,120 +33,399 @@ return [
                             'description' => '',
                         ],
                         [
-                            'id' => 'desc',
-                            'type' => 'htmleditor',
-                            'label' => 'Description',
-                            'description' => '',
-                        ],
-                        [
-                            'id' => 'button1_text',
+                            'id' => 'btn_link',
                             'type' => 'text',
-                            'label' => 'Button 1 Text',
-                            'description' => '10 characters max',
-                            'rules' => 'required|max:10'
+                            'label' => 'Button Link',
+                            'description' => 'To link: `tel:` for number, `mailto:` for email',
                         ],
                         [
-                            'id' => 'button1_url',
-                            'type' => 'url',
-                            'label' => 'Button 1 URL',
+                            'id' => 'btn_text',
+                            'type' => 'text',
+                            'label' => 'Button Text',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section2',
+                    'label' => 'Section 2',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'subtitle',
+                            'type' => 'text',
+                            'label' => 'Subtitle',
                             'description' => '',
                         ],
                         [
-                            'id' => 'mascot_image',
-                            'type' => 'image',
-                            'label' => 'Mascot Image',
-                            'description' => '2MB max',
-                            'rules' => 'required',
+                            'id' => 'title',
+                            'type' => 'htmleditor',
+                            'label' => 'Title',
+                            'description' => 'Format text to <i>italic</i> to highlight (color red)',
                         ],
                         [
-                            'id' => 'banner_images',
+                            'id' => 'content',
+                            'type' => 'htmleditor',
+                            'label' => 'Content',
+                            'description' => 'Format text to <i>italic</i> to highlight (color red)',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section3',
+                    'label' => 'Section 3',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'carousel',
                             'type' => 'list_table',
-                            'label' => 'Banner Images',
-                            'description' => 'Sample banner images.',
+                            'label' => 'Media Carousel',
+                            'description' => '',
                             'items' => [
                                 [
                                     'id' => 'image',
                                     'label' => 'Image',
                                     'type' => 'image',
-                                    'rules' => 'required',
+                                    'rules' => '',
                                     'summary_field' => true,
                                 ],
                                 [
-                                    'id' => 'title',
-                                    'label' => 'Title',
-                                    'type' => 'text',
-                                    'rules' => 'required',
-                                    'summary_field' => true,
-                                ],
-                                [
-                                    'id' => 'title2',
-                                    'label' => 'Title',
-                                    'type' => 'textarea',
-                                    'rules' => 'required',
+                                    'id' => 'video',
+                                    'label' => 'Video',
+                                    'type' => 'image',
+                                    'rules' => '',
                                     'summary_field' => false,
+                                ]
+                            ]
+                        ],
+                    ]
+                ],
+            ],
+        ],
+
+        // Contact Us
+        [
+            'slug' => 'contact-us',
+            'label' => 'Contact Us Page',
+            'show_metadata' => 1,
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Section 1',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'subtitle',
+                            'type' => 'text',
+                            'label' => 'Subtitle',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'title',
+                            'type' => 'htmleditor',
+                            'label' => 'Title',
+                            'description' => 'Format text to <i>italic</i> to highlight (color red)',
+                        ],
+                        [
+                            'id' => 'image',
+                            'type' => 'image',
+                            'label' => 'Image',
+                            'description' => 'Max file size: 2MB | Dimension: 343px x 468px',
+                        ],
+                        [
+                            'id' => 'address_label',
+                            'type' => 'text',
+                            'label' => 'Address Label',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'address',
+                            'type' => 'list_table',
+                            'label' => 'Address',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'icon',
+                                    'label' => 'Icon',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                    'description' => 'Max file size: 2MB | Dimension: 24px x 24px',
                                 ],
                                 [
-                                    'id' => 'title3',
-                                    'label' => 'Title',
+                                    'id' => 'address',
+                                    'label' => 'Address',
                                     'type' => 'htmleditor',
                                     'rules' => 'required',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'note',
+                                    'label' => 'Note',
+                                    'type' => 'text',
+                                    'rules' => '',
                                     'summary_field' => false,
                                 ],
                             ]
+                        ],
+                        [
+                            'id' => 'contactnum_label',
+                            'type' => 'text',
+                            'label' => 'Contact Number Label',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'landline',
+                            'type' => 'list_table',
+                            'label' => 'Landline',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'icon',
+                                    'label' => 'Icon',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                    'description' => 'Max file size: 2MB | Dimension: 24px x 24px',
+                                ],
+                                [
+                                    'id' => 'details',
+                                    'label' => 'Details',
+                                    'type' => 'htmleditor',
+                                    'rules' => 'required',
+                                    'description' => 'To link: `tel:` for number, `mailto:` for email',
+                                    'summary_field' => true,
+                                ]
+                            ]
+                        ],
+                        [
+                            'id' => 'mobile',
+                            'type' => 'list_table',
+                            'label' => 'Mobile',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'icon',
+                                    'label' => 'Icon',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                    'description' => 'Max file size: 2MB | Dimension: 24px x 24px',
+                                ],
+                                [
+                                    'id' => 'details',
+                                    'label' => 'Details',
+                                    'type' => 'htmleditor',
+                                    'rules' => 'required',
+                                    'description' => 'To link: `tel:` for number, `mailto:` for email',
+                                    'summary_field' => true,
+                                ]
+                            ]
+                        ],
+                        [
+                            'id' => 'socials_label',
+                            'type' => 'text',
+                            'label' => 'Social Media Label',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'social_accounts',
+                            'type' => 'list_table',
+                            'label' => 'Social Media Accounts',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'icon',
+                                    'label' => 'Icon',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                    'description' => 'Max file size: 2MB | Dimension: 24px x 24px',
+                                ],
+                                [
+                                    'id' => 'details',
+                                    'label' => 'Details',
+                                    'type' => 'htmleditor',
+                                    'rules' => 'required',
+                                    'description' => '',
+                                    'summary_field' => true,
+                                ]
+                            ]
+                        ],
+                    ],
+                ],
+                [
+                    'id' => 'section2',
+                    'label' => 'Section 2: FAQs',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'subtitle',
+                            'type' => 'text',
+                            'label' => 'Subtitle',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'title',
+                            'type' => 'htmleditor',
+                            'label' => 'Title',
+                            'description' => 'Format text to <i>italic</i> to highlight (color red)',
+                        ],
+                        [
+                            'id' => 'faqs',
+                            'type' => 'list_table',
+                            'label' => 'FAQs',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'question',
+                                    'label' => 'Question',
+                                    'type' => 'text',
+                                    'rules' => 'required',
+                                    'summary_field' => true,
+                                    'description' => '',
+                                ],
+                                [
+                                    'id' => 'answer',
+                                    'label' => 'Answer',
+                                    'type' => 'htmleditor',
+                                    'rules' => 'required',
+                                    'description' => '',
+                                    'summary_field' => false,
+                                ]
+                            ]
+                        ],
+                    ]
+                ]
+            ],
+        ],
+
+        // News
+        [
+            'slug' => 'news',
+            'label' => 'News Page',
+            'show_metadata' => 1,
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Section 1',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'subtitle',
+                            'type' => 'text',
+                            'label' => 'Subtitle',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'title',
+                            'type' => 'htmleditor',
+                            'label' => 'Title',
+                            'description' => 'Format text to <i>italic</i> to highlight (color red)',
+                        ],
+                    ]
+                ]
+            ],
+        ],
+
+        // About Us
+        [
+            'slug' => 'about-us',
+            'label' => 'About Us Page',
+            'show_metadata' => 1,
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Section 1',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'subtitle',
+                            'type' => 'text',
+                            'label' => 'Subtitle',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'title',
+                            'type' => 'htmleditor',
+                            'label' => 'Title',
+                            'description' => 'Format text to <i>italic</i> to highlight (color red)',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'htmleditor',
+                            'label' => 'Content',
+                            'description' => '',
                         ],
                     ],
                 ],
             ],
         ],
+
+        // Privacy Policy
         [
-            'slug' => 'about',
-            'label' => 'About Page',
+            'slug' => 'privacy-policy',
+            'label' => 'Privacy Policy Page',
+            'show_metadata' => 1,
             'sections' => [
                 [
                     'id' => 'section1',
-                    'label' => 'Section 1: Bio Data',
-                    'description' => 'Bio Data.',
+                    'label' => 'Privacy Policy',
+                    'description' => 'Relevant data and other details',
                     'items' => [
                         [
-                            'id' => 'age',
+                            'id' => 'title',
                             'type' => 'text',
-                            'label' => 'Age',
-                            'description' => '50 characters max',
-                            'rules' => 'required|integer'
+                            'label' => 'Title',
+                            'description' => '',
                         ],
                         [
-                            'id' => 'name',
-                            'type' => 'text',
-                            'label' => 'Name',
-                            'description' => '20 characters max',
-                            'rules' => 'required|max:20'
-                        ],
-                        [
-                            'id' => 'picture',
-                            'type' => 'image',
-                            'label' => 'Picture',
-                            'description' => 'PNG/JPG only 10 MB',
-                            'rules' => 'required_without:scroll_label_image|file|max:1000',
-                        ],
-                        [
-                            'id' => 'blurb',
-                            'type' => 'text',
-                            'label' => 'Blurb',
-                            'description' => 'Max 5 characters',
-                            'rules' => 'required:max:5',
-                        ],
-
-                    ]
-                ]
-            ]
+                            'id' => 'content',
+                            'type' => 'htmleditor',
+                            'label' => 'Content',
+                            'description' => '',
+                        ]
+                    ],
+                ],
+            ],
         ],
+
+        // Terms and Conditions
+        [
+            'slug' => 'terms-and-conditions',
+            'label' => 'Terms and Conditions Page',
+            'show_metadata' => 1,
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Terms and Conditions',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'htmleditor',
+                            'label' => 'Content',
+                            'description' => '',
+                        ]
+                    ],
+                ],
+            ],
+        ],
+
         // Header
         [
             'slug' => 'header',
             'label' => 'General: Header',
+            'show_metadata' => 0,
             'sections' => [
                 [
-                    'id' => 'content',
+                    'id' => 'section1',
                     'label' => 'Header',
                     'description' => '',
                     'items' => [
@@ -154,7 +433,7 @@ return [
                             'id' => 'logo',
                             'type' => 'image',
                             'label' => 'Logo',
-                            'description' => 'Max file size: 2MB',
+                            'description' => 'Max file size: 2MB | Dimension: Max height: 32px',
                         ],
                     ],
                 ],
@@ -164,45 +443,175 @@ return [
         [
             'slug' => 'footer',
             'label' => 'General: Footer',
+            'show_metadata' => 0,
             'sections' => [
                 [
-                    'id' => 'content',
-                    'label' => 'Footer',
+                    'id' => 'section1',
+                    'label' => 'Column 1',
                     'description' => '',
                     'items' => [
                         [
                             'id' => 'logo',
                             'type' => 'image',
-                            'label' => 'Footer Logo',
-                            'description' => 'Max file size: 2MB',
+                            'label' => 'Logo',
+                            'description' => 'Max file size: 2MB | Dimension: Max height: 75px',
                         ],
                         [
-                            'id' => 'copyright',
+                            'id' => 'subcontent',
                             'type' => 'textarea',
-                            'label' => 'Copyright Text',
+                            'label' => 'Subcontent',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section2',
+                    'label' => 'Column 2',
+                    'description' => '',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
                             'description' => '',
                         ],
                         [
-                            'id' => 'social_accts',
+                            'id' => 'links',
+                            'type' => 'list_table',
+                            'label' => 'Links',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'url',
+                                    'label' => 'Link',
+                                    'type' => 'text',
+                                    'rules' => 'required',
+                                    'summary_field' => false,
+                                ],
+                                [
+                                    'id' => 'text',
+                                    'label' => 'Text',
+                                    'type' => 'text',
+                                    'rules' => 'required',
+                                    'summary_field' => true,
+                                ],
+                            ]
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section3',
+                    'label' => 'Column 3',
+                    'description' => '',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'links',
+                            'type' => 'list_table',
+                            'label' => 'Links',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'icon',
+                                    'label' => 'Icon',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'description' => '',
+                                    'summary_field' => false,
+                                ],
+                                [
+                                    'id' => 'url',
+                                    'label' => 'Link',
+                                    'type' => 'text',
+                                    'rules' => 'required',
+                                    'summary_field' => false,
+                                ],
+                                [
+                                    'id' => 'text',
+                                    'label' => 'Text',
+                                    'type' => 'text',
+                                    'rules' => 'required',
+                                    'summary_field' => true,
+                                ],
+                            ]
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section4',
+                    'label' => 'Column 4',
+                    'description' => '',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'links',
+                            'type' => 'list_table',
+                            'label' => 'Links',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'icon',
+                                    'label' => 'Icon',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'description' => '',
+                                    'summary_field' => false,
+                                ],
+                                [
+                                    'id' => 'details',
+                                    'label' => 'Details',
+                                    'type' => 'htmleditor',
+                                    'rules' => 'required',
+                                    'description' => 'To link: `tel:` for number, `mailto:` for email',
+                                    'summary_field' => true,
+                                ],
+                            ]
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section5',
+                    'label' => 'Footer',
+                    'description' => '',
+                    'items' => [
+                        [
+                            'id' => 'copyright',
+                            'type' => 'text',
+                            'label' => 'Copyright',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'social_accounts',
                             'type' => 'list_table',
                             'label' => 'Social Media Accounts',
                             'description' => '',
                             'items' => [
                                 [
-                                    'id' => 'link',
-                                    'label' => 'Link',
-                                    'type' => 'url',
-                                    'rules' => 'required',
-                                    'summary_field' => true,
-                                ],
-                                [
                                     'id' => 'icon',
                                     'label' => 'Icon',
                                     'type' => 'image',
-                                    'description' => 'Max file size: 2MB',
-                                    'rules' => 'required',
-                                    'summary_field' => true,
+                                    'rules' => '',
+                                    'description' => 'Max file size: 2MB | Dimension: 24px x 24px',
+                                    'summary_field' => false,
                                 ],
+                                [
+                                    'id' => 'link',
+                                    'label' => 'Link',
+                                    'type' => 'text',
+                                    'rules' => 'required',
+                                    'description' => '',
+                                    'summary_field' => true,
+                                ]
                             ]
                         ],
                     ]
@@ -212,9 +621,10 @@ return [
         [
             'slug' => 'api_keys',
             'label' => 'General: API Keys',
+            'show_metadata' => 0,
             'sections' => [
                 [
-                    'id' => 'googleanalytics',
+                    'id' => 'section1',
                     'label' => 'Google Analytics',
                     'description' => 'Add the key to enable google analytics',
                     'items' => [
@@ -228,7 +638,7 @@ return [
                     ],
                 ],
                 [
-                    'id' => 'tawkto',
+                    'id' => 'section2',
                     'label' => 'Tawk.to',
                     'description' => 'Add the tawk.to id to enable the chat',
                     'items' => [
@@ -242,14 +652,14 @@ return [
                     ],
                 ],
                 [
-                    'id' => 'facebook',
-                    'label' => 'Facebook Page Id for Chat',
-                    'description' => 'Add the facebook page id to enable facebook chat',
+                    'id' => 'section3',
+                    'label' => 'Facebook Page ID for Chat',
+                    'description' => 'Add the facebook page ID to enable facebook chat',
                     'items' => [
                         [
                             'id' => 'facebook_page_id',
                             'type' => 'text',
-                            'label' => 'Facebook Page Id',
+                            'label' => 'Facebook Page ID',
                             'description' => 'ex: 124807260896296',
                             'rules' => ''
                         ],

@@ -40,7 +40,11 @@ class SyncCms extends Command
     {
         $schema = config('cms.schema');
         foreach ($schema as $page) {
-            CmsPage::firstOrCreate(['slug' => $page['slug'], 'label' => $page['label']]);
+            CmsPage::firstOrCreate([
+                'slug' => $page['slug'], 
+                'label' => $page['label'],
+                'show_metadata' => $page['show_metadata'],
+            ]);
         }
     }
 }

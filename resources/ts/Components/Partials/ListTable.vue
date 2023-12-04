@@ -1,14 +1,31 @@
 <template>
-    <div>
+    <div class="">
         <!-- Table -->
-        <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-                <tr>
-                    <template v-for="item in items" :key="item.id">
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200 border border-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <template v-for="item in items" :key="item.id">
+                            <th
+                                v-if="item.summary_field"
+                                scope="col"
+                                class="
+                                    px-6
+                                    py-3
+                                    text-center text-xs
+                                    font-medium
+                                    text-gray-500
+                                    uppercase
+                                    tracking-wider
+                                "
+                            >
+                                {{ item.label }}
+                            </th>
+                        </template>
                         <th
-                            v-if="item.summary_field"
                             scope="col"
                             class="
+                                relative
                                 px-6
                                 py-3
                                 text-center text-xs
@@ -18,105 +35,90 @@
                                 tracking-wider
                             "
                         >
-                            {{ item.label }}
+                            Actions
                         </th>
-                    </template>
-                    <th
-                        scope="col"
-                        class="
-                            relative
-                            px-6
-                            py-3
-                            text-center text-xs
-                            font-medium
-                            text-gray-500
-                            uppercase
-                            tracking-wider
-                        "
-                    >
-                        Actions
-                    </th>
-                </tr>
-            </thead>
-            <draggable
-                :modelValue="[...Array(listData.length).keys()]"
-                @update:modelValue="reorder($event)"
-                tag="tbody"
-                item-key="name"
-                class="bg-white divide-y divide-gray-200"
-            >
-                <template #item="{ element, index }">
-                    <tr>
-                        <template v-for="item in items" :key="item.id">
-                            <td v-if="item.summary_field" class="px-6 py-4 whitespace-nowrap">
-                                <div
-                                    v-if="item.type === 'image'"
-                                    class="text-sm text-center text-gray-900"
-                                >
-                                    <img
-                                        class="m-auto object-contain"
-                                        :src="renderUrl(listData[`${id}_${item.id}`][index])"
-                                        alt="alt-image"
-                                        width="120"
-                                    />
-                                </div>
-                                <p v-else v-html="listData[`${id}_${item.id}`][index]"></p>
-                            </td>
-                        </template>
-                        <td
-                            class="
-                                px-6
-                                py-4
-                                whitespace-nowrap
-                                text-center text-sm
-                                font-medium
-                            "
-                        >
-                            <button
-                                @click.prevent="edit(index)"
-                                class="
-                                    mx-1
-                                    inline-flex
-                                    items-center
-                                    p-1
-                                    border border-transparent
-                                    rounded-full
-                                    text-gray-600
-                                    hover:text-blue-400
-                                    focus:outline-none
-                                    focus:ring-1
-                                    focus:ring-offset-1
-                                    focus:ring-blue-500
-                                "
-                            >
-                                <PencilSquareIcon class="h-5 w-5" aria-hidden="true" />
-                            </button>
-                            <!-- Delete Button -->
-                            <button
-                                @click.prevent="remove(index)"
-                                class="
-                                    mx-1
-                                    inline-flex
-                                    items-center
-                                    p-1
-                                    border border-transparent
-                                    rounded-full
-                                    text-gray-600
-                                    hover:text-red-400
-                                    focus:outline-none
-                                    focus:ring-1
-                                    focus:ring-offset-1
-                                    focus:ring-red-500
-                                "
-                            >
-                                <TrashIcon class="h-5 w-5" aria-hidden="true" />
-                            </button>
-                        </td>
                     </tr>
-                </template>
-            </draggable>
-        </table>
-        <div class="text-center mt-4">
+                </thead>
+                <draggable
+                    :modelValue="[...Array(listData.length).keys()]"
+                    @update:modelValue="reorder($event)"
+                    tag="tbody"
+                    item-key="name"
+                    class="bg-white divide-y divide-gray-200"
+                >
+                    <template #item="{ element, index }">
+                        <tr class="cursor-move">
+                            <template v-for="item in items" :key="item.id">
+                                <td v-if="item.summary_field" class="px-6 py-4 whitespace-pre-wrap">
+                                    <div
+                                        v-if="item.type === 'image'"
+                                        class="text-sm text-center text-gray-900"
+                                    >
+                                        <img
+                                            class="m-auto w-[100px] h-[100px] object-cover border border-gray-100 bg-gray-50"
+                                            :src="renderUrl(listData[`${id}_${item.id}`][index])"
+                                            alt="alt-image"
+                                        />
+                                    </div>
+                                    <p v-else v-html="listData[`${id}_${item.id}`][index]" class="line-clamp-2 text-sm"></p>
+                                </td>
+                            </template>
+                            <td
+                                class="
+                                    px-6
+                                    py-4
+                                    whitespace-nowrap
+                                    text-center text-sm
+                                    font-medium
+                                "
+                            >
+                                <button
+                                    @click.prevent="edit(index)"
+                                    class="
+                                        mx-1
+                                        inline-flex
+                                        items-center
+                                        p-1
+                                        border border-transparent
+                                        rounded-full
+                                        text-gray-600
+                                        hover:text-blue-400
+                                        focus:outline-none
+                                        focus:ring-1
+                                        focus:ring-offset-1
+                                        focus:ring-blue-500
+                                    "
+                                >
+                                    <PencilSquareIcon class="h-5 w-5" aria-hidden="true" />
+                                </button>
+                                <!-- Delete Button -->
+                                <button
+                                    @click.prevent="remove(index)"
+                                    class="
+                                        mx-1
+                                        inline-flex
+                                        items-center
+                                        p-1
+                                        border border-transparent
+                                        rounded-full
+                                        text-gray-600
+                                        hover:text-red-400
+                                        focus:outline-none
+                                        focus:ring-1
+                                        focus:ring-offset-1
+                                        focus:ring-red-500
+                                    "
+                                >
+                                    <TrashIcon class="h-5 w-5" aria-hidden="true" />
+                                </button>
+                            </td>
+                        </tr>
+                    </template>
+                </draggable>
+            </table>
+        </div>
+        <p v-if="listData.length == 0 && status === STATUSES.default" class="text-sm text-gray-400 text-center mt-4">No data to display.</p>
+        <div class="text-right mt-4">
             <action-button
                 v-if="status === STATUSES.default"
                 @click="status = STATUSES.creating"
@@ -130,8 +132,8 @@
         <!------------------
          | Editor
             ------------------>
-        <div :id="`${id}_editor`" v-if="status !== STATUSES.default">
-            <p class="text-lg mb-4">
+        <div class="pt-4 border-t" :id="`${id}_editor`" v-if="status !== STATUSES.default">
+            <p class="font-semibold mb-4">
                 {{ status === STATUSES.creating ? "Add" : "Edit" }} {{ list.label }}
             </p>
             <template v-for="item in items" :key="`${item.id}`">
@@ -169,6 +171,30 @@
                 </div>
 
                 <!-------------------
+                | Checkbox
+                -------------------->
+                <div
+                v-if="item.type === 'checkbox'"
+                class="col-span-5 mb-4"
+                >
+                    <div class="flex items-center space-x-3">
+                        <input
+                        class="rounded border-primary-600 text-primary-600 shadow-sm focus:ring-1 focus:ring-primary-500 focus:outline-none"
+                        type="checkbox"
+                        v-model="createForm[`${id}_${item.id}`]"
+                        :label="item.label"
+                        :id="`${item.id}`"
+                        />
+                        <label :for="item.id">
+                            {{ item.label }}
+                        </label>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-1">
+                        {{ item.description }}
+                    </p>
+                </div>
+
+                <!-------------------
                 | HTML Editor
                 -------------------->
                 <div
@@ -198,6 +224,7 @@
                         :id="`${item.id}`"
                         :description="item.description"
                         :overwrite-path="true"
+                        :allow-delete="false"
                     ></dropzone>
                 </div>
             </template>
