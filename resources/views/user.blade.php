@@ -34,72 +34,21 @@
     <body class="font-sans antialiased overflow-x-hidden">
         @inertia
 
-        <!-- Facebook/Messenger Chat Code Snippet --> 
-
-        @if(config('app.facebook_chat'))
-
-        <div id="fb-root"></div>
-
-
-        <div id="fb-customer-chat" class="fb-customerchat">
-
-        </div>
-
-        <script>
-
-        var chatbox = document.getElementById('fb-customer-chat');
-
-        chatbox.setAttribute("page_id", "{{ $api_keys->content['facebook_facebook_page_id'] }}");
-
-        chatbox.setAttribute("attribution", "biz_inbox");
-
-        </script>
-
-        <script>
-
-        window.fbAsyncInit = function() {
-            FB.init({
-            xfbml: true,
-            version : 'v13.0'
-            });
-
-        };
-
-
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-
-            if (d.getElementById(id)) return;
-
-            js = d.createElement(s); js.id = id;
-
-            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-
-            fjs.parentNode.insertBefore(js, fjs);
-
-        }(document, 'script', 'facebook-jssdk'));
-
-        </script>
-        @endif
-        <!-- End of Facebook Chat Code Snippet --> 
-
         <!-- Google Analytics Code Snippet --> 
         @if(config('app.google_analytics'))
         <!-- Google Tag Manager -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id={{ $api_keys->content['googleanalytics_googleanalytics'] }}"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ $api_keys->content['section1_googleanalytics'] }}"></script>
         <script>
 
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
-            gtag('config', '{{ $api_keys->content['googleanalytics_googleanalytics'] }}');
+            gtag('config', '{{ $api_keys->content['section1_googleanalytics'] }}');
             
         </script>
         <!-- End Google Tag Manager -->
         @endif
         <!-- End of Google Analytics Code Snippet --> 
-
 
         <!-- Tawk.to Code Snippet --> 
         @if(config('app.tawkto'))
@@ -109,7 +58,7 @@
             (function(){
             var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
             s1.async=true;
-            s1.src='https://embed.tawk.to/{{ $api_keys->content['tawkto_tawkto_link'] }}/default';
+            s1.src='https://embed.tawk.to/{{ $api_keys->content['section2_tawkto_link'] }}/default';
             s1.charset='UTF-8';
             s1.setAttribute('crossorigin','*');
             s0.parentNode.insertBefore(s1,s0);
@@ -119,10 +68,35 @@
         @endif
         <!-- End of Tawk.to Code Snippet --> 
 
-        @env ('local')
-            <!-- <script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script> -->
-        @endenv
+        <!-- Facebook/Messenger Chat Code Snippet --> 
+        @if(config('app.facebook_chat'))
 
-        <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+        <div id="fb-root"></div>
+        <div id="fb-customer-chat" class="fb-customerchat"></div>
+
+        <script>
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "{{ $api_keys->content['section3_facebook_page_id'] }}");
+            chatbox.setAttribute("attribution", "biz_inbox");
+        </script>
+
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    xfbml: true,
+                    version : 'v13.0'
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        @endif
+        <!-- End of Facebook Chat Code Snippet --> 
     </body>
 </html>

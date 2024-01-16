@@ -52,10 +52,57 @@
             @click="open = true">
                 Filter
             </action-button>
-            <action-button fill="outline">
-                <ArrowsUpDownIcon class="w-5 h-5 mr-2" />
-                Sort
-            </action-button>
+            <Popover class="relative py-1">
+                <PopoverButton>
+                    <action-button 
+                    fill="outline"
+                    :leading-icon="ArrowsUpDownIcon">
+                        Sort
+                    </action-button>
+                </PopoverButton>
+
+                <transition
+                    enter-active-class="transition duration-200 ease-out"
+                    enter-from-class="translate-y-1 opacity-0"
+                    enter-to-class="translate-y-0 opacity-100"
+                    leave-active-class="transition duration-150 ease-in"
+                    leave-from-class="translate-y-0 opacity-100"
+                    leave-to-class="translate-y-1 opacity-0"
+                >
+                    <PopoverPanel
+                    class="absolute right-0 z-10 mt-3 w-fit"
+                    >
+                    <div class="overflow-hidden rounded-lg shadow-md ring-1 ring-black/5 sort">
+                        <div class="w-auto bg-white">
+                            <jet-radio-input
+                            id="newest-to-oldest"
+                            name="sort" 
+                            class="px-6 py-3 text-sm hover:bg-gray-50 transition cursor-pointer whitespace-nowrap">
+                                Newest to Oldest
+                            </jet-radio-input>
+                            <jet-radio-input
+                            id="older-to-newest"
+                            name="sort" 
+                            class="px-6 py-3 text-sm hover:bg-gray-50 transition cursor-pointer whitespace-nowrap">
+                                Oldest to Newest
+                            </jet-radio-input>
+                            <jet-radio-input
+                            id="a-to-z"
+                            name="sort" 
+                            class="px-6 py-3 text-sm hover:bg-gray-50 transition cursor-pointer whitespace-nowrap">
+                                A to Z
+                            </jet-radio-input>
+                            <jet-radio-input
+                            id="z-to-a"
+                            name="sort" 
+                            class="px-6 py-3 text-sm hover:bg-gray-50 transition cursor-pointer whitespace-nowrap">
+                                Z to A
+                            </jet-radio-input>
+                        </div>
+                    </div>
+                    </PopoverPanel>
+                </transition>
+            </Popover>
         </div>
 
         <side-panel 
@@ -93,6 +140,11 @@ import {
     MagnifyingGlassIcon,
 } from "@heroicons/vue/24/outline";
 
+import { 
+    Popover, 
+    PopoverButton, 
+    PopoverPanel 
+} from '@headlessui/vue';
 
 const props = defineProps({
     textFilters: {

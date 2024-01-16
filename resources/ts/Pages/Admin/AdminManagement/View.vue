@@ -14,8 +14,8 @@
                     <p class="text-gray-900">{{ admin.email }}</p>
                 </div>
                 <div class="w-1/2 inline-block">
-                    <p class="text-gray-500">Contact Number</p>
-                    <p class="text-gray-900">0900 000 0000</p>
+                    <p class="text-gray-500">Job Title</p>
+                    <p class="text-gray-900">{{ admin.title }}</p>
                 </div>
                 <div class="mt-6">
                     <p class="text-gray-500">Role</p>
@@ -34,33 +34,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
-import { router } from "@inertiajs/vue3";
-import throttle from "lodash/throttle";
-import pickBy from "lodash/pickBy";
 
 const props = defineProps({
-    items: {
-        type : Object,
-        default: () => {},
-        require: true,
-    },
-    informationCount: {
-        type : Number,
-        default: 0
-    },
-    activityLogsCount: {
-        type : Number,
-        default: 0
-    },
-    selectedTab: {
-        type : String,
-        default: null
-    },
     admin: {
-        type: Object
-    },
-    roles: {
         type: Object
     }
 });
@@ -68,12 +44,6 @@ const props = defineProps({
 /**---------------*
  * VARS
  *----------------*/
-const items = computed(() => props.items);
-
-const showArchiveModal = ref<boolean>(false);
-const showRestoreModal = ref<boolean>(false);
-const selectedItem = ref<any>(null);
-
 const pages = [
     {
         href: route("admin.admin-management.index"),
@@ -84,24 +54,5 @@ const pages = [
         name: "View",
     },
 ];
-
-/**---------------*
- * METHODS
- *----------------*/
-const applyFilters = (): void => {
-    router.get(
-        route(route().current()),
-        pickBy({
-            tab: props.selectedTab
-        }),
-        {
-            preserveState: true
-        }
-    )
-}
-
-/**---------------*
- * WATCHERS
- *----------------*/
 
 </script>

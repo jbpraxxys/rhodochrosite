@@ -631,7 +631,7 @@ return [
                         [
                             'id' => 'googleanalytics',
                             'type' => 'text',
-                            'label' => 'Google Analytics KEY',
+                            'label' => 'Google Analytics Key',
                             'description' => 'ex: G-H33RXMHQNV',
                             'rules' => ''
                         ],

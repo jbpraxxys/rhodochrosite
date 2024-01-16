@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\CkeditorController;
-use App\Http\Controllers\User\Cms\CmsController;
-
+use App\Http\Controllers\User\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,38 +19,21 @@ use App\Http\Controllers\User\Cms\CmsController;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+Route::get('/admin', function () {
+    return redirect('/admin/login');
 });
 
 Route::post('ckeditor/upload', [CkeditorController::class, 'upload']);
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->name('dashboard');
 
 Route::get('/stylesheet', function () {
     return Inertia::render('Stylesheet/Partials/SSContent');
 });
 
-/*
-|--------------------------------------------------------------------------
-| CMS
-|--------------------------------------------------------------------------
- */
-// Route::prefix('cms')
-//     ->name('cms.')
-//     ->controller(CmsController::class)
-//     ->group(function () {
-//         Route::post('/layout', 'layout')->name('layout');
-//     });
-
-Route::get('/', function () {
-	return Inertia::render('User/Pages/Home/Index', [
-    ]);
-});
+Route::prefix('/')
+    ->name('pages.')
+    ->controller(PageController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/privacy-policy', 'privacyPolicy')->name('privacy-policy');
+        Route::get('/terms-and-conditions', 'termsAndConditions')->name('terms-and-conditions');
+    });
