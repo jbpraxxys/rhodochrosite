@@ -29,10 +29,6 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
-    // Route::get('/dashboard', function () {
-    //     return Inertia::render('Dashboard');
-    // })->name('dashboard');
-
     // Route::prefix('dashboard')
     //     ->name('dashboard.')
     //     ->controller(DashboardController::class)
@@ -72,13 +68,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::post('restore', 'restore')->name('restore');
         });
 
-    Route::prefix('reports-management')
-        ->name('reports-management.')
-        ->controller(ReportsController::class)
-        ->group(function () {
-            Route::get('index', 'index')->name('index');
-        });
-
     Route::prefix('settings-management')
         ->name('settings-management.')
         ->controller(SettingsController::class)
@@ -103,18 +92,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::get('show/{id}', 'show')->name('show');
             Route::patch('read-all', 'readAll')->name('read-all');
         });
-
-    // Route::prefix('cms')->name('cms.')->group(function () {
-    //     Route::get('index', [CmsPageController::class, 'index'])->name('index');
-    //     Route::get('edit/{cmsPage}', [CmsPageController::class, 'edit'])->name('edit');
-    //     Route::post('edit/{cmsPage}', [CmsPageController::class, 'update']);
-    //     // Route::get('create', [AdminController::class, 'create'])->name('create');
-    //     // Route::post('store', [AdminController::class, 'store'])->name('store');
-    //     // Route::delete('delete/{admin}', [AdminController::class, 'delete'])->name('delete');
-    //     // Route::post('restore}', [AdminController::class, 'restore'])->name('restore');
-    //     // Route::get('search/{q}', [AdminController::class, 'search'])->name('search');
-    // });
-    
 
     Route::prefix('cms')
         ->name('cms.')

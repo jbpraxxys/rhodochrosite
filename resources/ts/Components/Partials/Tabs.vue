@@ -9,7 +9,7 @@
                     @click.prevent="selectTab(tab.value)"
                     :class="[
                         isSelectedTab(tab.value)
-                            ? 'text-primary-600'
+                            ? 'text-primary-500'
                             : 'text-gray-400 hover:text-gray-600 hover:border-gray-200',
                         'whitespace-nowrap flex py-4 px-1 text-sm cursor-pointer relative',
                     ]"
@@ -20,7 +20,7 @@
                         v-if="tab.count"
                         :class="[
                             isSelectedTab(tab.value)
-                                ? 'bg-primary-50 text-primary-600'
+                                ? 'bg-primary-500/[0.2] text-primary-500'
                                 : 'bg-gray-100 text-gray-400',
                             'hidden ml-3 py-0.5 px-2.5 rounded-xl text-xs md:inline-block',
                         ]"
@@ -28,7 +28,7 @@
                     >
                     <span
                         class="
-                            bg-primary-600
+                            bg-primary-500
                             w-full
                             inline-block
                             h-1
@@ -37,8 +37,8 @@
                             left-0
                         "
                         v-if="isSelectedTab(tab.value)"
-                      />
-            </a>
+                    />
+                </a>
             </nav>
             <div class="px-7 py-2 flex items-center">
                 <template v-if="buttonItems">
