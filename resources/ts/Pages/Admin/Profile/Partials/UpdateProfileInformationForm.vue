@@ -1,5 +1,7 @@
 <template>
-    <JetFormSection @submitted="updateProfileInformation">
+    <jet-form-section 
+    class="w-full"
+    @submitted="updateProfileInformation">
         <template #title> Profile Information </template>
 
         <template #description> Update your account's profile information and email address. </template>
@@ -116,11 +118,18 @@
                 Save Changes
             </action-button>
 
-            <JetActionMessage :on="form.recentlySuccessful" class="ml-3">
+            <action-button 
+                fill="outline"
+                @click="$emit('cancel')"
+            >
+                Cancel
+            </action-button>
+
+            <JetActionMessage :on="form.recentlySuccessful">
                 Saved!
             </JetActionMessage>
         </template>
-    </JetFormSection>
+    </jet-form-section>
 </template>
 
 <script>

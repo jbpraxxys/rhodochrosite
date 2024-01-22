@@ -19,7 +19,7 @@
                 <header-menu />
             </div>
             <main class="relative overflow-y-auto focus:outline-none">
-                <div class="flex items-center justify-between py-8 px-7 border-b border-gray-100">
+                <div class="flex items-center justify-between py-8 px-7 border-b border-gray-100" v-if="title">
                     <div class="space-y-3">
                         <breadcrumbs 
                         v-if="pages"

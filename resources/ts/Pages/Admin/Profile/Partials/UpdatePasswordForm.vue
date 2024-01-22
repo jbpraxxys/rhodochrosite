@@ -1,5 +1,7 @@
 <template>
-    <JetFormSection @submitted="showModal = true">
+    <jet-form-section 
+    class="w-full"
+    @submitted="showModal = true">
         <template #title> Security Information </template>
 
         <template #description> Relevant data and other information. </template>
@@ -29,11 +31,23 @@
         </template>
 
         <template #actions>
-            <action-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing"> Save Changes </action-button>
+            <action-button 
+                :class="{ 'opacity-25': form.processing }" 
+                :disabled="form.processing"
+            >
+                Save Changes
+            </action-button>
+
+            <action-button 
+                fill="outline"
+                @click="$emit('cancel')"
+            >
+                Cancel
+            </action-button>
 
             <JetActionMessage :on="form.recentlySuccessful" class="ml-3"> Saved! </JetActionMessage>
         </template>
-    </JetFormSection>
+    </jet-form-section>
 
     <ConfirmationModal
         :show="showModal"
