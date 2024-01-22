@@ -40,6 +40,7 @@ import Multiselect from '@/Components/Inputs/Multiselect.vue';
 import RestoreModal from "@/Components/Modals/RestoreModal.vue";
 import DeleteModal from "@/Components/Modals/DeleteModal.vue";
 import ImportModal from "@/Components/Modals/ImportModal.vue";
+import GeneralModal from "@/Components/Modals/GeneralModal.vue";
 import SidePanel from "@/Components/Modals/SidePanel.vue";
 import PageLoader from "@/Components/Loaders/PageLoader.vue";
 
@@ -91,6 +92,7 @@ createInertiaApp({
                     RestoreModal,
                     DeleteModal,
                     ImportModal,
+                    GeneralModal,
                     SidePanel,
                     PageLoader,
                     Head,

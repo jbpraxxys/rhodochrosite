@@ -17,7 +17,9 @@ class AdminProfileController extends Controller
     public function show(Request $request)
     {
         return Jetstream::inertia()->render($request, 'Admin/Profile/Show', [
+            'selectedTab' => $request->query('tab'),
             'sessions' => $this->sessions($request)->all(),
+            'user' => $request->user(),
         ]);
     }
 }
