@@ -1,6 +1,6 @@
 <template>
     <div 
-    class="fixed z-50 h-screen max-h-screen bg-white border-r border-gray-100 overflow-auto transition-all duration-500 scroll-mr-1 snap-start"
+    class="fixed z-50 h-screen max-h-screen bg-white border-r border-gray-100 overflow-auto transition-all scroll-mr-1 snap-start"
     :class="[
         expanded ? 'w-60' : '',
         expanded ? '' : mouseenter ? 'w-60' : 'w-[100px]'
@@ -331,22 +331,22 @@ const navigation: generalNavType[] = [
         children: [
             {
                 name: "Customers",
-                href: route("admin.admin-management.index"),
-                parentUrl: "admin.admin-management.*",
+                href: route("admin.accounts.admins.index"),
+                parentUrl: "admin.accounts.admins.*",
                 icon: UserIcon,
                 allowed: true,
             },
             {
                 name: "Admins",
-                href: route("admin.admin-management.index"),
-                parentUrl: "admin.admin-management.*",
+                href: route("admin.accounts.admins.index"),
+                parentUrl: "admin.accounts.admins.*",
                 icon: UserGroupIcon,
                 allowed: true,
             },
             {
                 name: "Roles",
-                href: route("admin.role-permission-management.index"),
-                parentUrl: "admin.role-permission-management.*",
+                href: route("admin.accounts.roles.index"),
+                parentUrl: "admin.accounts.roles.*",
                 icon: FolderIcon,
                 allowed: true,
             }

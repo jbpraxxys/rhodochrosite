@@ -154,6 +154,9 @@ module.exports = {
             },
             borderColor: {
                 DEFAULT: '#F3F4F6'
+            },
+            transitionDuration: {
+                DEFAULT: '500ms'
             }
         },
     },

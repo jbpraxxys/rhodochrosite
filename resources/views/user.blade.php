@@ -21,7 +21,7 @@
         <meta name="twitter:image" content="{{ $og_image_path ?? '' }}">
         <meta property="og:image" content="{{ $og_image_path ?? '' }}">
         <meta property="og:title" content="{!! $title ?? '' !!}">
-        <meta property="description" content="{!! $description ?? '' !!}">
+        <meta name="description" content="{!! $description ?? '' !!}">
         <meta property="og:description" content="{!! $description ?? '' !!}">
         <meta name="twitter:description" content="{!! $description ?? '' !!}">
         <meta name="keywords" content="{!! $keywords ?? '' !!}">

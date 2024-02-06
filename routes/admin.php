@@ -33,52 +33,84 @@ Route::get('/stylesheet', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
-    Route::prefix('dashboard')
-        ->name('dashboard.')
-        ->controller(DashboardController::class)
+    // Route::prefix('dashboard')
+    //     ->name('dashboard.')
+    //     ->controller(DashboardController::class)
+    //     ->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+
+    /*
+    |--------------------------------------------------------------------------
+    | ACCOUNTS
+    |--------------------------------------------------------------------------
+     */
+    Route::prefix('accounts')
+        ->name('accounts.')
         ->group(function () {
-            Route::get('index', 'index')->name('index');
+
+            /** CUSTOMER */
+            // Route::prefix('customers')
+            //     ->name('customers.')
+            //     ->controller(CustomerController::class)
+            //     ->group(function () {
+            //         Route::middleware(['can:create-customer', 'can:update-customer'])->group(function () {
+            //             Route::get('/', 'index')->name('index');
+            //             Route::get('create', 'create')->name('create');
+            //             Route::get('edit/{id}', 'edit')->name('edit');
+            //             Route::post('store', 'store')->name('store');
+            //             Route::post('update/{id}', 'update')->name('update');
+            //             Route::get('manifest', 'manifest')->name('manifest');
+            //             Route::get('export', 'export')->name('export');
+            //             Route::post('import', 'import')->name('import');
+            //         });
+            //         Route::middleware(['can:archive-customer', 'can:restore-customer'])->group(function () {
+            //             Route::get('index?tab=archived', 'index')->name('index-archived');
+            //             Route::delete('archive/{id}', 'archive')->name('archive');
+            //             Route::patch('restore/{id}', 'restore')->name('restore');
+            //         });
+            //     });
+
+            /** ADMIN */
+            Route::prefix('admins')
+                ->name('admins.')
+                ->controller(AdminController::class)
+                ->group(function () {
+                    Route::get('index', 'index')->name('index');
+                    Route::get('view/{admin}', 'view')->name('view');
+                    Route::get('create', 'create')->name('create');
+                    Route::get('edit/{admin}', 'edit')->name('edit');
+                    Route::post('store', 'store')->name('store');
+                    Route::post('edit/{admin}', 'update');
+                    Route::delete('delete/{admin}', 'delete')->name('delete');
+                    Route::post('restore}', 'restore')->name('restore');
+                    Route::get('search/{q}', 'search')->name('search');
+                    Route::get('export', 'export')->name('export');
+                    Route::get('manifest', 'manifest')->name('manifest');
+                    Route::post('import', 'import')->name('import');
+                });
+
+            /** ROLES */
+            Route::prefix('roles')
+                ->name('roles.')
+                ->controller(RolePermissionController::class)
+                ->group(function () {
+                    Route::get('index', 'index')->name('index');
+                    Route::get('view/{role}', 'view')->name('view');
+                });
         });
 
-    Route::prefix('admin-management')
-        ->name('admin-management.')
-        ->controller(AdminController::class)
-        ->group(function () {
-            Route::get('index', 'index')->name('index');
-            Route::get('view/{admin}', 'view')->name('view');
-            Route::get('create', 'create')->name('create');
-            Route::get('edit/{admin}', 'edit')->name('edit');
-            Route::post('store', 'store')->name('store');
-            Route::post('edit/{admin}', 'update');
-            Route::delete('delete/{admin}', 'delete')->name('delete');
-            Route::post('restore}', 'restore')->name('restore');
-            Route::get('search/{q}', 'search')->name('search');
-            Route::get('export', 'export')->name('export');
-            Route::get('manifest', 'manifest')->name('manifest');
-            Route::post('import', 'import')->name('import');
-        });
-
-    Route::prefix('role-permission-management')
-        ->name('role-permission-management.')
-        ->controller(RolePermissionController::class)
-        ->group(function () {
-            Route::get('index', 'index')->name('index');
-            Route::get('view/{role}', 'view')->name('view');
-            Route::get('edit/{role}', 'edit')->name('edit');
-            Route::post('edit/{role}', 'update')->name('update');
-            Route::get('create', 'create')->name('create');
-            Route::post('store', 'store')->name('store');
-            Route::delete('delete/{role}', 'delete')->name('delete');
-            Route::post('restore', 'restore')->name('restore');
-        });
-
+    /*
+    |--------------------------------------------------------------------------
+    | OTHERS
+    |--------------------------------------------------------------------------
+    */
     Route::prefix('settings')
         ->name('settings.')
         ->controller(SettingsController::class)
         ->group(function () {
             Route::get('index', 'index')->name('index');
         });
-        
 
     Route::prefix('activity-logs')
         ->name('activity-logs.')
@@ -106,8 +138,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::post('edit/{cmsPage}', 'update');
         });
 
-
-        Route::post('ckeditor/upload', [CkeditorController::class, 'upload']);
-
+    Route::post('ckeditor/upload', [CkeditorController::class, 'upload']);
         
 });
