@@ -6,7 +6,7 @@
             :button-items="true"
             :active-tab="activeTab"
             @update:tab="(value: string) => (activeTab = value)"
-            :tab-route="route('admin.admin-management.index')"
+            :tab-route="route('admin.accounts.admins.index')"
         />
         <div class="px-12 py-6">
             <div v-if="activeTab !== 'activity_logs'" class="border rounded-lg overflow-hidden">
@@ -119,7 +119,7 @@ const headers: { text: string }[] = [
 
 const pages = [
     {
-        href: route("admin.role-permission-management.index"),
+        href: route("admin.accounts.roles.index"),
         name: "Roles",
     },
     {
@@ -184,7 +184,7 @@ watch(
     searchText,
     throttle((val: string) => {
         router.get(
-            route("admin.role-permission-management.index"),
+            route("admin.accounts.roles.index"),
             pickBy({
                 query: val,
                 tab: props.selectedTab

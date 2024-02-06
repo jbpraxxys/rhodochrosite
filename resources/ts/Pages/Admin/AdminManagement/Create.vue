@@ -45,7 +45,7 @@ const formData = {
 
 const pages = [
     {
-        href: route("admin.admin-management.index"),
+        href: route("admin.accounts.admins.index"),
         name: "Admins",
     },
     {
@@ -57,7 +57,7 @@ const pages = [
 /*--------------*
 * Functions
 *--------------*/
-const submitUrl = route("admin.admin-management.store");
+const submitUrl = route("admin.accounts.admins.store");
 const { form, submit } = usePRXForm(
     formData,
     submitUrl

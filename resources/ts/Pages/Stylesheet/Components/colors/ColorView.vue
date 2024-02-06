@@ -130,12 +130,16 @@
 import colors from 'tailwindcss/colors'
 
 const primaryColors = [
+    { hex: '#f6e8fc', color: 'bg-primary-50' },
+    { hex: '#f6e8fc', color: 'bg-primary-100' },
     { hex: '#f6e8fc', color: 'bg-primary-200' },
     { hex: '#f2ddfb', color: 'bg-primary-300' },
     { hex: '#e4b8f6', color: 'bg-primary-400' },
     { hex: '#a81ae2', color: 'bg-primary-500' },
     { hex: '#7e14aa', color: 'bg-primary-600' },
     { hex: '#3b094f', color: 'bg-primary-700' },
+    { hex: '#3b094f', color: 'bg-primary-800' },
+    { hex: '#3b094f', color: 'bg-primary-900' },
 ];
 
 const secondaryColors = [

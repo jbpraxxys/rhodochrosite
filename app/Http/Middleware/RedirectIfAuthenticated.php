@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
 
         $route = RouteServiceProvider::HOME;
         if ($request->is('admin/*')) {
-            $route = RouteServiceProvider::ADMIN_HOME;;
+            $route = RouteServiceProvider::ADMIN_HOME;
         }
 
         foreach ($guards as $guard) {

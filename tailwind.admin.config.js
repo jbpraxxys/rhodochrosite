@@ -20,29 +20,16 @@ module.exports = {
             },
             colors: {
                 'primary': {
-                    50:'#EFF6FF',
-                    100:'#DBEAFE',
-                    200:'#BFDBFE',
-                    300:'#93C5FD',
-                    400:'#60A5FA',
-                    500:'#3B82F6',
-                    600:'#2563EB',
-                    700:'#1D4ED8',
-                    800:'#1E40AF',
-                    900:'#1E3A8A',
-                },
-                'general':{
-                    'red': '#DB4035',
-                    'orange': '#FF9933',
-                    'yellow': '#FAD000',
-                    'lime': '#7ECC49',
-                    'green': '#299438',
-                    'aqua': '#14AAF5',
-                    'blue': '#4073FF',
-                    'indigo': '#884DFF',
-                    'violet': '#AF38EB',
-                    'fuchsia': 'E05194',
-                    'black': '#1E1E1E',
+                    50:'#fff1f2',
+                    100:'#ffe4e6',
+                    200:'#fecdd3',
+                    300:'#fda4af',
+                    400:'#fb7185',
+                    500:'#f43f5e',
+                    600:'#e11d48',
+                    700:'#be123c',
+                    800:'#9f1239',
+                    900:'#881337',
                 },
                 'gray':{
                     50:'#F9FAFB',
@@ -164,6 +151,12 @@ module.exports = {
                     800:'#9F1239',
                     900:'#881337',
                 },
+            },
+            borderColor: {
+                DEFAULT: '#F3F4F6'
+            },
+            transitionDuration: {
+                DEFAULT: '500ms'
             }
         },
     },

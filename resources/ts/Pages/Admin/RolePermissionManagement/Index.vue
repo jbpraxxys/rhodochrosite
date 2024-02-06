@@ -44,7 +44,7 @@
                                     <template v-if="activeTab !== 'archived'">
                                         <edit-button
                                             class="mr-3"
-                                            :routeLink="route('admin.role-permission-management.view', role.id)"
+                                            :routeLink="route('admin.accounts.roles.view', role.id)"
                                         />
                                     </template>
                                 </td>
@@ -107,7 +107,7 @@ const headers: { text: string }[] = [
 
 const pages = [
     {
-        href: route("admin.role-permission-management.index"),
+        href: route("admin.accounts.roles.index"),
         name: "Roles",
     },
     {
@@ -147,7 +147,7 @@ const selectRestore = (item: object): void => {
 
 const processArchive = (): void => {
     router.delete(
-        route('admin.admin-management.delete', selectedItem.value.id),
+        route('admin.accounts.admins.delete', selectedItem.value.id),
         {
             preserveState: false
         }
@@ -156,7 +156,7 @@ const processArchive = (): void => {
 
 const processRestore =(): void => {
     router.post(
-        route("admin.role-permission-management.restore"),
+        route("admin.accounts.roles.restore"),
         { id: selectedItem.value.id },
         { preserveState: false }
     )
@@ -174,7 +174,7 @@ const importModal = () => {
 
 const importData = () => {
     router.post(
-        route("admin.admin-management.import"),
+        route("admin.accounts.admins.import"),
         {
             file: importFile.value,
         },
@@ -193,7 +193,7 @@ watch(
     searchText,
     throttle((val: string) => {
         router.get(
-            route("admin.role-permission-management.index"),
+            route("admin.accounts.roles.index"),
             pickBy({ 
                 query: val, 
                 tab: props.selectedTab 

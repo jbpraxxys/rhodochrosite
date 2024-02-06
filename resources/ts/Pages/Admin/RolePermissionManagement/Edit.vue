@@ -3,14 +3,14 @@
     :breadcrumb-pages="breadcrumbs"
     title="Update Role"
     :show-back="true"
-    :back-url="route('admin.role-permission-management.index')"
+    :back-url="route('admin.accounts.roles.index')"
       >
         <div class="mb-6">
             <Tabs
                 :tabs="tabs"
                 :active-tab="activeTab"
                 @update:activeTab="(newValue) => (activeTab = newValue)"
-                :tab-route="route('admin.role-permission-management.edit', role.id)"
+                :tab-route="route('admin.accounts.roles.edit', role.id)"
             >
             </Tabs>
         </div>
@@ -57,7 +57,7 @@
         <activity-logs
             :logs="logs"
             :result-route="
-                route('admin.role-permission-management.edit', role.id)
+                route('admin.accounts.roles.edit', role.id)
             "
             :query="searchText"
             :event="filterEvent"
@@ -124,7 +124,7 @@ const logs = computed(() => props.logs);
 /*--------------*
 * Functions
 *--------------*/
-const submitUrl = route("admin.role-permission-management.edit", role.value.id);
+const submitUrl = route("admin.accounts.roles.edit", role.value.id);
 const { form, submit } = usePRXForm(
     formData,
     submitUrl

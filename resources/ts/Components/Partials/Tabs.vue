@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <div class="border-b border-gray-200 flex justify-between">
-            <nav class="-mb-px flex space-x-2 px-7 py-2" aria-label="Tabs">
+            <nav class="-mb-px flex space-x-2 px-12 py-2" aria-label="Tabs">
                 <a
                     v-for="tab in tabs"
                     :key="tab.name"

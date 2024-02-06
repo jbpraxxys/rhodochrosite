@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="py-4 px-6 w-full bg-gray-50 border-t border-gray-100 flex justify-end">
-                <a :href="route('admin.admin-management.edit', admin.id)">
+                <a :href="route('admin.accounts.admins.edit', admin.id)">
                     <action-button>
                         Update Information
                     </action-button>
@@ -46,7 +46,7 @@ const props = defineProps({
  *----------------*/
 const pages = [
     {
-        href: route("admin.admin-management.index"),
+        href: route("admin.accounts.admins.index"),
         name: "Admins",
     },
     {

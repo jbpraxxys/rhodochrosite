@@ -8,10 +8,10 @@
                     <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
                         <TransitionChild 
                         as="template" 
-                        enter="transform transition ease-in-out duration-500 sm:duration-700" 
+                        enter="transform transition ease-in-out" 
                         enter-from="translate-x-full" 
                         enter-to="translate-x-0" 
-                        leave="transform transition ease-in-out duration-500 sm:duration-700" 
+                        leave="transform transition ease-in-out" 
                         leave-from="translate-x-0" 
                         leave-to="translate-x-full">
                             <DialogPanel class="pointer-events-auto w-screen max-w-md">

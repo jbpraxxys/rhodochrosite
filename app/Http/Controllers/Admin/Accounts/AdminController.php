@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Accounts;
 
 use App\Exports\AdminManifestExport;
 use App\Http\Controllers\Controller;
@@ -146,7 +146,7 @@ class AdminController extends Controller
         });
 
         return redirect()
-            ->route('admin.admin-management.index')
+            ->route('admin.accounts.admins.index')
             ->with('success', 'Saved!');
     }
 
@@ -169,7 +169,7 @@ class AdminController extends Controller
         $admin->update($vars);
 
         return redirect()
-            ->route('admin.admin-management.index')
+            ->route('admin.accounts.admins.index')
             ->with('success', 'Saved!');
     }
 
@@ -184,7 +184,7 @@ class AdminController extends Controller
         $admin->delete();
 
         return redirect()
-            ->route('admin.admin-management.index')
+            ->route('admin.accounts.admins.index')
             ->with('success', 'Deleted!');
     }
 
@@ -199,7 +199,7 @@ class AdminController extends Controller
         Admin::withTrashed()->find($request->id)->restore();
 
         return redirect()
-            ->route('admin.admin-management.index')
+            ->route('admin.accounts.admins.index')
             ->with('success', 'Restored!');
     }
 
@@ -230,7 +230,7 @@ class AdminController extends Controller
         Mail::to($request->user())->send(new AdminsExportEmail($admins));
 
         return redirect()
-            ->route('admin.admin-management.index')
+            ->route('admin.accounts.admins.index')
             ->with('success', 'Admin export successfully sent to your email!');
     }
 
@@ -246,14 +246,14 @@ class AdminController extends Controller
             $import->import($request->file('file'));
 
             if ($import->hasFailure()) {
-                return to_route('admin.admin-management.index')
+                return to_route('admin.accounts.admins.index')
                     ->with('danger', $import->failuresHtml());
             } else {
-                return to_route('admin.admin-management.index')
+                return to_route('admin.accounts.admins.index')
                     ->with('success', 'File successfully imported to admins!');
             }
         } else {
-            return to_route('admin.admin-management.index')
+            return to_route('admin.accounts.admins.index')
                 ->with('warning', 'No file to import.');
         }
     }

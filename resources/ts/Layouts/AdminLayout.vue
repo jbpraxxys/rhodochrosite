@@ -9,17 +9,20 @@
         />
 
         <div 
-        class="flex flex-col w-0 flex-1 overflow-hidden transition-all duration-500" 
-        :class="expanded ? 'ml-60' : 'ml-20'">
-            <div class="flex items-center justify-end px-4 py-2 border-b border-gray-100">
-                <!-- <div class="w-10 h-10 p-2.5 cursor-pointer"
+        class="flex flex-col w-0 flex-1 overflow-hidden transition-all" 
+        :class="expanded ? 'ml-60' : 'ml-[100px]'">
+            <div 
+            class="fixed top-0 right-0 z-50 bg-white flex items-center justify-between px-4 py-2 border-b border-gray-100 transition-all"
+            :class="expanded ? 'w-[calc(100%-240px)]' : 'w-[calc(100%-100px)]'">
+                <div 
+                class="w-10 h-10 p-2.5 cursor-pointer"
                 @click="expandedSidebar">
                     <Bars3BottomLeftIcon class="w-5 h-5"/>
-                </div> -->
+                </div>
                 <header-menu />
             </div>
-            <main class="relative overflow-y-auto focus:outline-none">
-                <div class="flex items-center justify-between py-8 px-7 border-b border-gray-100" v-if="title">
+            <main class="relative overflow-y-auto focus:outline-none h-dvh mt-14">
+                <div class="flex items-center justify-between py-8 px-12 border-b border-gray-100" v-if="title">
                     <div class="space-y-3">
                         <breadcrumbs 
                         v-if="pages"

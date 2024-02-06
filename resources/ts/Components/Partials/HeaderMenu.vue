@@ -1,8 +1,19 @@
 <template>
     <div class="flex items-center space-x-2">
         <a 
+        :href="route('admin.settings.index')"
+        class="relative w-10 h-10 p-2.5 rounded-full"
+        :class="$page.url == '/admin/settings/index' ? 'bg-gray-50' : 'bg-white'">
+            <component
+                :is="Cog6ToothIcon"
+                aria-hidden="true"
+                class="h-5 w-5 text-gray-600"
+            />
+        </a>
+        <a 
         :href="route('admin.notification.index')"
-        class="relative w-10 h-10 p-2.5 rounded-full bg-gray-100">
+        class="relative w-10 h-10 p-2.5 rounded-full"
+        :class="$page.url == '/admin/notification/index' ? 'bg-gray-50' : 'bg-white'">
             <component
                 :is="BellIcon"
                 aria-hidden="true"
@@ -50,7 +61,7 @@
                     <div class="divider border-t border-gray-100 my-1"></div>
                     <div class="flex items-center py-3 px-6 text-sm cursor-pointer" @click="logout">
                         <component
-                            :is="ArrowRightOnRectangleIcon"
+                            :is="ArrowRightEndOnRectangleIcon"
                             aria-hidden="true"
                             class="h-5 w-5 mr-3 text-primary-600"
                         />
@@ -66,7 +77,8 @@
 import {
     BellIcon,
     UserIcon,
-    ArrowRightOnRectangleIcon
+    Cog6ToothIcon,
+    ArrowRightEndOnRectangleIcon
 } from "@heroicons/vue/24/outline";
 import { 
     Popover, 

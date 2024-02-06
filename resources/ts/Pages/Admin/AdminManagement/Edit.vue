@@ -6,7 +6,7 @@
             <FormSection 
             :form="form"
             :roles="roles">
-                <a :href="route('admin.admin-management.view', admin.id)">
+                <a :href="route('admin.accounts.admins.view', admin.id)">
                     <action-button 
                     type="button"
                     fill="outline" 
@@ -57,7 +57,7 @@ const formData = {
 
 const pages = [
     {
-        href: route("admin.admin-management.index"),
+        href: route("admin.accounts.admins.index"),
         name: "Admins",
     },
     {
@@ -69,7 +69,7 @@ const pages = [
 /*--------------*
 * Functions
 *--------------*/
-const submitUrl = route("admin.admin-management.edit", props.admin.id);
+const submitUrl = route("admin.accounts.admins.edit", props.admin.id);
 const { form, submit } = usePRXForm(
     formData,
     submitUrl

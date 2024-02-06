@@ -3,7 +3,7 @@
         <template #actionButtons>
             <CreateButton
                 v-if="activeTab !== 'activity_logs'"
-                :routeLink="route('admin.admin-management.create')"
+                :routeLink="route('admin.accounts.admins.create')"
             />
         </template>
 
@@ -13,7 +13,7 @@
             :button-items="true"
             :active-tab="activeTab"
             @update:tab="(value: string) => (activeTab = value)"
-            :tab-route="route('admin.admin-management.index')"
+            :tab-route="route('admin.accounts.admins.index')"
         />
         <div class="px-12 py-6">
 
@@ -58,7 +58,7 @@
                                     <td class="text-center">
                                         <edit-button
                                         v-if="selectedTab !== 'archived'"
-                                        :routeLink="route('admin.admin-management.view', item.id)"
+                                        :routeLink="route('admin.accounts.admins.view', item.id)"
                                         />
     
                                         <delete-button 
@@ -103,7 +103,7 @@
             content="Are you sure you wish to import this file"
             action-text="Import"
             :show="showModal"
-            :manifest-route="route('admin.admin-management.manifest')"
+            :manifest-route="route('admin.accounts.admins.manifest')"
             @cancel="showModal = false"
             @confirm="importData"
         >
@@ -197,7 +197,7 @@ const headers: { text: string }[] = [
 const pages = [
 
     {
-        href: route("admin.admin-management.index"),
+        href: route("admin.accounts.admins.index"),
         name: "Admins",
     },
     {
@@ -238,7 +238,7 @@ const selectRestore = (item: object): void => {
 
 const processArchive = (): void => {
     router.delete(
-        route('admin.admin-management.delete', selectedItem.value.id),
+        route('admin.accounts.admins.delete', selectedItem.value.id),
         {
             preserveState: false
         }
@@ -247,7 +247,7 @@ const processArchive = (): void => {
 
 const processRestore =(): void => {
     router.post(
-        route("admin.admin-management.restore"),
+        route("admin.accounts.admins.restore"),
         { id: selectedItem.value.id },
         { preserveState: false }
     )
@@ -265,7 +265,7 @@ const importModal = () => {
 
 const importData = () => {
     router.post(
-        route("admin.admin-management.import"),
+        route("admin.accounts.admins.import"),
         {
             file: importFile.value,
         },
@@ -284,7 +284,7 @@ watch(
     searchText,
     throttle((val: string) => {
         router.get(
-            route("admin.admin-management.index"),
+            route("admin.accounts.admins.index"),
             pickBy({
                 query: val,
                 tab: props.selectedTab

@@ -3,7 +3,7 @@
 		:breadcrumb-pages="breadcrumbs"
 		title="Create Role"
 		:show-back="true"
-		:back-url="route('admin.role-permission-management.index')"
+		:back-url="route('admin.accounts.roles.index')"
 	>
 		<div class="mb-6">
 			<Tabs
@@ -11,7 +11,7 @@
 				:active-tab="activeTab"
 				:preserve-state="true"
 				@update:tab="(value) => (activeTab = value)"
-				:tab-route="route('admin.role-permission-management.create')"
+				:tab-route="route('admin.accounts.roles.create')"
 			/>
 		</div>
 
@@ -95,7 +95,7 @@ const tabs: { name: string, value?: string, count?: Number }[] = [
 /*--------------*
 * Functions
 *--------------*/
-const submitUrl = route("admin.role-permission-management.store");
+const submitUrl = route("admin.accounts.roles.store");
 const { form, submit } = usePRXForm(
     formData,
     submitUrl
