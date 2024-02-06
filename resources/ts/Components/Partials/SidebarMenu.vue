@@ -3,7 +3,7 @@
     class="fixed z-50 h-screen max-h-screen bg-white border-r border-gray-100 overflow-auto transition-all duration-500 scroll-mr-1 snap-start"
     :class="[
         expanded ? 'w-60' : '',
-        expanded ? '' : mouseenter ? 'w-60' : 'w-[84px]'
+        expanded ? '' : mouseenter ? 'w-60' : 'w-[100px]'
     ]">
         <div class="p-8">
             <div class="flex items-center space-x-3">
@@ -28,7 +28,9 @@
         </div>
 
         <div class="p-4 space-y-8">
-            <div v-for="item in navigation" :key="item.name">
+            <div 
+            class="space-y-1"
+            v-for="item in navigation" :key="item.name">
                 <transition
                 enter-active-class="transition duration-300 ease-out delay-300"
                 enter-from-class="transform opacity-0"
@@ -39,7 +41,7 @@
                 >
                     <p
                     v-if="expanded ? true : mouseenter"
-                    class="text-xs font-semibold uppercase text-gray-600 mb-2 whitespace-nowrap"
+                    class="ml-4 text-xs font-semibold uppercase text-gray-600 mb-2 whitespace-nowrap"
                     >
                         {{ item.name }}
                     </p>
@@ -80,10 +82,14 @@
                     <template v-else>
                         <Disclosure
                         as="div"
-                        :defaultOpen="true">
+                        :defaultOpen="true"
+                        class="space-y-1">
                             <DisclosureButton
                             :class="[
-                                'flex items-center py-3 px-4 w-full text-gray-400',
+                                'flex items-center py-3 px-4 w-full rounded-lg',
+                                isCurrentUrl(menu.href)
+                                ? 'bg-primary-50 text-primary-500'
+                                : 'text-gray-400',
                             ]">
                                 <component
                                     :is="menu.icon"
@@ -98,31 +104,41 @@
                                 leave-from-class="transform opacity-100"
                                 leave-to-class="transform opacity-0"
                                 >
-                                    <span class="text-sm ml-3" v-if="expanded ? true : mouseenter">
+                                    <span class="text-sm" v-if="expanded ? true : mouseenter">
                                         {{ menu.name }}
                                     </span>
                                 </transition>
                                 <ChevronDownIcon 
                                 class="w-5 h-5 ml-auto"/>
                             </DisclosureButton>
-                            <DisclosurePanel>
+                            <DisclosurePanel class="space-y-1">
                                 <div v-for="submenu in menu.children">
-                                    <a
-                                    :href="submenu.href"
-                                    class="flex w-full py-3 pl-12 pr-4 text-sm text-gray-400"
-                                    :class="[
-                                        isCurrentUrl(submenu.href)
-                                            ? 'text-white bg-gray-800'
-                                            : 'text-gray-400 hover:text-white',
-                                        'group flex items-center py-3 text-sm rounded-lg pl-12',
-                                    ]"
-
->
-                                        {{ submenu.name }}
-                                        <!-- <span class="ml-auto">
-                                            13
-                                        </span> -->
-                                    </a>
+                                    <transition
+                                        enter-active-class="transition duration-300 ease-out delay-300"
+                                        enter-from-class="transform opacity-0"
+                                        enter-to-class="transform opacity-100"
+                                        leave-active-class="transition duration-300 ease-out"
+                                        leave-from-class="transform opacity-100"
+                                        leave-to-class="transform opacity-0"
+                                    >
+                                        <a
+                                        v-if="expanded ? true : mouseenter"
+                                        :href="submenu.href"
+                                        class="flex w-full py-3 pl-12 pr-4 text-sm text-gray-400"
+                                        :class="[
+                                            isCurrentUrl(submenu.parentUrl)
+                                                ? 'bg-primary-50 text-primary-500'
+                                                : 'text-gray-400',
+                                            'group flex items-center py-3 text-sm rounded-lg pl-12',
+                                        ]">
+                                            {{ submenu.name }}
+                                            <span 
+                                            v-if="submenu.count != null"
+                                            class="ml-auto text-xs text-white bg-primary-500 rounded-3xl font-semibold px-2 py-0.5">
+                                                {{ submenu.count }}
+                                            </span>
+                                        </a>
+                                    </transition>
                                 </div>
                             </DisclosurePanel>
                         </Disclosure>
@@ -141,23 +157,20 @@ import {
 } from "@headlessui/vue";
 
 import {
-    RectangleGroupIcon,
-    BriefcaseIcon,
-    FolderIcon,
-    CheckCircleIcon,
-    ChatBubbleBottomCenterTextIcon,
-    DocumentDuplicateIcon,
-    DocumentTextIcon,
-    TruckIcon,
-    MapPinIcon,
-    MapIcon,
-    WrenchScrewdriverIcon,
-    UserGroupIcon,
-    BanknotesIcon,
-    NewspaperIcon,
-    ClockIcon,
-    ChartBarIcon,
     ChevronDownIcon,
+    RectangleGroupIcon,
+    ShoppingBagIcon,
+    Squares2X2Icon,
+    ReceiptPercentIcon,
+    MegaphoneIcon,
+    BuildingStorefrontIcon,
+    NewspaperIcon,
+    UserIcon,
+    UserGroupIcon,
+    FolderIcon,
+    Cog6ToothIcon,
+    ChartBarIcon,
+    DocumentTextIcon
 } from "@heroicons/vue/24/outline";
 
 defineProps({
@@ -171,197 +184,167 @@ defineProps({
     }
 })
 
-
 interface generalNavType {
     name: string,
     href: string,
     parentUrl: Array<string> | string,
-    icon: any,
+    icon?: any,
+    count?: number,
     allowed?: boolean,
     children?: generalNavType[]
 }
 
 const navigation: generalNavType[] = [
     {
-        name: "Content Management",
-        href: '#',
-        parentUrl: "#",
-        icon: '',
-        allowed: true,
-        children: [
-            {
-                name: 'Pages',
-                href: route('admin.cms.index'),
-                parentUrl: "admin.cms.*",
-                icon: DocumentTextIcon,
-                allowed: true,
-            },
-        ]
-    },
-    {
         name: "Menu",
         href: "#",
         parentUrl: "#",
-        icon: '',
         allowed: true,
         children: [
             {
-                name: 'Dashboard',
-                href: '#',
+                name: "Dashboard",
+                href: "#",
                 parentUrl: "#",
                 icon: RectangleGroupIcon,
                 allowed: true,
             },
             {
-                name: 'Trip Management',
-                href: '#',
-                parentUrl: "#",
-                icon: BriefcaseIcon,
+                name: "Activities",
+                href: "#",
+                parentUrl: [""],
+                icon: ShoppingBagIcon,
                 allowed: true,
-            },
-            {
-                name: 'Cash Liquidation',
-                href: '#',
-                parentUrl: "#",
-                icon: FolderIcon,
-                allowed: true,
-            },
-            {
-                name: 'Doc Liquidation',
-                href: '#',
-                parentUrl: "#",
-                icon: FolderIcon,
-                allowed: true,
-            },
-        ]
-    },
-    {
-        name: "Finance Management",
-        href: '#',
-        parentUrl: "#",
-        icon: '',
-        allowed: true,
-        children: [
-            {
-                name: 'Trip Demurrage',
-                href: '#',
-                parentUrl: "#",
-                icon: CheckCircleIcon,
-                allowed: true,
-            },
-            {
-                name: 'Notice to Bill',
-                href: '#',
-                parentUrl: "#",
-                icon: ChatBubbleBottomCenterTextIcon,
-                allowed: true,
-            },
-            {
-                name: 'Manual Billing',
-                href: '#',
-                parentUrl: "#",
-                icon: DocumentDuplicateIcon,
-                allowed: true,
-            },
-            {
-                name: 'Invoice',
-                href: '#',
-                parentUrl: "#",
-                icon: DocumentTextIcon,
-                allowed: true,
+                children: [
+                    {
+                        name: "Orders",
+                        href: "#",
+                        parentUrl: "#",
+                        count: 13,
+                        allowed: true,
+                    },
+                    {
+                        name: "Ratings",
+                        href: "#",
+                        parentUrl: "#",
+                        count: 10,
+                        allowed: true,
+                    },
+                ]
             },
         ]
     },
     {
-        name: "Content Management",
-        href: '#',
+        name: "E-Commerce",
+        href: "#",
         parentUrl: "#",
-        icon: '',
         allowed: true,
         children: [
             {
-                name: 'Vehicles',
-                href: '#',
-                parentUrl: "#",
-                icon: TruckIcon,
+                name: "Items",
+                href: "#",
+                parentUrl: [""],
+                icon: Squares2X2Icon,
                 allowed: true,
+                children: [
+                    {
+                        name: "Categories",
+                        href: "#",
+                        parentUrl: "#",
+                        count: null,
+                        allowed: true,
+                    },
+                    {
+                        name: "Products",
+                        href: "#",
+                        parentUrl: "#",
+                        count: null,
+                        allowed: true,
+                    },
+                    {
+                        name: "Inventory",
+                        href: "#",
+                        parentUrl: "#",
+                        count: null,
+                        allowed: true,
+                    },
+                ]
             },
             {
-                name: 'Distance Matrix',
-                href: '#',
-                parentUrl: "#",
-                icon: MapPinIcon,
+                name: "Discounts",
+                href: "#",
+                parentUrl: [""],
+                icon: ReceiptPercentIcon,
                 allowed: true,
-            },
-            {
-                name: 'Hub/Origin',
-                href: '#',
-                parentUrl: "#",
-                icon: MapIcon,
-                allowed: true,
-            },
-            {
-                name: 'Other Setup',
-                href: '#',
-                parentUrl: "#",
-                icon: WrenchScrewdriverIcon,
-                allowed: true,
+                children: [
+                    {
+                        name: "Promos",
+                        href: "#",
+                        parentUrl: "#",
+                        count: 8,
+                        allowed: true,
+                    },
+                    {
+                        name: "Vouchers",
+                        href: "#",
+                        parentUrl: "#",
+                        count: 4,
+                        allowed: true,
+                    }
+                ]
             },
         ]
     },
     {
-        name: "HR Management",
-        href: '#',
+        name: "Contents",
+        href: "#",
         parentUrl: "#",
-        icon: '',
         allowed: true,
         children: [
             {
-                name: 'Employees',
-                href: '#',
+                name: "Announcements",
+                href: "#",
                 parentUrl: "#",
-                icon: UserGroupIcon,
+                icon: MegaphoneIcon,
                 allowed: true,
             },
             {
-                name: 'Payroll',
-                href: '#',
+                name: "Branches",
+                href: "#",
                 parentUrl: "#",
-                icon: BanknotesIcon,
+                icon: BuildingStorefrontIcon,
                 allowed: true,
             },
             {
-                name: 'Incident Reports',
-                href: '#',
-                parentUrl: "#",
+                name: "Pages",
+                href: route("admin.cms.index"),
+                parentUrl: "admin.cms.index",
                 icon: NewspaperIcon,
                 allowed: true,
             },
-            {
-                name: 'Crew Attendance',
-                href: '#',
-                parentUrl: "#",
-                icon: ClockIcon,
-                allowed: true,
-            },
         ]
     },
     {
-        name: "Account Management",
-        href: '#',
+        name: "Accounts",
+        href: "#",
         parentUrl: "#",
-        icon: '',
         allowed: true,
         children: [
             {
-                name: 'Admins',
+                name: "Customers",
+                href: route("admin.admin-management.index"),
+                parentUrl: "admin.admin-management.*",
+                icon: UserIcon,
+                allowed: true,
+            },
+            {
+                name: "Admins",
                 href: route("admin.admin-management.index"),
                 parentUrl: "admin.admin-management.*",
                 icon: UserGroupIcon,
                 allowed: true,
             },
             {
-                name: 'Roles',
+                name: "Roles",
                 href: route("admin.role-permission-management.index"),
                 parentUrl: "admin.role-permission-management.*",
                 icon: FolderIcon,
@@ -371,20 +354,26 @@ const navigation: generalNavType[] = [
     },
     {
         name: "Others",
-        href: '#',
+        href: "#",
         parentUrl: "#",
-        icon: '',
         allowed: true,
         children: [
+        {
+                name: "Settings",
+                href: route("admin.settings.index"),
+                parentUrl: "admin.settings.index",
+                icon: Cog6ToothIcon,
+                allowed: true,
+            },
             {
-                name: 'Reports',
-                href: '#',
+                name: "Reports",
+                href: "#",
                 parentUrl: "#",
                 icon: ChartBarIcon,
                 allowed: true,
             },
             {
-                name: 'Logs',
+                name: "Activity Logs",
                 href: route("admin.activity-logs.index"),
                 parentUrl: "#",
                 icon: DocumentTextIcon,

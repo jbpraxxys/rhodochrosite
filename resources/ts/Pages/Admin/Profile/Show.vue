@@ -6,10 +6,10 @@
                     v-for="tab in tabs"
                     :key="tab.name"
                     :href="tab.value ?? ''"
-                    class="p-6 border-b cursor-pointer flex items-center justify-between"
+                    class="p-6 cursor-pointer flex items-center justify-between border-b border-gray-100"
                     :class="
                         selectedTab === tab.value
-                            ? 'bg-gray-200 border-black'
+                            ? 'bg-gray-50'
                             : ''
                     "
                     @click.prevent="selectTab(tab.value)"
@@ -92,7 +92,7 @@
                             </div>
                             <div class="w-5/12">
                                 <p class="text-sm">
-                                    **************
+                                    <!-- {{ user.updated_at }} -->
                                 </p>
                             </div>
                             <div class="w-2/12 text-right" v-if="!updatePassword">

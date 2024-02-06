@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[552px] mx-auto mt-6 border border-gray-100 rounded-lg p-6">
+    <div class="w-[552px] mx-auto mt-6 border rounded-lg p-6">
         <jet-section-title class="mb-6">
             <template #title>
                 <slot name="title"></slot>

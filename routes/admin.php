@@ -27,14 +27,18 @@ Route::get('/', function () {
     return redirect()->route('admin.cms.index');
 });
 
+Route::get('/stylesheet', function () {
+    return Inertia::render('Stylesheet/Partials/SSContent');
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
-    // Route::prefix('dashboard')
-    //     ->name('dashboard.')
-    //     ->controller(DashboardController::class)
-    //     ->group(function () {
-    //         Route::get('index', 'index')->name('index');
-    //     });
+    Route::prefix('dashboard')
+        ->name('dashboard.')
+        ->controller(DashboardController::class)
+        ->group(function () {
+            Route::get('index', 'index')->name('index');
+        });
 
     Route::prefix('admin-management')
         ->name('admin-management.')
@@ -68,8 +72,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::post('restore', 'restore')->name('restore');
         });
 
-    Route::prefix('settings-management')
-        ->name('settings-management.')
+    Route::prefix('settings')
+        ->name('settings.')
         ->controller(SettingsController::class)
         ->group(function () {
             Route::get('index', 'index')->name('index');
