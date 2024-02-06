@@ -1,13 +1,13 @@
 <?php
 
 use App\Http\Controllers\CkeditorController;
-use App\Http\Controllers\Admin\ActivityLogsController;
-use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\Others\ActivityLogsController;
+use App\Http\Controllers\Admin\Accounts\AdminController;
+use App\Http\Controllers\Admin\Accounts\RolePermissionController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\NotificationController;
-use App\Http\Controllers\Admin\RolePermissionController;
-use App\Http\Controllers\Admin\SettingsController;
-use App\Http\Controllers\Admin\CmsPageController;
+use App\Http\Controllers\Admin\Contents\CmsPageController;
+use App\Http\Controllers\Admin\Others\NotificationController;
+use App\Http\Controllers\Admin\Others\SettingsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
