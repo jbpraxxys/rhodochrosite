@@ -20,6 +20,28 @@ import VDeleteModal from "./Pages/User/Components/Modals/VDeleteModal.vue";
 import VDialogModal from "./Pages/User/Components/Modals/VDialogModal.vue";
 import VSuccessModal from "./Pages/User/Components/Modals/VSuccessModal.vue";
 
+// Design Components
+import ServiceCard from "./Pages/User/Components/Cards/ServiceCard.vue";
+import ValuesCard from "./Pages/User/Components/Cards/ValuesCard.vue";
+import BenefitCard from "./Pages/User/Components/Cards/BenefitCard.vue";
+import SpecialtyCard from "./Pages/User/Components/Cards/SpecialtyCard.vue";
+import OfferCard from "./Pages/User/Components/Cards/OfferCard.vue";
+import TeamCard from "./Pages/User/Components/Cards/TeamCard.vue";
+import ImageText from "./Pages/User/Components/Sections/ImageText.vue";
+import ContactForm from "./Pages/User/Components/Sections/ContactForm.vue";
+
+//Section Components
+import GeneralBanner from "./Pages/User/Components/Sections/GeneralBanner.vue";
+import OffsetBanner from "./Pages/User/Components/Sections/OffsetBanner.vue";
+import GenericBlock from "./Pages/User/Components/Sections/GenericBlock.vue";
+import OfferBlock from "./Pages/User/Components/Sections/OfferBlock.vue";
+import SpecialtyBlock from "./Pages/User/Components/Sections/SpecialtyBlock.vue";
+import ContactFrame from "./Pages/User/Components/Sections/ContactFrame.vue";
+import ImageTextFrame from "./Pages/User/Components/Sections/ImageTextFrame.vue";
+import BenefitBlock from "./Pages/User/Components/Sections/BenefitBlock.vue";
+import TextWithMap from "./Pages/User/Components/Sections/TextWithMap.vue";
+import TeamFrame from "./Pages/User/Components/Sections/TeamFrame.vue";
+
 import { Head, Link } from '@inertiajs/vue3';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
@@ -47,7 +69,25 @@ createInertiaApp({
                     VConfirmationModal,
                     VDeleteModal,
                     VDialogModal,
-                    VSuccessModal
+                    VSuccessModal,
+                    ServiceCard,
+                    ValuesCard,
+                    ImageText,
+                    BenefitCard,
+                    SpecialtyCard,
+                    ContactForm,
+                    OfferCard,
+                    GeneralBanner,
+                    OffsetBanner,
+                    GenericBlock,
+                    OfferBlock,
+                    SpecialtyBlock,
+                    ContactFrame,
+                    ImageTextFrame,
+                    BenefitBlock,
+                    TextWithMap,
+                    TeamCard,
+                    TeamFrame
                 }
             })
             .mount(el)
