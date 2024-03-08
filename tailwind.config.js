@@ -16,20 +16,20 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Inter", ...defaultTheme.fontFamily.sans],
+                sans: ["Poppins", ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 'primary': {
-                    50:'#EFF6FF',
-                    100:'#DBEAFE',
-                    200:'#BFDBFE',
-                    300:'#93C5FD',
+                    50:'#EDEFEF',
+                    100:'#E5E5E5',
+                    200:'rgba(33, 33, 33, 0.08)',
+                    300:'rgba(33, 33, 33, 0.32)',
                     400:'#60A5FA',
-                    500:'#3B82F6',
-                    600:'#2563EB',
-                    700:'#1D4ED8',
-                    800:'#1E40AF',
-                    900:'#1E3A8A',
+                    500:'#31BEB5',
+                    600:'#22857F',
+                    700:'#2E4959',
+                    800:'#212121',
+                    900:'#1C2C36',
                 },
                 'secondary': {
                     200: '#FFF8E6',
@@ -39,6 +39,10 @@ module.exports = {
                     600: '#BF8D00',
                     700: '#594200',
                 },
+            },
+            fontSize: {
+                '3xl': '2rem',
+                'h1': ['4.5rem', '4.5rem']
             }
         },
     },

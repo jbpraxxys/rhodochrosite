@@ -1,0 +1,30 @@
+<template>
+    <section class="bg-primary-900">
+        <div class="flex items-center">
+            <div class="w-1/2 h-full bg-white">
+                <img 
+                    class="w-full h-full object-cover" 
+                    :src="item.image" 
+                    alt="solution"
+                >
+            </div>
+            <div class="w-1/2 text-white px-20 py-[100px]">
+                <p class="text-5xl font-bold mb-6 animateUp">{{ item.title }}</p>
+                <div class="text-lg mb-12 animateUp" v-html="item.description" />
+                <a :href="item.buttonLink">
+                    <v-button class="animateUp">
+                        {{ item.buttonText }}
+                    </v-button>
+                </a>
+            </div>
+        </div>
+    </section>
+</template>
+<script lang="ts" setup>
+defineProps({
+    item: {
+        type: Object,
+        default: () => ({})
+    }
+})
+</script>

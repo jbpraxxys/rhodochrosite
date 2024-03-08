@@ -18,7 +18,7 @@
             customClass,
             // color
             fill == 'danger' ? 'bg-red-600 border-red-600 text-white hover:bg-red-700 hover:border-red-700 focus:outline-none active:bg-red-800 active:border-red-800' :
-            fill == 'primary' ? 'bg-primary-600 border-primary-600 text-white hover:bg-primary-700 hover:border-primary-700 focus:outline-none active:bg-primary-800 active:border-primary-800' :
+            fill == 'primary' ? 'bg-primary-500 border-primary-500 text-white hover:brightness-90 focus:outline-none active:bg-primary-800 active:border-primary-800' :
             fill == 'outline' ? 'bg-white border-gray-100 text-gray-500 hover:bg-gray-50 focus:outline-none active:bg-gray-100' : '',
             fill == 'none' ? 'bg-white border-white text-gray-900 hover:bg-gray-50 hover:border-gray-50 focus:outline-none active:bg-gray-100 active:border-gray-100' : '',
             // block

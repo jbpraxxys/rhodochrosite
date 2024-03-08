@@ -1,0 +1,409 @@
+.image-text {
+    .title {
+        strong, b {
+            color: #22857F;
+        }
+    }
+}
+
+.hm-contact {
+    label {
+        color: white;
+    }
+}
+
+.direction-rtl {
+    direction: rtl;
+}
+
+.team-card {
+    display: inline-block;
+    width: 30.33%;
+    margin-right: 4.5%;
+    margin-bottom: 80px;
+    text-align: left;
+    &:nth-child(3n) {
+        margin-right: 0;
+    }
+}
+
+.group-hover {
+    .hover-child {
+        max-height: 0;
+        padding: 0 24px;
+        overflow: hidden;
+        transition: all 0.34s ease;
+    }
+
+    &:hover {
+        .hover-child {
+            max-height: 999px;
+            padding: 24px;
+            overflow: visible;
+        }
+    }
+}
+
+.group-hover2 {
+    .hover-child2 {
+        max-height: 0;
+        padding: 0 24px;
+        overflow: hidden;
+        transition: all 0.34s ease;
+    }
+
+    &:hover {
+        .hover-child2 {
+            max-height: 300px;
+            padding: 24px;
+        }
+    }
+}
+
+// Animation
+.banner-image {
+    animation: itemFloat 3s alternate infinite;
+}
+
+@keyframes bannerFloat {
+    0% {
+        transform: translateY(40px);
+    }
+    50% {
+        transform: translateY(-40px);
+    }
+    100% {
+        transform: translateY(40px);
+    }
+
+}
+
+.values-card {
+    .img-cntnr {
+        transition: all 0.5s ease;
+    }
+    &:hover {
+        .img-cntnr {
+            transform: scale(1.125);
+        }
+        .values-image {
+            animation: itemFloat 1s alternate infinite;
+        }
+    }
+}
+
+@keyframes itemFloat {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+
+}
+
+.member-card {
+    .team-img {
+        transition: all 0.34s ease;
+    }
+    &:hover {
+        .team-iso {
+            animation: itemFloat 2s alternate infinite;
+        }
+
+        .team-img {
+            transform: scale(1.05);
+        }
+    }
+    
+}
+
+#flatform2 {
+    animation: flatform 5s linear infinite;
+}
+
+@keyframes flatform {
+    0% {
+        transform: translateY(10px);
+    }
+    10% {
+        transform: translateY(0px);
+    }
+    70% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+
+}
+
+#cube1 {
+    animation: cube1 5s linear infinite;
+}
+#cube2 {
+    animation: cube1 5s linear infinite;
+}
+
+#cube3 {
+    animation: cube1 5s linear infinite;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+#cube4 {
+    animation: cube1 5s linear infinite;
+    animation-delay: 0.25s;
+    opacity: 0;
+}
+
+#cube5 {
+    animation: cube1 5s linear infinite;
+    animation-delay: 0.75s;
+    opacity: 0;
+}
+
+#cube6 {
+    animation: cube1 5s linear infinite;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+#cube7 {
+    animation: cube1 5s linear infinite;
+    animation-delay: 1.125s;
+    opacity: 0;
+}
+#cube8 {
+    animation: cube1 5s linear infinite;
+    animation-delay: 1.25s;
+    opacity: 0;
+}
+
+#cube9 {
+    animation: cube1 5s linear infinite;
+    animation-delay: 1.5s;
+    opacity: 0;
+}
+
+@keyframes cube1 {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        transform: translateY(0px);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-15px);
+        opacity: 0;
+    }
+}
+
+.test-item {
+    animation: pulse 1s alternate infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+#box1 {
+    animation: slide 5s linear infinite;
+}
+#box2 {
+    animation: slide 5s linear infinite;
+    animation-delay: .5s;
+}
+#box3 {
+    animation: slide 5s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes slide {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(30px, -20px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+#tower {
+    animation: upDown 2s linear infinite;
+    animation-delay: 1.5s;
+}
+
+@keyframes upDown {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+#chevron-left {
+    animation: leftmovement 4s linear infinite;
+}
+
+@keyframes leftmovement {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(-5px, 3px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+#chevron-right {
+    animation: rightmovement 4s linear infinite;
+}
+
+@keyframes rightmovement {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(5px, -3px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+#screen {
+    animation: blink 4s linear infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+    21% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    26% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#gear-glow {
+    animation: gearglow 5s alternate infinite;
+}
+
+@keyframes gearglow {
+    0% {
+        opacity: 0.5;
+    }
+    20% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0.5;
+    }
+    60% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+  
+}
+
+#shaft-glow {
+    animation: gearglow 4s alternate infinite;
+}
+
+#abox {
+    animation: box-animate 4s linear infinite;
+    transform: translateY(10px);
+    opacity: 0.5;
+}
+
+#bbox {
+    animation: box-animate 4s linear infinite;
+    transform: translateY(10px);
+    animation-delay: 0.5s;
+    opacity: 0.5;
+}
+#cbox {
+    animation: box-animate 4s linear infinite;
+    transform: translateY(10px);
+    animation-delay: 1.5s;
+    opacity: 0.5;
+}
+#dbox {
+    animation: box-animate 4s linear infinite;
+    transform: translateY(10px);
+    animation-delay: 2s;
+    opacity: 0.5;
+}
+
+@keyframes box-animate {
+    0% {
+        opacity: 0.5;
+        transform: translateY(10px);
+    }
+    20% {
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+    90% {
+        transform: translateY(10px);
+    }
+    100% {
+       opacity: 0.5;
+    }
+}
+
+
+
+
+
+

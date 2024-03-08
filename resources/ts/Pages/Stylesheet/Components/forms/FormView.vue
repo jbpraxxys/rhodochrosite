@@ -215,7 +215,7 @@
 
 </template>
 <script setup lang="ts">
-import TextInput from "@/Components/Inputs/TextInput.vue";
+import TextInput from "@/Pages/User/Components/Inputs/VTextInput.vue";
 import Selector from "@/Components/Inputs/Selector.vue";
 import Dropzone from "@/Components/Inputs/Dropzone.vue";
 </script>

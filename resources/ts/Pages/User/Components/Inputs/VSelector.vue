@@ -33,7 +33,7 @@
             ]"
             >
                 <span v-if="selected"
-                class="block truncate text-sm">
+                class="block truncate text-sm text-primary-300">
                     {{ selected }}
                 </span>
                 <span
@@ -68,12 +68,12 @@
                         right-0
                         flex
                         items-center
-                        pr-2
+                        pr-4
                         z-10
                         cursor-pointer
                     "
                 >
-                    <ChevronDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                    <ChevronDownIcon class="h-5 w-5 text-primary-900" aria-hidden="true" />
                 </span>
             </template>
 
