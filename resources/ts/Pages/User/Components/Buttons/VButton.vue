@@ -13,12 +13,12 @@
             customClass,
         ]"
     >
-    <svg class="absolute -top-2 -right-2 group-hover/button:text-primary-600 transition" :class="designColor" width="40" height="39" viewBox="0 0 40 39" fill="transparent">
-        <rect y="6.87891" width="9.17751" height="9.17751" transform="rotate(-45 0 6.87891)" fill="currentColor"/>
-        <rect x="13.5625" y="19.6621" width="9.17751" height="9.17751" transform="rotate(-45 13.5625 19.6621)" fill="currentColor"/>
-        <rect x="26.4102" y="19.6621" width="9.17751" height="9.17751" transform="rotate(-45 26.4102 19.6621)" fill="currentColor"/>
-        <rect x="26.4102" y="32.5107" width="9.17751" height="9.17751" transform="rotate(-45 26.4102 32.5107)" fill="currentColor"/>
-        <rect x="13.2383" y="6.48926" width="9.17751" height="9.17751" transform="rotate(-45 13.2383 6.48926)" fill="currentColor"/>
+    <svg class="absolute -top-2 -right-2 transition overlay" :class="designColor" width="40" height="39" viewBox="0 0 40 39" fill="transparent">
+        <rect class="boxes box1" y="6.87891" width="9.17751" height="9.17751" transform="rotate(-45 0 6.87891)" fill="currentColor"/>
+        <rect class="boxes box2" x="13.5625" y="19.6621" width="9.17751" height="9.17751" transform="rotate(-45 13.5625 19.6621)" fill="currentColor"/>
+        <rect class="boxes box3" x="26.4102" y="32.5107" width="9.17751" height="9.17751" transform="rotate(-45 26.4102 32.5107)" fill="currentColor"/>
+        <rect class="boxes box4" x="13.2383" y="6.48926" width="9.17751" height="9.17751" transform="rotate(-45 13.2383 6.48926)" fill="currentColor"/>
+        <rect class="boxes box5" x="26.4102" y="19.6621" width="9.17751" height="9.17751" transform="rotate(-45 26.4102 19.6621)" fill="currentColor"/>
     </svg>
       <slot></slot>
     </button>

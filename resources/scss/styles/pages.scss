@@ -141,6 +141,22 @@
 
 }
 
+#rocket {
+    animation: propel 5s linear infinite;
+}
+
+@keyframes propel {
+    0% {
+        transform: translate(-24px, -16.25px);
+    }
+    20% {
+        transform: translate(50px, 32.5px);
+    }
+    100% {
+        transform: translate(-24px, -16.25px);
+    }
+}
+
 #cube1 {
     animation: cube1 5s linear infinite;
 }
@@ -360,11 +376,11 @@
     animation: gearglow 4s alternate infinite;
 }
 
-#abox {
-    animation: box-animate 4s linear infinite;
-    transform: translateY(10px);
-    opacity: 0.5;
-}
+// #abox {
+//     animation: box-animate 4s linear infinite;
+//     transform: translateY(10px);
+//     opacity: 0.5;
+// }
 
 #bbox {
     animation: box-animate 4s linear infinite;

@@ -128,8 +128,8 @@
             </div>
         </section>
 
-        <section>
-            <div class="max-w-[1440px] m-auto bg-primary-900 text-center py-[120px]">
+        <section class="bg-primary-900">
+            <div class="max-w-[1440px] m-auto text-center py-[120px]">
                 <div class="max-w-[715px] m-auto text-white">
                     <p class="text-5xl font-bold mb-4 animateUp">Collaborate With Us</p>
                     <p class="mb-12 text-xl animateUp">Reliasourcing goes above and beyond merely catering to your unique requirements. With our stellar specializations, we will help you move your business forward strategically and efficiently.</p>
