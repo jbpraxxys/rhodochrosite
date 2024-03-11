@@ -19,7 +19,7 @@
         <generic-block 
             class="pb-10 bg-primary-50"
             :item="{
-                title: 'Sales Team Services We Provide',
+                title: 'Sales Team Services<br>We Provide',
                 description: '<p>Our sales team services encompass lead generation, sales development, market research and strategy, and revenue optimization tailored to intensify your sales efforts. Explore our services here to start driving business growth.</p>',
                 image: '/temp/image1.png',
                 imageFirst: true
@@ -57,7 +57,7 @@
         <generic-block 
             class="pt-20 pb-10"
             :item="{
-                title: 'Benefits of Sales Teams Services',
+                title: 'Benefits of Sales<br>Teams Services',
                 description: '<p>Outsourcing your sales teams brings a multitude of advantages your way. Let’s dive into some of them:</p>',
                 image: '/temp/image1.png',
             }"

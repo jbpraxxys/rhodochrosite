@@ -1,7 +1,7 @@
 <template>
     <user-layout>
         <section class="relative h-screen">
-            <div class="px-20 pt-[169px] absolute top-0 left-0">
+            <div class="px-20 pt-[169px] absolute top-0 left-0 z-[2]">
                 <div class="w-[36vw] text-white">
                     <h1 class="text-[5.1vw] leading-[5.1vw] mb-6 font-bold">
                         Free your<br>mind to <b class="text-primary-500">focus</b> on your core business
@@ -20,12 +20,13 @@
         <section class="relative">
             <div class="max-w-[1440px] m-auto p-20">
                 <div class="w-full grid grid-cols-3 gap-8">
-                    <div class="flex items-center justify-center">
+                    <div class="flex items-center justify-center animateUp">
                         <p class="text-3xl font-bold">
                             Reliasourcing delivers business process solutions tailor-made for your needs.
                         </p>
                     </div>
                     <service-card
+                        class="animateUp"
                         v-for="item in items1"
                         :item="item"
                     />
@@ -158,14 +159,16 @@
                         </v-button>
                     </div>
                     <div class="w-1/2 space-y-4">
-                        <div v-for="item in items3" class="p-8 bg-primary-50 rounded-2xl group/tech hover:bg-primary-500 hover:-translate-y-2 transition duration-500 hover:shadow-lg">
-                            <p class="text-xl font-bold mb-2 group-hover/tech:text-white transition">{{item.title}}</p>
-                            <p class="group-hover/tech:text-white transition">{{ item.description }}</p>
+                        <div v-for="item in items3" class="animateUp">
+                            <div class="p-8 bg-primary-50 rounded-2xl group/tech hover:-translate-y-2 transition duration-300 hover:shadow-md">
+                                <p class="text-xl font-bold mb-2">{{item.title}}</p>
+                                <p>{{ item.description }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <contact-form />
+                <contact-form home />
             </div>
         </section>
     </user-layout>
@@ -175,7 +178,6 @@ import { onMounted } from 'vue';
 import FrameOne from './Components/FrameOne.vue';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import SplitType from 'split-type';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -308,25 +310,6 @@ onMounted(() => {
     };
 
     setTimeout(() => {
-        const splitTypes = document.querySelectorAll('.reveal-type')
-
-        splitTypes.forEach((char,i) => {
-
-            const text = new SplitType(char, { types: 'chars'})
-
-            gsap.from(text.chars, {
-                scrollTrigger: {
-                    trigger: char,
-                    start: 'top 80%',
-                    end: 'top 20%',
-                    scrub: true,
-                    markers: false,
-                },
-                y: 20,
-                opacity: 0,
-                stagger: 0.1
-            })
-        })
 
         gsap.from(".popAnimate", {
             scrollTrigger: ".popAnimate", // start the animation when ".box" enters the viewport (once)

@@ -29,6 +29,7 @@ import Footer from "./Components/Footer.vue";
 import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SplitType from 'split-type';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -130,6 +131,26 @@ onMounted(() => {
                 ease: "Expo.easeOut",
             });
         });
+
+        const splitTypes = document.querySelectorAll('.reveal-type')
+
+        splitTypes.forEach((char,i) => {
+
+            const text = new SplitType(char, { types: 'chars'})
+
+            gsap.from(text.chars, {
+                scrollTrigger: {
+                    trigger: char,
+                    start: 'top 80%',
+                    end: 'top 20%',
+                    scrub: true,
+                    markers: false,
+                },
+                opacity: .2,
+                color: '#a1a1a1',
+                stagger: 0.1
+            })
+        })
 
     }, 500)
     

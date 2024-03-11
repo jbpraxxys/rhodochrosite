@@ -19,7 +19,7 @@
         <generic-block 
             class="pb-10 bg-primary-50"
             :item="{
-                title: 'Take Customer Satisfaction to the Next Level with our Services',
+                title: 'Take Customer Satisfaction to the Next Level with our<br>Services',
                 description: '<p>Discover comprehensive customer service solutions, from live chat support to social media services. Elevate customer satisfaction and build loyalty today!</p>',
                 image: '/temp/image1.png',
                 imageFirst: true
@@ -57,7 +57,7 @@
         <generic-block 
             class="pt-20 pb-10 bg-primary-50"
             :item="{
-                title: 'Benefits of Outsourced Customer Service',
+                title: 'Benefits of Outsourced<br>Customer Service',
                 description: '<p>There are many reasons why businesses should consider outsourcing their customer service departments. Here are some of them:</p>',
                 image: '/temp/image1.png',
             }"
