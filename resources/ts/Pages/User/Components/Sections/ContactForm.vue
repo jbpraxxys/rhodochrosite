@@ -81,6 +81,16 @@
                         add_on_text="+63"
                     />
                 </div>
+                <div v-if="home" class="col-span-full">
+                    <v-text-input
+                        textarea
+                        label="Message"
+                        placeholder="Enter message (optional)"
+                        id="message"
+                        name="message"
+                        text-area-rows="5"
+                    />
+                </div>
                 <div class="col-span-full flex justify-between pt-4">
                     <div>
                         <vue-recaptcha
@@ -104,6 +114,13 @@
 import { useForm } from "@inertiajs/vue3";
 import { onMounted } from "vue";
 import { VueRecaptcha } from 'vue-recaptcha';
+
+defineProps({
+    home: {
+        type: Boolean,
+        default: false
+    }
+})
 
 const form = useForm({
     first_name: null,

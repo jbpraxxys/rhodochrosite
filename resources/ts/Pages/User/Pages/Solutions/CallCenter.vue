@@ -18,7 +18,7 @@
         <generic-block 
             class="pb-10 bg-primary-50"
             :item="{
-                title: 'Why <b>Outsource</b> Your Call Center Operations to Reliasourcing?',
+                title: 'Why <b>Outsource</b> Your<br>Call Center Operations to<br>Reliasourcing?',
                 description: '<p>Providing outstanding customer service is a powerful differentiator in today’s ever-changing and fast-paced business environment. However, managing an in-house call center can be time-consuming and labor-intensive, diverting resources from other business areas and limiting growth potential.<br><br>This is where call center outsourcing comes into play. Outsourcing your call center operations can unlock many benefits that elevate your business and propel it toward success. Here are some of them:</p>',
                 image: '/temp/image1.png',
                 imageFirst: true

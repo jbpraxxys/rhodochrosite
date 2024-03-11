@@ -18,7 +18,7 @@
         <generic-block 
             class="pb-10 bg-primary-50"
             :item="{
-                title: 'Why Choose Reliasourcing for Staff Leasing Solutions?',
+                title: 'Why Choose Reliasourcing<br>for Staff Leasing Solutions?',
                 description: '<p>Companies in today’s highly competitive market always look for new ways to improve their processes and cut expenses without sacrificing quality. Leasing employees from outsourcing companies is one strategy that has gained traction recently. Tapping into external talent and resources through staff leasing allows businesses to concentrate on what they do best. Prepare to explore the key benefits of staff leasing and why companies like yours should consider outsourcing a viable option:</p>',
                 image: '/temp/image1.png',
                 imageFirst: true

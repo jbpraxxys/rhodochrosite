@@ -19,7 +19,7 @@
         <generic-block 
             class="pb-10 bg-primary-50"
             :item="{
-                title: 'Why <b>Outsource ICT and Creative Services</b> to Reliasourcing?',
+                title: 'Why <b>Outsource ICT<br>and Creative Services</b><br>to Reliasourcing?',
                 description: '<p>Information and communication technology (ICT) and creative services are two key areas where outsourcing is advantageous. These departments greatly influence a company’s identity, digital footprint, and innovation. This is also why companies should consider working with a company and industry expert like Reliasourcing.</p>',
                 image: '/temp/image1.png',
                 imageFirst: true
