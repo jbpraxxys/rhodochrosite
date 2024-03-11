@@ -10,7 +10,7 @@
 
         <offset-banner 
             :item="{
-                title: '<h4>Experience unique advantages when<br>you work with Reliasourcing</h4>',
+                title: '<h4>Experience unique advantages when you work with Reliasourcing</h4>',
                 description: '<p>With Reliasourcing, you get the benefits of a reliable onsite team that fits your company’s culture and understands your business goals. We free your mind from the stresses of the hiring process and find the perfect fit for your company. Reliasourcing handles everything from hiring, training, and developing your sales agents so you can focus on the core of your business.</p>'
             }"
         />

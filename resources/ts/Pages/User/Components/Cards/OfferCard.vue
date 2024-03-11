@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="offer-card">
         <div 
-            class="p-8 rounded-2xl h-[358px] overflow-hidden relative group/offer hover:-translate-y-3 transition hover:shadow-lg duration-500"
+            class="p-8 rounded-2xl h-full min-h-[358px] overflow-hidden relative group/offer hover:-translate-y-3 transition hover:shadow-lg duration-500 wrapper"
             :class="item.accent ? 'bg-primary-500 text-white' : 'bg-white'"
         >
-            <div class="w-[80%]">
+            <div class="text-cntnr w-[80%]">
                 <p class="mb-2 font-bold text-lg">{{ item.title }}</p>
                 <div v-html="item.description" />
             </div>

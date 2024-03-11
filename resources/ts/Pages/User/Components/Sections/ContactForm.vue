@@ -1,16 +1,16 @@
 <template>
-    <div class="flex items-center justify-between max-w-[1280px] m-auto p-10 pb-0">
+    <div class="flex lg:flex-row flex-col items-center justify-between max-w-[1280px] m-auto lg:p-10 pb-0">
         <img
             class="w-[483px]" 
             src="/icons/contact-img.svg" 
             alt="contact"
         >
-        <div class="max-w-[656px] p-8 bg-primary-900 w-full rounded-2xl">
+        <div class="max-w-[656px] p-6 lg:p-8 bg-primary-900 w-full rounded-2xl">
             <div class="text-white mb-6">
                 <p class="font-semibold text-3xl mb-3">Contact Us</p>
                 <p>Let’s discuss your project, together we will find a solution to the most difficult task</p>
             </div>
-            <form class="hm-contact grid grid-cols-2 gap-x-5 gap-y-4">
+            <form class="hm-contact grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-4">
                 <div>
                     <v-selector
                         :options="[{ id: '1', value: 'Contact Center'}]"
@@ -91,7 +91,7 @@
                         text-area-rows="5"
                     />
                 </div>
-                <div class="col-span-full flex justify-between pt-4">
+                <div class="col-span-full flex lg:flex-row flex-col lg:space-y-0 space-y-4 justify-between pt-2">
                     <div>
                         <vue-recaptcha
                             :sitekey="sitekey"
