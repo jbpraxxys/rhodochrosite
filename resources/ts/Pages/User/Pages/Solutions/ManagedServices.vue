@@ -18,7 +18,7 @@
         <generic-block 
             class="pb-10 bg-primary-50"
             :item="{
-                title: 'Why Should You Get<br>Managed Services from<br>Reliasourcing?',
+                title: 'Why Should You Get Managed Services from Reliasourcing?',
                 description: '<p>Outsourcing managed services can provide companies access to specialized knowledge they may lack internally. At Reliasourcing, we spare our customers the expense of hiring new employees to complete their projects. Our outsourced managed services free up our client’s internal resources to concentrate on strategic priorities.<br><br>Let’s take a closer look at why outsourcing managed services is a good idea:</p>',
                 image: '/temp/image1.png',
                 imageFirst: true

@@ -1,14 +1,14 @@
 <template>
     <section class="bg-primary-900">
-        <div class="flex items-center">
-            <div class="w-1/2 h-full bg-white">
+        <div class="flex items-center lg:flex-row flex-col">
+            <div class="w-full lg:w-1/2 h-full bg-white">
                 <img 
                     class="w-full h-full object-cover" 
                     :src="item.image" 
                     alt="solution"
                 >
             </div>
-            <div class="w-1/2 text-white px-20 py-[100px]">
+            <div class="w-full lg:w-1/2 text-white px-4 lg:px-20 py-6 lg:py-[100px]">
                 <p class="text-5xl font-bold mb-6 animateUp">{{ item.title }}</p>
                 <div class="text-lg mb-12 animateUp" v-html="item.description" />
                 <a :href="item.buttonLink">

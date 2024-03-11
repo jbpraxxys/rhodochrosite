@@ -10,7 +10,7 @@
 
         <offset-banner 
             :item="{
-                title: '<h4>Streamlined customer service,<br>outsourced for success.</h4>',
+                title: '<h4>Streamlined customer service, outsourced for success.</h4>',
                 description: '<p>Elevate your customer experience with Reliasourcing’s call center outsourcing solutions. We handle call center operations such as customer service, sales, lead generation, and technical support so you can put your attention where it belongs: achieving company growth.</p>'
             }"
         />

@@ -1,11 +1,11 @@
 <template>
     <section class="relative z-1">
         <img 
-            class="absolute bottom-0 left-0 -translate-x-[50%] z-1"
+            class="absolute lg:top-auto top-[150px] lg:scale-100 scale-[200%] lg:bottom-0 left-0 -translate-x-[50%] z-1"
             src="/icons/contact-bg.svg" 
             alt="contact"
         >
-        <div class="max-w-[1440px] m-auto relative z-[2]">
+        <div class="max-w-[1440px] m-auto relative z-[2] lg:px-0 px-4">
             <contact-form />
         </div>
     </section>

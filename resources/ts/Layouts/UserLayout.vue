@@ -134,13 +134,13 @@ onMounted(() => {
 
         const splitTypes = document.querySelectorAll('.reveal-type')
 
-        splitTypes.forEach((char,i) => {
+        splitTypes.forEach((word,i) => {
 
-            const text = new SplitType(char, { types: 'chars'})
+            const text = new SplitType(word, { types: 'words'})
 
-            gsap.from(text.chars, {
+            gsap.from(text.words, {
                 scrollTrigger: {
-                    trigger: char,
+                    trigger: word,
                     start: 'top 80%',
                     end: 'top 20%',
                     scrub: true,

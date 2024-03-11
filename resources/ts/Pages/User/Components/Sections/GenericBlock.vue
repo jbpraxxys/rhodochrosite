@@ -5,7 +5,7 @@
             src="/icons/grid.png" 
             alt="grid"
         >
-        <div class="max-w-[1440px] m-auto px-20 relative z-[2]">
+        <div class="max-w-[1440px] m-auto px-4 lg:px-20 relative z-[2]">
             <image-text 
                 :item="item"
             />

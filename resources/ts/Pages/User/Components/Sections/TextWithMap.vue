@@ -1,11 +1,11 @@
 <template>
     <section class="bg-primary-50">
-        <div class="flex items-center px-20 space-x-20 py-10 max-w-[1440px] m-auto relative">
-            <div class="w-[calc(100%-620px)] image-text">
+        <div class="flex lg:flex-row flex-col items-center px-4 lg:px-20 lg:space-x-20 py-10 max-w-[1440px] m-auto relative">
+            <div class="w-full lg:w-[calc(100%-620px)] image-text">
                 <div class="text-5xl font-bold mb-6 title animateUp reveal-type" v-html="item.title" />
                 <div class="text-xl animateUp" v-html="item.description" />
             </div>
-            <div class="w-[540px]">
+            <div class="w-full lg:w-[540px]">
                 <img 
                     class="w-full banner-image" 
                     :src="item.image" 
@@ -13,7 +13,7 @@
                 >
             </div>
             <img 
-                class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2"
+                class="absolute lg:bottom-auto bottom-0 lg:scale-100 scale-[150%] lg:top-1/2 right-0 lg:-translate-y-1/2 translate-x-1/2"
                 src="/icons/ph-design.svg" 
                 alt="design"
             >
