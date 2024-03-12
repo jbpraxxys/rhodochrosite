@@ -60,6 +60,10 @@ class PageController extends Controller
         return Inertia::render('User/Pages/Specializations/Ict', []);
     }
 
+    public function salesAndCustomer() {
+        return Inertia::render('User/Pages/Specializations/SalesAndCustomer', []);
+    }
+
     public function saleDevelopment() {
         return Inertia::render('User/Pages/Specializations/SaleDevelopment', []);
     }

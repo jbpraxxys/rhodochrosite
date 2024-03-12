@@ -19,8 +19,10 @@ defineProps({
 
 
 onMounted(()=>{
-    const element = document.getElementById("element");
-
-    document.getElementById("offset-cntnr").style.height = element.offsetHeight - 150 + 'px';
+    const mediaQuery = window.matchMedia('(max-width: 1024px)')
+    if (mediaQuery.matches) {
+        const element = document.getElementById("element");
+        document.getElementById("offset-cntnr").style.height = element.offsetHeight - 150 + 'px';
+    }
 }) 
 </script>

@@ -5,7 +5,7 @@
         <general-banner 
             :item="{
                 image: '/temp/specialization1.png',
-                title: '<h1>Top-Notch ICT and<br>Creative Services</h1>'
+                title: '<h1>Top-Notch Creative<br>Services</h1>'
             }"
         />  
 
@@ -30,39 +30,29 @@
             class="pb-[120px]"
             :items="[
                 {
-                    title: 'Ready-to-Use Infrastructure',
-                    description: '<p>Outsourcing companies offer fully equipped workspaces with modern infrastructure and amenities. At Reliasourcing, we set up and maintain these workspaces, ensuring you have a hassle-free experience. We provide workspaces with high-speed internet connectivity, tech support, and other necessary facilities. This allows businesses like yours to get up and running quickly, with little to no time spent on setup and installation.</p>',
+                    title: 'Operational Flexibility',
+                    description: '<p>Staff leasing provides the adaptability and scalability businesses require as workloads and needs evolve. With the help of staff leasing, businesses can easily adjust their workforce size to meet fluctuating demand. Companies can quickly adapt to changes in the market, seasonal requests, or project-specific requirements without going through the time-consuming and costly processes of hiring and letting go of employees. Leasing personnel also allows businesses to maintain flexibility, efficiency, and sensitivity to customer needs.</p>',
                     icon: '/temp/icon1.png',
                 },
                 {
-                    title: 'Economical',
-                    description: '<p>Seat leasing from outsourcing companies can result in significant cost savings for businesses. Companies can use the outsourcing partner’s infrastructure rather than spending money on new office space, furniture, equipment, and utilities. This reduces initial capital expenditures and ongoing maintenance costs, allowing businesses to allocate resources strategically. By choosing seat leasing instead of purchasing office space outright, companies can reallocate funds to more strategically essential uses.</p>',
+                    title: 'Cost-Efficient',
+                    description: '<p>Staff leasing is attractive to businesses because it can help them reduce costs. By outsourcing to an external provider, companies eliminate the expenses associated with recruitment, onboarding, training, and maintaining a full-time workforce. Reliasourcing can take on these responsibilities, reducing overhead costs such as employee benefits, office space, and equipment. This allows you to allocate resources more efficiently and invest in strategic growth areas.</p>',
                     icon: '/temp/icon2.png',
                 },
                 {
-                    title: 'Specialized Expertise Access',
-                    description: '<p>Reliasourcing has a vast pool of professionals with diverse skills and expertise. Your business gains access to this talent pool by partnering with us for seat leasing. This is particularly useful for companies entering new markets or using specialized knowledge. We can provide access to professionals with the necessary skills and experience, enabling businesses to enhance their capabilities and deliver high-quality results.</p>',
+                    title: 'Advanced Technology Availability',
+                    description: '<p>To stay competitive, outsourcing firms frequently upgrade to newer technologies and equipment. Staff leasing allows businesses to use cutting-edge tools without significant financial commitments. Access to advanced technology helps companies to improve operations, streamline procedures, anticipate market shifts, and fuel innovation and expansion.</p>',
                     icon: '/temp/icon3.png',
                 },
                 {
-                    title: 'Scalable Operations',
-                    description: '<p>Seat leasing from outsourcing providers allows businesses to expand their operations quickly. Companies don’t have to make any long-term commitments and can easily adjust the number of leased seats to meet their fluctuating demands. Because of this adaptability, businesses can meet the needs of individual projects, customers, and seasonal fluctuations. Seat leasing also gives companies the flexibility and scalability to meet market demands.</p>',
+                    title: 'Expert Access',
+                    description: '<p>Today’s business world is complex and constantly changing, making specialized skills increasingly crucial for success. Leasing employees gives businesses access to skilled workers with varied backgrounds and areas of expertise. Whether IT, marketing, customer service, or finance, Reliasourcing can connect businesses with professionals with the necessary skills and knowledge to deliver exceptional results. This access to specialized talent significantly enhances the organization’s productivity, quality, and innovation.</p>',
                     icon: '/temp/icon4.png',
                 },
                 {
-                    title: 'Geographic Flexibility',
-                    description: '<p>Outsourcing companies often have multiple locations and flexible seat leasing options. This decentralization of operations eliminates the need for physically located branch offices, enabling companies to expand into new markets. It’s an excellent way for businesses to tap into new talent pools and grow without sacrificing efficiency or their ability to scale.</p>',
+                    title: 'Better Employee Work-Life Balance',
+                    description: '<p>Businesses can reduce internal employee workload by outsourcing non-core functions, allowing them to focus on their core responsibilities. This improves employee satisfaction and morale by promoting better work-life balance and reducing stress. When employees can concentrate on their key roles and responsibilities, they will likely be more engaged and productive, contributing to the organization’s overall success.</p>',
                     icon: '/temp/icon5.png',
-                },
-                {
-                    title: 'Streamlined Operations',
-                    description: '<p>Seat leasing from outsourcing companies simplifies business operations. At Reliasourcing, we take care of the behind-the-scenes work, so you don’t have to. By offloading these non-core functions, your business can focus on core activities and strategic initiatives. We make sure that everything runs smoothly in your day-to-day operations, allowing you to maximize efficiency and productivity.</p>',
-                    icon: '/temp/icon6.png',
-                },
-                {
-                    title: 'Enhanced Business Focus',
-                    description: '<p>Seat leasing frees up resources so companies can focus on what they do best and where they will see the most growth. Working with Reliasourcing, businesses can outsource specialized tasks like facility management, IT support, and administrative work to qualified professionals. This shift in focus lets firms focus on revenue generation, innovation, and customer satisfaction. In the long run, this improves business results and gives you an edge in the market.</p>',
-                    icon: '/temp/icon7.png',
                 },
             ]"
         />
@@ -70,10 +60,10 @@
         <image-text-frame 
             :item="{
                 image: '/temp/solution2.png',
-                title: 'Access Top Talent and Streamline Your Workforce with Reliasourcing',
-                description: '<p>Broaden your reach, increase productivity, and focus more on your core responsibilities when you outsource your staff leasing operations to us. <br><br>Reliasourcing is dedicated to developing a tailor-made plan that meets your requirements so that you only pay for the services you use. Get in touch with us right away to get things going.</p>',
-                buttonText: 'Outsourcing with Us',
-                buttonLink: '/'
+                title: 'Leverage ICT and Creative Services with Reliasourcing',
+                description: '<p>Take advantage of Reliasourcing’s ICT and creative service offerings to streamline operations, eliminate unnecessary steps, and maximize overall productivity.<br><br>Reliasourcing is committed to tailoring a solution to your needs so you only pay for what you use. Contact us right away to get things going.</p>',
+                buttonText: 'Outsource with Us',
+                buttonLink: '/contact-us'
             }"
         />
 
@@ -95,28 +85,28 @@
                     image: '/temp/laptop.png',
                 },
                 { 
-                    title: 'Web Design', 
-                    description: '<p>With our web design services, your venture gets access to experts in different specialties. And as a cost-effective solution, you get ongoing support and maintenance operations to ensure your website is always up and running.</p>',
+                    title: 'Web Development', 
+                    description: '<p>With expert web development, you can embark on a digital journey of innovation and functionality. Streamline procedures, improve user experiences, and ensure your website works perfectly on any device. Our expertise in web development allows us to create engaging and intuitive websites for a variety of purposes, from e-commerce to informational portals.</p>',
                     image: '/temp/iso2.png',
                 },
                 { 
-                    title: 'Web Design', 
-                    description: '<p>With our web design services, your venture gets access to experts in different specialties. And as a cost-effective solution, you get ongoing support and maintenance operations to ensure your website is always up and running.</p>',
+                    title: 'Software Development', 
+                    description: '<p>Get the most out of your company with custom software developed to meet your specific demands. Creating an application is time-consuming and intricate, requiring careful thought, preparation, expertise, and self-discipline. Another factor is selecting a development partner, as most businesses need more in-house development expertise and resources. </p>',
                     image: '/temp/iso3.png',
                 },
                 { 
-                    title: 'Web Design', 
-                    description: '<p>With our web design services, your venture gets access to experts in different specialties. And as a cost-effective solution, you get ongoing support and maintenance operations to ensure your website is always up and running.</p>',
+                    title: 'Graphic Design', 
+                    description: '<p>Utilize captivating graphic design to tell stories visually to the highest degree. Engage your audience, convey your message, and create a recognizable brand that will take your business to new horizons. </p>',
                     image: '/temp/iso4.png',
                 },
                 { 
-                    title: 'Web Design', 
-                    description: '<p>With our web design services, your venture gets access to experts in different specialties. And as a cost-effective solution, you get ongoing support and maintenance operations to ensure your website is always up and running.</p>',
+                    title: 'Animation', 
+                    description: '<p>Use engaging animation to take your communication to the next level. Simplify complicated ideas, stimulate discussion, and give your brand a new lease on life with the help of our expert teams. Whether an explainer video or an interactive feature, Reliasourcing’s animation services breathe new life into your content, making it more engaging and likely to be shared.</p>',
                     image: '/temp/iso5.png',
                 },
                 { 
-                    title: 'Web Design', 
-                    description: '<p>With our web design services, your venture gets access to experts in different specialties. And as a cost-effective solution, you get ongoing support and maintenance operations to ensure your website is always up and running.</p>',
+                    title: 'Content Creation', 
+                    description: '<p>Fill your digital presence with engaging, resonant content. Our content creators produce captivating stories, detailed articles, and exciting multimedia to keep your audience interested. These strategies will raise your online profile, encourage interaction, and introduce your company as a pioneer in your field. </p>',
                     image: '/temp/iso6.png',
                 },
             ]"

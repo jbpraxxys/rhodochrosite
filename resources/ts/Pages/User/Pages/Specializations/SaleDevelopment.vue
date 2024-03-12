@@ -5,13 +5,13 @@
         <general-banner 
             :item="{
                 image: '/temp/specialization1.png',
-                title: '<h1>Top-Notch ICT and<br>Creative Services</h1>'
+                title: '<h1>Leading-Edge Sales Development Representative Solutions</h1>'
             }"
         />  
 
         <offset-banner 
             :item="{
-                title: '<h4>Generate New Business Leads with<br>our SDR Services.</h4>',
+                title: '<h4>Generate New Business Leads with our SDR Services</h4>',
                 description: '<p>Our sales development representative (SDR) services are the fuel pumps for your sales engine. SDRs are your frontline troops, diving into the trenches of lead generation. We employ a dynamic arsenal of strategies, from laser-focused emails to magnetic cold calls, captivating social media outreach, and beyond.</p>'
             }"
         />
@@ -19,8 +19,8 @@
         <generic-block 
             class="pb-10 bg-primary-50"
             :item="{
-                title: '<b>SDR Services </b>We Offer',
-                description: '<p>Information and communication technology (ICT) and creative services are two key areas where outsourcing is advantageous. These departments greatly influence a company’s identity, digital footprint, and innovation. This is also why companies should consider working with a company and industry expert like Reliasourcing.</p>',
+                title: '<p><b>SDR Services</b> We Offer</p>',
+                description: '<p>Explore various sales development representative services, from lead generation to appointment setting, and discover how they can supercharge your sales efforts.</p>',
                 image: '/temp/image1.png',
                 imageFirst: true
             }"
@@ -29,25 +29,25 @@
         <offer-block 
             :items="[
                 {
-                    title: 'Market Expansion and Increased Customer Reach',
-                    description: '<p>Outsourcing call center operations offers the advantage of a larger workforce and presents a unique opportunity for market expansion. With multilingual operations, for instance, your business can effectively cater to diverse clients, expanding its customer reach and operating round-the-clock to accommodate different time zones.</p>',
+                    title: 'Outbound SDR',
+                    description: '<p>Their primary focus is on proactive sales strategies such as cold calling, email outreach, and engaging with prospects on social media. The objective is to pinpoint potential leads and schedule appointments for the account executives.</p>',
                     image: '/temp/specialization2.png',
                 },
                 {
-                    title: 'Cost-Efficient',
-                    description: '<p>Staff leasing is attractive to businesses because it can help them reduce costs. By outsourcing to an external provider, companies eliminate the expenses associated with recruitment, onboarding, training, and maintaining a full-time workforce. Reliasourcing can take on these responsibilities, reducing overhead costs such as employee benefits, office space, and equipment. This allows you to allocate resources more efficiently and invest in strategic growth areas.</p>',
+                    title: 'Inbound SDR',
+                    description: '<p>Inbound SDRs play a critical role in nurturing leads from diverse channels like the company website, social media, and events. Their primary objective is to engage with prospects using effective email and phone communication, with the ultimate goal of transforming them into qualified leads.</p>',
                     image: '/temp/specialization3.png',
                     accent: true
                 },
                 {
-                    title: 'Cost-Efficient',
-                    description: '<p>Staff leasing is attractive to businesses because it can help them reduce costs. By outsourcing to an external provider, companies eliminate the expenses associated with recruitment, onboarding, training, and maintaining a full-time workforce. Reliasourcing can take on these responsibilities, reducing overhead costs such as employee benefits, office space, and equipment. This allows you to allocate resources more efficiently and invest in strategic growth areas.</p>',
+                    title: 'Lead Generation SDR',
+                    description: '<p>The primary role of lead generation SDRs is to generate fresh leads using a multitude of channels, including email marketing, social media, and online advertising. Through strategic and targeted campaigns, they identify potential customers and foster their interest until they are sufficiently prepared to engage with the sales team.</p>',
                     image: '/temp/specialization4.png',
                     accent: true
                 },
                 {
-                    title: 'Cost-Efficient',
-                    description: '<p>Staff leasing is attractive to businesses because it can help them reduce costs. By outsourcing to an external provider, companies eliminate the expenses associated with recruitment, onboarding, training, and maintaining a full-time workforce. Reliasourcing can take on these responsibilities, reducing overhead costs such as employee benefits, office space, and equipment. This allows you to allocate resources more efficiently and invest in strategic growth areas.</p>',
+                    title: 'Sales Enablement SDR',
+                    description: '<p>Sales Enablement SDRs offer invaluable support to the sales team by equipping them with the essential tools and resources needed to seal the deal. They play a pivotal role in crafting compelling sales materials like case studies, presentations, and proposals. These materials empower account executives and enhance the overall sales process</p>',
                     image: '/temp/specialization5.png',
                 },
             ]"

@@ -19,7 +19,7 @@
         <generic-block 
             class="pb-10 bg-primary-50"
             :item="{
-                title: 'Take Customer Satisfaction to the Next Level with our<br>Services',
+                title: 'Take <b>Customer</b> <b>Satisfaction</b> to the Next Level with our<br>Services',
                 description: '<p>Discover comprehensive customer service solutions, from live chat support to social media services. Elevate customer satisfaction and build loyalty today!</p>',
                 image: '/temp/image1.png',
                 imageFirst: true

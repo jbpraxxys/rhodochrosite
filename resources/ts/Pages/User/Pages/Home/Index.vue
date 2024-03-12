@@ -37,7 +37,8 @@
         <section class="bg-primary-900 text-white">
             <div class="max-w-[1440px] m-auto px-4 py-16 lg:px-20 lg:py-[120px]">
                 <div class="max-w-[835px] m-auto text-center mb-20">
-                    <p class="text-3xl font-bold reveal-type">Client-oriented and flexible, Reliasourcing strives<br>to provide diverse, tailored solutions to help<br>businesses reach the pinnacle of success.</p>
+                    <p class="text-3xl font-bold reveal-type mb-8">Client-centric Custom Solutions</p>
+                    <p class="text-xl font-bold reveal-type">Reliasourcing is your strategic partner for business success. Located in the Philippines' bustling business district, we’re ready to help you elevate your business to new heights.</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-4 w-full gap-8 lg:gap-20">
                     <values-card
@@ -165,7 +166,7 @@
                     </div>
                 </div>
 
-                <contact-form home />
+                <home-contact-form />
             </div>
         </section>
     </user-layout>
@@ -174,6 +175,7 @@
 import { onMounted } from 'vue';
 import FrameOne from './Components/FrameOne.vue';
 import CompanySlider from './Components/CompanySlider.vue';
+import HomeContactForm from './Components/ContactForm.vue';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
