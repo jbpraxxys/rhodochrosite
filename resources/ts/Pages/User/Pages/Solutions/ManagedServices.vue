@@ -71,8 +71,8 @@
                 image: '/temp/solution2.png',
                 title: 'Maximize Workforce Management with Reliasourcing',
                 description: '<p>Increase operational effectiveness, streamline administrative tasks, and make the most of your workforce by utilizing Reliasourcing’s services to achieve your company’s goals.<br><br>Reliasourcing is dedicated to designing a plan specifically for you, ensuring you only pay for your requirements. Get in touch with us today to get started.</p>',
-                buttonText: 'Outsourcing with Us',
-                buttonLink: '/'
+                buttonText: 'Outsource with Us',
+                buttonLink: '/contact-us'
             }"
         />
 

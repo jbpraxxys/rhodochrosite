@@ -18,7 +18,7 @@
         <generic-block 
             class="pb-10 bg-primary-50"
             :item="{
-                title: 'Experience <b>unique advantages</b><br>when you work with<br>Reliasourcing',
+                title: 'Experience <b>unique</b> <b>advantages</b> when you work with Reliasourcing',
                 description: '<p>Hiring the right person at the right time is frequently essential to business innovation and growth. Discover the industries we focus on to see how our services can help your venture succeed.</p>',
                 image: '/temp/image1.png',
                 imageFirst: true

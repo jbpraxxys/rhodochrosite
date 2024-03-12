@@ -12,7 +12,7 @@
                         >
                     </div>
                 </div>
-                <div class="leading-5 transition" v-html="item.description" />
+                <div class="leading-6 transition" v-html="item.description" />
             </div>
         </div>
     </div>

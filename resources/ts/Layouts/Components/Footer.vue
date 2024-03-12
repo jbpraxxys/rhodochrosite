@@ -46,14 +46,14 @@
                 <div class="space-y-6">
                     <p class="font-bold">Specializations</p>
                     <div><a class="hover:text-primary-600 transition" href="/specializations/ict">Creative Services</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/specializations/sales-and-customer">Sales and Customer Support</a></div>
                     <div><a class="hover:text-primary-600 transition" href="/specializations/sale-development">Sales Development Services</a></div>
                     <div><a class="hover:text-primary-600 transition" href="/specializations/customer-service">Customer Success Services</a></div>
-                    <div><a class="hover:text-primary-600 transition" href="/specializations/sales-team-service">Revenue Optimization Services</a></div>
                 </div>
                 <div class="space-y-6">
                     <p class="font-bold">Others</p>
                     <div><a class="hover:text-primary-600 transition" href="/industries">Industries</a></div>
-                    <div><a class="hover:text-primary-600 transition" href="/why-us/our-advantage">Why Us</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/about-us/our-advantage">About Us</a></div>
                     <div><a class="hover:text-primary-600 transition" href="/contact-us">Contact Us</a></div>
                 </div>
             </div>
@@ -62,8 +62,8 @@
             <div class="flex lg:items-center lg:space-x-16 lg:flex-row flex-col lg:space-y-0 space-y-6">
                 <p>Copyright © 2024 Reliasourcing Inc. All Rights Reserved.</p>
                 <div class="flex items-start lg:items-center space-x-4 lg:w-auto w-fit">
-                    <a class="hover:text-primary-600 transition" href="">Privacy Policy</a>
-                    <a class="hover:text-primary-600 transition" href="">Terms</a>
+                    <a class="hover:text-primary-600 transition" href="/privacy-policy">Privacy Policy</a>
+                    <a class="hover:text-primary-600 transition" href="/terms-and-conditions">Terms</a>
                 </div>
             </div>
             <div class="flex items-center space-x-3.5">

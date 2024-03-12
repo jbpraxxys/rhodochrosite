@@ -7,27 +7,10 @@
         >
         <div class="max-w-[656px] p-6 lg:p-8 bg-primary-900 w-full rounded-2xl">
             <div class="text-white mb-6">
-                <p class="font-semibold text-3xl mb-3">Contact Us</p>
-                <p>Let’s discuss your project, together we will find a solution to the most difficult task</p>
+                <p class="font-semibold text-3xl mb-3">Let's Chat!</p>
+                <p>Drop us a line and access reliable solutions.</p>
             </div>
             <form class="hm-contact grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-4">
-                <div>
-                    <v-selector
-                        :options="[{ id: '1', value: 'Contact Center'}]"
-                        label="Interested Solutions"
-                        placeholder="Select solutions here"
-                        id="solution"
-                        name="solution"
-                    />
-                </div>
-                <div>
-                    <v-text-input
-                        label="Roles to Outsource"
-                        placeholder="Input Roles to Outsource here"
-                        id="roles"
-                        name="roles"
-                    />
-                </div>
                 <div>
                     <v-text-input
                         label="Full Name"
@@ -38,27 +21,13 @@
                 </div>
                 <div>
                     <v-text-input
-                        label="Company"
-                        placeholder="Enter company here"
-                        id="company"
-                        name="company"
-                    />
-                </div>
-                <div>
-                    <v-text-input
-                        label="Position"
-                        placeholder="Enter position here"
-                        id="position"
-                        name="position"
-                    />
-                </div>
-                <div>
-                    <v-selector
-                        :options="[{ id: '1', value: 'Information Technology'}]"
-                        label="Industry"
-                        placeholder="Select industry here"
-                        id="industry"
-                        name="industry"
+                        label="Phone"
+                        placeholder="Enter phone number here"
+                        type="number"
+                        id="phone"
+                        name="phone"
+                        :add_on_left="true"
+                        add_on_text="+63"
                     />
                 </div>
                 <div>
@@ -72,13 +41,20 @@
                 </div>
                 <div>
                     <v-text-input
-                        label="Phone"
-                        placeholder="Enter phone number here"
-                        type="number"
-                        id="phone"
-                        name="phone"
-                        :add_on_left="true"
-                        add_on_text="+63"
+                        label="Company"
+                        placeholder="Enter company here"
+                        id="company"
+                        name="company"
+                    />
+                </div>
+                <div class="col-span-full">
+                    <v-text-input
+                        textarea
+                        label="Message"
+                        placeholder="Enter message (optional)"
+                        id="message"
+                        name="message"
+                        text-area-rows="5"
                     />
                 </div>
                 <div class="col-span-full flex lg:flex-row flex-col lg:space-y-0 space-y-4 justify-between pt-2">

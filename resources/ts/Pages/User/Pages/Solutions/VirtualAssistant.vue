@@ -71,8 +71,8 @@
                 image: '/temp/solution2.png',
                 title: 'Find the Right Virtual Assistant for Your Business with Reliasourcing',
                 description: '<p>Scale your business, reach more customers, and acquire top talent worldwide with Reliasourcing’s outsourced virtual assistant services.<br><br>Reliasourcing is dedicated to maintaining service options adaptable to your needs. We’ll work with you to develop a tailor-made strategy that covers all the bases, so you’ll only pay for what you use. Get in touch with us right away to begin the process.</p>',
-                buttonText: 'Outsourcing with Us',
-                buttonLink: '/'
+                buttonText: 'Outsource with Us',
+                buttonLink: '/contact-us'
             }"
         />
 

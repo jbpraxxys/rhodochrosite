@@ -71,8 +71,8 @@
                 image: '/temp/solution2.png',
                 title: 'Deliver Excellent Customer Support with Reliasourcing',
                 description: '<p>Prepare to deliver exceptional customer service, accomplish your business objectives, and soar to new heights of success with our assistance.<br><br>Reliasourcing is committed to maintaining flexibility in our service offerings. We’re committed to creating a bespoke plan that meets your specific needs, so you only pay for what you require. Reach out to us today to begin the process.</p>',
-                buttonText: 'Outsourcing with Us',
-                buttonLink: '/'
+                buttonText: 'Outsource with Us',
+                buttonLink: '/contact-us'
             }"
         />
 
