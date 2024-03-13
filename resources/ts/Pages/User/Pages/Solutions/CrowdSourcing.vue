@@ -72,7 +72,7 @@
                 title: 'Access Top Talent and Streamline Your Workforce with Reliasourcing',
                 description: '<p>Broaden your reach, increase productivity, and focus more on your core responsibilities when you outsource your staff leasing operations to us.<br><br>Reliasourcing is dedicated to developing a tailor-made plan that meets your requirements so that you only pay for the services you use. Get in touch with us right away to get things going.</p>',
                 buttonText: 'Outsource with Us',
-                buttonLink: '/contact-us'
+                buttonLink: '/#contact-us'
             }"
         />
 

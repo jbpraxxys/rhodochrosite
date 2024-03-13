@@ -3,7 +3,7 @@
 
         <general-banner 
             :item="{
-                image: '/temp/solution1.png',
+                image: '/temp/industry1.png',
                 title: '<h1>Industries</h1>'
             }"
         />  
@@ -20,7 +20,7 @@
             :item="{
                 title: 'Industries We <b>Focus</b> On',
                 description: '<p>Hiring the right person at the right time is frequently essential to business innovation and growth. Discover the industries we focus on to see how our services can help your venture succeed.</p>',
-                image: '/temp/image1.png',
+                image: '/temp/industry2.png',
                 imageFirst: true
             }"
         />
@@ -66,7 +66,7 @@
                 {
                     title: 'Media',
                     description: '<p>Produce cutting-edge media content and help your business thrive in a competitive industry. Our media outsourcing services cover various tasks, including content creation, video production, social media management, marketing, and advertising. By outsourcing these functions, media businesses like yours can reduce expenses, streamline their operations, and concentrate on producing excellent content.</p>',
-                    icon: '/temp/icon11.png',
+                    icon: '/temp/icon20.png',
                 },
                 {
                     title: 'Utilities',
@@ -82,7 +82,7 @@
                 title: 'Why Choose Reliasourcing?',
                 description: '<p>Reliasourcing goes above and beyond merely catering to your unique requirements. With our stellar specializations, we will help you move your business forward strategically and efficiently.</p><br><p>Outsourcing specialized services can offer many benefits to businesses, including:</p><ul><li>Tailor-made solutions</li><li>Cost-efficient operations</li><li>Access to specialized experts</li><li>Greater flexibility and scalability</li><li>Better customer experience</li></ul>',
                 buttonText: 'Outsource with Us',
-                buttonLink: '/contact-us'
+                buttonLink: '/#contact-us'
             }"
         />
 

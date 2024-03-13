@@ -72,7 +72,7 @@
                 title: 'Secure Your Ideal Workspace with Reliasourcing',
                 description: '<p>Discover the power of seat leasing today. Let us handle the workspace and infrastructure while you focus on your core businesses.<br>At Reliasourcing, we understand that every business is unique. For this reason, we are committed to developing a personalized seat leasing strategy that answers your needs. Say goodbye to unnecessary costs and hello to unparalleled flexibility. Get in touch with us today, and together we’ll design a seat leasing solution tailored just for you.</p>',
                 buttonText: 'Outsource with Us',
-                buttonLink: '/contact-us'
+                buttonLink: '/#contact-us'
             }"
         />
 

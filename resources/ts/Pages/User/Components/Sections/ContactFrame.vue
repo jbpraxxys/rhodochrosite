@@ -1,5 +1,6 @@
 <template>
     <section class="relative z-1">
+    <div id="contact-form" class="-translate-y-20"></div>
         <img 
             class="absolute lg:top-auto top-[150px] lg:scale-100 scale-[200%] lg:bottom-0 left-0 -translate-x-[50%] z-1"
             src="/icons/contact-bg.svg" 

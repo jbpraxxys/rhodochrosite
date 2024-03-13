@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\CkeditorController;
+use App\Http\Controllers\User\Inquiry\InquiryController;
 use App\Http\Controllers\User\PageController;
+use App\Http\Controllers\User\Subscription\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +56,17 @@ Route::prefix('/')
         Route::get('/privacy-policy', 'privacyPolicy')->name('privacy-policy');
         Route::get('/terms-and-conditions', 'termsAndConditions')->name('terms-and-conditions');
     });
+
+Route::prefix('/inquiry')
+    ->name('inquiry.')
+    ->controller(InquiryController::class)
+    ->group(function () {
+        Route::post('submit', 'submit')->name('submit');
+});
+
+Route::prefix('/subscription')
+    ->name('subscription.')
+    ->controller(SubscriptionController::class)
+    ->group(function () {
+        Route::post('submit', 'submit')->name('submit');
+});

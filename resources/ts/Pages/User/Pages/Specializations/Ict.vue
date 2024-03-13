@@ -4,7 +4,7 @@
         <!-- General Banner -->
         <general-banner 
             :item="{
-                image: '/temp/specialization1.png',
+                image: '/temp/creative1.png',
                 title: '<h1>Top-Notch Creative<br>Services</h1>'
             }"
         />  
@@ -21,7 +21,7 @@
             :item="{
                 title: 'Why <b>Outsource ICT</b><br>and <b>Creative Services</b><br>to Reliasourcing?',
                 description: '<p>Information and communication technology (ICT) and creative services are two key areas where outsourcing is advantageous. These departments greatly influence a company’s identity, digital footprint, and innovation. This is also why companies should consider working with a company and industry expert like Reliasourcing.</p>',
-                image: '/temp/image1.png',
+                image: '/temp/creative2.png',
                 imageFirst: true
             }"
         />
@@ -30,28 +30,28 @@
             class="pb-[120px]"
             :items="[
                 {
-                    title: 'Operational Flexibility',
-                    description: '<p>Staff leasing provides the adaptability and scalability businesses require as workloads and needs evolve. With the help of staff leasing, businesses can easily adjust their workforce size to meet fluctuating demand. Companies can quickly adapt to changes in the market, seasonal requests, or project-specific requirements without going through the time-consuming and costly processes of hiring and letting go of employees. Leasing personnel also allows businesses to maintain flexibility, efficiency, and sensitivity to customer needs.</p>',
+                    title: 'Core Function Focus',
+                    description: '<p>Businesses can free up resources for more strategic pursuits by outsourcing non-essential tasks. This improves effectiveness and allows them to focus resources where they will have the most impact.</p>',
                     icon: '/temp/icon1.png',
                 },
                 {
                     title: 'Cost-Efficient',
-                    description: '<p>Staff leasing is attractive to businesses because it can help them reduce costs. By outsourcing to an external provider, companies eliminate the expenses associated with recruitment, onboarding, training, and maintaining a full-time workforce. Reliasourcing can take on these responsibilities, reducing overhead costs such as employee benefits, office space, and equipment. This allows you to allocate resources more efficiently and invest in strategic growth areas.</p>',
+                    description: '<p>Outsourcing ICT and creative services can help you save money on operations. Businesses can avoid large investments in technology, software, and skilled professionals by leveraging external expertise and infrastructure.</p>',
                     icon: '/temp/icon2.png',
                 },
                 {
-                    title: 'Advanced Technology Availability',
-                    description: '<p>To stay competitive, outsourcing firms frequently upgrade to newer technologies and equipment. Staff leasing allows businesses to use cutting-edge tools without significant financial commitments. Access to advanced technology helps companies to improve operations, streamline procedures, anticipate market shifts, and fuel innovation and expansion.</p>',
+                    title: 'Scalable Operations',
+                    description: '<p>As businesses grow, their ICT and Creative needs may change. Outsourcing offers the flexibility to scale services up or down as required, ensuring that companies always have the right resources at the right time.</p>',
                     icon: '/temp/icon3.png',
                 },
                 {
-                    title: 'Expert Access',
-                    description: '<p>Today’s business world is complex and constantly changing, making specialized skills increasingly crucial for success. Leasing employees gives businesses access to skilled workers with varied backgrounds and areas of expertise. Whether IT, marketing, customer service, or finance, Reliasourcing can connect businesses with professionals with the necessary skills and knowledge to deliver exceptional results. This access to specialized talent significantly enhances the organization’s productivity, quality, and innovation.</p>',
+                    title: 'Domain Expertise',
+                    description: '<p>Experts in outsourcing, like Reliasourcing, can connect you with talented individuals offering various information technology and creative service options. The availability of such elite talent can potentially boost product and service development.</p>',
                     icon: '/temp/icon4.png',
                 },
                 {
-                    title: 'Better Employee Work-Life Balance',
-                    description: '<p>Businesses can reduce internal employee workload by outsourcing non-core functions, allowing them to focus on their core responsibilities. This improves employee satisfaction and morale by promoting better work-life balance and reducing stress. When employees can concentrate on their key roles and responsibilities, they will likely be more engaged and productive, contributing to the organization’s overall success.</p>',
+                    title: 'Faster Market-Entry',
+                    description: '<p>With outsourcing, you can finish your projects faster. By streamlining procedures and capitalizing on best practices, seasoned service providers help businesses speed up the time it takes to launch new products and services.</p>',
                     icon: '/temp/icon5.png',
                 },
             ]"
@@ -63,7 +63,7 @@
                 title: 'Leverage ICT and Creative Services with Reliasourcing',
                 description: '<p>Take advantage of Reliasourcing’s ICT and creative service offerings to streamline operations, eliminate unnecessary steps, and maximize overall productivity.<br><br>Reliasourcing is committed to tailoring a solution to your needs so you only pay for what you use. Contact us right away to get things going.</p>',
                 buttonText: 'Outsource with Us',
-                buttonLink: '/contact-us'
+                buttonLink: '/#contact-us'
             }"
         />
 
@@ -72,7 +72,7 @@
             :item="{
                 title: 'Our <b>Specialties</b>',
                 description: '<p>Use the power of outsourcing services to your advantage. Take a closer look at what we can offer under our ICT and Creative Services and see what solutions best meet your needs.</p>',
-                image: '/temp/image1.png',
+                image: '/temp/creative3.png',
             }"
         />
 

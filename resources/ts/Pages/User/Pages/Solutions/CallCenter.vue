@@ -3,8 +3,8 @@
 
         <general-banner 
             :item="{
-                image: '/temp/solution1.png',
-                title: '<h1>Call Center<br>Solutions That Work</h1>'
+                image: '/temp/contact-center1.png',
+                title: '<h1>Contact Center<br>Solutions That Work</h1>'
             }"
         />  
 
@@ -20,7 +20,7 @@
             :item="{
                 title: 'Why <b>Outsource</b> Your<br>Call Center Operations to<br>Reliasourcing?',
                 description: '<p>Providing outstanding customer service is a powerful differentiator in today’s ever-changing and fast-paced business environment. However, managing an in-house call center can be time-consuming and labor-intensive, diverting resources from other business areas and limiting growth potential.<br><br>This is where call center outsourcing comes into play. Outsourcing your call center operations can unlock many benefits that elevate your business and propel it toward success. Here are some of them:</p>',
-                image: '/temp/image1.png',
+                image: '/temp/contact-center2.png',
                 imageFirst: true
             }"
         />
@@ -72,7 +72,7 @@
                 title: 'Deliver Excellent Customer Support with Reliasourcing',
                 description: '<p>Prepare to deliver exceptional customer service, accomplish your business objectives, and soar to new heights of success with our assistance.<br><br>Reliasourcing is committed to maintaining flexibility in our service offerings. We’re committed to creating a bespoke plan that meets your specific needs, so you only pay for what you require. Reach out to us today to begin the process.</p>',
                 buttonText: 'Outsource with Us',
-                buttonLink: '/contact-us'
+                buttonLink: '/#contact-us'
             }"
         />
 

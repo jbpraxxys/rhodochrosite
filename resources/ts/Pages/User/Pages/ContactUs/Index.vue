@@ -3,8 +3,8 @@
 
         <general-banner 
             :item="{
-                image: '/temp/solution1.png',
-                title: '<h1>Contact Us</h1>'
+                image: '/temp/contact1.png',
+                title: '<h1>Get in Touch with our Experts</h1>'
             }"
         />  
 

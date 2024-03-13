@@ -4,7 +4,7 @@
         <!-- General Banner -->
         <general-banner 
             :item="{
-                image: '/temp/specialization1.png',
+                image: '/temp/cs1.png',
                 title: '<h1>Leverage Outstanding Sales and Customer Support Solutions</h1>'
             }"
         />  
@@ -21,7 +21,7 @@
             :item="{
                 title: 'Why Outsource <b>Sales</b> and <b>Customer Support</b> Services to Reliasourcing?',
                 description: '<p>Sales and customer service are two areas where outsourcing has become a strategic necessity for companies of all sizes and in all sectors. In today’s competitive market, focusing on core competencies while delegating specialized functions to experts has proven to be an unbeatable recipe for success. Reliasourcing emerges as the ideal partner in this endeavor, offering a compelling case for why businesses should outsource these essential services.</p>',
-                image: '/temp/image1.png',
+                image: '/temp/cs2.png',
                 imageFirst: true
             }"
         />
@@ -68,7 +68,7 @@
                 title: 'Access Top Talent and Streamline Your Workforce with Reliasourcing',
                 description: '<p>Broaden your reach, increase productivity, and focus more on your core responsibilities when you outsource your staff leasing operations to us. <br><br>Reliasourcing is dedicated to developing a tailor-made plan that meets your requirements so that you only pay for the services you use. Get in touch with us right away to get things going.</p>',
                 buttonText: 'Outsource with Us',
-                buttonLink: '/contact-us'
+                buttonLink: '/#contact-us'
             }"
         />
 
@@ -77,7 +77,7 @@
             :item="{
                 title: '<b>Sales</b> and <b>Customer Support</b> Specializations',
                 description: '<p>Use the power of outsourcing services to your advantage. Take a closer look at what we can offer under our ICT and Creative Services and see what solutions best meet your needs.</p>',
-                image: '/temp/image1.png',
+                image: '/temp/cs3.png',
             }"
         />
 
@@ -92,17 +92,17 @@
                 { 
                     title: 'Social Media Management', 
                     description: '<p>Harness the power of social media with Reliasourcing’s comprehensive social media management services. Whether you need assistance with developing a strategy to expand your business or creating eye-catching visuals, we are here to help. We create engaging content, foster brand loyalty, and drive customer engagement. With our solutions, companies can enhance their online presence, build brand credibility, and tap into a vast digital audience to boost sales and customer loyalty.</p>',
-                    image: '/temp/iso2.png',
+                    image: '/temp/iso7.png',
                 },
                 { 
                     title: 'Sales Team Services', 
                     description: '<p>Propel sales and hit target numbers.Reliasourcing provides a full suite of sales team services, from lead generation, sales development, market research and strategy, to revenue optimization. We equip your sales force with the tools, training, and support needed for success. With this, businesses benefit from increased productivity, higher sales performance, and a streamlined sales process that maximizes revenue. Besides that, outsourcing sales functions frees up resources for other crucial areas, allowing businesses to concentrate on their core competencies and strategic initiatives.</p>',
-                    image: '/temp/iso3.png',
+                    image: '/temp/iso8.png',
                 },
                 { 
                     title: 'Customer Service', 
                     description: '<p>Businesses that want to ensure the quality of their customer service must employ an outsourcing provider with a good reputation. That’s why, at Reliasourcing, we offer 24/7 support, resolving issues promptly and ensuring exceptional customer experiences. Our world-class operations let companies see increased revenue and profits as a result of satisfied customers, lower churn rates, and positive brand perceptions.</p>',
-                    image: '/temp/iso5.png',
+                    image: '/temp/iso9.png',
                 },
             ]"
         />

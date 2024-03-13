@@ -9,9 +9,11 @@
                     <div class="max-w-[294px] mb-8 lg:mb-12">
                         <p>Let us guide you towards your goals and help you soar to new heights of success.</p>
                     </div>
-                    <v-button custom-class="h-14 px-6 !text-base">
-                        Outsource with Us
-                    </v-button>
+                    <a href="#contact-us">
+                        <v-button custom-class="h-14 px-6 !text-base">
+                            Outsource with Us
+                        </v-button>
+                    </a>
                 </div>
             </div>
             <frame-one class="lg:w-full w-[150%] relative right-[50%] lg:right-0" />
@@ -58,7 +60,8 @@
                             description: '<p>Elevate your digital footprint with our results-focused web development teams.<br><br>We work with you through an end-to-end process encompassing project initiation until successful launch. We leverage cutting-edge technologies to craft seamless and high-performing websites. Our experts transform your concepts into dynamic online solutions. Leverage the strength of a success driven team, diverse skills, efficient collaboration, and a steadfast commitment to achieving your business goals.</p>',
                             image: '/temp/image1.png',
                             buttonText: 'Learn More',
-                            designColor: 'text-white'
+                            designColor: 'text-white',
+                            buttonLink: '/specializations/ict'
                         }"
                     />
                     <image-text 
@@ -68,7 +71,8 @@
                             image: '/temp/image2.png',
                             imageFirst: true,
                             buttonText: 'Learn More',
-                            designColor: 'text-white'
+                            designColor: 'text-white',
+                            buttonLink: '/specializations/ict'
                         }"
                     />
                 </div>
@@ -132,7 +136,9 @@
                 <div class="max-w-[715px] m-auto text-white">
                     <p class="text-5xl font-bold mb-4 animateUp">Collaborate With Us</p>
                     <p class="mb-12 text-xl animateUp">Reliasourcing goes above and beyond merely catering to your unique requirements. With our stellar specializations, we will help you move your business forward strategically and efficiently.</p>
-                    <v-button class="animateUp">Outsource with Us</v-button>
+                    <a href="#contact-us">
+                        <v-button class="animateUp">Outsource with Us</v-button>
+                    </a>
                 </div>
             </div>
         </section>
@@ -152,9 +158,11 @@
                             <br>
                             <p>Our approach encompasses four key stages, each meticulously crafted to deliver solutions and foster long-term success.</p>
                         </div>
-                        <v-button custom-class="h-14 px-6 !text-base animateUp" design-color="text-white">
-                            About Us
-                        </v-button>
+                        <a href="/about-us/our-advantages">
+                            <v-button custom-class="h-14 px-6 !text-base animateUp" design-color="text-white">
+                                About Us
+                            </v-button>
+                        </a>
                     </div>
                     <div class="w-full lg:w-1/2 space-y-4">
                         <div v-for="item in items3" class="animateUp">
@@ -186,25 +194,25 @@ const items1 = [
         title: 'Contact Center', 
         description: 'Revolutionize your customer service operations with our customized solutions to meet your business and customers’ needs.',
         image: '/temp/home1.png',
-        link: '/'
+        link: '/solutions/call-center'
     },
     { 
         title: 'Managed Services', 
         description: 'Easily access specialized professionals you need and avoid the costs of hiring new employees.',
         image: '/temp/home6.png',
-        link: '/'
+        link: '/solutions/managed-services'
     },
     { 
         title: 'Staff Leasing', 
         description: 'Access a pool of external talent and resources. We’ll delegate administrative tasks from hiring, payroll, and benefits.',
         image: '/temp/home2.png',
-        link: '/'
+        link: '/solutions/staff-leasing'
     },
     { 
         title: 'Workforce Management', 
         description: 'Optimize staffing and workload requirements and the scheduling processes needed to meet your business goals.',
         image: '/temp/home5.png',
-        link: '/'
+        link: '/solutions/workforce-management'
     },
 ]
 

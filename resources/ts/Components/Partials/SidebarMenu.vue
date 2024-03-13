@@ -324,6 +324,28 @@ const navigation: generalNavType[] = [
         ]
     },
     {
+        name: "Inquiry Management",
+        href: "#",
+        parentUrl: "#",
+        allowed: true,
+        children: [
+            {
+                name: "General Inquiry",
+                href: route('admin.contact.inquiries.index'),
+                parentUrl: "admin.contact.inquiries*",
+                icon: DocumentTextIcon,
+                allowed: true,
+            },
+            {
+                name: "Subscription",
+                href: route('admin.contact.subscriptions.index'),
+                parentUrl: "admin.contact.subscriptions*",
+                icon: DocumentTextIcon,
+                allowed: true,
+            },
+        ]
+    },
+    {
         name: "Accounts",
         href: "#",
         parentUrl: "#",

@@ -20,7 +20,7 @@
                 <p class="font-semibold">{{ item.position }}</p>
             </div>
             <div>
-                <a :href="item.linkedin">
+                <a :href="item.linkedin" target="_blank" rel="noreferrer">
                     <img src="/temp/linkedin-icon.svg" alt="icon">
                 </a>
             </div>

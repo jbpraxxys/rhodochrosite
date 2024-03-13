@@ -44,7 +44,7 @@
                 </div>
                 <div class="relative group-hover">
                     <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
-                        <a href="/why-us/our-advantages">Specialization</a>
+                        <a href="/specializations/ict">Specialization</a>
                         <svg class="rotate-180 lg:rotate-0" width="16" height="16" viewBox="0 0 16 16" fill="transparent" stroke="currentColor">
                             <path d="M12 6L8 10L4 6" stroke-width="2"/>
                         </svg>
@@ -90,8 +90,8 @@
                 <div>
                     <div class="lg:pl-8 button-header px-5 py-4 lg:px-0 lg:py-0">
                         <a href="/contact-us">
-                            <v-button custom-class="w-full lg:w-auto" v-if="headerScroll ? '': 'hidden'" size="sm">Contact Us</v-button>
-                            <v-button custom-class="w-full lg:w-auto" v-if="headerScroll ? 'hidden': ''" size="sm" design-color="text-white">Contact Us</v-button>
+                            <v-button custom-class="w-full lg:w-auto" v-if="headerScroll ? '': 'hidden'" size="md">Contact Us</v-button>
+                            <v-button custom-class="w-full lg:w-auto" v-if="headerScroll ? 'hidden': ''" size="md" design-color="text-white">Contact Us</v-button>
                         </a>
                     </div>
                 </div>
