@@ -27,13 +27,13 @@
             >
                 <div class="relative group-hover">
                     <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
-                        <a href="/solutions/call-center">Solutions</a>
+                        <a href="/solutions/contact-center">Solutions</a>
                         <svg class="rotate-180 lg:rotate-0" width="16" height="16" viewBox="0 0 16 16" fill="transparent" stroke="currentColor">
                             <path d="M12 6L8 10L4 6" stroke-width="2"/>
                         </svg>
                     </div>
                     <div class="bg-white px-6 py-4 text-sm text-black flex flex-col space-y-4 min-w-[220px] rounded-b-xl lg:shadow-md absolute top-[40px] left-0 hover-child">
-                        <a class="hover:text-primary-600 transition" href="/solutions/call-center">Contact Center</a>
+                        <a class="hover:text-primary-600 transition" href="/solutions/contact-center">Contact Center</a>
                         <a class="hover:text-primary-600 transition" href="/solutions/managed-services">Managed Services</a>
                         <a class="hover:text-primary-600 transition" href="/solutions/staff-leasing">Staff Leasing</a>
                         <a class="hover:text-primary-600 transition" href="/solutions/workforce-management">Workforce Management</a>
@@ -66,8 +66,6 @@
                             <div class="bg-white px-6 py-4 text-sm text-black flex flex-col space-y-4 min-w-[275px] rounded-b-xl lg:shadow-md absolute -top-1 left-[calc(100%+24px)] hover-child2">
                                 <a class="hover:text-primary-600 transition" href="/specializations/sale-development">Sales Development Services</a>
                                 <a class="hover:text-primary-600 transition" href="/specializations/customer-service">Customer Success Services</a>
-                                <!-- <a class="hover:text-primary-600 transition" href="/specializations/sales-team-service">Revenue Optimization Service</a> -->
-                                <!-- <a class="hover:text-primary-600 transition" href="/specializations/social-media-management">Social Media Management</a> -->
                             </div>
                         </div>
                     </div>

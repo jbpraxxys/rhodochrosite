@@ -36,7 +36,7 @@ Route::prefix('/')
     ->controller(PageController::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('/solutions/call-center', 'callCenter')->name('call-center');
+        Route::get('/solutions/contact-center', 'contactCenter')->name('contact-center');
         Route::get('/solutions/staff-leasing', 'staffLeasing')->name('staff-leasing');
         Route::get('/solutions/seat-leasing', 'seatLeasing')->name('seat-leasing');
         Route::get('/solutions/virtual-assistant', 'virtualAssistant')->name('virtual-assistant');

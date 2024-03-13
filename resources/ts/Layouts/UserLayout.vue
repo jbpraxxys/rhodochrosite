@@ -151,6 +151,26 @@ onMounted(() => {
                 stagger: 0.1
             })
         })
+        
+        const wordSplit = document.querySelectorAll('.word-split')
+
+        wordSplit.forEach((word,i) => {
+
+            const text = new SplitType(word, { types: 'words'})
+
+            gsap.from(text.words, {
+                scrollTrigger: {
+                    trigger: word,
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    scrub: true,
+                    markers: false,
+                },
+                opacity: .2,
+                color: '#a1a1a1',
+                stagger: 0.1
+            })
+        })
 
     }, 500)
     
