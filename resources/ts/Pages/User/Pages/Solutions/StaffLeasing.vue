@@ -3,7 +3,7 @@
 
         <general-banner 
             :item="{
-                image: '/temp/solution1.png',
+                image: '/temp/staff1.png',
                 title: '<h1>Seamless Staff<br>Leasing Solutions</h1>'
             }"
         />  
@@ -20,7 +20,7 @@
             :item="{
                 title: 'Why Choose Reliasourcing<br>for Staff Leasing Solutions?',
                 description: '<p>Companies in today’s highly competitive market always look for new ways to improve their processes and cut expenses without sacrificing quality. Leasing employees from outsourcing companies is one strategy that has gained traction recently. Tapping into external talent and resources through staff leasing allows businesses to concentrate on what they do best. Prepare to explore the key benefits of staff leasing and why companies like yours should consider outsourcing a viable option:</p>',
-                image: '/temp/image1.png',
+                image: '/temp/staff2.png',
                 imageFirst: true
             }"
         />
@@ -72,7 +72,7 @@
                 title: 'Access Top Talent and Streamline Your Workforce with Reliasourcing',
                 description: '<p>Broaden your reach, increase productivity, and focus more on your core responsibilities when you outsource your staff leasing operations to us.<br><br>Reliasourcing is dedicated to developing a tailor-made plan that meets your requirements so that you only pay for the services you use. Get in touch with us right away to get things going.</p>',
                 buttonText: 'Outsource with Us',
-                buttonLink: '/contact-us'
+                buttonLink: '/#contact-us'
             }"
         />
 

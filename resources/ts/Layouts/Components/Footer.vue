@@ -68,7 +68,7 @@
             </div>
             <div class="flex items-center space-x-3.5">
                 <a 
-                    href="/"
+                    href="https://www.facebook.com/reliasourcingdd/"
                     target="_blank"
                     rel="noreferrer"
                 >
@@ -79,7 +79,7 @@
                     >
                 </a>
                 <a 
-                    href="/"
+                    href="https://www.linkedin.com/company/reliasourcing/"
                     target="_blank"
                     rel="noreferrer"
                 >

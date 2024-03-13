@@ -6,8 +6,10 @@ use App\Http\Controllers\Admin\Accounts\AdminController;
 use App\Http\Controllers\Admin\Accounts\RolePermissionController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Contents\CmsPageController;
+use App\Http\Controllers\Admin\InquiryController;
 use App\Http\Controllers\Admin\Others\NotificationController;
 use App\Http\Controllers\Admin\Others\SettingsController;
+use App\Http\Controllers\Admin\SubscriptionController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -139,5 +141,30 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         });
 
     Route::post('ckeditor/upload', [CkeditorController::class, 'upload']);
+
+    Route::prefix('contact')
+        ->name('contact.')
+        ->group(function () {
+
+            Route::prefix('inquiries')
+                ->name('inquiries.')
+                ->controller(InquiryController::class)
+                ->group(function () {
+                    Route::get('index', 'index')->name('index');
+                    Route::get('view/{inquiry}', 'view')->name('view');
+                    Route::delete('delete/{inquiry}', 'delete')->name('delete');
+                    Route::post('restore', 'restore')->name('restore');
+                });
+
+            Route::prefix('subscriptions')
+                ->name('subscriptions.')
+                ->controller(SubscriptionController::class)
+                ->group(function () {
+                    Route::get('index', 'index')->name('index');
+                    Route::get('view/{subscription}', 'view')->name('view');
+                    Route::delete('delete/{subscription}', 'delete')->name('delete');
+                    Route::post('restore', 'restore')->name('restore');
+                });
+        });
         
 });

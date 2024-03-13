@@ -110,6 +110,34 @@ return [
             'show_metadata' => 1,
             'sections' => [
                 [
+                    'id' => 'inquiry',
+                    'label' => 'General Inquiry',
+                    'description' => '',
+                    'items' => [
+                        [
+                            'id' => 'email_recipient',
+                            'type' => 'text',
+                            'label' => 'Email Recipient',
+                            'description' => 'This email will be used as a recipient for inquiries. Separate emails with a comma (test@email.com, email@test.com)',
+                        ],
+
+                    ]
+                ],
+                [
+                    'id' => 'subscription',
+                    'label' => 'Subscription',
+                    'description' => '',
+                    'items' => [
+                        [
+                            'id' => 'email_recipient',
+                            'type' => 'text',
+                            'label' => 'Email Recipient',
+                            'description' => 'This email will be used as a recipient for inquiries. Separate emails with a comma (test@email.com, email@test.com)',
+                        ],
+
+                    ]
+                ],
+                [
                     'id' => 'section1',
                     'label' => 'Section 1',
                     'description' => 'Relevant data and other details',

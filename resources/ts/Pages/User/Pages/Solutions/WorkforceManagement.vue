@@ -3,7 +3,7 @@
 
         <general-banner 
             :item="{
-                image: '/temp/solution1.png',
+                image: '/temp/workforce1.png',
                 title: '<h1>Unlock Efficiency<br>with Workforce</h1>'
             }"
         />  
@@ -20,7 +20,7 @@
             :item="{
                 title: 'Why Outsource Workforce<br>Management to<br>Reliasourcing?',
                 description: '<p>Businesses need effective workforce management to succeed in today’s hectic and cutthroat marketplace. It entails maximizing human resource allocation, raising output, and ensuring seamless operations.<br><br>Here’s how Reliasourcing can help you with reliable workforce management solutions:</p>',
-                image: '/temp/image1.png',
+                image: '/temp/workforce2.png',
                 imageFirst: true
             }"
         />
@@ -72,7 +72,7 @@
                 title: 'Maximize Workforce Management with Reliasourcing',
                 description: '<p>Increase operational effectiveness, streamline administrative tasks, and make the most of your workforce by utilizing Reliasourcing’s services to achieve your company’s goals.<br><br>Reliasourcing is dedicated to designing a plan specifically for you, ensuring you only pay for your requirements. Get in touch with us today to get started.</p>',
                 buttonText: 'Outsource with Us',
-                buttonLink: '/contact-us'
+                buttonLink: '/#contact-us'
             }"
         />
 
