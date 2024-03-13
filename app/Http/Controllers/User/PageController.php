@@ -26,7 +26,7 @@ class PageController extends Controller
 
     // Solutions
 
-    public function callCenter() {
+    public function contactCenter() {
         return Inertia::render('User/Pages/Solutions/CallCenter', []);
     }
 
