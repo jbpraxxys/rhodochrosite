@@ -55,7 +55,8 @@ class SubPageController extends Controller
     {
         $this->subPageProcessor->update($request, $subPage);
 
-        return to_route($this->indexRoute)
+        return redirect()
+            ->route('admin.pages.parent.edit', [$subPage->parent_page_id, 'tab' => 'sub-pages'])
             ->with('success', 'Saved!');
     }
 

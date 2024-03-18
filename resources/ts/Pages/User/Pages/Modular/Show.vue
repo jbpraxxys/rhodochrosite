@@ -20,7 +20,7 @@
                 :class="frame.custom_class"
                 :item="{
                     title: frame.title,
-                    description: frame.description,
+                    description: frame.content,
                     image: $page.props.storage_url + frame.image,
                     imageFirst: frame.image_first,
                     buttonText: frame.button_text,
@@ -40,7 +40,7 @@
                 :item="{
                     image: $page.props.storage_url + frame.image,
                     title: frame.title,
-                    description: frame.description,
+                    description: frame.content,
                     buttonText: frame.button_text,
                     buttonLink: frame.button_link
                 }"

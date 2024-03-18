@@ -8,7 +8,7 @@
             <div class="hdr-logo lg:w-auto">
                 <a href="/">
                     <img 
-                        src="/temp/logo.png" 
+                        :src="$page.props.storage_url + header.section1_logo" 
                         alt="logo"
                         class="lg:h-[68px] max-w-full mx-auto transition duration-700 header-logo"
                         :class="headerScroll ? 'h-[64px]' : 'brightness-0 invert h-[61px]'"
@@ -65,7 +65,7 @@
                                     <a 
                                     v-for="child_page in sub_page.child_pages"
                                     class="hover:text-primary-600 transition" 
-                                    :href="route('web.pages.sub-page', {
+                                    :href="route('web.pages.child-page', {
                                         parentPage: parent_page.slug,
                                         subPage: sub_page.slug,
                                         childPage: child_page.slug
@@ -86,64 +86,6 @@
                         </template>    
                     </div>
                 </div>
-                
-                <!-- <div class="relative group-hover">
-                    <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
-                        <a href="/solutions/contact-center">Solutions</a>
-                        <svg class="rotate-180 lg:rotate-0" width="16" height="16" viewBox="0 0 16 16" fill="transparent" stroke="currentColor">
-                            <path d="M12 6L8 10L4 6" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <div class="bg-white px-6 py-4 text-sm text-black flex flex-col space-y-4 min-w-[220px] rounded-b-xl lg:shadow-md absolute top-[40px] left-0 hover-child">
-                        <a class="hover:text-primary-600 transition" href="/solutions/contact-center">Contact Center</a>
-                        <a class="hover:text-primary-600 transition" href="/solutions/managed-services">Managed Services</a>
-                        <a class="hover:text-primary-600 transition" href="/solutions/staff-leasing">Staff Leasing</a>
-                        <a class="hover:text-primary-600 transition" href="/solutions/workforce-management">Workforce Management</a>
-                    </div>
-                </div>
-                <div class="relative group-hover">
-                    <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
-                        <a href="/specializations/ict">Specialization</a>
-                        <svg class="rotate-180 lg:rotate-0" width="16" height="16" viewBox="0 0 16 16" fill="transparent" stroke="currentColor">
-                            <path d="M12 6L8 10L4 6" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <div class="bg-white px-6 py-4 text-sm text-black flex flex-col space-y-4 min-w-[285px] rounded-b-xl lg:shadow-md absolute top-[40px] left-0 hover-child">
-                        <a class="hover:text-primary-600 transition" href="/specializations/ict">Creative Services</a>
-                        <div class="relative group-hover2">
-                            <div class="flex items-center space-x-2.5 hover:text-primary-600 transition lg:justify-normal justify-between">
-                                <a href="/specializations/sales-and-customer">Sales and Customer Support</a>
-                                <div>
-                                    <svg class="lg:block hidden" width="24" height="24" viewBox="0 0 24 24" fill="transparent" stroke="currentColor">
-                                        <path d="M9 6L15 12L9 18" stroke-width="2"/>
-                                    </svg>
-                                    <svg class="lg:hidden block rotate-180 lg:rotate-0" width="16" height="16" viewBox="0 0 16 16" fill="transparent" stroke="currentColor">
-                                        <path d="M12 6L8 10L4 6" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="bg-white px-6 py-4 text-sm text-black flex flex-col space-y-4 min-w-[275px] rounded-b-xl lg:shadow-md absolute -top-1 left-[calc(100%+24px)] hover-child2">
-                                <a class="hover:text-primary-600 transition" href="/specializations/sale-development">Sales Development Services</a>
-                                <a class="hover:text-primary-600 transition" href="/specializations/customer-service">Customer Success Services</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
-                    <a href="/industries">Industries</a>
-                </div>
-                <div class="relative group-hover">
-                    <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
-                        <a href="/about-us/our-advantages">About Us</a>
-                        <svg class="rotate-180 lg:rotate-0" width="16" height="16" viewBox="0 0 16 16" fill="transparent" stroke="currentColor">
-                            <path d="M12 6L8 10L4 6" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <div class="bg-white px-6 py-4 text-sm text-black flex flex-col space-y-4 min-w-[218px] rounded-b-xl lg:shadow-md absolute top-[40px] left-0 hover-child">
-                        <a class="hover:text-primary-600 transition" href="/about-us/our-advantages">Our Advantages</a>
-                        <a class="hover:text-primary-600 transition" href="/about-us/our-team">Our Team</a>
-                    </div>
-                </div> -->
                 <div>
                     <div class="lg:pl-8 button-header px-5 py-4 lg:px-0 lg:py-0">
                         <a href="/contact-us">

@@ -62,7 +62,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::get('{frame}/edit/frame', 'editFrame')->name('edit-frame');
                 Route::post('update/frame/{frame}', 'updateFrame')->name('update-frame');
                 Route::delete('delete/frame/{frame}', 'deleteFrame')->name('delete-frame');
-                Route::post('reorder/frame', 'updateOrder')->name('update-order');
 
                 // frame - card
                 Route::get('{frame}/create/frame/card', 'createFrameCard')->name('create-frame-card');
@@ -83,7 +82,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::get('{parentPage}/create', 'create')->name('create');
                 Route::post('store', 'store')->name('store');
                 Route::delete('delete/{subPage}', 'delete')->name('delete');
-                Route::post('restore', 'restore')->name('restore');
 
                 // frame
                 Route::get('{subPage}/create/frame', 'createFrame')->name('create-frame');
@@ -120,7 +118,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::get('{frame}/edit/frame', 'editFrame')->name('edit-frame');
                 Route::post('update/frame/{frame}', 'updateFrame')->name('update-frame');
                 Route::delete('delete/frame/{frame}', 'deleteFrame')->name('delete-frame');
-                Route::post('reorder/frame', 'updateOrder')->name('update-order');
 
                 // frame - card
                 Route::get('{frame}/create/frame/card', 'createFrameCard')->name('create-frame-card');
@@ -130,85 +127,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::post('reorder/card', 'updateCardOrder')->name('update-card-order');
                 Route::delete('delete/card/{item}', 'deleteCard')->name('delete-card');
             });
+
+        Route::prefix('frame')
+            ->name('frame.')
+            ->controller(FrameController::class)
+            ->group(function () {
+                Route::post('reorder', 'updateOrder')->name('update-order');
+            });
     });
-
-    // Route::prefix('modular-parent')
-    // ->name('modular-parent.')
-    // ->controller(ParentPageController::class)
-    // ->group(function () {
-    //     Route::get('index', 'index')->name('index');
-    //     Route::get('edit/{parentPage}', 'edit')->name('edit');
-    //     Route::post('edit/{parentPage}', 'update')->name('update');
-    //     Route::get('create', 'create')->name('create');
-    //     Route::post('store', 'store')->name('store');
-    //     Route::delete('delete/{parentPage}', 'delete')->name('delete');
-    //     Route::post('restore', 'restore')->name('restore');
-
-    //     Route::get('{parentPage}/create/frame', 'createFrame')->name('create-frame');
-    //     Route::post('store/frame/{parentPage}', 'storeFrame')->name('store-frame');
-    //     Route::get('/edit/frame/{frame}', 'editFrame')->name('edit-frame');
-    //     Route::post('update/frame/{frame}', 'updateFrame')->name('update-frame');
-
-    //     Route::prefix('frame')
-    //         ->name('frame.')
-    //         ->controller(FrameController::class)
-    //         ->group(function () {
-    //             Route::get('{frame}/create-card', 'createCard')->name('create-card');
-    //             Route::post('{frame}/store-card', 'storeCard')->name('store-card');
-    //             Route::get('edit-card/{card}', 'editCard')->name('edit-card');
-    //             Route::post('update-card/{card}', 'updateCard')->name('update-card');
-    //         });
-
-    //     Route::prefix('sub-page')
-    //         ->name('sub-page.')
-    //         ->controller(SubPageController::class)
-    //         ->group(function () {
-    //             // Route::get('index', 'index')->name('index');
-    //             Route::get('edit/{parentPage}', 'edit')->name('edit');
-    //             Route::post('edit/{parentPage}', 'update')->name('update');
-    //             Route::get('{parentPage}/create', 'create')->name('create');
-    //             Route::post('store', 'store')->name('store');
-    //             // Route::delete('delete/{parentPage}', 'delete')->name('delete');
-    //             // Route::post('restore', 'restore')->name('restore');
-        
-    //             // Route::get('{parentPage}/create/frame', 'createFrame')->name('create-frame');
-    //             // Route::post('store/frame/{parentPage}', 'storeFrame')->name('store-frame');
-    //             // Route::get('/edit/frame/{frame}', 'editFrame')->name('edit-frame');
-    //             // Route::post('update/frame/{frame}', 'updateFrame')->name('update-frame');
-        
-    //             // Route::prefix('frame')
-    //             //     ->name('frame.')
-    //             //     ->controller(FrameController::class)
-    //             //     ->group(function () {
-    //             //         Route::get('{frame}/create-card', 'createCard')->name('create-card');
-    //             //         Route::post('{frame}/store-card', 'storeCard')->name('store-card');
-    //             //         Route::get('edit-card/{card}', 'editCard')->name('edit-card');
-    //             //         Route::post('update-card/{card}', 'updateCard')->name('update-card');
-    //             //     });
-    //         });
-    // });
-
-    // frames
-    
-
-    // Route::prefix('frames')
-    // ->name('frames.')
-    // ->controller(FrameController::class)
-    // ->group(function () {
-    //     Route::get('edit/{frame}', 'edit')->name('edit');
-    //     Route::post('update/{frame}', 'update')->name('update');
-    //     Route::get('create', 'create')->name('create');
-    //     Route::post('store', 'store')->name('store');
-    //     Route::delete('delete/{frame}', 'delete')->name('delete');
-    //     Route::post('restore', 'restore')->name('restore');
-    // });
-
-    // Route::prefix('dashboard')
-    //     ->name('dashboard.')
-    //     ->controller(DashboardController::class)
-    //     ->group(function () {
-    //         Route::get('index', 'index')->name('index');
-    //     });
 
     /*
     |--------------------------------------------------------------------------

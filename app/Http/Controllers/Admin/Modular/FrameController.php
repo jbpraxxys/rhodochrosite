@@ -19,6 +19,35 @@ class FrameController extends Controller
         $this->frameProcessor = $frameProcessor;
     }
 
+    /**
+     * Reorder frames
+    * 
+    * @param   Request $request
+    * @return  RedirectResponse
+    */
+    public function updateOrder(Request $request)
+    {
+        $data = $request->validate([
+            'items.*.id' => 'required',
+            'items.*.order' => 'required|numeric'
+        ]);
+
+        $items = Frame::all();
+
+        foreach ($items as $frame) {
+            $id = $frame->id;
+            foreach($request->items as $new) {
+                if ($new['id'] == $id) {
+                    $frame->update(['order' => $new['order']]);
+                }
+            }
+        }
+
+        return redirect()
+            ->back()
+            ->with('success', 'Updated Successfully');
+    }
+
     public function storeCard(CardRequest $request, Frame $frame, Card $card)
     {
 

@@ -10,14 +10,33 @@
                     :routeLink="route(createRoute, id)"
                 />
             </div>
-            <div class="p-4 space-y-4">
-                <div v-for="frame in frames">
-                    <a :href="route(editRoute, frame.id)">
-                        <p class="mb-2 text-xs">{{ frame.label }}</p>
-                        <image-text v-if="frame.frame_type == 1" />
-                        <cards v-if="frame.frame_type == 2" />
-                    </a>
-                </div>
+            <div class="p-4">
+                <table class="min-w-full">
+                    <draggable
+                        v-model="items"
+                        tag="tbody"
+                        item-key="id"
+                        @change="reorder"
+                        v-bind="{
+                            animation: 200,
+                        }"
+                        class=""
+                    >
+                        <template #item="{element}">
+                            <tr class="cursor-move">
+                                <td class="px-0 py-2">
+                                    <a 
+                                    class="block"
+                                    :href="route(editRoute, element.id)">
+                                        <p class="mb-2 text-xs">{{ element.label }}</p>
+                                        <image-text v-if="element.frame_type == 1" />
+                                        <cards v-if="element.frame_type == 2" />
+                                    </a>
+                                </td>
+                            </tr>
+                        </template>
+                    </draggable>
+                </table>
                 <div v-if="frames.length <= 0">
                     <p class="text-gray-400 text-sm">No frame available</p>
                 </div>
@@ -26,8 +45,12 @@
     </div>
 </template>
 <script lang="ts" setup>
+import { ref, computed } from 'vue';
 import ImageText from './FrameTypes/ImageText.vue';
 import Cards from './FrameTypes/Cards.vue';
+import draggable from 'vuedraggable';
+import { router } from '@inertiajs/vue3';
+
 const props = defineProps({
     id: { 
         type: Number 
@@ -42,4 +65,17 @@ const props = defineProps({
         type: String 
     },
 })
+
+const items = ref(props.frames);
+const reorder =()=> {
+    items.value.map((item, index) => {
+        item.order = index + 1;
+    })
+
+    router.post(
+        route('admin.pages.frame.update-order'),
+        { items: items.value },
+        { preserveState: true }
+    )
+}
 </script>
