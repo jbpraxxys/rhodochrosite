@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-center space-x-2">
-        <a 
+        <!-- <a 
         :href="route('admin.settings.index')"
         class="relative w-10 h-10 p-2.5 rounded-full"
         :class="$page.url == '/admin/settings/index' ? 'bg-gray-50' : 'bg-white'">
@@ -20,7 +20,7 @@
                 class="h-5 w-5 text-gray-600"
             />
             <span class="absolute top-2.5 right-2.5 bg-primary-600 w-2 h-2 rounded-full"></span>
-        </a>
+        </a> -->
         <div class="h-10">
             <Popover class="relative">
                 <PopoverButton class="focus:outline-none">

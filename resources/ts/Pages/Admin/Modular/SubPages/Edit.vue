@@ -97,7 +97,7 @@
             />
         </div>
         <template #buttons>
-            <action-button>
+            <action-button @click="submit">
                 Save Changes
             </action-button>
         </template>

@@ -43,19 +43,9 @@ defineProps({
 })
 
 
-const header = ref<object>(null);
-const footer = ref<object>(null);
-const parent_pages = computed(() => usePage().props.parent_pages)
-
-// METHODS
-const fetchLayout = () => {
-    window.axios.post(route("web.cms.layout")).then((response) => {
-        header.value = response.data.header?.content;
-        footer.value = response.data.footer?.content;
-    });
-};
-
-const origin = window.location.origin;
+const header = computed(() => usePage().props.cms_header);
+const footer = computed(() => usePage().props.cms_footer);
+const parent_pages = computed(() => usePage().props.parent_pages);
 
 const lenis = new Lenis({
     duration: 1.5

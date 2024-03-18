@@ -9,7 +9,7 @@
             <div class="flex items-center space-x-3">
                 <img 
                 class="flex-shrink-0"
-                src="/temp/logo.png" 
+                src="/icons/logo.png" 
                 alt="logo">
                 <!-- <transition
                 enter-active-class="transition duration-300 ease-out delay-300"

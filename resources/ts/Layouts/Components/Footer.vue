@@ -6,7 +6,7 @@
                     <a href="/">
                         <img 
                             class="w-[250px] lg:w-[260px]" 
-                            src="/temp/footer-logo.svg" 
+                            :src="$page.props.storage_url + footer.section1_logo" 
                             alt="footer-logo"
                         >
                     </a>
@@ -14,23 +14,9 @@
                 <p class="text-white leading-5 mb-8">Double Dragon Meridian Park corner Macapagal Avenue, Pasay, Metro Manila, Philippines</p>
                 <div class="flex items-center space-x-6 mb-12 lg:mb-0">
                     <img 
+                        v-for="accreditation in footer.section1_accreditation"
                         class="h-[50px]"
-                        src="/temp/ftr1.png" 
-                        alt="icon"
-                    >
-                    <img 
-                        class="h-[50px]"
-                        src="/temp/ftr2.png" 
-                        alt="icon"
-                    >
-                    <img 
-                        class="h-[50px]"
-                        src="/temp/ftr3.png" 
-                        alt="icon"
-                    >
-                    <img 
-                        class="h-[50px]"
-                        src="/temp/ftr4.png" 
+                        :src="$page.props.storage_url + accreditation.logo" 
                         alt="icon"
                     >
                 </div>

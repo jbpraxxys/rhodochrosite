@@ -83,6 +83,7 @@
             <frame-index 
                 v-if="activeTab == 'frames'" 
                 :create-route="'admin.pages.parent.create-frame'" 
+                :edit-route="'admin.pages.parent.edit-frame'" 
                 :id="item.id" 
                 :frames="frames"
             />

@@ -70,6 +70,7 @@ class HandleInertiaRequests extends Middleware
                 }
             },
             'cms_header' => $request->routeIs('admin.*') ? '' : CmsPage::where('slug', 'header')->first()->content,
+            'cms_footer' => $request->routeIs('admin.*') ? '' : CmsPage::where('slug', 'footer')->first()->content,
             'parent_pages' => $request->routeIs('admin.*') ? [] : ParentPage::orderBy('order', 'ASC')->with('sub_pages.child_pages')->get(),
         ]);
     }

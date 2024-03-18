@@ -490,6 +490,22 @@ return [
                             'label' => 'Subcontent',
                             'description' => '',
                         ],
+                        [
+                            'id' => 'accreditation',
+                            'type' => 'list_table',
+                            'label' => 'Accreditation',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'logo',
+                                    'label' => 'Logo',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                    'description' => 'Max file size: 2MB | Dimension: 24px x 24px',
+                                ]
+                            ]
+                        ],
                     ]
                 ],
                 [
