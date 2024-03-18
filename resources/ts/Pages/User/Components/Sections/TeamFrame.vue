@@ -22,7 +22,7 @@
                     }"
                 >
                     <a 
-                        href="https://player.vimeo.com/video/922712187?muted=false"
+                        href="https://www.youtube.com/watch?v=P2kofMKMLnE&mute=0&autoplay=1"
                     >
                         <img 
                             class="image image-thumb w-full h-full object-cover" 

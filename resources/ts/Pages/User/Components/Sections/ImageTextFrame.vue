@@ -9,7 +9,7 @@
                 >
             </div>
             <div class="w-full lg:w-1/2 text-white px-4 lg:px-20 py-6 lg:py-[100px]">
-                <p class="text-5xl font-bold mb-6 animateUp">{{ item.title }}</p>
+                <p class="text-5xl font-bold mb-6 animateUp" v-html="item.title"></p>
                 <div class="text-lg mb-12 animateUp" v-html="item.description" />
                 <a :href="item.buttonLink">
                     <v-button class="animateUp">

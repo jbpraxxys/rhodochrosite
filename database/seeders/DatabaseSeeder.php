@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminSeeder::class,
             PermissionSeeder::class,
+            ParentPageSeeder::class,
+            SubPageSeeder::class,
+            ChildPageSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
     }

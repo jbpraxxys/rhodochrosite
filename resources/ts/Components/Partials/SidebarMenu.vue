@@ -9,7 +9,7 @@
             <div class="flex items-center space-x-3">
                 <img 
                 class="flex-shrink-0"
-                src="/icons/logo.png" 
+                src="/temp/logo.png" 
                 alt="logo">
                 <!-- <transition
                 enter-active-class="transition duration-300 ease-out delay-300"
@@ -196,129 +196,23 @@ interface generalNavType {
 
 const navigation: generalNavType[] = [
     {
-        name: "Menu",
+        name: "Content Management",
         href: "#",
         parentUrl: "#",
         allowed: true,
         children: [
-            {
-                name: "Dashboard",
-                href: "#",
-                parentUrl: "#",
-                icon: RectangleGroupIcon,
-                allowed: true,
-            },
-            {
-                name: "Activities",
-                href: "#",
-                parentUrl: [""],
-                icon: ShoppingBagIcon,
-                allowed: true,
-                children: [
-                    {
-                        name: "Orders",
-                        href: "#",
-                        parentUrl: "#",
-                        count: 13,
-                        allowed: true,
-                    },
-                    {
-                        name: "Ratings",
-                        href: "#",
-                        parentUrl: "#",
-                        count: 10,
-                        allowed: true,
-                    },
-                ]
-            },
-        ]
-    },
-    {
-        name: "E-Commerce",
-        href: "#",
-        parentUrl: "#",
-        allowed: true,
-        children: [
-            {
-                name: "Items",
-                href: "#",
-                parentUrl: [""],
-                icon: Squares2X2Icon,
-                allowed: true,
-                children: [
-                    {
-                        name: "Categories",
-                        href: "#",
-                        parentUrl: "#",
-                        count: null,
-                        allowed: true,
-                    },
-                    {
-                        name: "Products",
-                        href: "#",
-                        parentUrl: "#",
-                        count: null,
-                        allowed: true,
-                    },
-                    {
-                        name: "Inventory",
-                        href: "#",
-                        parentUrl: "#",
-                        count: null,
-                        allowed: true,
-                    },
-                ]
-            },
-            {
-                name: "Discounts",
-                href: "#",
-                parentUrl: [""],
-                icon: ReceiptPercentIcon,
-                allowed: true,
-                children: [
-                    {
-                        name: "Promos",
-                        href: "#",
-                        parentUrl: "#",
-                        count: 8,
-                        allowed: true,
-                    },
-                    {
-                        name: "Vouchers",
-                        href: "#",
-                        parentUrl: "#",
-                        count: 4,
-                        allowed: true,
-                    }
-                ]
-            },
-        ]
-    },
-    {
-        name: "Contents",
-        href: "#",
-        parentUrl: "#",
-        allowed: true,
-        children: [
-            {
-                name: "Announcements",
-                href: "#",
-                parentUrl: "#",
-                icon: MegaphoneIcon,
-                allowed: true,
-            },
-            {
-                name: "Branches",
-                href: "#",
-                parentUrl: "#",
-                icon: BuildingStorefrontIcon,
-                allowed: true,
-            },
             {
                 name: "Pages",
                 href: route("admin.cms.index"),
                 parentUrl: "admin.cms.index",
                 icon: NewspaperIcon,
+                allowed: true,
+            },
+            {
+                name: "Modular Pages",
+                href: route("admin.pages.parent.index"),
+                parentUrl: "admin.modular-parent*",
+                icon: RectangleGroupIcon,
                 allowed: true,
             },
         ]
@@ -352,55 +246,12 @@ const navigation: generalNavType[] = [
         allowed: true,
         children: [
             {
-                name: "Customers",
-                href: route("admin.accounts.admins.index"),
-                parentUrl: "admin.accounts.admins.*",
-                icon: UserIcon,
-                allowed: true,
-            },
-            {
                 name: "Admins",
                 href: route("admin.accounts.admins.index"),
                 parentUrl: "admin.accounts.admins.*",
                 icon: UserGroupIcon,
                 allowed: true,
             },
-            {
-                name: "Roles",
-                href: route("admin.accounts.roles.index"),
-                parentUrl: "admin.accounts.roles.*",
-                icon: FolderIcon,
-                allowed: true,
-            }
-        ]
-    },
-    {
-        name: "Others",
-        href: "#",
-        parentUrl: "#",
-        allowed: true,
-        children: [
-        {
-                name: "Settings",
-                href: route("admin.settings.index"),
-                parentUrl: "admin.settings.index",
-                icon: Cog6ToothIcon,
-                allowed: true,
-            },
-            {
-                name: "Reports",
-                href: "#",
-                parentUrl: "#",
-                icon: ChartBarIcon,
-                allowed: true,
-            },
-            {
-                name: "Activity Logs",
-                href: route("admin.activity-logs.index"),
-                parentUrl: "#",
-                icon: DocumentTextIcon,
-                allowed: true,
-            }
         ]
     },
 ];

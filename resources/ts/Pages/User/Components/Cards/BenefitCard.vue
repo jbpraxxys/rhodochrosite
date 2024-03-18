@@ -7,12 +7,12 @@
                     <div class="w-14 h-14 bg-primary-700 rounded-full flex items-center justify-center mr-4">
                         <img 
                             class="w-6 h-6 group-hover/benefit:scale-125 transition" 
-                            :src="item.icon" 
+                            :src="$page.props.storage_url + item.image" 
                             alt="icon"
                         >
                     </div>
                 </div>
-                <div class="leading-6 transition" v-html="item.description" />
+                <div class="leading-6 transition" v-html="item.content" />
             </div>
         </div>
     </div>

@@ -76,5 +76,25 @@ const company = [
         link: 'https://creditsense.ai/',
         image: '/temp/logo6.png'
     },
+    {
+        link: '/',
+        image: '/temp/logo7.png'
+    },
+    {
+        link: 'https://comontec.com/',
+        image: '/temp/logo8.png'
+    },
+    {
+        link: 'https://www.playtika.com/',
+        image: '/temp/logo9.png'
+    },
+    {
+        link: 'https://www.superplay.co/',
+        image: '/temp/logo10.png'
+    },
+    {
+        link: '/',
+        image: '/temp/logo11.png'
+    },
 ]
 </script>

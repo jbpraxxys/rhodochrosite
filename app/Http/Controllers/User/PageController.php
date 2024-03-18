@@ -2,14 +2,107 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
+use Inertia\Inertia;
 use App\Models\CmsPage;
 use Illuminate\Http\Request;
+use App\Models\Modular\ParentPage;
+use App\Http\Controllers\Controller;
+use App\Models\Modular\ChildPage;
+use App\Models\Modular\SubPage;
 use Illuminate\Support\Facades\Storage;
-use Inertia\Inertia;
 
 class PageController extends Controller
 {
+    public function parentPage($parentPage, Request $request)
+    {
+        $parentPage = ParentPage::where('slug', $parentPage)->firstOrFail()->load([]);
+
+        $frames = $parentPage->frames()
+            ->with([
+                'cards',
+            ]);
+
+        $frames = $frames->get();
+
+        return Inertia::render('User/Pages/Modular/Show', [
+            'item' => $parentPage,
+            'frames' => $frames,
+        ])->withViewData([
+            'title' => $parentPage?->meta_title ? $parentPage->meta_title : $parentPage->page_title,
+            'description' => $parentPage?->meta_description,
+            'og_image_path' => $parentPage?->meta_image ? Storage::url($parentPage?->meta_image) : null,
+            'keywords' => $parentPage?->meta_keywords,
+        ]);
+    }
+
+    public function subPage($parentPage, $subPage, Request $request)
+    {
+        $subPage = SubPage::where('slug', $subPage)->firstOrFail()->load([]);
+
+        $frames = $subPage->frames()
+            ->with([
+                'cards',
+            ]);
+
+        $frames = $frames->get();
+
+        return Inertia::render('User/Pages/Modular/Show', [
+            'item' => $subPage,
+            'frames' => $frames,
+        ])->withViewData([
+            'title' => $subPage?->meta_title ? $subPage->meta_title : $subPage->page_title,
+            'description' => $subPage?->meta_description,
+            'og_image_path' => $subPage?->meta_image ? Storage::url($subPage?->meta_image) : null,
+            'keywords' => $subPage?->meta_keywords,
+        ]);
+    }
+
+    public function childPage($parentPage, $subPage, $childPage, Request $request)
+    {
+        $childPage = ChildPage::where('slug', $childPage)->firstOrFail()->load([]);
+
+        $frames = $childPage->frames()
+            ->with([
+                'cards',
+            ]);
+
+        $frames = $frames->get();
+
+        return Inertia::render('User/Pages/Modular/Show', [
+            'item' => $childPage,
+            'frames' => $frames,
+        ])->withViewData([
+            'title' => $childPage?->meta_title ? $childPage->meta_title : $childPage->page_title,
+            'description' => $childPage?->meta_description,
+            'og_image_path' => $childPage?->meta_image ? Storage::url($childPage?->meta_image) : null,
+            'keywords' => $childPage?->meta_keywords,
+        ]);
+    }
+
+    public function module($parentPage, Request $request)
+    {
+        
+        $parentPage = ParentPage::where('slug', $parentPage)->firstOrFail()->load([]);
+
+        $frames = $parentPage->frames()->orderBy('order', 'ASC')
+            ->with([
+                'card',
+            ]);
+
+        $frames = $frames->get();
+
+        return Inertia::render('User/Pages/Modular/Show', [
+            'item' => $parentPage,
+            'frames' => $frames,
+            'pageId' => null,
+        ])->withViewData([
+            'title' => $parentPage?->meta_title ? $parentPage->meta_title : $parentPage->page_title,
+            'description' => $parentPage?->meta_description,
+            'og_image_path' => $parentPage?->meta_image ? Storage::url($parentPage?->meta_image) : null,
+            'keywords' => $parentPage?->meta_keywords,
+        ]);
+    }
+
     public function index() {
 
         $cms = CmsPage::where('slug', 'home')->first();
