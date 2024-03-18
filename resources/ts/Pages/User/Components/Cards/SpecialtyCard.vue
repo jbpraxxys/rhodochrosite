@@ -3,12 +3,12 @@
         <div class="scaleUp w-fit">
             <img 
                 class="w-24 mb-6 group-hover/special:scale-125 transition duration-500" 
-                :src="item.image" 
+                :src="$page.props.storage_url + item.image" 
                 alt="icon"
             >
         </div>
         <p class="font-bold text-xl mb-2">{{ item.title }}</p>
-        <div class="leading-5" v-html="item.description" />
+        <div class="leading-5" v-html="item.content" />
     </div>
 </template>
 <script lang="ts" setup>

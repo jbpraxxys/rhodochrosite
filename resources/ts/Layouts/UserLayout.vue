@@ -1,15 +1,8 @@
 <template>
-    <Head>
-        <title inertia>{{ seoTitle }}</title>
-        <meta itemprop="image" :content="seoImage ? seoImage : origin + '/icons/logo.png'">
-        <meta name="twitter:image" :content="seoImage ? seoImage : origin + '/icons/logo.png'">
-        <meta property="og:image" :content="seoImage ? seoImage : origin + '/icons/logo.png'">
-        <meta property="og:title" :content="seoTitle">
-        <meta property="og:description" :content="seoDescription">
-    </Head>
     <div>
         <Header 
         :header="header"
+        :parent_pages="parent_pages"
         />
         
         <slot />
@@ -21,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-
+import { ref, onMounted, computed } from "vue";
+import { usePage } from "@inertiajs/vue3";
 import Header from "./Components/Header.vue";
 import Footer from "./Components/Footer.vue";
 
@@ -52,6 +45,7 @@ defineProps({
 
 const header = ref<object>(null);
 const footer = ref<object>(null);
+const parent_pages = computed(() => usePage().props.parent_pages)
 
 // METHODS
 const fetchLayout = () => {

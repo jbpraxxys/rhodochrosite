@@ -40,7 +40,7 @@
                     />
                 </a>
             </nav>
-            <div class="px-7 py-2 flex items-center">
+            <div class="px-12 py-2 flex items-center">
                 <template v-if="buttonItems">
                     <slot name="buttons" />
                 </template>

@@ -3,7 +3,7 @@
         <div class="w-full lg:w-7/12 mb-8 lg:mb-0" :class="item.imageFirst ? 'lg:order-2 lg:ml-20' : 'lg:mr-20'">
             <div class="text-5xl font-bold mb-6 title reveal-type leading-tight" v-html="item.title" />
             <div class="text-xl animateUp" v-html="item.description" />
-            <div v-if="item.buttonText" class="pt-6">
+            <div v-if="item.buttonText && item.buttonLink" class="pt-6">
                 <a :href="item.buttonLink">
                     <v-button custom-class="h-14 px-6 !text-base animateUp" :design-color="item.designColor">
                         {{ item.buttonText }}

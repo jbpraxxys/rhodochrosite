@@ -6,11 +6,11 @@
         >
             <div class="text-cntnr w-[80%]">
                 <p class="mb-2 font-bold text-lg">{{ item.title }}</p>
-                <div v-html="item.description" />
+                <div v-html="item.content" />
             </div>
             <img 
                 class="w-[152px] absolute bottom-0 right-0 transition duration-500 group-hover/offer:scale-110" 
-                :src="item.image" 
+                :src="$page.props.storage_url + item.image" 
                 alt="icon"
             >
         </div>

@@ -10,7 +10,7 @@
 
         <offset-banner 
             :item="{
-                title: '<h4>Industries We Focus On</h4>',
+                title: '<h4>Experience unique advantages when<br>you work with Reliasourcing</h4>',
                 description: '<p>Reliasourcing strives to provide our clients with industry-specific expertise through performance and value. When working with clients, we tailor our approach to their needs based on their niche to ensure we deliver quality solutions.</p>'
             }"
         />

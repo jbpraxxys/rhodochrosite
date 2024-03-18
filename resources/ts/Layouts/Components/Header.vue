@@ -12,7 +12,7 @@
                         alt="logo"
                         class="lg:h-[68px] max-w-full mx-auto transition duration-700 header-logo"
                         :class="headerScroll ? 'h-[64px]' : 'brightness-0 invert h-[61px]'"
-                    >
+                    > 
                 </a>
             </div>
             <div @click="toggleMenu" class="hamburger-menu pr-3 lg:hidden" :class="menuOpen ? 'active' : ''">
@@ -25,7 +25,69 @@
                     menuOpen ? 'translate-x-0' : 'translate-x-[110%] lg:translate-x-0'
                 ]"
             >
-                <div class="relative group-hover">
+                <div 
+                v-for="parent_page in parent_pages"
+                :key="parent_page.id"
+                class="relative group-hover">
+                    <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
+                        <a :href="route('web.pages.parent-page', {
+                            parentPage: parent_page.slug
+                        })">{{ parent_page.title }}</a>
+                        <svg 
+                        v-if="parent_page.sub_pages.length > 0"
+                        class="rotate-180 lg:rotate-0" width="16" height="16" viewBox="0 0 16 16" fill="transparent" stroke="currentColor">
+                            <path d="M12 6L8 10L4 6" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div 
+                    v-if="parent_page.sub_pages.length > 0"
+                    class="bg-white px-6 py-4 text-sm text-black flex flex-col space-y-4 min-w-[220px] rounded-b-xl lg:shadow-md absolute top-[40px] left-0 hover-child">
+                        <template v-for="sub_page in parent_page.sub_pages">
+                            <div 
+                            v-if="sub_page.child_pages.length > 0"
+                            class="relative group-hover2">
+                                <div class="flex items-center space-x-2.5 hover:text-primary-600 transition lg:justify-normal justify-between">
+                                    <a 
+                                    :href="route('web.pages.sub-page', {
+                                        parentPage: parent_page.slug,
+                                        subPage: sub_page.slug
+                                    })">{{ sub_page.title }}</a>
+                                    <div>
+                                        <svg class="lg:block hidden" width="24" height="24" viewBox="0 0 24 24" fill="transparent" stroke="currentColor">
+                                            <path d="M9 6L15 12L9 18" stroke-width="2"/>
+                                        </svg>
+                                        <svg class="lg:hidden block rotate-180 lg:rotate-0" width="16" height="16" viewBox="0 0 16 16" fill="transparent" stroke="currentColor">
+                                            <path d="M12 6L8 10L4 6" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="bg-white px-6 py-4 text-sm text-black flex flex-col space-y-4 min-w-[275px] rounded-b-xl lg:shadow-md absolute -top-1 left-[calc(100%+24px)] hover-child2">
+                                    <a 
+                                    v-for="child_page in sub_page.child_pages"
+                                    class="hover:text-primary-600 transition" 
+                                    :href="route('web.pages.sub-page', {
+                                        parentPage: parent_page.slug,
+                                        subPage: sub_page.slug,
+                                        childPage: child_page.slug
+                                    })">
+                                        {{ child_page.title }}
+                                    </a>
+                                </div>
+                            </div>
+                            <a 
+                            v-else
+                            class="hover:text-primary-600 transition" 
+                            :href="route('web.pages.sub-page', {
+                                parentPage: parent_page.slug,
+                                subPage: sub_page.slug
+                            })">
+                                {{ sub_page.title }}
+                            </a>
+                        </template>    
+                    </div>
+                </div>
+                
+                <!-- <div class="relative group-hover">
                     <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
                         <a href="/solutions/contact-center">Solutions</a>
                         <svg class="rotate-180 lg:rotate-0" width="16" height="16" viewBox="0 0 16 16" fill="transparent" stroke="currentColor">
@@ -37,9 +99,6 @@
                         <a class="hover:text-primary-600 transition" href="/solutions/managed-services">Managed Services</a>
                         <a class="hover:text-primary-600 transition" href="/solutions/staff-leasing">Staff Leasing</a>
                         <a class="hover:text-primary-600 transition" href="/solutions/workforce-management">Workforce Management</a>
-                        <!-- <a class="hover:text-primary-600 transition" href="/solutions/virtual-assistant">Virtual Assistant</a>
-                        <a class="hover:text-primary-600 transition" href="/solutions/crowd-sourcing">Crowd Sourcing</a>
-                        <a class="hover:text-primary-600 transition" href="/solutions/seat-leasing">Seat Leasing</a> -->
                     </div>
                 </div>
                 <div class="relative group-hover">
@@ -84,7 +143,7 @@
                         <a class="hover:text-primary-600 transition" href="/about-us/our-advantages">Our Advantages</a>
                         <a class="hover:text-primary-600 transition" href="/about-us/our-team">Our Team</a>
                     </div>
-                </div>
+                </div> -->
                 <div>
                     <div class="lg:pl-8 button-header px-5 py-4 lg:px-0 lg:py-0">
                         <a href="/contact-us">
@@ -105,8 +164,13 @@ import { onMounted, ref } from 'vue'
 defineProps({
     header: {
         type: Object
+    },
+    parent_pages: {
+        type: Object
     }
 })
+
+const headerAnimation = ref(false);
 
 const menuOpen = ref(false);
 const toggleMenu = () => {
@@ -128,6 +192,12 @@ onMounted(() => {
 		}
 		prev = curr;
 	});
+
+    setTimeout(() => {
+        headerAnimation.value = true;
+    }, 4000)
+
+    
 });
 
 
