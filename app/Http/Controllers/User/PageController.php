@@ -79,30 +79,6 @@ class PageController extends Controller
         ]);
     }
 
-    public function module($parentPage, Request $request)
-    {
-        
-        $parentPage = ParentPage::where('slug', $parentPage)->firstOrFail()->load([]);
-
-        $frames = $parentPage->frames()->orderBy('order', 'ASC')
-            ->with([
-                'card',
-            ]);
-
-        $frames = $frames->get();
-
-        return Inertia::render('User/Pages/Modular/Show', [
-            'item' => $parentPage,
-            'frames' => $frames,
-            'pageId' => null,
-        ])->withViewData([
-            'title' => $parentPage?->meta_title ? $parentPage->meta_title : $parentPage->page_title,
-            'description' => $parentPage?->meta_description,
-            'og_image_path' => $parentPage?->meta_image ? Storage::url($parentPage?->meta_image) : null,
-            'keywords' => $parentPage?->meta_keywords,
-        ]);
-    }
-
     public function index() {
 
         $cms = CmsPage::where('slug', 'home')->first();

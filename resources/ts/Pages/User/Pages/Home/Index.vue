@@ -189,6 +189,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+defineProps({
+    cms: {
+        type: Object
+    },
+})
 const items1 = [
     { 
         title: 'Contact Center', 

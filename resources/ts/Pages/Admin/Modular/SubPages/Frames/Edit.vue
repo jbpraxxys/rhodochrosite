@@ -213,26 +213,39 @@
                     />
                 </div>
                 <div class="w-9/12">
-                    <DataTable 
-                    :headers="headers" 
-                    :count="items.length"
-                    noBorder
-                    class="border border-gray-100 rounded-lg overflow-hidden col-span-12">
-                        <template v-slot:body>
-                            <template v-for="item in cards">
-                                <tr>
-                                    <td class="w-10/12">
-                                        {{ item.title }}
+                    <table 
+                    class="min-w-full border border-gray-100 rounded-lg overflow-hidden col-span-12">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs text-gray-500 uppercase font-normal whitespace-nowrap th-parent">Title</th>
+                                <th class="px-6 py-3 text-right text-xs text-gray-500 uppercase font-normal whitespace-nowrap th-parent">Action</th>
+                            </tr>
+                        </thead>
+                        <draggable
+                            v-model="items"
+                            tag="tbody"
+                            item-key="id"
+                            @change="reorder"
+                            v-bind="{
+                                animation: 200,
+                            }"
+                            class=""
+                        >
+                            
+                            <template #item="{element}">
+                                <tr class="cursor-move">
+                                    <td class="">
+                                        {{ element.title }}
                                     </td>
-                                    <td class="text-center">
+                                    <td class="text-right">
                                         <edit-button
-                                            :routeLink="route('admin.pages.subpage.edit-frame-card', item.id)"
+                                            :routeLink="route('admin.pages.subpage.edit-frame-card', element.id)"
                                         />
                                     </td>
                                 </tr>
                             </template>
-                        </template>
-                    </DataTable>
+                        </draggable>
+                    </table>
                     <div class="w-full pt-10 flex">
                         <div class="w-1/3">
                             <text-input
@@ -258,6 +271,8 @@
 // Packages
 import { ref } from "vue";
 import usePRXForm from "@/composables/usePRXForm.ts";
+import draggable from 'vuedraggable';
+import { router } from '@inertiajs/vue3';
 
 // Components
 
@@ -305,13 +320,6 @@ const headers = [
     { text: "Title", value: "title" },
 ];
 
-
-const items = [
-    {
-        title: 'test title',
-    }
-]
-
 /*--------------*
 * Functions
 *--------------*/
@@ -320,4 +328,17 @@ const { form, submit } = usePRXForm(
     formData,
     submitUrl
 );
+
+const items = ref(props.cards);
+const reorder =()=> {
+    items.value.map((item, index) => {
+        item.order = index + 1;
+    })
+
+    router.post(
+        route('admin.pages.subpage.update-card-order'),
+        { items: items.value },
+        { preserveState: true }
+    )
+}
 </script>

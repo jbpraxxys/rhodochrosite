@@ -16,7 +16,7 @@
                 <div class="absolute bottom-0 right-0">
                     <img 
                         class="w-[152px]" 
-                        :src="$page.props.storage_url + item.image" 
+                        :src="item.image" 
                         :alt="item.title"
                     >
                 </div>
