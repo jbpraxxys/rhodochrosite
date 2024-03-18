@@ -53,7 +53,7 @@ class Frame extends Model
 
     public function cards()
     {
-        return $this->hasMany(Card::class);
+        return $this->hasMany(Card::class)->orderBy('order', 'ASC');
     }
 
     /*

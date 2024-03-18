@@ -7,7 +7,7 @@
 /public/build
 /public/css
 /public/images
-/public/temp
+/public/temp/
 /public/storage
 /storage/*.key
 /storage/*.index*

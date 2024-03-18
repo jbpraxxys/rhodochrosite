@@ -47,6 +47,6 @@ class ChildPage extends Model
 
     public function frames()
     {
-        return $this->hasMany(Frame::class);
+        return $this->hasMany(Frame::class)->orderBy('order', 'ASC');
     }
 }

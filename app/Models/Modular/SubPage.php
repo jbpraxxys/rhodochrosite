@@ -66,12 +66,12 @@ class SubPage extends Model
 
     public function frames()
     {
-        return $this->hasMany(Frame::class);
+        return $this->hasMany(Frame::class)->orderBy('order', 'ASC');
     }
 
     public function child_pages()
     {
-        return $this->hasMany(ChildPage::class);
+        return $this->hasMany(ChildPage::class)->orderBy('order', 'ASC');
     }
 
     /*

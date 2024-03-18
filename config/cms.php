@@ -22,7 +22,7 @@ return [
                     'items' => [
                         [
                             'id' => 'title',
-                            'type' => 'text',
+                            'type' => 'htmleditor',
                             'label' => 'Title',
                             'description' => '',
                         ],
@@ -52,22 +52,46 @@ return [
                     'description' => 'Relevant data and other details',
                     'items' => [
                         [
-                            'id' => 'subtitle',
+                            'id' => 'title',
                             'type' => 'text',
-                            'label' => 'Subtitle',
+                            'label' => 'Title',
                             'description' => '',
                         ],
                         [
-                            'id' => 'title',
-                            'type' => 'htmleditor',
-                            'label' => 'Title',
-                            'description' => 'Format text to <i>italic</i> to highlight (color red)',
-                        ],
-                        [
-                            'id' => 'content',
-                            'type' => 'htmleditor',
-                            'label' => 'Content',
-                            'description' => 'Format text to <i>italic</i> to highlight (color red)',
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'textarea',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                                [
+                                    'id' => 'image',
+                                    'label' => 'Image',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'link',
+                                    'label' => 'Link',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                            ]
                         ],
                     ]
                 ],
@@ -77,9 +101,21 @@ return [
                     'description' => 'Relevant data and other details',
                     'items' => [
                         [
-                            'id' => 'carousel',
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'items',
                             'type' => 'list_table',
-                            'label' => 'Media Carousel',
+                            'label' => 'Items',
                             'description' => '',
                             'items' => [
                                 [
@@ -90,11 +126,161 @@ return [
                                     'summary_field' => true,
                                 ],
                                 [
-                                    'id' => 'video',
-                                    'label' => 'Video',
-                                    'type' => 'image',
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'textarea',
                                     'rules' => '',
                                     'summary_field' => false,
+                                ]
+                            ]
+                        ],
+                    ],
+                ],
+
+                [
+                    'id' => 'section4',
+                    'label' => 'Section 4',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'image',
+                                    'label' => 'Image',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'htmleditor',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'htmleditor',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                                [
+                                    'id' => 'btn_link',
+                                    'type' => 'text',
+                                    'label' => 'Button Link',
+                                    'description' => '',
+                                ],
+                                [
+                                    'id' => 'btn_text',
+                                    'type' => 'text',
+                                    'label' => 'Button Text',
+                                    'description' => '',
+                                ],
+                            ]
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section5',
+                    'label' => 'Section 5',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'htmleditor',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'count',
+                                    'label' => 'Count',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ]
+                            ]
+                        ],
+                        [
+                            'id' => 'testimonial',
+                            'type' => 'htmleditor',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'name',
+                            'type' => 'text',
+                            'label' => 'Name',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'position',
+                            'type' => 'text',
+                            'label' => 'Position',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'image',
+                            'type' => 'image',
+                            'label' => 'Image',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section6',
+                    'label' => 'Section 6',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'link',
+                                    'label' => 'Link',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                                [
+                                    'id' => 'logo',
+                                    'label' => 'Logo',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
                                 ]
                             ]
                         ],

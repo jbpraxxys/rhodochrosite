@@ -163,4 +163,27 @@ class ParentPageController extends Controller
             'item' => $card
         ]);
     }
+
+    public function updateCardOrder(Request $request)
+    {
+        $data = $request->validate([
+            'items.*.id' => 'required',
+            'items.*.order' => 'required|numeric'
+        ]);
+
+        $items = Card::all();
+
+        foreach ($items as $card) {
+            $id = $card->id;
+            foreach($request->items as $new) {
+                if ($new['id'] == $id) {
+                    $card->update(['order' => $new['order']]);
+                }
+            }
+        }
+
+        return redirect()
+            ->back()
+            ->with('success', 'Updated Successfully');
+    }
 }
