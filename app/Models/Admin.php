@@ -116,6 +116,6 @@ class Admin extends Authenticatable
      */
     protected function defaultProfilePhotoUrl()
     {
-        return 'https://ui-avatars.com/api/?name=' . urlencode($this->name) . '&color=2563EB&background=EFF6FF';
+        return 'https://ui-avatars.com/api/?name=' . urlencode($this->name) . '&color=31BEB5&background=EDEFEF';
     }
 }

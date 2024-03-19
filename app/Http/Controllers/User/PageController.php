@@ -28,7 +28,7 @@ class PageController extends Controller
             'item' => $parentPage,
             'frames' => $frames,
         ])->withViewData([
-            'title' => $parentPage?->meta_title ? $parentPage->meta_title : $parentPage->page_title,
+            'title' => $parentPage?->meta_title ? $parentPage->meta_title : $parentPage->title,
             'description' => $parentPage?->meta_description,
             'og_image_path' => $parentPage?->meta_image ? Storage::url($parentPage?->meta_image) : null,
             'keywords' => $parentPage?->meta_keywords,
@@ -50,7 +50,7 @@ class PageController extends Controller
             'item' => $subPage,
             'frames' => $frames,
         ])->withViewData([
-            'title' => $subPage?->meta_title ? $subPage->meta_title : $subPage->page_title,
+            'title' => $subPage?->meta_title ? $subPage->meta_title : $subPage->title,
             'description' => $subPage?->meta_description,
             'og_image_path' => $subPage?->meta_image ? Storage::url($subPage?->meta_image) : null,
             'keywords' => $subPage?->meta_keywords,
@@ -72,7 +72,7 @@ class PageController extends Controller
             'item' => $childPage,
             'frames' => $frames,
         ])->withViewData([
-            'title' => $childPage?->meta_title ? $childPage->meta_title : $childPage->page_title,
+            'title' => $childPage?->meta_title ? $childPage->meta_title : $childPage->title,
             'description' => $childPage?->meta_description,
             'og_image_path' => $childPage?->meta_image ? Storage::url($childPage?->meta_image) : null,
             'keywords' => $childPage?->meta_keywords,
@@ -169,7 +169,16 @@ class PageController extends Controller
     // Contact Us
 
     public function contactUs() {
-        return Inertia::render('User/Pages/ContactUs/Index', []);
+        $cms = CmsPage::where('slug', 'contact-us')->first();
+
+        return Inertia::render('User/Pages/ContactUs/Index', [
+            'cms' => $cms?->content,
+        ])->withViewData([
+            'title' => $cms->title,
+            'description' => $cms->description,
+            'og_image_path' => $cms->og_image_path ? Storage::url($cms->og_image_path) : asset('/icons/logo.png'),
+            'keywords' => $cms->keywords,
+        ]);
     }
 
     public function privacyPolicy() {

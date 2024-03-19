@@ -14,11 +14,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            AdminSeeder::class,
-            PermissionSeeder::class,
-            ParentPageSeeder::class,
-            SubPageSeeder::class,
-            ChildPageSeeder::class
+            // AdminSeeder::class,
+            // PermissionSeeder::class,
+            // ParentPageSeeder::class,
+            // SubPageSeeder::class,
+            // ChildPageSeeder::class
+            CMSPagesSeeder::class,
+            SolutionsSeeder::class,
+            SpecializationSeeder::class,
+            IndustriesSeeder::class,
+            OurAdvantagesSeeder::class,
+            OurTeamSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
     }

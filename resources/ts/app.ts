@@ -41,6 +41,7 @@ import ImageTextFrame from "./Pages/User/Components/Sections/ImageTextFrame.vue"
 import BenefitBlock from "./Pages/User/Components/Sections/BenefitBlock.vue";
 import TextWithMap from "./Pages/User/Components/Sections/TextWithMap.vue";
 import TeamFrame from "./Pages/User/Components/Sections/TeamFrame.vue";
+import YoutubeEmbed from "./Pages/User/Components/Sections/YoutubeEmbed.vue";
 
 import { Head, Link } from '@inertiajs/vue3';
 
@@ -87,7 +88,8 @@ createInertiaApp({
                     BenefitBlock,
                     TextWithMap,
                     TeamCard,
-                    TeamFrame
+                    TeamFrame,
+                    YoutubeEmbed
                 }
             })
             .mount(el)

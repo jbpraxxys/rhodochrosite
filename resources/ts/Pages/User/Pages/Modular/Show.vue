@@ -20,8 +20,8 @@
                 :class="frame.custom_class"
                 :item="{
                     title: frame.title,
-                    description: frame.content,
-                    image: $page.props.storage_url + frame.image,
+                    content: frame.content,
+                    image: frame.image,
                     imageFirst: frame.image_first,
                     buttonText: frame.button_text,
                     buttonLink: frame.button_link
@@ -40,7 +40,7 @@
                 :item="{
                     image: $page.props.storage_url + frame.image,
                     title: frame.title,
-                    description: frame.content,
+                    content: frame.content,
                     buttonText: frame.button_text,
                     buttonLink: frame.button_link
                 }"
@@ -56,6 +56,30 @@
             <offer-block 
                 v-if="frame.frame_type == 2 && frame.card_type == 3"
                 :items="frame"
+            />
+
+            <text-with-map 
+                v-if="frame.frame_type == 1 && frame.card_type == 3"
+                :item="{
+                    title: frame.title,
+                    content: frame.content,
+                    image: frame.image,
+                }"
+            />
+
+            <team-frame 
+                v-if="frame.frame_type == 2 && frame.card_type == 4"
+                title1="Our Leaders"
+                :items="frame.cards"
+            />
+
+            <youtube-embed 
+                v-if="frame.frame_type == 1 && frame.card_type == 4"
+                title="Our Team"
+                :item="{
+                    buttonLink: frame.button_link,
+                    image: frame.image
+                }"
             />
         </div>
 

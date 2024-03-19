@@ -8,8 +8,8 @@
             <div class="w-[552px] m-auto">
                 <p class="text-sm text-gray-500 mb-3">Image and text types</p>
                 <div class="grid grid-cols-2 gap-6">
-                    <label for="image-text" class="border rounded p-3 transition cursor-pointer"
-                        :class="form.card_type == 1 ? 'border-primary-500 bg-primary-500 hover:bg-primary-500' : 'hover:bg-primary-500/[0.5]'">
+                    <label for="image-text" class="border-2 rounded p-3 transition cursor-pointer"
+                        :class="form.card_type == 1 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
                         <input 
                             id="image-text" 
                             type="radio" 
@@ -33,8 +33,8 @@
                             </div>
                         </div>
                     </label>
-                    <label for="large-image" class="border rounded transition cursor-pointer overflow-hidden"
-                        :class="form.card_type == 2 ? 'border-primary-500 bg-primary-500 hover:bg-primary-500' : 'hover:bg-primary-500/[0.5]'">
+                    <label for="large-image" class="border-2 rounded transition cursor-pointer overflow-hidden"
+                        :class="form.card_type == 2 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
                         <input 
                             id="large-image" 
                             type="radio" 
@@ -58,6 +58,42 @@
                             </div>
                         </div>
                     </label>
+                    <label for="map-image" class="border-2 rounded p-3 pr-0 transition cursor-pointer flex items-center justify-center"
+                        :class="form.card_type == 3 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
+                        <input 
+                            id="map-image" 
+                            type="radio" 
+                            name="frame-type" 
+                            class="hidden" 
+                            :value="3"
+                            v-model="form.card_type"
+                        >
+                        <div class="w-full flex space-x-3 items-center">
+                            <div class="w-8/12 space-y-3 flex justify-between flex-col">
+                                <div class="space-y-3">
+                                    <div class="w-1/2 h-3 bg-primary-50"></div>
+                                    <div class="w-full h-3 bg-primary-50"></div>
+                                </div>
+                            </div>
+                            <div class="w-4/12">
+                                <div class="aspect-w-1 aspect-h-1 bg-primary-50"></div>
+                            </div>
+                        </div>
+                    </label>
+                    <label for="youtube-embed" class="border-2 rounded p-3 transition cursor-pointer"
+                        :class="form.card_type == 4 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
+                        <input 
+                            id="youtube-embed" 
+                            type="radio" 
+                            name="frame-type" 
+                            class="hidden" 
+                            :value="4"
+                            v-model="form.card_type"
+                        >
+                        <div class="w-full">
+                            <div class="aspect-w-16 aspect-h-8 bg-primary-50"></div>
+                        </div>
+                    </label>
                 </div>
             </div>
             <jet-form-section>
@@ -70,7 +106,7 @@
                 </template>
 
                 <template #form>
-                    <div class="col-span-12">
+                    <div class="col-span-12" v-if="form.card_type != 3 && form.card_type != 4">
                         <label class="flex items-center cursor-pointer">
                             <jet-checkbox v-model="form.image_first" :checked="form.image_first == 1"/>
                             <span class="ml-2 text-sm text-gray-600">Image first</span>
@@ -85,7 +121,7 @@
                             :error="form.errors.image_path"
                         ></dropzone>
                     </div>
-                    <div class="col-span-12">
+                    <div class="col-span-12" v-if="form.card_type != 4">
                         <ck-editor
                             v-model="form.title"
                             label="Title"
@@ -94,7 +130,7 @@
                         ></ck-editor>
                     </div>
                     
-                    <div class="col-span-12">
+                    <div class="col-span-12" v-if="form.card_type != 4">
                         <ck-editor
                             v-model="form.content"
                             label="Content"
@@ -103,7 +139,7 @@
                         ></ck-editor>
                     </div>
 
-                    <div class="col-span-12">
+                    <div class="col-span-12" v-if="form.card_type != 3 && form.card_type != 4">
                         <text-input
                             v-model="form.button_text"
                             label="Button Text"
@@ -112,15 +148,15 @@
                         />
                     </div>
 
-                    <div class="col-span-12">
+                    <div class="col-span-12" v-if="form.card_type != 3">
                         <text-input
                             v-model="form.button_link"
-                            label="Button Link"
+                            :label="form.card_type == 4 ? 'Youtube Embed' : 'Button Link'"
                             id="button_link"
                             :error="form.errors.button_link"
                         />
                     </div>
-                    <div class="col-span-12">
+                    <div class="col-span-12" v-if="form.card_type != 3 && form.card_type != 4">
                         <text-input
                             v-model="form.custom_class"
                             label="Custom Class"
@@ -136,11 +172,11 @@
             </jet-form-section>
         </div>
         <div v-if="form.frame_type == 2" class="p-4 md:p-7 space-y-10">
-            <div class="w-1/2">
+            <div class="w-8/12">
                 <p class="text-sm text-gray-500 mb-3">Card types</p>
-                <div class="grid grid-cols-3 gap-3">
-                    <label for="white-card" class="border rounded p-3 transition cursor-pointer"
-                        :class="form.card_type == 1 ? 'border-primary-500 bg-primary-500 hover:bg-primary-500' : 'hover:bg-primary-500/[0.5]'">
+                <div class="grid grid-cols-4 gap-3">
+                    <label for="white-card" class="border-2 rounded p-3 transition cursor-pointer"
+                        :class="form.card_type == 1 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
                         <input 
                             id="white-card" 
                             type="radio" 
@@ -157,8 +193,8 @@
                             <div class="w-full h-20 bg-primary-50"></div>
                         </div>
                     </label>
-                    <label for="dark-card" class="border rounded p-3 transition cursor-pointer"
-                        :class="form.card_type == 2 ? 'border-primary-500 bg-primary-500 hover:bg-primary-500' : 'hover:bg-primary-500/[0.5] bg-primary-700'">
+                    <label for="dark-card" class="border-2 rounded p-3 transition cursor-pointer"
+                        :class="form.card_type == 2 ? 'border-primary-500 bg-primary-700 hover:border-primary-500' : 'hover:border-primary-500/[0.5] bg-primary-700'">
                         <input 
                             id="dark-card" 
                             type="radio" 
@@ -175,8 +211,8 @@
                             <div class="w-full h-20 bg-primary-50"></div>
                         </div>
                     </label>
-                    <label for="accent-card" class="border rounded p-3 transition cursor-pointer"
-                        :class="form.card_type == 3 ? 'border-primary-500 bg-primary-500 hover:bg-primary-500' : 'hover:bg-primary-500/[0.5]'">
+                    <label for="accent-card" class="border-2 rounded p-3 transition cursor-pointer"
+                        :class="form.card_type == 3 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
                         <input 
                             id="accent-card" 
                             type="radio" 
@@ -199,6 +235,22 @@
                             </div>
                         </div>
                     </label>
+                    <label for="team-card" class="border-2 rounded p-3 transition cursor-pointer"
+                        :class="form.card_type == 4 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
+                        <input 
+                            id="team-card" 
+                            type="radio" 
+                            name="frame-type" 
+                            class="hidden" 
+                            :value="4"
+                            v-model="form.card_type"
+                        >
+                        <div class="w-full">
+                            <div class="w-8/12 mx-auto h-20 bg-primary-50 mb-2"></div>
+                            <div class="w-full h-5 bg-primary-50 mb-2"></div>
+                            <div class="w-full h-2 bg-primary-50"></div>
+                        </div>
+                    </label>
                 </div>
             </div>
            
@@ -214,7 +266,7 @@
                 </div>
                 <div class="w-9/12">
                     <table 
-                    class="min-w-full border border-gray-100 rounded-lg overflow-hidden col-span-12">
+                    class="min-w-full border rounded-lg col-span-12">
                         <thead class="bg-gray-50">
                             <tr>
                                 <th class="px-6 py-3 text-left text-xs text-gray-500 uppercase font-normal whitespace-nowrap th-parent">Title</th>
@@ -233,7 +285,7 @@
                         >
                             
                             <template #item="{element}">
-                                <tr class="cursor-move">
+                                <tr class="cursor-move border-b">
                                     <td class="">
                                         {{ element.title }}
                                     </td>
@@ -246,16 +298,6 @@
                             </template>
                         </draggable>
                     </table>
-                    <div class="w-full pt-10 flex">
-                        <div class="w-1/3">
-                            <text-input
-                                v-model="form.custom_class"
-                                label="Custom Class"
-                                id="button_link"
-                                :error="form.errors.custom_class"
-                            />
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

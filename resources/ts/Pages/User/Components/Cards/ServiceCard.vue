@@ -5,7 +5,7 @@
                 <div class="flex justify-between space-x-10">
                     <div class="max-w-[237px]">
                         <p class="text-xl font-bold mb-2 group-hover/service:text-white transition">{{ item.title }}</p>
-                        <p class="text-primary-700 group-hover/service:text-white transition">{{ item.description }}</p>
+                        <p class="text-primary-700 group-hover/service:text-white transition">{{ item.content }}</p>
                     </div>
                     <div>
                         <svg class="text-primary-900 group-hover/service:text-white transition" width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
@@ -16,7 +16,7 @@
                 <div class="absolute bottom-0 right-0">
                     <img 
                         class="w-[152px]" 
-                        :src="item.image" 
+                        :src="$page.props.storage_url + item.image" 
                         :alt="item.title"
                     >
                 </div>

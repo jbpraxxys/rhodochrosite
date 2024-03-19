@@ -80,6 +80,7 @@ class SubPageProcessor extends BaseRenderer
         $data = $request->validated();
         $data['frame_id'] = $frame->id;
         $data['image'] = $this->getImagePath($request->image, 'modular-frame-card-images');
+        $data['icon'] = $this->getImagePath($request->icon, 'modular-frame-card-images');
         
         $frame = Card::create($data);
 
@@ -89,6 +90,7 @@ class SubPageProcessor extends BaseRenderer
     {
         $data = $request->validated();
         $data['image'] = $this->getImagePath($request->image, 'modular-frame-card-images');
+        $data['icon'] = $this->getImagePath($request->icon, 'modular-frame-card-images');
         $card->update($data);
 
     }

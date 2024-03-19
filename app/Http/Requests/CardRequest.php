@@ -27,6 +27,8 @@ class CardRequest extends FormRequest
             'content' => ['nullable'],
             'image' => ['nullable'],
             'accent' => ['nullable'],
+            'icon' => ['nullable'],
+            'linkedin_link' => ['nullable'],
             'order' => ['nullable'],
         ];
     }

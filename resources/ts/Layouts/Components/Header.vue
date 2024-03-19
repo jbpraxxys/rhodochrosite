@@ -30,9 +30,12 @@
                 :key="parent_page.id"
                 class="relative group-hover">
                     <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
-                        <a :href="route('web.pages.parent-page', {
+                        <a 
+                        :href="parent_page.sub_pages.length == 0 ? route('web.pages.parent-page', {
                             parentPage: parent_page.slug
-                        })">{{ parent_page.title }}</a>
+                        }) : '#'">
+                            {{ parent_page.title }}
+                        </a>
                         <svg 
                         v-if="parent_page.sub_pages.length > 0"
                         class="rotate-180 lg:rotate-0" width="16" height="16" viewBox="0 0 16 16" fill="transparent" stroke="currentColor">
@@ -47,11 +50,7 @@
                             v-if="sub_page.child_pages.length > 0"
                             class="relative group-hover2">
                                 <div class="flex items-center space-x-2.5 hover:text-primary-600 transition lg:justify-normal justify-between">
-                                    <a 
-                                    :href="route('web.pages.sub-page', {
-                                        parentPage: parent_page.slug,
-                                        subPage: sub_page.slug
-                                    })">{{ sub_page.title }}</a>
+                                    <p class="whitespace-nowrap">{{ sub_page.title }}</p>
                                     <div>
                                         <svg class="lg:block hidden" width="24" height="24" viewBox="0 0 24 24" fill="transparent" stroke="currentColor">
                                             <path d="M9 6L15 12L9 18" stroke-width="2"/>

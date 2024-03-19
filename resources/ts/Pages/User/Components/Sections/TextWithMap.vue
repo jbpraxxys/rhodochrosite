@@ -3,12 +3,12 @@
         <div class="flex lg:flex-row flex-col items-center px-4 lg:px-20 lg:space-x-20 py-10 max-w-[1440px] m-auto relative">
             <div class="w-full lg:w-[calc(100%-620px)] image-text">
                 <div class="text-5xl font-bold mb-6 title animateUp reveal-type" v-html="item.title" />
-                <div class="text-xl animateUp" v-html="item.description" />
+                <div class="text-xl animateUp" v-html="item.content" />
             </div>
             <div class="w-full lg:w-[540px]">
                 <img 
                     class="w-full banner-image" 
-                    :src="item.image" 
+                    :src="$page.props.storage_url + item.image" 
                     alt="map"
                 >
             </div>
