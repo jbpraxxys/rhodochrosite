@@ -25,6 +25,8 @@ class Card extends Model
         'content',
         'image',
         'accent',
+        'icon',
+        'linkedin_link'
     ];
 
     protected $appends = [

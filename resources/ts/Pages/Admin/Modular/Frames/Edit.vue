@@ -8,8 +8,8 @@
             <div class="w-[552px] m-auto">
                 <p class="text-sm text-gray-500 mb-3">Image and text types</p>
                 <div class="grid grid-cols-2 gap-6">
-                    <label for="image-text" class="border rounded p-3 transition cursor-pointer"
-                        :class="form.card_type == 1 ? 'border-primary-500 bg-primary-500 hover:bg-primary-500' : 'hover:bg-primary-500/[0.5]'">
+                    <label for="image-text" class="border-2 rounded p-3 transition cursor-pointer"
+                        :class="form.card_type == 1 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
                         <input 
                             id="image-text" 
                             type="radio" 
@@ -33,8 +33,8 @@
                             </div>
                         </div>
                     </label>
-                    <label for="large-image" class="border rounded transition cursor-pointer overflow-hidden"
-                        :class="form.card_type == 2 ? 'border-primary-500 bg-primary-500 hover:bg-primary-500' : 'hover:bg-primary-500/[0.5]'">
+                    <label for="large-image" class="border-2 rounded transition cursor-pointer overflow-hidden"
+                        :class="form.card_type == 2 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
                         <input 
                             id="large-image" 
                             type="radio" 
@@ -139,8 +139,8 @@
             <div class="w-1/2">
                 <p class="text-sm text-gray-500 mb-3">Card types</p>
                 <div class="grid grid-cols-3 gap-3">
-                    <label for="white-card" class="border rounded p-3 transition cursor-pointer"
-                        :class="form.card_type == 1 ? 'border-primary-500 bg-primary-500 hover:bg-primary-500' : 'hover:bg-primary-500/[0.5]'">
+                    <label for="white-card" class="border-2 rounded p-3 transition cursor-pointer"
+                        :class="form.card_type == 1 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
                         <input 
                             id="white-card" 
                             type="radio" 
@@ -157,8 +157,8 @@
                             <div class="w-full h-20 bg-primary-50"></div>
                         </div>
                     </label>
-                    <label for="dark-card" class="border rounded p-3 transition cursor-pointer"
-                        :class="form.card_type == 2 ? 'border-primary-500 bg-primary-500 hover:bg-primary-500' : 'hover:bg-primary-500/[0.5] bg-primary-700'">
+                    <label for="dark-card" class="border-2 rounded p-3 transition cursor-pointer"
+                        :class="form.card_type == 2 ? 'border-primary-500 bg-primary-700 hover:border-primary-500' : 'hover:border-primary-500/[0.5] bg-primary-700'">
                         <input 
                             id="dark-card" 
                             type="radio" 
@@ -175,8 +175,8 @@
                             <div class="w-full h-20 bg-primary-50"></div>
                         </div>
                     </label>
-                    <label for="accent-card" class="border rounded p-3 transition cursor-pointer"
-                        :class="form.card_type == 3 ? 'border-primary-500 bg-primary-500 hover:bg-primary-500' : 'hover:bg-primary-500/[0.5]'">
+                    <label for="accent-card" class="border-2 rounded p-3 transition cursor-pointer"
+                        :class="form.card_type == 3 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
                         <input 
                             id="accent-card" 
                             type="radio" 
@@ -233,7 +233,7 @@
                         >
                             
                             <template #item="{element}">
-                                <tr class="cursor-move">
+                                <tr class="cursor-move border-b">
                                     <td class="">
                                         {{ element.title }}
                                     </td>

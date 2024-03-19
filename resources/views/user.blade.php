@@ -9,7 +9,7 @@
         <meta property="og:type" content="website">
         <meta name="twitter:card" content="summary"></meta>
 
-        <title>{{ $title ?? '' ? $title . ' - ' . config('app.name', 'Laravel') : config('app.name', 'Laravel') }}</title>
+        <title>{{ $title ?? '' ? $title : config('app.name', 'Laravel') }}</title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/favicon/apple-touch-icon.png') }}">
         <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('/favicon/android-chrome-512x512.png') }}">

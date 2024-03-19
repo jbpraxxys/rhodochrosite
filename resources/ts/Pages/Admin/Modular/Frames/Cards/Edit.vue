@@ -40,11 +40,28 @@
                             :error="form.errors.content"
                         ></ck-editor>
                     </div>
-                    <div class="col-span-12">
+                    <div class="col-span-12" v-if="item.frame.card_type == 3">
                         <label class="flex items-center cursor-pointer">
                             <jet-checkbox v-model="form.accent" :checked="form.accent == 1"/>
                             <span class="ml-2 text-sm text-gray-600">With accent color</span>
                         </label>
+                    </div>
+                    <div class="col-span-12" v-if="item.frame.card_type == 4">
+                        <dropzone
+                            label="Icon"
+                            v-model:path="form.icon"
+                            v-model:file="form.icon"
+                            description="Max file size: 10MB | Dimension: 300px x 434px"
+                            :error="form.errors.icon"
+                        ></dropzone>
+                    </div>
+                    <div class="col-span-12" v-if="item.frame.card_type == 4">
+                        <text-input
+                            v-model="form.linkedin_link"
+                            label="Linkedin Link"
+                            id="linkedin_link"
+                            :error="form.errors.linkedin_link"
+                        />
                     </div>
                 </template>
 
@@ -72,6 +89,9 @@ const props = defineProps({
     item: {
         type: Object,
     },
+    cardType: {
+        type: Number
+    }
 });
 
 /*---------------*
@@ -86,6 +106,8 @@ const formData = {
     content: props.item.content,
     image: props.item.image,
     accent: props.item.accent,
+    icon: props.item.icon,
+    linkedin_link: props.item.linkedin_link,
 };
 
 const pages = [

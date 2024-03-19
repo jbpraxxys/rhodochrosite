@@ -13,7 +13,7 @@
             />
 
             <div>
-                <div class="block text-sm text-gray-500 mb-2">Frame Types {{ parent_page_id }}</div>
+                <div class="block text-sm text-gray-500 mb-2">Frame Types</div>
 
                 <div class="grid grid-cols-3 gap-6">
                     <label 

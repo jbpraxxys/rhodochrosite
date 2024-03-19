@@ -160,7 +160,7 @@ class ParentPageController extends Controller
     public function editFrameCard(Request $request, Card $card)
     {
         return Inertia::render('Admin/Modular/Frames/Cards/Edit', [
-            'item' => $card
+            'item' => $card->load('frame')
         ]);
     }
 

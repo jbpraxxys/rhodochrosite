@@ -17,10 +17,6 @@
                     <p class="text-gray-500">Job Title</p>
                     <p class="text-gray-900">{{ admin.title }}</p>
                 </div>
-                <div class="mt-6">
-                    <p class="text-gray-500">Role</p>
-                    <p class="text-blue-600">Superadmin</p>
-                </div>
             </div>
             <div class="py-4 px-6 w-full bg-gray-50 border-t border-gray-100 flex justify-end">
                 <a :href="route('admin.accounts.admins.edit', admin.id)">

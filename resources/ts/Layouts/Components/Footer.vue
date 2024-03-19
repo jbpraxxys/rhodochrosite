@@ -11,7 +11,7 @@
                         >
                     </a>
                 </div>
-                <p class="text-white leading-5 mb-8">Double Dragon Meridian Park corner Macapagal Avenue, Pasay, Metro Manila, Philippines</p>
+                <p class="text-white leading-5 mb-8">{{ footer?.section1_address }}</p>
                 <div class="flex items-center space-x-6 mb-12 lg:mb-0">
                     <img 
                         v-for="accreditation in footer.section1_accreditation"
@@ -24,29 +24,29 @@
             <div class="max-w-[681px] w-full grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 text-white">
                 <div class="space-y-6">
                     <p class="font-bold">Solutions</p>
-                    <div><a class="hover:text-primary-600 transition" href="/solutions/contact-center">Contact Center</a></div>
-                    <div><a class="hover:text-primary-600 transition" href="/solutions/managed-services">Managed Services</a></div>
-                    <div><a class="hover:text-primary-600 transition" href="/solutions/staff-leasing">Staff Leasing</a></div>
-                    <div><a class="hover:text-primary-600 transition" href="/solutions/workforce-management">Workforce Management</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/pages/solutions/contact-center">Contact Center</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/pages/solutions/managed-services">Managed Services</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/pages/solutions/staff-leasing">Staff Leasing</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/pages/solutions/workforce-management">Workforce Management</a></div>
                 </div>
                 <div class="space-y-6">
                     <p class="font-bold">Specializations</p>
-                    <div><a class="hover:text-primary-600 transition" href="/specializations/ict">Creative Services</a></div>
-                    <div><a class="hover:text-primary-600 transition" href="/specializations/sales-and-customer">Sales and Customer Support</a></div>
-                    <div><a class="hover:text-primary-600 transition" href="/specializations/sale-development">Sales Development Services</a></div>
-                    <div><a class="hover:text-primary-600 transition" href="/specializations/customer-service">Customer Success Services</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/pages/specialization/creative-services">Creative Services</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/pages/specialization/sales-and-customer-support">Sales and Customer Support</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/pages/specialization/sales-and-customer-support/sales-development-services">Sales Development Services</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/pages/specialization/sales-and-customer-support/customer-success-services">Customer Success Services</a></div>
                 </div>
                 <div class="space-y-6">
                     <p class="font-bold">Others</p>
-                    <div><a class="hover:text-primary-600 transition" href="/industries">Industries</a></div>
-                    <div><a class="hover:text-primary-600 transition" href="/about-us/our-advantage">About Us</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/pages/industries">Industries</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/pages/about-us/our-advantages">About Us</a></div>
                     <div><a class="hover:text-primary-600 transition" href="/contact-us">Contact Us</a></div>
                 </div>
             </div>
         </div>
         <div class="px-4 pt-4 pb-12 lg:px-20 lg:py-12 flex lg:flex-row flex-col lg:items-center justify-between text-white text-sm lg:text-base lg:space-y-0 space-y-6">
             <div class="flex lg:items-center lg:space-x-16 lg:flex-row flex-col lg:space-y-0 space-y-6">
-                <p>Copyright © 2024 Reliasourcing Inc. All Rights Reserved.</p>
+                <p>{{ footer?.section1_copyright }}</p>
                 <div class="flex items-start lg:items-center space-x-4 lg:w-auto w-fit">
                     <a class="hover:text-primary-600 transition" href="/privacy-policy">Privacy Policy</a>
                     <a class="hover:text-primary-600 transition" href="/terms-and-conditions">Terms</a>
@@ -54,24 +54,14 @@
             </div>
             <div class="flex items-center space-x-3.5">
                 <a 
-                    href="https://www.facebook.com/reliasourcingdd/"
+                    v-for="social in footer?.section2_social_accounts"
+                    :href="social.link"
                     target="_blank"
                     rel="noreferrer"
                 >
                     <img 
                         class="w-5" 
-                        src="/temp/facebook.svg" 
-                        alt="icon"
-                    >
-                </a>
-                <a 
-                    href="https://www.linkedin.com/company/reliasourcing/"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <img 
-                        class="w-5" 
-                        src="/temp/linkedin.svg" 
+                        :src="$page.props.storage_url + social.icon" 
                         alt="icon"
                     >
                 </a>

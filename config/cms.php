@@ -24,19 +24,19 @@ return [
                             'id' => 'title',
                             'type' => 'htmleditor',
                             'label' => 'Title',
-                            'description' => '',
+                            'description' => 'Format text to <strong>bold</strong> to highlight (accent color)',
                         ],
                         [
-                            'id' => 'subtitle',
+                            'id' => 'content',
                             'type' => 'textarea',
-                            'label' => 'Subtitle',
+                            'label' => 'Content',
                             'description' => '',
                         ],
                         [
                             'id' => 'btn_link',
                             'type' => 'text',
                             'label' => 'Button Link',
-                            'description' => 'To link: `tel:` for number, `mailto:` for email',
+                            'description' => '',
                         ],
                         [
                             'id' => 'btn_text',
@@ -180,13 +180,15 @@ return [
                                     'id' => 'btn_link',
                                     'type' => 'text',
                                     'label' => 'Button Link',
-                                    'description' => '',
+                                    'rules' => '',
+                                    'summary_field' => false,
                                 ],
                                 [
                                     'id' => 'btn_text',
                                     'type' => 'text',
                                     'label' => 'Button Text',
-                                    'description' => '',
+                                    'rules' => '',
+                                    'summary_field' => false,
                                 ],
                             ]
                         ],
@@ -210,6 +212,13 @@ return [
                             'description' => '',
                             'items' => [
                                 [
+                                    'id' => 'prefix',
+                                    'label' => 'Prefix',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                                [
                                     'id' => 'count',
                                     'label' => 'Count',
                                     'type' => 'text',
@@ -217,18 +226,25 @@ return [
                                     'summary_field' => true,
                                 ],
                                 [
+                                    'id' => 'suffix',
+                                    'label' => 'Suffix',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                                [
                                     'id' => 'content',
                                     'label' => 'Content',
                                     'type' => 'text',
                                     'rules' => '',
-                                    'summary_field' => false,
+                                    'summary_field' => true,
                                 ]
                             ]
                         ],
                         [
                             'id' => 'testimonial',
-                            'type' => 'htmleditor',
-                            'label' => 'Title',
+                            'type' => 'textarea',
+                            'label' => 'Testimonial',
                             'description' => '',
                         ],
                         [
@@ -286,6 +302,90 @@ return [
                         ],
                     ]
                 ],
+                [
+                    'id' => 'section7',
+                    'label' => 'Section 7',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'text',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'btn_link',
+                            'type' => 'text',
+                            'label' => 'Button Link',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'btn_text',
+                            'type' => 'text',
+                            'label' => 'Button Text',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section8',
+                    'label' => 'Section 8',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'htmleditor',
+                            'label' => 'Title',
+                            'description' => 'Format text to <strong>bold</strong> to highlight (accent color)',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'htmleditor',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'btn_link',
+                            'type' => 'text',
+                            'label' => 'Button Link',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'btn_text',
+                            'type' => 'text',
+                            'label' => 'Button Text',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'textarea',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ]
+                            ]
+                        ],
+                    ],
+                ],
             ],
         ],
 
@@ -295,6 +395,37 @@ return [
             'label' => 'Contact Us Page',
             'show_metadata' => 1,
             'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Section 1',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'textarea',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'image',
+                            'type' => 'image',
+                            'label' => 'Image',
+                            'description' => 'Max file size: 2MB | Dimension: 343px x 468px',
+                        ],
+                        [
+                            'id' => 'subtitle',
+                            'type' => 'htmleditor',
+                            'label' => 'Subtitle',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'description',
+                            'type' => 'htmleditor',
+                            'label' => 'Description',
+                            'description' => '',
+                        ],
+                    ],
+                ],
                 [
                     'id' => 'inquiry',
                     'label' => 'General Inquiry',
@@ -323,259 +454,8 @@ return [
 
                     ]
                 ],
-                [
-                    'id' => 'section1',
-                    'label' => 'Section 1',
-                    'description' => 'Relevant data and other details',
-                    'items' => [
-                        [
-                            'id' => 'subtitle',
-                            'type' => 'text',
-                            'label' => 'Subtitle',
-                            'description' => '',
-                        ],
-                        [
-                            'id' => 'title',
-                            'type' => 'htmleditor',
-                            'label' => 'Title',
-                            'description' => 'Format text to <i>italic</i> to highlight (color red)',
-                        ],
-                        [
-                            'id' => 'image',
-                            'type' => 'image',
-                            'label' => 'Image',
-                            'description' => 'Max file size: 2MB | Dimension: 343px x 468px',
-                        ],
-                        [
-                            'id' => 'address_label',
-                            'type' => 'text',
-                            'label' => 'Address Label',
-                            'description' => '',
-                        ],
-                        [
-                            'id' => 'address',
-                            'type' => 'list_table',
-                            'label' => 'Address',
-                            'description' => '',
-                            'items' => [
-                                [
-                                    'id' => 'icon',
-                                    'label' => 'Icon',
-                                    'type' => 'image',
-                                    'rules' => '',
-                                    'summary_field' => false,
-                                    'description' => 'Max file size: 2MB | Dimension: 24px x 24px',
-                                ],
-                                [
-                                    'id' => 'address',
-                                    'label' => 'Address',
-                                    'type' => 'htmleditor',
-                                    'rules' => 'required',
-                                    'summary_field' => true,
-                                ],
-                                [
-                                    'id' => 'note',
-                                    'label' => 'Note',
-                                    'type' => 'text',
-                                    'rules' => '',
-                                    'summary_field' => false,
-                                ],
-                            ]
-                        ],
-                        [
-                            'id' => 'contactnum_label',
-                            'type' => 'text',
-                            'label' => 'Contact Number Label',
-                            'description' => '',
-                        ],
-                        [
-                            'id' => 'landline',
-                            'type' => 'list_table',
-                            'label' => 'Landline',
-                            'description' => '',
-                            'items' => [
-                                [
-                                    'id' => 'icon',
-                                    'label' => 'Icon',
-                                    'type' => 'image',
-                                    'rules' => '',
-                                    'summary_field' => false,
-                                    'description' => 'Max file size: 2MB | Dimension: 24px x 24px',
-                                ],
-                                [
-                                    'id' => 'details',
-                                    'label' => 'Details',
-                                    'type' => 'htmleditor',
-                                    'rules' => 'required',
-                                    'description' => 'To link: `tel:` for number, `mailto:` for email',
-                                    'summary_field' => true,
-                                ]
-                            ]
-                        ],
-                        [
-                            'id' => 'mobile',
-                            'type' => 'list_table',
-                            'label' => 'Mobile',
-                            'description' => '',
-                            'items' => [
-                                [
-                                    'id' => 'icon',
-                                    'label' => 'Icon',
-                                    'type' => 'image',
-                                    'rules' => '',
-                                    'summary_field' => false,
-                                    'description' => 'Max file size: 2MB | Dimension: 24px x 24px',
-                                ],
-                                [
-                                    'id' => 'details',
-                                    'label' => 'Details',
-                                    'type' => 'htmleditor',
-                                    'rules' => 'required',
-                                    'description' => 'To link: `tel:` for number, `mailto:` for email',
-                                    'summary_field' => true,
-                                ]
-                            ]
-                        ],
-                        [
-                            'id' => 'socials_label',
-                            'type' => 'text',
-                            'label' => 'Social Media Label',
-                            'description' => '',
-                        ],
-                        [
-                            'id' => 'social_accounts',
-                            'type' => 'list_table',
-                            'label' => 'Social Media Accounts',
-                            'description' => '',
-                            'items' => [
-                                [
-                                    'id' => 'icon',
-                                    'label' => 'Icon',
-                                    'type' => 'image',
-                                    'rules' => '',
-                                    'summary_field' => false,
-                                    'description' => 'Max file size: 2MB | Dimension: 24px x 24px',
-                                ],
-                                [
-                                    'id' => 'details',
-                                    'label' => 'Details',
-                                    'type' => 'htmleditor',
-                                    'rules' => 'required',
-                                    'description' => '',
-                                    'summary_field' => true,
-                                ]
-                            ]
-                        ],
-                    ],
-                ],
-                [
-                    'id' => 'section2',
-                    'label' => 'Section 2: FAQs',
-                    'description' => 'Relevant data and other details',
-                    'items' => [
-                        [
-                            'id' => 'subtitle',
-                            'type' => 'text',
-                            'label' => 'Subtitle',
-                            'description' => '',
-                        ],
-                        [
-                            'id' => 'title',
-                            'type' => 'htmleditor',
-                            'label' => 'Title',
-                            'description' => 'Format text to <i>italic</i> to highlight (color red)',
-                        ],
-                        [
-                            'id' => 'faqs',
-                            'type' => 'list_table',
-                            'label' => 'FAQs',
-                            'description' => '',
-                            'items' => [
-                                [
-                                    'id' => 'question',
-                                    'label' => 'Question',
-                                    'type' => 'text',
-                                    'rules' => 'required',
-                                    'summary_field' => true,
-                                    'description' => '',
-                                ],
-                                [
-                                    'id' => 'answer',
-                                    'label' => 'Answer',
-                                    'type' => 'htmleditor',
-                                    'rules' => 'required',
-                                    'description' => '',
-                                    'summary_field' => false,
-                                ]
-                            ]
-                        ],
-                    ]
-                ]
             ],
         ],
-
-        // News
-        [
-            'slug' => 'news',
-            'label' => 'News Page',
-            'show_metadata' => 1,
-            'sections' => [
-                [
-                    'id' => 'section1',
-                    'label' => 'Section 1',
-                    'description' => 'Relevant data and other details',
-                    'items' => [
-                        [
-                            'id' => 'subtitle',
-                            'type' => 'text',
-                            'label' => 'Subtitle',
-                            'description' => '',
-                        ],
-                        [
-                            'id' => 'title',
-                            'type' => 'htmleditor',
-                            'label' => 'Title',
-                            'description' => 'Format text to <i>italic</i> to highlight (color red)',
-                        ],
-                    ]
-                ]
-            ],
-        ],
-
-        // About Us
-        [
-            'slug' => 'about-us',
-            'label' => 'About Us Page',
-            'show_metadata' => 1,
-            'sections' => [
-                [
-                    'id' => 'section1',
-                    'label' => 'Section 1',
-                    'description' => 'Relevant data and other details',
-                    'items' => [
-                        [
-                            'id' => 'subtitle',
-                            'type' => 'text',
-                            'label' => 'Subtitle',
-                            'description' => '',
-                        ],
-                        [
-                            'id' => 'title',
-                            'type' => 'htmleditor',
-                            'label' => 'Title',
-                            'description' => 'Format text to <i>italic</i> to highlight (color red)',
-                        ],
-                        [
-                            'id' => 'content',
-                            'type' => 'htmleditor',
-                            'label' => 'Content',
-                            'description' => '',
-                        ],
-                    ],
-                ],
-            ],
-        ],
-
         // Privacy Policy
         [
             'slug' => 'privacy-policy',
@@ -661,7 +541,7 @@ return [
             'sections' => [
                 [
                     'id' => 'section1',
-                    'label' => 'Column 1',
+                    'label' => 'Footer',
                     'description' => '',
                     'items' => [
                         [
@@ -671,9 +551,9 @@ return [
                             'description' => 'Max file size: 2MB | Dimension: Max height: 75px',
                         ],
                         [
-                            'id' => 'subcontent',
+                            'id' => 'address',
                             'type' => 'textarea',
-                            'label' => 'Subcontent',
+                            'label' => 'Address',
                             'description' => '',
                         ],
                         [
@@ -692,134 +572,19 @@ return [
                                 ]
                             ]
                         ],
-                    ]
-                ],
-                [
-                    'id' => 'section2',
-                    'label' => 'Column 2',
-                    'description' => '',
-                    'items' => [
-                        [
-                            'id' => 'title',
-                            'type' => 'text',
-                            'label' => 'Title',
-                            'description' => '',
-                        ],
-                        [
-                            'id' => 'links',
-                            'type' => 'list_table',
-                            'label' => 'Links',
-                            'description' => '',
-                            'items' => [
-                                [
-                                    'id' => 'url',
-                                    'label' => 'Link',
-                                    'type' => 'text',
-                                    'rules' => 'required',
-                                    'summary_field' => false,
-                                ],
-                                [
-                                    'id' => 'text',
-                                    'label' => 'Text',
-                                    'type' => 'text',
-                                    'rules' => 'required',
-                                    'summary_field' => true,
-                                ],
-                            ]
-                        ],
-                    ]
-                ],
-                [
-                    'id' => 'section3',
-                    'label' => 'Column 3',
-                    'description' => '',
-                    'items' => [
-                        [
-                            'id' => 'title',
-                            'type' => 'text',
-                            'label' => 'Title',
-                            'description' => '',
-                        ],
-                        [
-                            'id' => 'links',
-                            'type' => 'list_table',
-                            'label' => 'Links',
-                            'description' => '',
-                            'items' => [
-                                [
-                                    'id' => 'icon',
-                                    'label' => 'Icon',
-                                    'type' => 'image',
-                                    'rules' => '',
-                                    'description' => '',
-                                    'summary_field' => false,
-                                ],
-                                [
-                                    'id' => 'url',
-                                    'label' => 'Link',
-                                    'type' => 'text',
-                                    'rules' => 'required',
-                                    'summary_field' => false,
-                                ],
-                                [
-                                    'id' => 'text',
-                                    'label' => 'Text',
-                                    'type' => 'text',
-                                    'rules' => 'required',
-                                    'summary_field' => true,
-                                ],
-                            ]
-                        ],
-                    ]
-                ],
-                [
-                    'id' => 'section4',
-                    'label' => 'Column 4',
-                    'description' => '',
-                    'items' => [
-                        [
-                            'id' => 'title',
-                            'type' => 'text',
-                            'label' => 'Title',
-                            'description' => '',
-                        ],
-                        [
-                            'id' => 'links',
-                            'type' => 'list_table',
-                            'label' => 'Links',
-                            'description' => '',
-                            'items' => [
-                                [
-                                    'id' => 'icon',
-                                    'label' => 'Icon',
-                                    'type' => 'image',
-                                    'rules' => '',
-                                    'description' => '',
-                                    'summary_field' => false,
-                                ],
-                                [
-                                    'id' => 'details',
-                                    'label' => 'Details',
-                                    'type' => 'htmleditor',
-                                    'rules' => 'required',
-                                    'description' => 'To link: `tel:` for number, `mailto:` for email',
-                                    'summary_field' => true,
-                                ],
-                            ]
-                        ],
-                    ]
-                ],
-                [
-                    'id' => 'section5',
-                    'label' => 'Footer',
-                    'description' => '',
-                    'items' => [
                         [
                             'id' => 'copyright',
                             'type' => 'text',
                             'label' => 'Copyright',
                             'description' => '',
                         ],
+                    ]
+                ],
+                [
+                    'id' => 'section2',
+                    'label' => 'Social Media Accounts',
+                    'description' => '',
+                    'items' => [
                         [
                             'id' => 'social_accounts',
                             'type' => 'list_table',

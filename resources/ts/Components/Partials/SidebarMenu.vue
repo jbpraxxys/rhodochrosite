@@ -211,7 +211,7 @@ const navigation: generalNavType[] = [
             {
                 name: "Modular Pages",
                 href: route("admin.pages.parent.index"),
-                parentUrl: "admin.modular-parent*",
+                parentUrl: "admin.pages*",
                 icon: RectangleGroupIcon,
                 allowed: true,
             },
@@ -249,6 +249,21 @@ const navigation: generalNavType[] = [
                 name: "Admins",
                 href: route("admin.accounts.admins.index"),
                 parentUrl: "admin.accounts.admins.*",
+                icon: UserGroupIcon,
+                allowed: true,
+            },
+        ]
+    },
+    {
+        name: "Others",
+        href: "#",
+        parentUrl: "#",
+        allowed: true,
+        children: [
+            {
+                name: "Activity Logs",
+                href: route("admin.activity-logs.index"),
+                parentUrl: "admin.activity-logs.*",
                 icon: UserGroupIcon,
                 allowed: true,
             },
