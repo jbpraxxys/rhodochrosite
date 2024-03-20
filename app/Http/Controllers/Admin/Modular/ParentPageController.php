@@ -63,7 +63,7 @@ class ParentPageController extends Controller
             ->with('success', 'Saved!');
     }
 
-    public function delete(ParentPage $parentPage)
+    public function archive(ParentPage $parentPage)
     {
         $parentPage->delete();
 
@@ -125,6 +125,15 @@ class ParentPageController extends Controller
         ]);
     }
 
+    public function deleteFrame(Frame $frame) 
+    {
+        $frame->forceDelete();
+
+        return redirect()
+            ->route('admin.pages.parent.edit', [$frame->parent_page_id, 'tab' => 'frames'])
+            ->with('success', 'Deleted!');
+    }
+
     /**
      * Show create frame card
      *
@@ -153,7 +162,7 @@ class ParentPageController extends Controller
         $this->parentPageProcessor->updateCard($request, $card);
 
         return redirect()
-        ->route('admin.pages.parent.edit-frame', [$card->frame_id])
+            ->route('admin.pages.parent.edit-frame', [$card->frame_id])
             ->with('success', 'Saved!');
     }
 

@@ -53,7 +53,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::post('edit/{parentPage}', 'update')->name('update');
                 Route::get('create', 'create')->name('create');
                 Route::post('store', 'store')->name('store');
-                Route::delete('delete/{parentPage}', 'delete')->name('delete');
+                Route::delete('delete/{parentPage}', 'archive')->name('archive');
                 Route::post('restore', 'restore')->name('restore');
 
                 // frame
@@ -67,9 +67,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::get('{frame}/create/frame/card', 'createFrameCard')->name('create-frame-card');
                 Route::post('store/card/{frame}', 'storeFrameCard')->name('store-frame-card');
                 Route::get('{card}/edit/card', 'editFrameCard')->name('edit-frame-card');
-                Route::post('update/card/{card}', 'updateFrameCard')->name('update-frame-card');
-                Route::post('reorder/card', 'updateCardOrder')->name('update-card-order');
-                Route::delete('delete/card/{item}', 'deleteCard')->name('delete-card');
+                
             });
 
         Route::prefix('subpage')
@@ -81,7 +79,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::post('edit/{subPage}', 'update')->name('update');
                 Route::get('{parentPage}/create', 'create')->name('create');
                 Route::post('store', 'store')->name('store');
-                Route::delete('delete/{subPage}', 'delete')->name('delete');
+                Route::delete('delete/{subPage}', 'archive')->name('archive');
+                Route::post('reorder/page', 'updateOrder')->name('update-order');
 
                 // frame
                 Route::get('{subPage}/create/frame', 'createFrame')->name('create-frame');
@@ -89,15 +88,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::get('{frame}/edit/frame', 'editFrame')->name('edit-frame');
                 Route::post('update/frame/{frame}', 'updateFrame')->name('update-frame');
                 Route::delete('delete/frame/{frame}', 'deleteFrame')->name('delete-frame');
-                Route::post('reorder/frame', 'updateOrder')->name('update-order');
 
                 // frame - card
                 Route::get('{frame}/create/frame/card', 'createFrameCard')->name('create-frame-card');
                 Route::post('store/card/{frame}', 'storeFrameCard')->name('store-frame-card');
                 Route::get('{card}/edit/card', 'editFrameCard')->name('edit-frame-card');
                 Route::post('update/card/{card}', 'updateFrameCard')->name('update-frame-card');
-                Route::post('reorder/card', 'updateCardOrder')->name('update-card-order');
-                Route::delete('delete/card/{item}', 'deleteCard')->name('delete-card');
             });
 
         Route::prefix('child')
@@ -109,7 +105,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::post('edit/{childPage}', 'update')->name('update');
                 Route::get('{subPage}/create', 'create')->name('create');
                 Route::post('store', 'store')->name('store');
-                Route::delete('delete/{childPage}', 'delete')->name('delete');
+                Route::delete('delete/{childPage}', 'archive')->name('archive');
                 Route::post('restore', 'restore')->name('restore');
 
                 // frame
@@ -124,8 +120,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::post('store/card/{frame}', 'storeFrameCard')->name('store-frame-card');
                 Route::get('{card}/edit/card', 'editFrameCard')->name('edit-frame-card');
                 Route::post('update/card/{card}', 'updateFrameCard')->name('update-frame-card');
-                Route::post('reorder/card', 'updateCardOrder')->name('update-card-order');
-                Route::delete('delete/card/{item}', 'deleteCard')->name('delete-card');
             });
 
         Route::prefix('frame')
@@ -133,6 +127,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             ->controller(FrameController::class)
             ->group(function () {
                 Route::post('reorder', 'updateOrder')->name('update-order');
+                Route::post('reorder/card', 'updateCardOrder')->name('update-card-order');
+                Route::delete('delete/card/{item}', 'deleteCard')->name('delete-card');
             });
     });
 

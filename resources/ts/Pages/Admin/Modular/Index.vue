@@ -1,5 +1,5 @@
 <template>
-    <admin-layout title="Parent Page">
+    <admin-layout title="Modular Pages">
         <!-- Tabs -->
         <div>
             <Tabs
@@ -44,9 +44,12 @@
                                         :routeLink="route('admin.pages.parent.edit', item.id)"
                                         />
 
-                                        <delete-button 
-                                        v-if="selectedTab !== 'archived'"
-                                        @click="selectArchive(item)" />
+                                        <delete-button
+                                            v-if="selectedTab !== 'archived'"
+                                            :modal-title="`Archive ${item.title}`"
+                                            :modal-name="item.title"
+                                            :route-link="route('admin.pages.parent.archive', item.id)"
+                                        />
 
                                         <restore-button
                                         v-if="selectedTab === 'archived'"
@@ -73,12 +76,6 @@
         @cancel="showRestoreModal = false"
         />
       
-        <delete-modal
-        :title="'Archive'"
-        :show="showArchiveModal"
-        @confirm="processArchive"
-        @cancel="showArchiveModal = false"
-        />
     </admin-layout>
 </template>
 
@@ -138,23 +135,9 @@ const headers: { text: string }[] = [
  * METHODS
  *----------------*/
 
-const selectArchive = (item: object): void => {
-    selectedItem.value = item;
-    showArchiveModal.value = true;
-}
-
 const selectRestore = (item: object): void => {
     selectedItem.value = item;
     showRestoreModal.value = true;
-}
-
-const processArchive = (): void => {
-    router.delete(
-        route('admin.pages.parent.delete', selectedItem.value.id),
-        {
-            preserveState: false
-        }
-    )
 }
 
 const processRestore =(): void => {

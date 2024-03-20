@@ -171,10 +171,10 @@
                 </template>
             </jet-form-section>
         </div>
-        <div v-if="form.frame_type == 2" class="p-4 md:p-7 space-y-10">
-            <div class="w-8/12">
+        <div v-if="form.frame_type == 2" class="p-4 md:p-7 flex">
+            <div class="w-4/12 pr-10">
                 <p class="text-sm text-gray-500 mb-3">Card types</p>
-                <div class="grid grid-cols-4 gap-3">
+                <div class="grid grid-cols-2 gap-3">
                     <label for="white-card" class="border-2 rounded p-3 transition cursor-pointer"
                         :class="form.card_type == 1 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
                         <input 
@@ -254,55 +254,24 @@
                 </div>
             </div>
            
-            <div class="flex">
-                <div class="w-3/12">
-                    <p class="text-sm mb-4 text-neutral-500">
-                        List of cards
-                    </p>
-                    <create-button 
-                        text="Add Card"
-                        :routeLink="createRoute"
-                    />
-                </div>
-                <div class="w-9/12">
-                    <table 
-                    class="min-w-full border rounded-lg col-span-12">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th class="px-6 py-3 text-left text-xs text-gray-500 uppercase font-normal whitespace-nowrap th-parent">Title</th>
-                                <th class="px-6 py-3 text-right text-xs text-gray-500 uppercase font-normal whitespace-nowrap th-parent">Action</th>
-                            </tr>
-                        </thead>
-                        <draggable
-                            v-model="items"
-                            tag="tbody"
-                            item-key="id"
-                            @change="reorder"
-                            v-bind="{
-                                animation: 200,
-                            }"
-                            class=""
-                        >
-                            
-                            <template #item="{element}">
-                                <tr class="cursor-move border-b">
-                                    <td class="">
-                                        {{ element.title }}
-                                    </td>
-                                    <td class="text-right">
-                                        <edit-button
-                                            :routeLink="route('admin.pages.subpage.edit-frame-card', element.id)"
-                                        />
-                                    </td>
-                                </tr>
-                            </template>
-                        </draggable>
-                    </table>
-                </div>
+            <div class="w-8/12">
+                <card-index 
+                :cards="cards"
+                :create-route="'admin.pages.subpage.create-frame-card'"
+                :edit-route="'admin.pages.subpage.edit-frame-card'"
+                :id="frame.id" />
             </div>
         </div>
         <template #buttons>
-            <action-button @click="submit">
+            <delete-button
+                :icon="false"
+                :modal-title="`Delete ${form.label}`"
+                :modal-name="form.label"
+                :route-link="route('admin.pages.subpage.delete-frame', form.id)"
+            />
+            <action-button 
+            class="ml-2"
+            @click="submit">
                 Update
             </action-button>
         </template>
@@ -315,6 +284,7 @@ import { ref } from "vue";
 import usePRXForm from "@/composables/usePRXForm.ts";
 import draggable from 'vuedraggable';
 import { router } from '@inertiajs/vue3';
+import CardIndex from "@/Pages/Admin/Modular/Components/CardIndex.vue";
 
 // Components
 
@@ -334,6 +304,7 @@ const props = defineProps({
 const createRoute = ref<string>(route('admin.pages.subpage.create-frame-card', props.frame.id));
 
 const formData = {
+    id: props.frame.id,
     sub_page_id: props.frame.sub_page_id,
     custom_class: props.frame.custom_class,
     label: props.frame.label,
@@ -349,7 +320,7 @@ const formData = {
 
 const pages = [
     {
-        href: route("admin.pages.subpage.edit", props.frame.sub_page_id),
+        href: `${route('admin.pages.subpage.edit', props.frame.sub_page_id)}?tab=frames`,
         name: "Frames",
     },
     {

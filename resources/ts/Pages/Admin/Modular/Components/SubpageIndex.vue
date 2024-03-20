@@ -1,53 +1,64 @@
 <template>
-    <div class="flex space-x-6 pt-10">
-        <div class="w-3/12">
-            <p class="text-sm mb-4 text-neutral-500">
-                List of Sub Pages
-            </p>
-            <create-button 
-                text="Add Sub Page"
-                :routeLink="createRoute"
-            />
-        </div>
-        <div class="w-9/12">
-            <table-container>
-                <template #body>
-                    <data-table
-                        :headers="headers"
-                        :no-action="false"
-                        :count="subPages.length"
-                    >
-                        <template v-slot:body>
-                            <template v-for="item in subPages" :key="item">
-                                <tr>
-                                    <td>
-                                        {{ item.id }}
-                                    </td>
-                                    <td class="w-10/12">
-                                        {{ item.title }}
-                                    </td>
-                                    
-                                    <td class="text-center">
-                                        <edit-button
-                                            :routeLink="route('admin.pages.subpage.edit', item.id)"
-                                        />
-                                    </td>
-                                </tr>
-                            </template>
-                        </template>
-                    </data-table>
-
-                </template>
-
-                <template #footer>
-                    <pagination :items="items" />
-                </template>
-            </table-container>
-        </div>
-    </div>
+    <table-container 
+    class="mt-6 max-w-[600px] mx-auto"
+    :show-footer="subPages.length <= 0">
+        <template #header>
+            <div class="w-full flex justify-between items-center">
+                <div>
+                    <p class="text-sm font-bold text-gray-900">Modular Sub Pages</p>
+                    <p class="mt-1 text-sm text-gray-500">Relevant data and other details</p>
+                </div>
+                <create-button 
+                    :routeLink="createRoute"
+                />
+            </div>
+        </template>
+        <template #body>
+            <table class="min-w-full">
+                <draggable
+                    v-model="items"
+                    tag="tbody"
+                    item-key="id"
+                    @change="reorder"
+                    v-bind="{
+                        animation: 200,
+                    }"
+                >
+                    <template #item="{element}">
+                        <tr class="border-t cursor-move">
+                            <td>
+                                {{ element.id }}
+                            </td>
+                            <td>
+                                {{ element.title }}
+                            </td>
+                            
+                            <td class="text-right">
+                                <edit-button
+                                    :routeLink="route('admin.pages.subpage.edit', element.id)"
+                                />
+                                <delete-button
+                                    :modal-title="`Archive ${element.title}`"
+                                    :modal-name="element.title"
+                                    :route-link="route('admin.pages.subpage.archive', element.id)"
+                                />
+                            </td>
+                        </tr>
+                    </template>
+                </draggable>
+            </table>
+        </template>
+        <template #footer>
+            <div>
+                <p class="text-gray-400 text-sm">No sub page available</p>
+            </div>
+        </template>
+    </table-container>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
+import draggable from 'vuedraggable';
+import { router } from '@inertiajs/vue3';
 const props = defineProps({
     item: {
         type: Object
@@ -57,19 +68,23 @@ const props = defineProps({
     },
 })
 
-const items = {
-    data: [
-        {
-            id: 1,
-            title: 'subepage 1',
-        }
-    ]
-}
-
 const headers: { text: string }[] = [
     { text: 'ID' },
     { text: 'Title' },
 ];
 
 const createRoute = ref<string>(route('admin.pages.subpage.create', props.item.id));
+
+const items = ref(props.subPages);
+const reorder =()=> {
+    items.value.map((item, index) => {
+        item.order = index + 1;
+    })
+
+    router.post(
+        route('admin.pages.subpage.update-order'),
+        { items: items.value },
+        { preserveState: true }
+    )
+}
 </script>

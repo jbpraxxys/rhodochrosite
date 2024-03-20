@@ -1,7 +1,7 @@
 <template>
-    <div class="mt-6 px-6 max-w-[600px] m-auto">
-        <div class="border rounded">
-            <div class="w-full p-4 flex justify-between border-b items-center">
+    <table-container class="mt-6 max-w-[600px] mx-auto">
+        <template #header>
+            <div class="w-full flex justify-between items-center">
                 <div>
                     <p class="text-sm font-bold text-gray-900">Frames</p>
                     <p class="mt-1 text-sm text-gray-500">Relevant data and other details</p>
@@ -10,7 +10,9 @@
                     :routeLink="route(createRoute, id)"
                 />
             </div>
-            <div class="p-4">
+        </template>
+        <template #body>
+            <div class="px-6">
                 <table class="min-w-full">
                     <draggable
                         v-model="items"
@@ -20,7 +22,6 @@
                         v-bind="{
                             animation: 200,
                         }"
-                        class=""
                     >
                         <template #item="{element}">
                             <tr class="cursor-move">
@@ -37,12 +38,14 @@
                         </template>
                     </draggable>
                 </table>
-                <div v-if="frames.length <= 0">
-                    <p class="text-gray-400 text-sm">No frame available</p>
-                </div>
             </div>
-        </div>
-    </div>
+        </template>
+        <template #footer>
+            <div v-if="frames.length <= 0">
+                <p class="text-gray-400 text-sm">No frame available</p>
+            </div>
+        </template>
+    </table-container>
 </template>
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
