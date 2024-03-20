@@ -2,17 +2,21 @@
 
 namespace App\Models\Modular;
 
+use App\Traits\PrettyLog;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Frame extends Model
 {
     use HasFactory;
     use SoftDeletes;
     use Searchable;
+    use LogsActivity;
+    use PrettyLog;
 
     protected $fillable = [
         'order',

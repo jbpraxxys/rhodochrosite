@@ -16,69 +16,9 @@
             />
         </div>
 
-        
-
         <div class="p-4 !pt-0 md:p-7">
             <div v-if="activeTab == null">
-                <jet-form-section>
-                    <template #title>
-                        Parent Page
-                    </template>
-
-                    <template #description>
-                        Relevant data and other details
-                    </template>
-
-                    <template #form>
-                        <div class="col-span-12">
-                            <text-input
-                                v-model="form.title"
-                                label="Title"
-                                id="title"
-                                :error="form.errors.title"
-                            />
-                        </div>
-                        <div class="col-span-12">
-                            <dropzone
-                                label="Image"
-                                v-model:path="form.image"
-                                v-model:file="form.image"
-                                description="Max file size: 10MB | Dimension: 300px x 434px"
-                                :error="form.errors.image"
-                            ></dropzone>
-                        </div>
-                        <div class="col-span-12">
-                            <text-input
-                                v-model="form.header"
-                                textarea
-                                label="Header"
-                                id="header"
-                                :error="form.errors.header"
-                            />
-                        </div>
-                        <div class="col-span-12">
-                            <ck-editor
-                                v-model="form.subtitle"
-                                label="Subtitle"
-                                id="subtitle"
-                                :error="form.errors.subtitle"
-                            ></ck-editor>
-                        </div>
-                        <div class="col-span-12">
-                            <ck-editor
-                                v-model="form.description"
-                                label="Description"
-                                id="description"
-                                :error="form.errors.description"
-                            ></ck-editor>
-                        </div>
-                    </template>
-
-                    <template #actions>
-                        <slot />
-                    </template>
-                </jet-form-section>
-                
+                <form-section :form="form" />
             </div>
             <frame-index 
                 v-if="activeTab == 'frames'" 
@@ -87,15 +27,22 @@
                 :id="item.id" 
                 :frames="frames"
             />
-            <subpage-index 
-                v-if="activeTab == 'sub-pages'" 
-                :item="item" 
-                :sub-pages="subPages"
-            />
+            <div v-if="activeTab == 'sub-pages'" >
+                <subpage-index 
+                    :item="item" 
+                    :sub-pages="subPages"
+                />
+            </div>
             <meta-form 
             v-if="activeTab == 'seo-meta-data'" 
                 :form="form" 
             />
+            <div v-if="activeTab == 'archived'" >
+                <subpage-index 
+                    :item="item" 
+                    :sub-pages="archivedSubPages"
+                />
+            </div>
         </div>
         <template #buttons>
             <action-button @click="submit">
@@ -112,6 +59,7 @@ import { ref } from 'vue'
 
 // Components
 import MetaForm from "@/Components/Forms/MetaForm.vue";
+import FormSection from "./FormSection.vue";
 import FrameIndex from "./Components/FrameIndex.vue";
 import SubpageIndex from "./Components/SubpageIndex.vue";
 
@@ -123,6 +71,9 @@ const props = defineProps({
         type: Object,
     },
     subPages: {
+        type: Object,
+    },
+    archivedSubPages: {
         type: Object,
     },
     selectedTab: {
@@ -150,7 +101,7 @@ const formData = {
 const pages = [
     {
         href: route("admin.pages.parent.index"),
-        name: "Parent Page",
+        name: "Modular Page",
     },
     {
         href: "",

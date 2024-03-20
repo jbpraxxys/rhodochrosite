@@ -73,10 +73,6 @@
                             ></ck-editor>
                         </div>
                     </template>
-
-                    <template #actions>
-                        <slot />
-                    </template>
                 </jet-form-section>
             </div>
             <frame-index 
@@ -89,6 +85,7 @@
             <children-index 
                 v-if="activeTab == 'children-pages'" 
                 :item="item" 
+                :create-route="'admin.pages.child.create'" 
                 :children-pages="childrenPages"
             />
             <meta-form 

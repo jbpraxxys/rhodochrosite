@@ -135,10 +135,10 @@
                 </template>
             </jet-form-section>
         </div>
-        <div v-if="form.frame_type == 2" class="p-4 md:p-7 space-y-10">
-            <div class="w-1/2">
+        <div v-if="form.frame_type == 2" class="p-4 md:p-7 flex">
+            <div class="w-4/12 pr-10">
                 <p class="text-sm text-gray-500 mb-3">Card types</p>
-                <div class="grid grid-cols-3 gap-3">
+                <div class="grid grid-cols-2 gap-3">
                     <label for="white-card" class="border-2 rounded p-3 transition cursor-pointer"
                         :class="form.card_type == 1 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
                         <input 
@@ -199,55 +199,43 @@
                             </div>
                         </div>
                     </label>
+                    <label for="team-card" class="border-2 rounded p-3 transition cursor-pointer"
+                        :class="form.card_type == 4 ? 'border-primary-500 hover:border-primary-500' : 'hover:border-primary-500/[0.5]'">
+                        <input 
+                            id="team-card" 
+                            type="radio" 
+                            name="frame-type" 
+                            class="hidden" 
+                            :value="4"
+                            v-model="form.card_type"
+                        >
+                        <div class="w-full">
+                            <div class="w-8/12 mx-auto h-20 bg-primary-50 mb-2"></div>
+                            <div class="w-full h-5 bg-primary-50 mb-2"></div>
+                            <div class="w-full h-2 bg-primary-50"></div>
+                        </div>
+                    </label>
                 </div>
             </div>
            
-            <div class="flex">
-                <div class="w-3/12">
-                    <p class="text-sm mb-4 text-neutral-500">
-                        List of cards
-                    </p>
-                    <create-button 
-                        text="Add Card"
-                        :routeLink="createRoute"
-                    />
-                </div>
-                <div class="w-9/12">
-                    <DataTable 
-                    :headers="headers" 
-                    :count="items.length"
-                    noBorder
-                    class="border border-gray-100 rounded-lg overflow-hidden col-span-12">
-                        <template v-slot:body>
-                            <template v-for="item in cards">
-                                <tr>
-                                    <td class="w-10/12">
-                                        {{ item.title }}
-                                    </td>
-                                    <td class="text-center">
-                                        <edit-button
-                                            :routeLink="route('admin.pages.child.edit-frame-card', item.id)"
-                                        />
-                                    </td>
-                                </tr>
-                            </template>
-                        </template>
-                    </DataTable>
-                    <div class="w-full pt-10 flex">
-                        <div class="w-1/3">
-                            <text-input
-                                v-model="form.custom_class"
-                                label="Custom Class"
-                                id="button_link"
-                                :error="form.errors.custom_class"
-                            />
-                        </div>
-                    </div>
-                </div>
+            <div class="w-8/12">
+                <card-index 
+                :cards="cards"
+                :create-route="'admin.pages.child.create-frame-card'"
+                :edit-route="'admin.pages.child.edit-frame-card'"
+                :id="frame.id" />
             </div>
         </div>
         <template #buttons>
-            <action-button @click="submit">
+            <delete-button
+                :icon="false"
+                :modal-title="`Delete ${form.label}`"
+                :modal-name="form.label"
+                :route-link="route('admin.pages.child.delete-frame', form.id)"
+            />
+            <action-button 
+            class="ml-2"
+            @click="submit">
                 Update
             </action-button>
         </template>
@@ -258,6 +246,7 @@
 // Packages
 import { ref } from "vue";
 import usePRXForm from "@/composables/usePRXForm.ts";
+import CardIndex from "@/Pages/Admin/Modular/Components/CardIndex.vue";
 
 // Components
 
@@ -277,6 +266,7 @@ const props = defineProps({
 const createRoute = ref<string>(route('admin.pages.child.create-frame-card', props.frame.id));
 
 const formData = {
+    id: props.frame.id,
     child_page_id: props.frame.child_page_id,
     custom_class: props.frame.custom_class,
     label: props.frame.label,
@@ -292,7 +282,7 @@ const formData = {
 
 const pages = [
     {
-        href: route("admin.pages.child.edit", props.frame.child_page_id),
+        href: `${route('admin.pages.child.edit', props.frame.child_page_id)}?tab=frames`,
         name: "Frames",
     },
     {

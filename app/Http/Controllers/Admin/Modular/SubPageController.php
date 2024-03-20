@@ -60,12 +60,13 @@ class SubPageController extends Controller
             ->with('success', 'Saved!');
     }
 
-    public function delete(SubPage $subPage)
+    public function archive(SubPage $subPage)
     {
         $subPage->delete();
 
-        return to_route($this->indexRoute)
-            ->with('success', 'Archived!');
+        return redirect()
+            ->route('admin.pages.parent.edit', [$subPage->parent_page_id, 'tab' => 'sub-pages'])
+            ->with('success', 'Deleted!');
     }
 
     public function restore(Request $request)
@@ -74,6 +75,29 @@ class SubPageController extends Controller
 
         return to_route($this->indexRoute)
             ->with('success', 'Restored!');
+    }
+
+    public function updateOrder(Request $request)
+    {
+        $data = $request->validate([
+            'items.*.id' => 'required',
+            'items.*.order' => 'required|numeric'
+        ]);
+
+        $items = SubPage::all();
+
+        foreach ($items as $item) {
+            $id = $item->id;
+            foreach($request->items as $new) {
+                if ($new['id'] == $id) {
+                    $item->update(['order' => $new['order']]);
+                }
+            }
+        }
+
+        return redirect()
+            ->back()
+            ->with('success', 'Updated Successfully');
     }
 
     /*
@@ -120,6 +144,15 @@ class SubPageController extends Controller
             'frame' => $frame,
             'cards' => $frame->cards()->get(),
         ]);
+    }
+
+    public function deleteFrame(Frame $frame) 
+    {
+        $frame->forceDelete();
+
+        return redirect()
+            ->route('admin.pages.subpage.edit', [$frame->sub_page_id, 'tab' => 'frames'])
+            ->with('success', 'Deleted!');
     }
 
     /**

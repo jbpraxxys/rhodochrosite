@@ -3,6 +3,7 @@
 namespace App\Models\Modular;
 
 use App\Traits\PrettyLog;
+use App\Traits\ReadableTimestamp;
 use Laravel\Scout\Searchable;
 use App\Traits\RendersSelect;
 use Illuminate\Database\Eloquent\Model;
@@ -19,6 +20,7 @@ class ParentPage extends Model
     use RendersSelect;
     use LogsActivity;
     use PrettyLog;
+    use ReadableTimestamp;
 
     private const SELECT_COLUMN = "title";
     

@@ -48,38 +48,44 @@ class FrameController extends Controller
             ->with('success', 'Updated Successfully');
     }
 
-    public function storeCard(CardRequest $request, Frame $frame, Card $card)
+    public function updateCardOrder(Request $request)
     {
+        $data = $request->validate([
+            'items.*.id' => 'required',
+            'items.*.order' => 'required|numeric'
+        ]);
 
-        $this->frameProcessor->storeCard($request, $frame);
+        $items = Card::all();
+
+        foreach ($items as $card) {
+            $id = $card->id;
+            foreach($request->items as $new) {
+                if ($new['id'] == $id) {
+                    $card->update(['order' => $new['order']]);
+                }
+            }
+        }
 
         return redirect()
-            ->route('admin.pages.parent.edit-frame', $frame->id)
-            ->with('success', 'Saved!');
-    }
-    
-
-    public function createCard(Frame $frame)
-    {
-        return Inertia::render('Admin/Modular/Frames/Cards/Create', [
-            'frame_id' => $frame->id,
-        ]);
+            ->back()
+            ->with('success', 'Updated Successfully');
     }
 
-    public function editCard(Card $card)
+    public function deleteFrame(Frame $item)
     {
-        return Inertia::render('Admin/Modular/Frames/Cards/Edit', [
-            'item' => $card,
-        ]);
-    }
-
-    public function updateCard(CardRequest $request, Card $card)
-    {
-
-        $this->frameProcessor->updateCard($request, $card);
+        $item->forceDelete();
 
         return redirect()
-            ->route('admin.pages.parent.edit-frame', $card->frame_id)
-            ->with('success', 'Saved!');
+            ->back()
+            ->with('success', 'Deleted!');
+    }
+
+    public function deleteCard(Card $item)
+    {
+        $item->forceDelete();
+
+        return redirect()
+            ->back()
+            ->with('success', 'Deleted!');
     }
 }

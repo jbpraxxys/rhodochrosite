@@ -58,12 +58,13 @@ class ChildPageController extends Controller
             ->with('success', 'Saved!');
     }
 
-    public function delete(ChildPage $childPage)
+    public function archive(ChildPage $childPage)
     {
         $childPage->delete();
 
-        return to_route($this->indexRoute)
-            ->with('success', 'Archived!');
+        return redirect()
+            ->back()
+            ->with('success', 'Deleted!');
     }
 
     public function restore(Request $request)
@@ -118,6 +119,15 @@ class ChildPageController extends Controller
             'frame' => $frame,
             'cards' => $frame->cards()->get(),
         ]);
+    }
+
+    public function deleteFrame(Frame $frame) 
+    {
+        $frame->forceDelete();
+
+        return redirect()
+            ->route('admin.pages.child.edit', [$frame->child_page_id, 'tab' => 'frames'])
+            ->with('success', 'Deleted!');
     }
 
     /**

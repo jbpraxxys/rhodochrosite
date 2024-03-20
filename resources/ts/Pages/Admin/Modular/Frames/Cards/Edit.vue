@@ -112,7 +112,9 @@ const formData = {
 
 const pages = [
     {
-        href: route("admin.pages.parent.edit-frame", props.item.frame_id),
+        href: isSubpage.value ? `${route("admin.pages.subpage.edit-frame-card", props.item.frame_id)}?tab=cards` :
+              isChild.value ? `${route("admin.pages.child.edit-frame", props.item.frame_id)}?tab=cards` :
+                `${route("admin.pages.parent.edit-frame", props.item.frame_id)}?tab=cards`,
         name: "Frames",
     },
     {
