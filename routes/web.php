@@ -45,22 +45,6 @@ Route::prefix('/')
         Route::get('/pages/{parentPage:slug}/{subPage:slug}', 'subPage')->name('sub-page');
         Route::get('/pages/{parentPage:slug}/{subPage:slug}/{childPage:slug}', 'childPage')->name('child-page');
         
-        // Route::get('/solutions/contact-center', 'contactCenter')->name('contact-center');
-        // Route::get('/solutions/staff-leasing', 'staffLeasing')->name('staff-leasing');
-        // Route::get('/solutions/seat-leasing', 'seatLeasing')->name('seat-leasing');
-        // Route::get('/solutions/virtual-assistant', 'virtualAssistant')->name('virtual-assistant');
-        // Route::get('/solutions/workforce-management', 'workforceManagement')->name('workforce-management');
-        // Route::get('/solutions/managed-services', 'managedServices')->name('managed-services');
-        // Route::get('/solutions/crowd-sourcing', 'crowdSourcing')->name('crowd-sourcing');
-        // Route::get('/specializations/ict', 'ict')->name('ict');
-        // Route::get('/specializations/sales-and-customer', 'salesAndCustomer')->name('sales-and-customer');
-        // Route::get('/specializations/sale-development', 'saleDevelopment')->name('sale-development');
-        // Route::get('/specializations/customer-service', 'customerService')->name('customer-service');
-        // Route::get('/specializations/sales-team-service', 'salesTeamService')->name('sales-team-service');
-        // Route::get('/specializations/social-media-management', 'socialMediaManagement')->name('social-media-management');
-        // Route::get('/industries', 'industries')->name('industries');
-        // Route::get('/about-us/our-advantages', 'ourAdvantages')->name('our-advantages');
-        // Route::get('/about-us/our-team', 'ourTeam')->name('our-team');
         Route::get('/contact-us', 'contactUs')->name('contact-us');
         Route::get('/privacy-policy', 'privacyPolicy')->name('privacy-policy');
         Route::get('/terms-and-conditions', 'termsAndConditions')->name('terms-and-conditions');
