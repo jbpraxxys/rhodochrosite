@@ -5,13 +5,16 @@ namespace App\Models\Modular;
 use App\Traits\PrettyLog;
 use Laravel\Scout\Searchable;
 use App\Traits\RendersSelect;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Sitemap\Contracts\Sitemapable;
+use Spatie\Sitemap\Tags\Url;
 
-class SubPage extends Model
+class SubPage extends Model implements Sitemapable
 {
     use HasFactory;
     use SoftDeletes;
@@ -87,5 +90,16 @@ class SubPage extends Model
         ];
 
         return $array;
+    }
+
+    public function toSitemapTag(): Url | string | array
+    {
+        return Url::create(route('web.pages.sub-page', [
+            'parentPage' =>  $this->parent_page->slug,
+            'subPage' => $this->slug
+        ]))
+        ->setLastModificationDate(Carbon::create($this->updated_at))
+        ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+        ->setPriority(1.0);
     }
 }
