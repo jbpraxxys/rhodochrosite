@@ -2,7 +2,7 @@
     <header 
         ref="headRef" 
         class="w-full fixed top-0 left-0 z-[90] transition"
-        :class="headerScroll ? 'bg-white shadow-md' : 'bg-primary-900'"
+        :class="[headerScroll ? '!bg-white shadow-md' : 'bg-primary-900', customClass]"
     >
         <div class="px-4 lg:px-20 mx-auto lg:py-4 flex items-center justify-between transition header-wrapper" :class="headerScroll ? 'py-2' : 'py-6'">
             <div class="hdr-logo lg:w-auto">
@@ -108,6 +108,9 @@ defineProps({
     },
     parent_pages: {
         type: Object
+    },
+    customClass: {
+        type: String
     }
 })
 

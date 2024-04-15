@@ -3,6 +3,7 @@
         <Header 
         :header="header"
         :parent_pages="parent_pages"
+        :custom-class="customClass"
         />
         
         <slot />
@@ -38,6 +39,9 @@ defineProps({
         type: String
     },
     seoKeywords: {
+        type: String
+    },
+    customClass: {
         type: String
     }
 })

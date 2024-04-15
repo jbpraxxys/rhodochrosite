@@ -455,6 +455,21 @@
     }
 }
 
+.ck-content.saas-highlight {
+    p {
+        font-weight: 900;
+        line-height: 6.5vw;
+        text-shadow: 4px 0px #9D4BFE;
+    }
+    strong, b {
+        font-family: 'Chercher-BlackSlant';
+        color: #9D4BFE;
+        font-size: 5.5vw;
+        line-height: 6.5vw;
+        text-shadow: none;
+    }
+}
+
 @media print {
     /* @ckeditor/ckeditor5-page-break/theme/pagebreak.css */
     .ck-content .page-break {
