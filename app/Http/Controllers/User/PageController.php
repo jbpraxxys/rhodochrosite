@@ -93,6 +93,27 @@ class PageController extends Controller
         ]);
     }
 
+    // Careers
+    public function careers() {
+        return Inertia::render('User/Pages/Careers/Index', [])->withViewData([]);
+    }
+
+    // Resources
+    public function resources() {
+        return Inertia::render('User/Pages/Resources/Index', [])->withViewData([]);
+    }
+    public function resourcesView() {
+        return Inertia::render('User/Pages/Resources/View', [])->withViewData([]);
+    }
+
+     // Calculator
+    public function calculator() {
+        return Inertia::render('User/Pages/Calculator/Index', [])->withViewData([]);
+    }
+    public function calculatorView() {
+        return Inertia::render('User/Pages/Calculator/View', [])->withViewData([]);
+    }
+
     // Contact Us
     public function contactUs() {
         $cms = CmsPage::where('slug', 'contact-us')->first();

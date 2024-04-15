@@ -8,7 +8,7 @@
             fillColor == 'primary' ? 'bg-primary-500 border-0 active:bg-primary-600 hover:bg-primary-600' : '',
             size == 'lg' ? 'h-14' : 
             size == 'sm' ? 'h-10' : 
-            size == 'md' ? 'h-12' : 'h-[44px]',
+            size == 'md' ? 'h-12' : 'h-11',
             block ? 'flex w-full' : 'inline-flex',
             customClass,
         ]"

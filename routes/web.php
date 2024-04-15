@@ -45,6 +45,11 @@ Route::prefix('/')
         Route::get('/pages/{parentPage:slug}/{subPage:slug}', 'subPage')->name('sub-page');
         Route::get('/pages/{parentPage:slug}/{subPage:slug}/{childPage:slug}', 'childPage')->name('child-page');
         
+        Route::get('/calculator', 'calculator')->name('calculator');
+        Route::get('/calculator/view', 'calculatorView')->name('calculator-view');
+        Route::get('/careers', 'careers')->name('careers');
+        Route::get('/resources', 'resources')->name('resources');
+        Route::get('/resources/view', 'resourcesView')->name('resources-view');
         Route::get('/contact-us', 'contactUs')->name('contact-us');
         Route::get('/privacy-policy', 'privacyPolicy')->name('privacy-policy');
         Route::get('/terms-and-conditions', 'termsAndConditions')->name('terms-and-conditions');
