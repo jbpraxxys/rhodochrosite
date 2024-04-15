@@ -97,6 +97,7 @@ export default {
                     'lg': 'sm:max-w-lg',
                     'xl': 'sm:max-w-xl',
                     '2xl': 'sm:max-w-2xl',
+                    'calculator': 'sm:max-w-[350px]',
                 }[this.maxWidth]
             }
         }
