@@ -5,10 +5,10 @@
             src="/icons/contact-img.svg" 
             alt="contact"
         >
-        <div class="max-w-[656px] p-6 lg:p-8 bg-primary-900 w-full rounded-2xl">
+        <div class="max-w-[656px] p-6 lg:p-8 bg-primary-900 w-full rounded-2xl" :class="customClass">
             <div class="text-white mb-6">
-                <p class="font-semibold text-3xl mb-3">Contact Us</p>
-                <p>Let’s discuss your project, together we will find a solution to the most difficult task</p>
+                <p class="font-semibold text-3xl mb-3">{{title}}</p>
+                <p>{{ description }}</p>
             </div>
             <form @submit.prevent="submit" class="hm-contact grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-4">
                 <div>
@@ -142,6 +142,20 @@
 import { useForm } from "@inertiajs/vue3";
 import { onMounted, ref } from "vue";
 import { VueRecaptcha } from 'vue-recaptcha';
+
+defineProps({
+    customClass: {
+        type: String
+    },
+    title: {
+        type: String,
+        default: 'Contact Us',
+    },
+    description: {
+        type: String,
+        default: 'Let’s discuss your project, together we will find a solution to the most difficult task',
+    }
+})
 
 const solutions = [
     { id: 'Creative Services', value: 'Creative Services'},
