@@ -605,6 +605,31 @@
     }
 }
 
+.gaming {
+    background-color: white;
+    .nav-menu {
+        color: #1c2c36;
+        .btn {
+            .overlay {
+                color: white;
+            }
+        }
+    }
+
+    .header-logo {
+        filter: invert(0);
+    }
+}
+
+.gaming-highlight {
+    * {
+        font-weight: 700;
+    }
+    strong,b {
+        color: #1E746E;
+    }
+}
+
 
 
 
