@@ -93,6 +93,11 @@ class PageController extends Controller
         ]);
     }
 
+    /** INDUSTRIES */
+    // Gaming
+    public function Gaming() {
+        return Inertia::render('User/Pages/Industries/Gaming', [])->withViewData([]);
+    }
     // Saas
     public function Saas() {
         return Inertia::render('User/Pages/Industries/Saas', [])->withViewData([]);
