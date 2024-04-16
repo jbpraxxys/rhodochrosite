@@ -605,6 +605,15 @@
     }
 }
 
+.ecommerce-highlight {
+    * {
+        font-weight: 600;
+    }
+    strong,b {
+        color: #51D2CA;
+    }
+}
+
 .gaming {
     background-color: white;
     .nav-menu {
@@ -627,6 +636,39 @@
     }
     strong,b {
         color: #1E746E;
+    }
+}
+
+.ecommerce-swiper {
+    padding-bottom: 80px !important;
+    .swiper-wrapper {
+        padding-left: 80px;
+    }
+}
+
+.advantage-swiper {
+    padding-bottom: 56px !important;
+    .swiper-wrapper {
+        padding-left: 80px !important;
+    }
+}
+
+.advantage-card {
+    transition: all 1s ease;
+    .content {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 1s ease;
+        opacity: 0;
+    }
+
+    &:hover {
+        background: #191919;
+        .content {
+            max-height: 515px;
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }
 

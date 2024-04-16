@@ -47,6 +47,7 @@ Route::prefix('/')
         
         Route::get('/industries/saas', 'saas')->name('saas');
         Route::get('/industries/gaming', 'gaming')->name('gaming');
+        Route::get('/industries/e-commerce', 'ecommerce')->name('ecommerce');
         Route::get('/calculator', 'calculator')->name('calculator');
         Route::get('/calculator/view', 'calculatorView')->name('calculator-view');
         Route::get('/careers', 'careers')->name('careers');

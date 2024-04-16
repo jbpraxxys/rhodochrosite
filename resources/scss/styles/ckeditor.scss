@@ -470,6 +470,21 @@
     }
 }
 
+.ck-content.ecommerce-highlight {
+    p {
+        font-family: 'Helvetica';
+        font-weight: 900;
+        line-height: 6.5vw;
+        text-shadow: 4px 0px #5b7170;
+    }
+    strong, b {
+        font-family: 'Alfa Slab One';
+        font-size: 7.5vw;
+        line-height: 8.5vw;
+        letter-spacing: 0.25rem;
+    }
+}
+
 @media print {
     /* @ckeditor/ckeditor5-page-break/theme/pagebreak.css */
     .ck-content .page-break {
