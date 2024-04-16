@@ -94,6 +94,10 @@ class PageController extends Controller
     }
 
     /** INDUSTRIES */
+    // Finance
+    public function finance() {
+        return Inertia::render('User/Pages/Industries/Finance', [])->withViewData([]);
+    }
     // Gaming
     public function gaming() {
         return Inertia::render('User/Pages/Industries/Gaming', [])->withViewData([]);
