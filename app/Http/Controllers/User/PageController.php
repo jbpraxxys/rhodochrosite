@@ -95,12 +95,17 @@ class PageController extends Controller
 
     /** INDUSTRIES */
     // Gaming
-    public function Gaming() {
+    public function gaming() {
         return Inertia::render('User/Pages/Industries/Gaming', [])->withViewData([]);
     }
     // Saas
-    public function Saas() {
+    public function saas() {
         return Inertia::render('User/Pages/Industries/Saas', [])->withViewData([]);
+    }
+
+    // E-commerce
+    public function eCommerce() {
+        return Inertia::render('User/Pages/Industries/ECommerce', [])->withViewData([]);
     }
 
     // Careers
