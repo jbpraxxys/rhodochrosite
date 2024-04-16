@@ -46,6 +46,7 @@ Route::prefix('/')
         Route::get('/pages/{parentPage:slug}/{subPage:slug}/{childPage:slug}', 'childPage')->name('child-page');
         
         Route::get('/industries/saas', 'saas')->name('saas');
+        Route::get('/industries/finance', 'finance')->name('finance');
         Route::get('/industries/gaming', 'gaming')->name('gaming');
         Route::get('/industries/e-commerce', 'ecommerce')->name('ecommerce');
         Route::get('/calculator', 'calculator')->name('calculator');

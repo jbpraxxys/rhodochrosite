@@ -14,7 +14,7 @@
             <frame-one class="lg:w-full w-[150%] relative right-[50%] lg:right-0" />
         </section>
         <section class="bg-primary-900 relative saas-frame2">
-            <div class="max-w-[1440px] m-auto px-20 flex items-center space-x-16 pt-[120px] pb-20 w-full">
+            <div class="m-auto px-20 flex items-center space-x-16 pt-[120px] pb-20 w-full">
                 <div class="w-1/2">
                     <div class="text-white text-[1.7vw] leading-[2.5vw] ecommerce-highlight ck-editor mb-4" v-html="'<p>Drive your <strong>e-commerce growth</strong> through outsourcing strategies.</p>'"></div>
                 </div>

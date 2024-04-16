@@ -452,6 +452,7 @@
 .ck-content.text-highlight {
     strong, b {
         color: #22857F;
+        font-weight: 700;
     }
 }
 
@@ -482,6 +483,20 @@
         font-size: 7.5vw;
         line-height: 8.5vw;
         letter-spacing: 0.25rem;
+    }
+}
+
+.ck-content.finance-highlight {
+    p {
+        font-family: 'Gabarito';
+        font-weight: 900;
+    }
+    strong, b {
+        font-family: 'Righteous';
+        font-size: 8.5vw;
+        line-height: 9.5vw;
+        letter-spacing: 0.25rem;
+        text-shadow: 4px 4px #4b5eb3;
     }
 }
 
