@@ -28,7 +28,7 @@
                 <div 
                 v-for="parent_page in parent_pages"
                 :key="parent_page.id"
-                class="relative group-hover">
+                class="relative group-hover text-sm">
                     <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
                         <a 
                         :href="parent_page.sub_pages.length == 0 ? route('web.pages.parent-page', {
@@ -37,7 +37,7 @@
                             {{ parent_page.title }}
                         </a>
                         <svg 
-                        v-if="parent_page.sub_pages.length > 0"
+                        v-if="parent_page.sub_pages.length > 0 || parent_page.title === 'Industries'"
                         class="rotate-180 lg:rotate-0" width="16" height="16" viewBox="0 0 16 16" fill="transparent" stroke="currentColor">
                             <path d="M12 6L8 10L4 6" stroke-width="2"/>
                         </svg>
@@ -84,9 +84,56 @@
                             </a>
                         </template>    
                     </div>
+                    <div v-if="parent_page.title === 'Industries'" class="bg-white px-6 py-4 text-sm text-black flex flex-col space-y-4 min-w-[250px] rounded-b-xl lg:shadow-md absolute top-[40px] left-0 hover-child">
+                        <a 
+                            class="hover:text-primary-600 transition" 
+                            :href="route('web.pages.gaming')"
+                        >
+                            Gaming and Entertainment
+                        </a>
+                        <a 
+                            class="hover:text-primary-600 transition" 
+                            :href="route('web.pages.saas')"
+                        >
+                            SaaS
+                        </a>
+                        <a 
+                            class="hover:text-primary-600 transition" 
+                            :href="route('web.pages.ecommerce')"
+                        >
+                            E-Commerce
+                        </a>
+                        <a 
+                            class="hover:text-primary-600 transition" 
+                            :href="route('web.pages.finance')"
+                        >
+                            Finance
+                        </a>
+                    </div>
+                </div>
+                <div class="relative group-hover text-sm">
+                    <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
+                        <a :href="route('web.pages.resources')">
+                            Resources
+                        </a>
+                    </div>
+                </div>
+                <div class="relative group-hover text-sm">
+                    <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
+                        <a :href="route('web.pages.careers')">
+                            Careers
+                        </a>
+                    </div>
+                </div>
+                <div class="relative group-hover text-sm">
+                    <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
+                        <a :href="route('web.pages.calculator')">
+                            Calculator
+                        </a>
+                    </div>
                 </div>
                 <div>
-                    <div class="lg:pl-8 button-header px-5 py-4 lg:px-0 lg:py-0">
+                    <div class="lg:pl-8 button-header px-5 py-4 lg:px-0 lg:py-0 text-sm">
                         <a href="/contact-us">
                             <v-button custom-class="w-full lg:w-auto" v-if="headerScroll ? '': 'hidden'" size="md">Contact Us</v-button>
                             <v-button custom-class="w-full lg:w-auto" v-if="headerScroll ? 'hidden': ''" size="md" design-color="text-white">Contact Us</v-button>
@@ -100,9 +147,9 @@
 
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 
-defineProps({
+const props = defineProps({
     header: {
         type: Object
     },

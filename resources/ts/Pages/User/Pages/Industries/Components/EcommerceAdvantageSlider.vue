@@ -4,6 +4,7 @@
             :modules="modules"
             :slides-per-view="3.5"
             :space-between="32"
+            :free-mode="true"
             class="advantage-swiper"
         >
             <swiper-slide v-for="item in items">

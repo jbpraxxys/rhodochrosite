@@ -4,11 +4,12 @@
             :modules="modules"
             :slides-per-view="3.5"
             :space-between="32"
+            :free-mode="true"
             class="advantage-swiper"
         >
-            <swiper-slide v-for="item in items">
+            <swiper-slide v-for="item in items" class="radial-card2 relative rounded-xl">
                 <div 
-                    class="p-8 rounded-xl text-white space-y-2.5 flex flex-col min-h-[394px] border-[3px] border-[#191919]/[0.60]" 
+                    class="p-8 rounded-xl text-white space-y-2.5 flex flex-col min-h-[394px] bg-[#051125] z-[10] relative" 
                     :class="item.customClass"
                 >
                     <div class="w-24 h-24 relative">
@@ -23,6 +24,7 @@
                         <p>{{ item.content }}</p>
                     </div>
                 </div>
+                <div class="radial-bg"></div>
             </swiper-slide>
             <swiper-slide class="w-20 spacer"></swiper-slide>
         </swiper>

@@ -5,11 +5,11 @@
             <div class="px-4 lg:px-20 pt-[141px] lg:pt-[250px] lg:absolute lg:top-0 lg:left-0 z-[2] lg:bg-transparent bg-primary-900">
                 <div class="w-full lg:w-[70vw]">
                     <img 
-                        class="-translate-x-16 mb-4"
+                        class="-translate-x-16 mb-4 animateUp"
                         src="/temp/gameon.png" 
                         alt="game"
                     >
-                    <div class="max-w-[566px] mb-8 lg:mb-12">
+                    <div class="max-w-[566px] mb-8 lg:mb-12 animateUp">
                         <h1 class="text-base">Team-up with us for unrivaled Entertainment & Gaming excellence. Our specialized Business Process Outsourcing (BPO) solutions are meticulously crafted to elevate your gaming ventures to new heights of success.</h1>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
         </section>
         <section class="bg-[#11CEBB] relative gaming-frame2">
             <div class="max-w-[1440px] m-auto px-20 flex items-center space-x-20 py-20 w-full">
-                <div class="w-[540px]">
+                <div class="w-[540px] fadeIn">
                     <img 
                         class="w-full"
                         src="/temp/gaming-f2.png" 
@@ -31,8 +31,8 @@
                     >
                 </div>
                 <div class="w-[calc(100%-620px)]">
-                    <div class="text-white text-[3.34vw] leading-[4vw] gaming-highlight ck-editor mb-4" v-html="'<p>Level up your efficiency and <strong>player satisfaction</strong> with our <strong>industry-leading expertise.</strong></p>'"></div>
-                    <p class="text-white">At Reliasourcing, we specialize in providing comprehensive BPO services tailored for the Entertainment and Gaming Industry. Our suite of offerings is designed to take your gaming endeavors to the next level.</p>
+                    <div class="text-white text-[3.34vw] leading-[4vw] gaming-highlight ck-editor mb-4 animateUp" v-html="'<p>Level up your efficiency and <strong>player satisfaction</strong> with our <strong>industry-leading expertise.</strong></p>'"></div>
+                    <p class="text-white animateUp">At Reliasourcing, we specialize in providing comprehensive BPO services tailored for the Entertainment and Gaming Industry. Our suite of offerings is designed to take your gaming endeavors to the next level.</p>
                 </div>
             </div>
         </section>
@@ -40,11 +40,11 @@
             <div class="max-w-[1440px] m-auto px-20 pt-20 pb-[154px]">
                 <div class="grid grid-cols-6 gap-10 w-full">
                     <div class="col-span-2 flex items-center">
-                        <div class="text-[3.34vw] leading-[4vw] gaming-highlight ck-editor mb-10" v-html="'<p>Outsourcing <strong>Solutions</strong></p>'"></div>
+                        <div class="text-[3.34vw] leading-[4vw] gaming-highlight ck-editor mb-10 fadeIn" v-html="'<p>Outsourcing <strong>Solutions</strong></p>'"></div>
                     </div>
                     <div 
                         v-for="solution in solutions" 
-                        class="p-8 rounded-lg bg-[#2D4959] text-white space-y-2.5 flex flex-col justify-end" 
+                        class="p-8 rounded-lg bg-[#2D4959] text-white space-y-2.5 flex flex-col justify-end animateUp" 
                         :class="solution.customClass"
                     >
                         <div class="w-24 h-24 relative">
@@ -68,26 +68,29 @@
         <section class="bg-[#11CEBB]">
             <div class="max-w-[1440px] m-auto px-20 py-20 flex space-x-20">
                 <div class="w-1/2">
-                    <div class="text-white text-[3.34vw] leading-[4vw] gaming-highlight ck-editor mb-12" v-html="'<p>What to <strong>Expect</strong></p>'"></div>
+                    <div class="text-white text-[3.34vw] leading-[4vw] gaming-highlight ck-editor mb-12 reveal-type" v-html="'<p>What to <strong>Expect</strong></p>'"></div>
                     <div class="space-y-4">
-                        <div v-for="expectation in expectations" class="flex space-x-4 bg-[#182731]/[0.60] p-6 rounded-lg">
-                            <div class="w-11 h-11 bg-primary-700 flex items-center rounded-full justify-center">
-                                <img 
-                                    class="w-6 h-6 group-hover/benefit:scale-125 transition" 
-                                    :src="expectation.icon" 
-                                    alt="icon"
-                                >
+                        <div v-for="expectation in expectations" class="radial-card5 rounded-lg animateUp">
+                            <div class="flex space-x-4 bg-[#146a68] p-6 rounded-lg relative z-[10]">
+                                <div class="w-11 h-11 bg-primary-700 flex items-center rounded-full justify-center">
+                                    <img 
+                                        class="w-6 h-6 group-hover/benefit:scale-125 transition" 
+                                        :src="expectation.icon" 
+                                        alt="icon"
+                                    >
+                                </div>
+                                <div class="w-[calc(100%-60px)] text-white">
+                                    <p class="font-semibold text-lg mb-4">{{ expectation.title  }}</p>
+                                    <p class="opacity-[0.65]">{{expectation.content}}</p>
+                                </div>
                             </div>
-                            <div class="w-[calc(100%-60px)] text-white">
-                                <p class="font-semibold text-lg mb-4">{{ expectation.title  }}</p>
-                                <p class="opacity-[0.65]">{{expectation.content}}</p>
-                            </div>
+                            <div class="radial-bg"></div>
                         </div>
                     </div>
                 </div>
                 <div class="w-1/2">
                     <img 
-                        class="w-full"
+                        class="w-full animateUp"
                         src="/temp/gaming.png" 
                         alt="gaming"
                     >
