@@ -16,7 +16,7 @@
         <section class="bg-[#172B75] relative saas-frame2">
             <img class="absolute top-[-200px] left-[-650px]" src="/icons/saas-particle.svg" alt="saas particles">
             <div class="max-w-[1440px] m-auto px-20 flex items-center space-x-20 py-20 w-full">
-                <div class="w-[540px]">
+                <div class="w-[540px] relative z-1">
                     <img 
                         class="w-full"
                         src="/temp/saas-f2.svg" 
@@ -24,18 +24,18 @@
                     >
                 </div>
                 <div class="w-[calc(100%-620px)]">
-                    <div class="text-white text-[3.34vw] leading-[4vw] saas-highlight ck-editor mb-4" v-html="'<p>Discover the <strong>key<br>advantages</strong> of partnering<br>with us for your <strong>business<br>growth</strong></p>'"></div>
-                    <p class="text-white">We understand the unique challenges of the Product and SaaS landscape. Our commitment is to provide unparalleled outsourcing solutions designed to elevate your business, drive efficiency, and amplify client satisfaction.</p>
+                    <div class="text-white text-[3.34vw] leading-[4vw] saas-highlight ck-editor mb-4 animateUp" v-html="'<p>Discover the <strong>key<br>advantages</strong> of partnering<br>with us for your <strong>business<br>growth</strong></p>'"></div>
+                    <p class="text-white animateUp">We understand the unique challenges of the Product and SaaS landscape. Our commitment is to provide unparalleled outsourcing solutions designed to elevate your business, drive efficiency, and amplify client satisfaction.</p>
                 </div>
             </div>
         </section>
         <section class="bg-gradient-to-b from-[#172B75] to-[#425FC5]">
             <div class="max-w-[1440px] m-auto px-20 py-20">
-                <div class="text-white text-[3.34vw] leading-[4vw] saas-highlight ck-editor mb-10" v-html="'<p>Outsourcing <strong>Solutions</strong></p>'"></div>
+                <div class="text-white text-[3.34vw] leading-[4vw] saas-highlight ck-editor mb-10 reveal-type" v-html="'<p>Outsourcing <strong>Solutions</strong></p>'"></div>
                 <div class="grid grid-cols-6 gap-10">
                     <div 
                         v-for="solution in solutions" 
-                        class="p-8 rounded-lg bg-white/[0.03] text-white space-y-2.5 flex flex-col justify-end" 
+                        class="p-8 rounded-lg bg-white/[0.03] text-white space-y-2.5 flex flex-col justify-end animateUp" 
                         :class="solution.customClass"
                     >
                         <div class="w-24 h-24 relative">
@@ -58,20 +58,23 @@
                 alt="saas"
             >
             <div class="max-w-[1060px] m-auto px-20 py-20 relative z-[10]">
-                <div class="text-white text-center text-[3.34vw] leading-[4vw] saas-highlight ck-editor mb-16" v-html="'<p>What to <strong>Expect</strong></p>'"></div>
+                <div class="text-white text-center text-[3.34vw] leading-[4vw] saas-highlight ck-editor mb-16 reveal-type" v-html="'<p>What to <strong>Expect</strong></p>'"></div>
                 <div class="grid grid-cols-2 gap-8">
-                    <div v-for="expectation in expectations" class="p-6 rounded-lg bg-[#182948] flex space-x-4 even:translate-y-3">
-                        <div class="w-10 h-10">
-                            <img 
-                                class="w-full h-full object-contain" 
-                                :src="expectation.icon" 
-                                alt="expectation"
-                            >
+                    <div v-for="expectation in expectations" class="even:translate-y-3 radial-card4 rounded-lg animateUp">
+                        <div class="p-6 rounded-lg bg-[#182948] flex space-x-4 h-full relative z-[10]">
+                            <div class="w-10 h-10">
+                                <img 
+                                    class="w-full h-full object-contain" 
+                                    :src="expectation.icon" 
+                                    alt="expectation"
+                                >
+                            </div>
+                            <div class="w-[calc(100%-56px)] text-white">
+                                <p class="text-lg font-semibold mb-4">{{expectation.title}}</p>
+                                <p class="opacity-[0.65]">{{expectation.content}}</p>
+                            </div>
                         </div>
-                        <div class="w-[calc(100%-56px)] text-white">
-                            <p class="text-lg font-semibold mb-4">{{expectation.title}}</p>
-                            <p class="opacity-[0.65]">{{expectation.content}}</p>
-                        </div>
+                        <div class="radial-bg"></div>
                     </div>
                 </div>
             </div>

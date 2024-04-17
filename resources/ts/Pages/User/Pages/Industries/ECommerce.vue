@@ -16,43 +16,47 @@
         <section class="bg-primary-900 relative saas-frame2">
             <div class="m-auto px-20 flex items-center space-x-16 pt-[120px] pb-20 w-full">
                 <div class="w-1/2">
-                    <div class="text-white text-[1.7vw] leading-[2.5vw] ecommerce-highlight ck-editor mb-4" v-html="'<p>Drive your <strong>e-commerce growth</strong> through outsourcing strategies.</p>'"></div>
+                    <div class="text-white text-[1.7vw] leading-[2.5vw] ecommerce-highlight ck-editor mb-4 reveal-type" v-html="'<p>Drive your <strong>e-commerce growth</strong> through outsourcing strategies.</p>'"></div>
                 </div>
-                <div class="w-1/2 text-white">
+                <div class="w-1/2 text-white animateUp">
                     <p>We understand the unique challenges of the Product and SaaS landscape. Our commitment is to provide unparalleled outsourcing solutions designed to elevate your business, drive efficiency, and amplify client satisfaction.</p>
                 </div>
             </div>
-            <div>
+            <div class="fadeIn">
                 <eco-slider :items="gallery" />
             </div>
         </section>
         <section class="bg-gradient-to-b from-[#1C2C36] to-[#283F4E]">
             <div class="max-w-[1440px] m-auto px-20 py-20">
-                <div class="text-white text-[1.7vw] leading-[2.5vw] ecommerce-highlight ck-editor mb-20 text-center" v-html="'<p>Outsource your <strong>digital storefront</strong> for <strong>competitive advantage:</strong></p>'"></div>
+                <div class="text-white text-3xl ecommerce-highlight ck-editor mb-20 text-center reveal-type" v-html="'<p>Outsource your <strong>digital storefront</strong> for <strong>competitive advantage:</strong></p>'"></div>
             </div>
             <div>
                 <advantage-slider :items="advantages"/>
             </div>
         </section>
         <section class="bg-primary-900">
-            <div class="max-w-[1440px] m-auto px-20 py-20 ">
+            <div class="max-w-[1440px] m-auto px-20 py-20">
+                <div class="text-white text-3xl ecommerce-highlight ck-editor mb-16 text-center reveal-type" v-html="'<p>Other Services <strong>We</strong> Provide</p>'"></div>
                 <div class="grid grid-cols-6 gap-4">
                     <div 
                         v-for="service in services" 
-                        class="flex space-x-4 bg-[#252525]/[0.90] p-6 rounded-lg" 
+                        class="radial-card3 rounded-lg animateUp" 
                         :class="service.customClass"
                     >
-                        <div class="w-11 h-11 bg-primary-700 flex items-center rounded-full justify-center">
-                            <img 
-                                class="w-6 h-6 group-hover/benefit:scale-125 transition" 
-                                :src="service.icon" 
-                                alt="icon"
-                            >
+                        <div class="flex space-x-4 bg-[#232627] p-6 rounded-lg relative z-[10] h-full">
+                            <div class="w-11 h-11 bg-primary-700 flex items-center rounded-full justify-center">
+                                <img 
+                                    class="w-6 h-6 group-hover/benefit:scale-125 transition" 
+                                    :src="service.icon" 
+                                    alt="icon"
+                                >
+                            </div>
+                            <div class="w-[calc(100%-60px)] text-white">
+                                <p class="font-semibold text-lg mb-4">{{ service.title  }}</p>
+                                <p>{{service.content}}</p>
+                            </div>
                         </div>
-                        <div class="w-[calc(100%-60px)] text-white">
-                            <p class="font-semibold text-lg mb-4">{{ service.title  }}</p>
-                            <p>{{service.content}}</p>
-                        </div>
+                        <div class="radial-bg"></div>
                     </div>
                 </div>
             </div>
@@ -104,7 +108,7 @@ const gallery = [
     { image: '/temp/eco2.png' },
     { image: '/temp/eco3.png' },
     { image: '/temp/eco4.png' },
-    { image: '/temp/eco5.png' },
+    { image: '/temp/eco1.png' },
 ]
 const advantages = [
 {
