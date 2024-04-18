@@ -8,21 +8,25 @@
         />  
         <div class="max-w-[1440px] m-auto px-20 py-16 bg-primary-50">
             <div class="max-w-[1061px] m-auto">
-                <div class="flex space-x-8 w-full">
+                <div v-for="item in featured.data.slice(0,1)" class="flex space-x-8 w-full">
                     <div class="w-[calc(100%-415px)]">
                         <div class="aspect-w-[641] aspect-h-[469] overflow-hidden rounded-md">
                             <img 
                                 class="w-full h-full object-cover" 
-                                src="https://picsum.photos/id/237/641/469" 
-                                alt="placeholder"
+                                :src="$page.props.storage_url + item.banner_image_path" 
+                                alt="banner"
                             >
                         </div>
                     </div>
                     <div class="space-y-4 w-[383px]">
-                        <p class="text-28 font-bold line-clamp-3">Maximizing Business Efficiency by Outsourcing Call Center Services</p>
-                        <p class="line-clamp-6">Call center outsourcing has emerged as a strategic tool for enhancing customer service efficiency. It’s a pathway that enables businesses to tap into specialized expertise and innovative technology, transforming the way they engage with their customers.</p>
-                        <p class="text-sm text-neutral-500">March 1, 2024 • Blogs</p>
-                        <v-button designColor='text-white'>Read More</v-button>
+                        <p class="text-28 font-bold line-clamp-3">{{item.title}}</p>
+                        <p class="line-clamp-6" v-html="item.content"></p>
+                        <p class="text-sm text-neutral-500">{{ formatDate(item.publish_date) }} • {{item.article_type}}</p>
+                       <div>
+                            <a :href="route('web.resources.show', item.slug)">
+                                <v-button designColor='text-white'>Read More</v-button>
+                            </a>
+                       </div>
                     </div>
                 </div>
             </div>
@@ -37,14 +41,30 @@
                         <p class="text-sm leading-6">Blogs</p>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-8 mb-16">
-                    <article-card 
-                        v-for="item in items"
-                        :item="item"
-                    />
+                <div v-if="articleType == 'case-studies'">
+                    <div v-if="caseStudies.data.length > 0" class="grid grid-cols-2 gap-8 mb-16">
+                        <article-card 
+                            v-for="item in caseStudies.data"
+                            :item="item"
+                        />
+                    </div>
+                    <div v-else>
+                        No article available
+                    </div>
+                </div>
+                <div v-if="articleType == 'blogs'">
+                    <div v-if="blogs.data.length > 0" class="grid grid-cols-2 gap-8 mb-16">
+                        <article-card 
+                            v-for="item in blogs.data"
+                            :item="item"
+                        />
+                    </div>
+                    <div v-else>
+                        No article available
+                    </div>
                 </div>
                 <div class="w-fit flex items-center m-auto">
-                    <v-pagination :items="items" :min="6" />
+                    <v-pagination :items="blogs.data" :min="6" />
                 </div>
             </div>
         </div>  
@@ -52,11 +72,33 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
+const props = defineProps({
+    featured: {
+        type: Object,
+        default: () => ({})
+    },
+    blogs: {
+        type: Object,
+        default: () => ({})
+    },
+    caseStudies: {
+        type: Object,
+        default: () => ({})
+    },
+})
 
 const articleType = ref('case-studies');
 
 const activateTab = (tab) => {
     articleType.value = tab;
+}
+
+const formatDate = (rawDate) => {
+    return new Date(rawDate).toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+    })
 }
 
 const items = [

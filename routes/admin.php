@@ -4,6 +4,7 @@ use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\Admin\Others\ActivityLogsController;
 use App\Http\Controllers\Admin\Accounts\AdminController;
 use App\Http\Controllers\Admin\Accounts\RolePermissionController;
+use App\Http\Controllers\Admin\Articles\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Contents\CmsPageController;
 use App\Http\Controllers\Admin\InquiryController;
@@ -197,6 +198,25 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     | OTHERS
     |--------------------------------------------------------------------------
     */
+    Route::prefix('article-management')
+        ->name('article-management.')
+        ->group( function() {
+
+            Route::prefix('articles')
+            ->name('articles.')
+            ->controller(ArticleController::class)
+            ->group(function () {
+                Route::get('index', 'index')->name('index');
+                Route::get('create', 'create')->name('create');
+                Route::get('edit/{article}', 'edit')->name('edit');
+                Route::post('update/{article}', 'update')->name('update');
+                Route::post('store', 'store')->name('store');
+                Route::delete('archive/{article}', 'archive')->name('archive');
+                Route::post('restore', 'restore')->name('restore');
+            });
+           
+    });
+
     Route::prefix('settings')
         ->name('settings.')
         ->controller(SettingsController::class)

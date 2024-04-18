@@ -13,7 +13,7 @@
                 <text-input
                     v-model="form.meta_title"
                     label="Title"
-                    id="seo_title"
+                    id="meta_title"
                     :error="form.errors.meta_title"
                 />
             </div>
@@ -21,7 +21,7 @@
                 <text-input
                     v-model="form.meta_description"
                     label="Description"
-                    id="seo_description"
+                    id="meta_description"
                     textarea
                     :error="form.errors.meta_description"
                 />
