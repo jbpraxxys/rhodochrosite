@@ -218,6 +218,21 @@ const navigation: generalNavType[] = [
         ]
     },
     {
+        name: "Article Management",
+        href: "#",
+        parentUrl: "#",
+        allowed: true,
+        children: [
+            {
+                name: "Article",
+                href: route('admin.article-management.articles.index'),
+                parentUrl: "admin.article-management.articles*",
+                icon: DocumentTextIcon,
+                allowed: true,
+            },
+        ]
+    },
+    {
         name: "Inquiry Management",
         href: "#",
         parentUrl: "#",

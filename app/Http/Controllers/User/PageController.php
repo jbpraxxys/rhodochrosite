@@ -118,12 +118,12 @@ class PageController extends Controller
     }
 
     // Resources
-    public function resources() {
-        return Inertia::render('User/Pages/Resources/Index', [])->withViewData([]);
-    }
-    public function resourcesView() {
-        return Inertia::render('User/Pages/Resources/View', [])->withViewData([]);
-    }
+    // public function resources() {
+    //     return Inertia::render('User/Pages/Resources/Index', [])->withViewData([]);
+    // }
+    // public function resourcesView() {
+    //     return Inertia::render('User/Pages/Resources/View', [])->withViewData([]);
+    // }
 
      // Calculator
     public function calculator() {

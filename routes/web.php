@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\CkeditorController;
+use App\Http\Controllers\User\Articles\ArticleController;
 use App\Http\Controllers\User\Inquiry\InquiryController;
 use App\Http\Controllers\User\ModularController;
 use App\Http\Controllers\User\PageController;
@@ -52,11 +53,19 @@ Route::prefix('/')
         Route::get('/calculator', 'calculator')->name('calculator');
         Route::get('/calculator/view', 'calculatorView')->name('calculator-view');
         Route::get('/careers', 'careers')->name('careers');
-        Route::get('/resources', 'resources')->name('resources');
-        Route::get('/resources/view', 'resourcesView')->name('resources-view');
+        // Route::get('/resources', 'resources')->name('resources');
+        // Route::get('/resources/view', 'resourcesView')->name('resources-view');
         Route::get('/contact-us', 'contactUs')->name('contact-us');
         Route::get('/privacy-policy', 'privacyPolicy')->name('privacy-policy');
         Route::get('/terms-and-conditions', 'termsAndConditions')->name('terms-and-conditions');
+    });
+
+Route::prefix('/resources')
+    ->name('resources.')
+    ->controller(ArticleController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/view/{article:slug}', 'show')->name('show');
     });
 
 Route::prefix('/inquiry')

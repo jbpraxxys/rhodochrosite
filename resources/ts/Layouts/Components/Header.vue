@@ -113,7 +113,7 @@
                 </div>
                 <div class="relative group-hover text-sm">
                     <div class="flex items-center space-x-1 hover:text-primary-600 cursor-pointer transition lg:w-fit w-full lg:justify-normal justify-between">
-                        <a :href="route('web.pages.resources')">
+                        <a :href="route('web.resources.index')">
                             Resources
                         </a>
                     </div>

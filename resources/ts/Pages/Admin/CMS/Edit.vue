@@ -172,7 +172,7 @@
                         <text-input
                             v-model="form.title"
                             label="Title"
-                            id="seo_title"
+                            id="meta_title"
                             :error="form.errors.title"
                         />
                         <p class="text-gray-400 text-xs mt-1">50-60 characters max</p>
@@ -182,7 +182,7 @@
                         <text-input
                             v-model="form.description"
                             label="Description"
-                            id="seo_description"
+                            id="meta_description"
                             textarea
                             :error="form.errors.description"
                         />
@@ -192,7 +192,7 @@
                         <text-input
                             v-model="form.keywords"
                             label="Keywords"
-                            id="seo_keywords"
+                            id="meta_keyword"
                             textarea
                             :error="form.errors.keywords"
                         />
