@@ -2,8 +2,8 @@
     <user-layout>
         <general-banner 
             :item="{
-                image: '/temp/cs3.png',
-                title: 'Resources'
+                image: $page.props.storage_url + cms?.section1_image,
+                title: cms?.section1_title
             }"
         />  
         <div class="max-w-[1440px] m-auto px-20 py-16 bg-primary-50">
@@ -73,6 +73,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 const props = defineProps({
+    cms: {
+        type: Object,
+        default: () => ({})
+    },
     featured: {
         type: Object,
         default: () => ({})

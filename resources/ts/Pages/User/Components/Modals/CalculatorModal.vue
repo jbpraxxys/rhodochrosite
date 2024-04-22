@@ -11,7 +11,7 @@
                 <p class="text-3xl font-bold mb-4">Hire top talent!</p>
                 <p>For much less than you expect.</p>
             </div>
-            <div class="space-y-8">
+            <div class="space-y-8 filter-wrapper">
                 <div>
                     <v-selector
                         :options="rolesObject"

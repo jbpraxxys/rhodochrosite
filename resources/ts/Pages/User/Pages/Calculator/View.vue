@@ -2,15 +2,15 @@
     <user-layout>
         <general-banner 
             :item="{
-                image: '/temp/advantage1.png',
-                title: 'Team Builder'
+                image: $page.props.storage_url + cms?.section1_image,
+                title: cms?.section1_title
             }"
         />  
         <offset-banner 
             id="calculator"
             :item="{
-                title: 'Be part of our team!',
-                description: 'Join our growing pool of talented experts and take your career to the next level.'
+                title: cms?.section1_header,
+                description: cms?.section1_content
             }"
         />
         <section class="bg-primary-50 relative">
@@ -21,7 +21,7 @@
                             <p class="text-3xl font-bold mb-4">Hire top talent!</p>
                             <p>For much less than you expect.</p>
                         </div>
-                        <div class="space-y-8">
+                        <div class="space-y-8 filter-wrapper">
                             <div>
                                 <v-selector
                                     :options="rolesObject"
@@ -66,17 +66,17 @@
                     <div class="w-[calc(100%-398px)]">
                         <div class="p-8 bg-primary-900 rounded-[2rem] h-fit mb-8">
                             <table class="w-full text-left border-b mb-3">
-                                <tr class="w-full text-white font-bold">
-                                    <th>Role</th>
-                                    <th>Country</th>
-                                    <th>Experience Level</th>
-                                    <th>Onshore Cost</th>
-                                    <th>Reliasourcing Cost</th>
-                                    <th>Your Savings</th>
-                                    <th></th>
+                                <tr class="w-full text-white font-bold text-sm">
+                                    <th class="pr-2">Role</th>
+                                    <th class="px-2">Country</th>
+                                    <th class="px-2">Experience Level</th>
+                                    <th class="px-2">Onshore Cost</th>
+                                    <th class="px-2">Reliasourcing Cost</th>
+                                    <th class="px-2 text-right">Your Savings</th>
+                                    <th class="pl-2"></th>
                                 </tr>
-                                <tr v-for="item in filteredData" class="text-white text-left">
-                                    <td class="pl-0 pr-2 py-5">{{item.role}}</td>
+                                <tr v-for="item in filteredData" class="text-white text-left text-sm">
+                                    <td class="pl-0 pr-2 py-5 max-w-[150px] whitespace-pre-wrap">{{item.role}}</td>
                                     <td class="px-2 py-5">{{ item.country }}</td>
                                     <td class="px-2 py-5">{{ item.experience }}</td>
                                     <td class="px-2 py-5 font-bold">$ <render-price :value="item.onshore" /></td>
@@ -121,6 +121,10 @@ import { ref, computed, onMounted } from "vue";
 import { XMarkIcon } from "@heroicons/vue/24/solid";
 import RenderPrice from "@/Components/Inputs/RenderPrice.vue";
 const props = defineProps({
+    cms: {
+        type: Object,
+        default: () => ({})
+    },
     role: {
         type: String,
     },

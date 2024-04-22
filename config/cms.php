@@ -388,6 +388,1006 @@ return [
                 ],
             ],
         ],
+        [
+            'slug' => 'industries-gaming',
+            'label' => 'Industries - Gaming and Entertainment',
+            'show_metadata' => 1,
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Section 1',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'label' => 'Header Image',
+                            'type' => 'image',
+                            'rules' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'footer',
+                            'label' => 'Footer Image',
+                            'type' => 'image',
+                            'rules' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section2',
+                    'label' => 'Section 2',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'image',
+                            'label' => 'Image',
+                            'type' => 'image',
+                            'rules' => '',
+                        ],
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ],
+                ],
+                [
+                    'id' => 'section3',
+                    'label' => 'Section 3',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'logo',
+                                    'label' => 'Logo',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'textarea',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                                [
+                                    'id' => 'custom',
+                                    'label' => 'Custom Class',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                            ]
+                        ],
+                        [
+                            'id' => 'footer',
+                            'label' => 'Footer Image',
+                            'type' => 'image',
+                            'rules' => '',
+                        ],
+                    ],
+                ],
+                [
+                    'id' => 'section4',
+                    'label' => 'Section 4',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'image',
+                            'label' => 'Image',
+                            'type' => 'image',
+                            'rules' => '',
+                        ],
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'logo',
+                                    'label' => 'Logo',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'textarea',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ]
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'id' => 'section5',
+                    'label' => 'Section 5',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        
+                        [
+                            'id' => 'image',
+                            'label' => 'Image',
+                            'type' => 'image',
+                            'rules' => '',
+                        ],
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section6',
+                    'label' => 'Section 6',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'textarea',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ]              
+            ],
+        ],
+
+        // SaaS
+        [
+            'slug' => 'industries-saas',
+            'label' => 'Industries - SaaS',
+            'show_metadata' => 1,
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Section 1',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section2',
+                    'label' => 'Section 2',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'image',
+                            'label' => 'Image',
+                            'type' => 'image',
+                            'rules' => '',
+                        ],
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section3',
+                    'label' => 'Section 3',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'logo',
+                                    'label' => 'Logo',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'textarea',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                                [
+                                    'id' => 'customClass',
+                                    'label' => 'Custom Class',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ]
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'id' => 'section4',
+                    'label' => 'Section 4',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'logo',
+                                    'label' => 'Logo',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'textarea',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'id' => 'section5',
+                    'label' => 'Section 5',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        
+                        [
+                            'id' => 'image',
+                            'label' => 'Image',
+                            'type' => 'image',
+                            'rules' => '',
+                        ],
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section6',
+                    'label' => 'Section 6',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'textarea',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ]          
+            ],
+        ],
+
+        // E-Commerce
+        [
+            'slug' => 'industries-ecommerce',
+            'label' => 'Industries - E-Commerce',
+            'show_metadata' => 1,
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Section 1',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section2',
+                    'label' => 'Section 2',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'image',
+                                    'label' => 'Image',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'id' => 'section3',
+                    'label' => 'Section 3',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'image',
+                                    'label' => 'Image',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'textarea',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'id' => 'section4',
+                    'label' => 'Section 4',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'image',
+                                    'label' => 'Image',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'textarea',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                                [
+                                    'id' => 'customClass',
+                                    'label' => 'Custom Class',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'id' => 'section5',
+                    'label' => 'Section 5',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'image',
+                            'label' => 'Image',
+                            'type' => 'image',
+                            'rules' => '',
+                        ],
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section6',
+                    'label' => 'Section 6',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'textarea',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ]     
+            ],
+        ],
+
+        // Finance
+        [
+            'slug' => 'industries-finance',
+            'label' => 'Industries - Finance',
+            'show_metadata' => 1,
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Section 1',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section2',
+                    'label' => 'Section 2',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'image',
+                            'label' => 'Image',
+                            'type' => 'image',
+                            'rules' => '',
+                        ],
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section3',
+                    'label' => 'Section 3',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'image',
+                                    'label' => 'Image',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'textarea',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'id' => 'section4',
+                    'label' => 'Section 4',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'image',
+                                    'label' => 'Image',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'textarea',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'id' => 'section5',
+                    'label' => 'Section 5',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'image',
+                            'label' => 'Image',
+                            'type' => 'image',
+                            'rules' => '',
+                        ],
+                        [
+                            'id' => 'header',
+                            'type' => 'htmleditor',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section6',
+                    'label' => 'Section 6',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'textarea',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ]     
+            ],
+        ],
+
+        // Resources
+        [
+            'slug' => 'resources',
+            'label' => 'Resources',
+            'show_metadata' => 1,
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Section 1',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'image',
+                            'type' => 'image',
+                            'label' => 'Image',
+                            'description' => 'Max file size: 2MB | Dimension: 343px x 468px',
+                        ],
+                        [
+                            'id' => 'title',
+                            'type' => 'textarea',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+            ],
+        ],
+        //Careers
+        [
+            'slug' => 'careers',
+            'label' => 'Careers',
+            'show_metadata' => 1,
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Section 1',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'image',
+                            'type' => 'image',
+                            'label' => 'Image',
+                            'description' => 'Max file size: 2MB | Dimension: 343px x 468px',
+                        ],
+                        [
+                            'id' => 'title',
+                            'type' => 'textarea',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'header',
+                            'type' => 'textarea',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section2',
+                    'label' => 'Section 2',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'textarea',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'id' => 'section3',
+                    'label' => 'Section 3',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'textarea',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'items',
+                            'type' => 'list_table',
+                            'label' => 'Items',
+                            'description' => '',
+                            'items' => [
+                                [
+                                    'id' => 'image',
+                                    'label' => 'Image',
+                                    'type' => 'image',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'title',
+                                    'label' => 'Title',
+                                    'type' => 'text',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'content',
+                                    'label' => 'Content',
+                                    'type' => 'textarea',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'id' => 'section4',
+                    'label' => 'Section 4',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'header',
+                            'type' => 'textarea',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'image',
+                            'type' => 'image',
+                            'label' => 'Thumbnail',
+                            'description' => 'Max file size: 2MB | Dimension: 1920 x 1080px',
+                        ],
+                        [
+                            'id' => 'video_link',
+                            'type' => 'text',
+                            'label' => 'Video Link',
+                            'description' => 'Youtube Link',
+                        ],
+                        
+                    ]
+                ],
+            ],
+        ],
+        //Calculator
+        [
+            'slug' => 'calculator',
+            'label' => 'Calculator',
+            'show_metadata' => 1,
+            'sections' => [
+                [
+                    'id' => 'section1',
+                    'label' => 'Section 1',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'image',
+                            'type' => 'image',
+                            'label' => 'Image',
+                            'description' => 'Max file size: 2MB | Dimension: 343px x 468px',
+                        ],
+                        [
+                            'id' => 'title',
+                            'type' => 'textarea',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'header',
+                            'type' => 'textarea',
+                            'label' => 'Header',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'section2',
+                    'label' => 'Section 2',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'image',
+                            'type' => 'image',
+                            'label' => 'Image',
+                            'description' => 'Max file size: 2MB | Dimension: 343px x 468px',
+                        ],
+                        [
+                            'id' => 'title',
+                            'type' => 'htmleditor',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+            ],
+        ],
 
         // Contact Us
         [
