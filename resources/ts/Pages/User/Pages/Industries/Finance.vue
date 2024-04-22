@@ -5,9 +5,9 @@
                 <div class="w-full lg:w-[70vw] text-white">
                     <h1 
                     class="text-5xl leading-tight lg:text-[5vw] lg:leading-[4.5vw] mb-4 ck-content finance-highlight text-[#10B8AD]" 
-                    v-html="'<p>Expert<br><strong data-shadow=FINANCIAL>FINANCIAL</strong><br>solutions</p>'" />
+                    v-html="cms?.section1_header" />
                     <div class="max-w-[597px] mb-8 lg:mb-12">
-                        <p>Enhance your E-Commerce Operations through Philippine BPO Solutions by leveraging the expertise of industry-leading outsourcing providers in the Philippines. Reliasourcing provides cutting-edge technologies to craft innovation and improve customer experiences. </p>
+                        <p>{{ cms?.section1_content }}</p>
                     </div>
                 </div>
             </div>
@@ -18,22 +18,22 @@
                 <div class="w-[540px]">
                     <img 
                         class="w-full"
-                        src="/temp/finance.png" 
+                        :src="$page.props.storage_url + cms?.section2_image" 
                         alt="finance"
                     >
                 </div>
                 <div class="w-[calc(100%-620px)]">
-                    <div class="text-white text-[2.2vw] leading-[3vw] finance-highlight ck-editor mb-4 reveal-type" v-html="'<p>Your <strong>reliable</strong> partner in outsourcing your <strong>financial team.</strong></p>'"></div>
-                    <p class="text-white reveal-type">At Reliasourcing, we recognize the complex financial hurdles companies encounter, our outsourcing solutions are meticulously designed to address these challenges, optimizing financial processes and fostering long-term success.</p>
+                    <div class="text-white text-[2.2vw] leading-[3vw] finance-highlight ck-editor mb-4 reveal-type" v-html="cms?.section2_header"></div>
+                    <p class="text-white reveal-type">{{ cms?.section2_content }}</p>
                 </div>
             </div>
         </section>
         <section class="bg-[#04193C]">
             <div class="max-w-[1440px] m-auto px-20 py-20">
-                <div class="text-white text-[1.7vw] leading-[2.5vw] finance-highlight ck-editor mb-16 text-center reveal-type" v-html="'<p>Maximize <strong>revenue</strong> and minimize <strong>costs</strong> with our outsourcing solutions</p>'"></div>
+                <div class="text-white text-[1.7vw] leading-[2.5vw] finance-highlight ck-editor mb-16 text-center reveal-type" v-html="cms?.section3_header"></div>
                 <div class="max-w-[1000px] m-auto grid grid-cols-2 gap-11">
                     <div class="radial-card1 relative rounded-xl animateUp"
-                        v-for="i in solutions" 
+                        v-for="i in cms?.section3_items" 
                     >
                         <div 
                             class="p-8 rounded-xl bg-[#051d42] text-white space-y-2.5 flex flex-col justify-end h-full z-[10] relative"
@@ -41,7 +41,7 @@
                             <div class="w-24 h-24 relative">
                                 <img
                                     class="w-full h-full object-contain" 
-                                    :src="i.icon" 
+                                    :src="$page.props.storage_url + i.image" 
                                     alt="icon"
                                 >
                             </div>
@@ -57,10 +57,10 @@
         </section>
         <section class="bg-[#051125]">
             <div class="m-auto px-20 pt-20">
-                <div class="text-white text-[2.3vw] leading-[2.5vw] finance-highlight ck-editor mb-20 reveal-type" v-html="'<p>Other Services <strong>We Provide</strong></p>'"></div>
+                <div class="text-white text-[2.3vw] leading-[2.5vw] finance-highlight ck-editor mb-20 reveal-type" v-html="cms?.section4_header"></div>
             </div>
             <div class="animateUp">
-                <finance-slider :items="services"/>
+                <finance-slider :items="cms?.section4_items"/>
             </div>
         </section>
         <section class="bg-[#04193C]">
@@ -68,13 +68,13 @@
                 <div class="w-full lg:w-1/2 h-full bg-white">
                     <img 
                         class="w-full h-full object-cover" 
-                        src="/temp/finance-img.png" 
+                        :src="$page.props.storage_url + cms?.section5_image" 
                         alt="finance"
                     >
                 </div>
                 <div class="w-full lg:w-1/2 text-white px-4 lg:px-20 py-6 lg:py-[100px]">
-                    <p class="text-5xl leading-tight font-bold mb-6 animateUp" v-html="'Revolutionize your finance operations. Reach out to our experts!'"></p>
-                    <div class="text-lg mb-12 animateUp" v-html="'Contact us now for a customized consultation and begin your outsourcing journey today.'" />
+                    <p class="text-5xl leading-tight font-bold mb-6 animateUp" v-html="cms?.section5_header"></p>
+                    <div class="text-lg mb-12 animateUp" v-html="cms?.section5_content" />
                     <a href="/#contact-us">
                         <v-button class="animateUp" design-color="text-[#304958]">
                             Outsource with Us
@@ -93,8 +93,8 @@
             <div class="max-w-[1440px] m-auto relative z-[2] lg:px-0 px-4 py-10">
                 <contact-form 
                     custom-class="!bg-[#000A2F]"
-                    title="Let's Chat! "
-                    description="Drop us a line and access reliable solutions."
+                    :title="cms?.section6_title"
+                    :description="cms?.section6_content"
                 />
             </div>
         </section>
@@ -104,6 +104,11 @@
 import FrameOne from './Components/FinanceFrameOne.vue';
 import FinanceSlider from './Components/FinanceSlider.vue';
 
+const props = defineProps({
+    cms: {
+        type: Object
+    }
+})
 
 const solutions = [
 {

@@ -2,20 +2,20 @@
     <user-layout>
         <general-banner 
             :item="{
-                image: '/temp/contact1.png',
-                title: 'Careers'
+                image: $page.props.storage_url + cms?.section1_image,
+                title: cms?.section1_title
             }"
         />  
         <offset-banner 
             :item="{
-                title: 'Be part of our team!',
-                description: 'Join our growing pool of talented experts and take your career to the next level.'
+                title: cms?.section1_header,
+                description: cms?.section1_content
             }"
         />
         <div class="px-20 pb-[120px] max-w-[1440px] m-auto bg-primary-50">
             <div class="grid grid-cols-3 gap-6">
                 <career-card 
-                    v-for="item in careers"
+                    v-for="item in cms?.section2_items"
                     :item="item"
                 />
             </div>
@@ -23,20 +23,20 @@
         <div class="bg-primary-900">
             <div class="max-w-[1440px] m-auto px-20 py-32">
                 <div class="text-center text-white mb-10">
-                    <p class="text-28 font-bold">What to expect on your journey</p>
+                    <p class="text-28 font-bold">{{ cms?.section3_header }}</p>
                 </div>
                 <div class="grid grid-cols-4 gap-20">
-                    <div v-for="i in journey" class="text-white">
+                    <div v-for="i in cms?.section3_items" class="text-white">
                         <div class="w-24 m-auto mb-6">
                             <img
                                 class="w-full h-full object-contain"
-                                :src="i.image" 
+                                :src="$page.props.storage_url + i.image" 
                                 alt="iso"
                             >
                         </div>
                         <div class="text-center">
                             <p class="font-bold text-xl mb-2">{{i.title}}</p>
-                            <p>{{ i.description }}</p>
+                            <p>{{ i.content }}</p>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
             
             <div class="max-w-[1440px] m-auto lg:pb-20 px-4 py-16 lg:px-20">
                 <div class="text-center mb-10 lg:mb-10">
-                    <p class="text-5xl font-bold">Life at Reliasourcing</p>
+                    <p class="text-5xl font-bold">{{cms?.section4_header}}</p>
                 </div>
                 <div>
                     <Lightgallery
@@ -57,11 +57,11 @@
                         }"
                     >
                         <a 
-                            href="/"
+                            :href="cms?.section4_video_link"
                         >
                             <img 
                                 class="image image-thumb w-full h-full object-cover" 
-                                src="/temp/video-thumbnail.png" 
+                                :src="$page.props.storage_url + cms?.section4_image" 
                                 alt="thumbnail"
                             >
                         </a>
@@ -84,6 +84,12 @@ import Lightgallery from 'lightgallery/vue';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
 import lgVideo from 'lightgallery/plugins/video';
+
+const props = defineProps({
+    cms: {
+        type: Object,
+    }
+})
 
 const plugins: {} [] = [lgThumbnail, lgZoom, lgVideo];
 

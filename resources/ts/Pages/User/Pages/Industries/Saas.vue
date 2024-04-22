@@ -5,9 +5,9 @@
                 <div class="w-full lg:w-[70vw] text-white">
                     <h1 
                     class="text-5xl leading-tight lg:text-[4.5vw] lg:leading-[4.5vw] mb-6 ck-content saas-highlight" 
-                    v-html="'<p>Skyrocket your<br><strong>PRODUCT</strong> and<br><strong>SAAS SUCCESS!</strong></p>'" />
+                    v-html="cms?.section1_header" />
                     <div class="max-w-[519px] mb-8 lg:mb-12">
-                        <p>Let us fill the gaps in staffing and propel your Product and Software-as-a-Service (SaaS) endeavors to greater heights. Our custom Outsourcing Solutions are designed to seamlessly integrate with your business, providing a comprehensive suite of services to ensure success in every aspect.</p>
+                        <p>{{ cms?.section1_content }}</p>
                     </div>
                 </div>
             </div>
@@ -19,29 +19,29 @@
                 <div class="w-[540px] relative z-1">
                     <img 
                         class="w-full"
-                        src="/temp/saas-f2.svg" 
+                        :src="$page.props.storage_url + cms?.section2_image" 
                         alt="saas"
                     >
                 </div>
                 <div class="w-[calc(100%-620px)]">
-                    <div class="text-white text-[3.34vw] leading-[4vw] saas-highlight ck-editor mb-4 animateUp" v-html="'<p>Discover the <strong>key<br>advantages</strong> of partnering<br>with us for your <strong>business<br>growth</strong></p>'"></div>
-                    <p class="text-white animateUp">We understand the unique challenges of the Product and SaaS landscape. Our commitment is to provide unparalleled outsourcing solutions designed to elevate your business, drive efficiency, and amplify client satisfaction.</p>
+                    <div class="text-white text-[3.34vw] leading-[4vw] saas-highlight ck-editor mb-4 animateUp" v-html="cms?.section2_header"></div>
+                    <p class="text-white animateUp">{{ cms?.section2_content }}</p>
                 </div>
             </div>
         </section>
         <section class="bg-gradient-to-b from-[#172B75] to-[#425FC5]">
             <div class="max-w-[1440px] m-auto px-20 py-20">
-                <div class="text-white text-[3.34vw] leading-[4vw] saas-highlight ck-editor mb-10 reveal-type" v-html="'<p>Outsourcing <strong>Solutions</strong></p>'"></div>
+                <div class="text-white text-[3.34vw] leading-[4vw] saas-highlight ck-editor mb-10 reveal-type" v-html="cms?.section3_header"></div>
                 <div class="grid grid-cols-6 gap-10">
                     <div 
-                        v-for="solution in solutions" 
+                        v-for="solution in cms?.section3_items" 
                         class="p-8 rounded-lg bg-white/[0.03] text-white space-y-2.5 flex flex-col justify-end animateUp" 
                         :class="solution.customClass"
                     >
                         <div class="w-24 h-24 relative">
                             <img
                                 class="w-full h-full object-contain" 
-                                :src="solution.icon" 
+                                :src="$page.props.storage_url + solution.logo" 
                                 alt="icon"
                             >
                         </div>
@@ -58,14 +58,14 @@
                 alt="saas"
             >
             <div class="max-w-[1060px] m-auto px-20 py-20 relative z-[10]">
-                <div class="text-white text-center text-[3.34vw] leading-[4vw] saas-highlight ck-editor mb-16 reveal-type" v-html="'<p>What to <strong>Expect</strong></p>'"></div>
+                <div class="text-white text-center text-[3.34vw] leading-[4vw] saas-highlight ck-editor mb-16 reveal-type" v-html="cms?.section4_header"></div>
                 <div class="grid grid-cols-2 gap-8">
-                    <div v-for="expectation in expectations" class="even:translate-y-3 radial-card4 rounded-lg animateUp">
+                    <div v-for="expectation in cms?.section4_items" class="even:translate-y-3 radial-card4 rounded-lg animateUp">
                         <div class="p-6 rounded-lg bg-[#182948] flex space-x-4 h-full relative z-[10]">
                             <div class="w-10 h-10">
                                 <img 
                                     class="w-full h-full object-contain" 
-                                    :src="expectation.icon" 
+                                    :src="$page.props.storage_url + expectation.logo" 
                                     alt="expectation"
                                 >
                             </div>
@@ -84,13 +84,13 @@
                 <div class="w-full lg:w-1/2 h-full bg-white">
                     <img 
                         class="w-full h-full object-cover" 
-                        src="/temp/saas-img.png" 
+                        :src="$page.props.storage_url + cms?.section5_image" 
                         alt="saas"
                     >
                 </div>
                 <div class="w-full lg:w-1/2 text-white px-4 lg:px-20 py-6 lg:py-[100px]">
-                    <p class="text-5xl font-bold mb-6 animateUp" v-html="'Ready to Scale Your Product or Software-as-a-Service? Connect with Us!'"></p>
-                    <div class="text-lg mb-12 animateUp" v-html="'Harness the power of advanced tech with Reliasourcing. Reach out today to discover how our services can propel your success in the ever-evolving tech landscape.'" />
+                    <p class="text-5xl font-bold mb-6 animateUp" v-html="cms?.section5_header"></p>
+                    <div class="text-lg mb-12 animateUp" v-html="cms?.section5_content" />
                     <a href="/#contact-us">
                         <v-button class="animateUp" design-color="text-primary-500">
                             Outsource with Us
@@ -104,8 +104,8 @@
             <div class="max-w-[1440px] m-auto relative z-[2] lg:px-0 px-4 py-10">
                 <contact-form 
                     custom-class="!bg-[#0F193D]"
-                    title="Let's Chat! "
-                    description="Drop us a line and access reliable solutions."
+                    :title="cms?.section6_title"
+                    :description="cms?.section6_content"
                 />
             </div>
         </section>
@@ -113,6 +113,11 @@
 </template>
 <script lang="ts" setup>
 import FrameOne from './Components/SaasFrameOne.vue';
+const props = defineProps({
+    cms: {
+        type: Object
+    }
+})
 const solutions = [
     {
         icon: '/temp/saas1.png',

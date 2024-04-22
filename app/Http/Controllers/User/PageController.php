@@ -97,41 +97,80 @@ class PageController extends Controller
     /** INDUSTRIES */
     // Finance
     public function finance() {
-        return Inertia::render('User/Pages/Industries/Finance', [])->withViewData([]);
+        $cms = CmsPage::where('slug', 'industries-finance')->first();
+        return Inertia::render('User/Pages/Industries/Finance', [
+            'cms' => $cms?->content,
+        ])->withViewData([
+            'title' => $cms->title,
+            'description' => $cms->description,
+            'og_image_path' => $cms->og_image_path ? Storage::url($cms->og_image_path) : asset('/icons/logo.png'),
+            'keywords' => $cms->keywords,
+        ]);
     }
     // Gaming
     public function gaming() {
-        return Inertia::render('User/Pages/Industries/Gaming', [])->withViewData([]);
+        $cms = CmsPage::where('slug', 'industries-gaming')->first();
+        return Inertia::render('User/Pages/Industries/Gaming', [
+            'cms' => $cms?->content,
+        ])->withViewData([
+            'title' => $cms->title,
+            'description' => $cms->description,
+            'og_image_path' => $cms->og_image_path ? Storage::url($cms->og_image_path) : asset('/icons/logo.png'),
+            'keywords' => $cms->keywords,
+        ]);
     }
     // Saas
     public function saas() {
-        return Inertia::render('User/Pages/Industries/Saas', [])->withViewData([]);
+        $cms = CmsPage::where('slug', 'industries-saas')->first();
+        return Inertia::render('User/Pages/Industries/Saas', [
+            'cms' => $cms?->content,
+        ])->withViewData([
+            'title' => $cms->title,
+            'description' => $cms->description,
+            'og_image_path' => $cms->og_image_path ? Storage::url($cms->og_image_path) : asset('/icons/logo.png'),
+            'keywords' => $cms->keywords,
+        ]);
     }
 
     // E-commerce
     public function eCommerce() {
-        return Inertia::render('User/Pages/Industries/ECommerce', [])->withViewData([]);
+        $cms = CmsPage::where('slug', 'industries-ecommerce')->first();
+        return Inertia::render('User/Pages/Industries/ECommerce', [
+            'cms' => $cms?->content,
+        ])->withViewData([
+            'title' => $cms->title,
+            'description' => $cms->description,
+            'og_image_path' => $cms->og_image_path ? Storage::url($cms->og_image_path) : asset('/icons/logo.png'),
+            'keywords' => $cms->keywords,
+        ]);
     }
 
     // Careers
     public function careers() {
-        return Inertia::render('User/Pages/Careers/Index', [])->withViewData([]);
+        $cms = CmsPage::where('slug', 'careers')->first();
+        return Inertia::render('User/Pages/Careers/Index', [
+            'cms' => $cms?->content,
+        ])->withViewData([
+            'title' => $cms->title,
+            'description' => $cms->description,
+            'og_image_path' => $cms->og_image_path ? Storage::url($cms->og_image_path) : asset('/icons/logo.png'),
+            'keywords' => $cms->keywords,
+        ]);
     }
-
-    // Resources
-    // public function resources() {
-    //     return Inertia::render('User/Pages/Resources/Index', [])->withViewData([]);
-    // }
-    // public function resourcesView() {
-    //     return Inertia::render('User/Pages/Resources/View', [])->withViewData([]);
-    // }
 
      // Calculator
     public function calculator() {
         $items = Pricing::query()->get();
+        $cms = CmsPage::where('slug', 'calculator')->first();
         return Inertia::render('User/Pages/Calculator/Index', [
             'items' => $items,
-        ])->withViewData([]);
+            'cms' => $cms?->content,
+            ])->withViewData([
+                'title' => $cms->title,
+                'description' => $cms->description,
+                'og_image_path' => $cms->og_image_path ? Storage::url($cms->og_image_path) : asset('/icons/logo.png'),
+                'keywords' => $cms->keywords,
+            ]);
     }
     public function calculatorView(Request $request) {
         // Access the form data
@@ -139,12 +178,19 @@ class PageController extends Controller
         $role = $request->role;
         $experience = $request->experience;
         $country = $request->country;
+        $cms = CmsPage::where('slug', 'calculator')->first();
         return Inertia::render('User/Pages/Calculator/View', [
+            'cms' => $cms?->content,
             'items' => $items,
             'role' => $role,
             'experience' => $experience,
             'country' => $country,
-        ])->withViewData([]);
+        ])->withViewData([
+            'title' => $cms->title,
+            'description' => $cms->description,
+            'og_image_path' => $cms->og_image_path ? Storage::url($cms->og_image_path) : asset('/icons/logo.png'),
+            'keywords' => $cms->keywords,
+        ]);
     }
 
     // Contact Us

@@ -15,7 +15,7 @@
                     <div class="w-24 h-24 relative">
                         <img
                             class="w-full h-full object-contain" 
-                            :src="item.icon" 
+                            :src="$page.props.storage_url + item.image" 
                             alt="icon"
                         >
                     </div>

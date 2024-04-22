@@ -11,7 +11,7 @@
                 <div>
                     <img 
                         class=""
-                        :src="item.image" 
+                        :src="$page.props.storage_url + item.image" 
                         alt="ecommerce"
                     >
                 </div>

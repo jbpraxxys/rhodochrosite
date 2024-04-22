@@ -5,9 +5,9 @@
                 <div class="w-full lg:w-[70vw] text-white">
                     <h1 
                     class="text-5xl leading-tight lg:text-[3.5vw] lg:leading-[4.5vw] mb-4 ck-content ecommerce-highlight text-[#51D2CA]" 
-                    v-html="'<p>Upsell your<br><strong>ONLINE<br>RETAIL</strong> game!</p>'" />
+                    v-html="cms?.section1_header" />
                     <div class="max-w-[682px] mb-8 lg:mb-12">
-                        <p>Enhance your E-Commerce Operations through Philippine BPO Solutions by leveraging the expertise of industry-leading outsourcing providers in the Philippines. Reliasourcing provides cutting-edge technologies to craft innovation and improve customer experiences. </p>
+                        <p>{{ cms?.section1_content }}</p>
                     </div>
                 </div>
             </div>
@@ -16,30 +16,30 @@
         <section class="bg-primary-900 relative saas-frame2">
             <div class="m-auto px-20 flex items-center space-x-16 pt-[120px] pb-20 w-full">
                 <div class="w-1/2">
-                    <div class="text-white text-[1.7vw] leading-[2.5vw] ecommerce-highlight ck-editor mb-4 reveal-type" v-html="'<p>Drive your <strong>e-commerce growth</strong> through outsourcing strategies.</p>'"></div>
+                    <div class="text-white text-[1.7vw] leading-[2.5vw] ecommerce-highlight ck-editor mb-4 reveal-type" v-html="cms?.section2_header"></div>
                 </div>
                 <div class="w-1/2 text-white animateUp">
-                    <p>We understand the unique challenges of the Product and SaaS landscape. Our commitment is to provide unparalleled outsourcing solutions designed to elevate your business, drive efficiency, and amplify client satisfaction.</p>
+                    <p>{{ cms?.section2_content }}</p>
                 </div>
             </div>
             <div class="fadeIn">
-                <eco-slider :items="gallery" />
+                <eco-slider :items="cms?.section2_items" />
             </div>
         </section>
         <section class="bg-gradient-to-b from-[#1C2C36] to-[#283F4E]">
             <div class="max-w-[1440px] m-auto px-20 py-20">
-                <div class="text-white text-3xl ecommerce-highlight ck-editor mb-20 text-center reveal-type" v-html="'<p>Outsource your <strong>digital storefront</strong> for <strong>competitive advantage:</strong></p>'"></div>
+                <div class="text-white text-3xl ecommerce-highlight ck-editor mb-20 text-center reveal-type" v-html="cms?.section3_header"></div>
             </div>
             <div>
-                <advantage-slider :items="advantages"/>
+                <advantage-slider :items="cms?.section3_items"/>
             </div>
         </section>
         <section class="bg-primary-900">
             <div class="max-w-[1440px] m-auto px-20 py-20">
-                <div class="text-white text-3xl ecommerce-highlight ck-editor mb-16 text-center reveal-type" v-html="'<p>Other Services <strong>We</strong> Provide</p>'"></div>
+                <div class="text-white text-3xl ecommerce-highlight ck-editor mb-16 text-center reveal-type" v-html="cms?.section4_header"></div>
                 <div class="grid grid-cols-6 gap-4">
                     <div 
-                        v-for="service in services" 
+                        v-for="service in cms?.section4_items" 
                         class="radial-card3 rounded-lg animateUp" 
                         :class="service.customClass"
                     >
@@ -47,7 +47,7 @@
                             <div class="w-11 h-11 bg-primary-700 flex items-center rounded-full justify-center">
                                 <img 
                                     class="w-6 h-6 group-hover/benefit:scale-125 transition" 
-                                    :src="service.icon" 
+                                    :src="$page.props.storage_url +  service.image" 
                                     alt="icon"
                                 >
                             </div>
@@ -66,13 +66,13 @@
                 <div class="w-full lg:w-1/2 h-full bg-white">
                     <img 
                         class="w-full h-full object-cover" 
-                        src="/temp/ecom.png" 
+                        :src="$page.props.storage_url + cms?.section5_image" 
                         alt="ecommerce"
                     >
                 </div>
                 <div class="w-full lg:w-1/2 text-white px-4 lg:px-20 py-6 lg:py-[100px]">
-                    <p class="text-5xl leading-tight font-bold mb-6 animateUp" v-html="'Increase your e-commerce profits! Outsource your online retail operations and lead the market.'"></p>
-                    <div class="text-lg mb-12 animateUp" v-html="'Checkout a consultation today and kickstart your path to sustained e-commerce business success.'" />
+                    <p class="text-5xl leading-tight font-bold mb-6 animateUp" v-html="cms?.section5_header"></p>
+                    <div class="text-lg mb-12 animateUp" v-html="cms?.section5_content" />
                     <a href="/#contact-us">
                         <v-button class="animateUp" design-color="text-[#304958]">
                             Outsource with Us
@@ -91,8 +91,8 @@
             <div class="max-w-[1440px] m-auto relative z-[2] lg:px-0 px-4 py-10">
                 <contact-form 
                     custom-class="!bg-[#142129]"
-                    title="Let's Chat! "
-                    description="Drop us a line and access reliable solutions."
+                    :title="cms?.section6_header"
+                    :description="cms?.section6_content"
                 />
             </div>
         </section>
@@ -102,6 +102,12 @@
 import FrameOne from './Components/ECommerceFrameOne.vue';
 import EcoSlider from './Components/EcommerceSlider.vue';
 import AdvantageSlider from './Components/EcommerceAdvantageSlider.vue';
+
+const props = defineProps({
+    cms: {
+        type: Object
+    }
+})
 
 const gallery = [
     { image: '/temp/eco1.png' },

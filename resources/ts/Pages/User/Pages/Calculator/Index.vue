@@ -2,14 +2,14 @@
     <user-layout>
         <general-banner 
             :item="{
-                image: '/temp/advantage1.png',
-                title: 'Team Builder'
+                image: $page.props.storage_url + cms?.section1_image,
+                title: cms?.section1_title
             }"
         />  
         <offset-banner 
             :item="{
-                title: 'Be part of our team!',
-                description: 'Join our growing pool of talented experts and take your career to the next level.'
+                title: cms?.section1_header,
+                description: cms?.section1_content
             }"
         />
         <section class="relative bg-primary-50">
@@ -21,8 +21,8 @@
             <div class="max-w-[1440px] m-auto px-4 lg:px-20 relative z-[2] py-16">
                 <div class="flex lg:flex-row flex-col items-center justify-between image-text">
                     <div class="w-full lg:w-7/12 mb-8 lg:mb-0 lg:order-2 lg:ml-20">
-                        <div class="text-5xl font-bold mb-6 title reveal-type leading-tight" v-html="'Commitment to <strong>Quality</strong>'" />
-                        <div class="text-xl animateUp" v-html="'Quality is at the forefront of everything we do. From project initiation to delivery, we uphold the highest standards to ensure maximum satisfaction.'" />
+                        <div class="text-5xl font-bold mb-6 title reveal-type leading-tight" v-html="cms?.section2_title" />
+                        <div class="text-xl animateUp" v-html="cms?.section2_content" />
                         <div class="pt-6">
                             <v-button 
                                 @click="showCalculatorModal = true" 
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="w-full lg:w-5/12 max-w-[540px] animateUp lg:order-1">
-                        <img class="w-full" src="/temp/advantage2.png" alt="image">
+                        <img class="w-full" :src="$page.props.storage_url + cms?.section2_image" alt="image">
                     </div>
                 </div>
             </div>
@@ -55,6 +55,10 @@ const props = defineProps({
         type: Object,
         default: () => ({})
     },
+    cms: {
+        type: Object,
+        default: () => ({})
+    }
 });
 
 const showCalculatorModal = ref(false);
