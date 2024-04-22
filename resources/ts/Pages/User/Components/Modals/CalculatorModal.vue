@@ -14,33 +14,36 @@
             <div class="space-y-8">
                 <div>
                     <v-selector
-                        :options="sampleOption"
+                        :options="rolesObject"
                         label="Role"
                         placeholder="Select role here"
                         id="role"
                         name="role"
+                        v-model="form.role"
                     />
                 </div>
                 <div>
                     <v-selector
-                        :options="sampleOption"
+                        :options="experienceObject"
                         label="Experience Level"
                         placeholder="Select experience level here"
-                        id="experience_level"
-                        name="experience_level"
+                        id="experience"
+                        name="experience"
+                        v-model="form.experience"
                     />
                 </div>
                 <div>
                     <v-selector
-                        :options="sampleOption"
+                        :options="countryObject"
                         label="Country"
                         placeholder="Select country here"
                         id="country"
                         name="country"
+                        v-model="form.country"
                     />
                 </div>
                 <v-button 
-                    @click="proceed"
+                    @click="handleSubmit"
                     custom-class="px-6 !text-base animateUp w-full" 
                     size="md" 
                     design-color="text-white"
@@ -53,21 +56,15 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue';
+import { useForm } from "@inertiajs/vue3";
 import Modal from '@/Components/Modals/Modal.vue';
 
-const sampleOption = [
-    { id: 'Creative Services', value: 'Creative Services'},
-    { id: 'Web Design', value: 'Web Design'},
-    { id: 'Web Development', value: 'Web Development'},
-    { id: 'Software Development', value: 'Software Development'},
-    { id: 'Sales Development Services', value: 'Sales Development Services'},
-    { id: 'Email and Phone Support', value: 'Email and Phone Support'},
-    { id: 'Live Chat Support', value: 'Live Chat Support'},
-    { id: 'Social Media Services', value: 'Social Media Services'},
-    { id: 'Revenue Optimization Services', value: 'Revenue Optimization Services'},
-]
-
 const props = defineProps({
+    items: {
+        type: Object,
+        default: () => ({})
+    },
     id: {
         type: String,
     },
@@ -90,7 +87,32 @@ const props = defineProps({
     },
 })
 
-const proceed = () => {
-    location.href = '/calculator/view';
-}
+const form = useForm({
+    // Bind the form data to the form object
+    role: '',
+    experience: '',
+    country: '',
+});
+
+const rolesObject = [...new Set(props.items.map(obj => obj.role))].map(role => ({ id: role, value: role }));
+const experienceObject = [...new Set(props.items.map(obj => obj.experience))].map(experience => ({ id: experience, value: experience }));
+const countryObject = [...new Set(props.items.map(obj => obj.country))].map(country => ({ id: country, value: country }));
+
+
+const filterList = () => {
+// Perform filtering here
+    const filtered = props.items.filter(
+        item => item.role.includes(form.role) &&
+                item.country.includes(form.country) &&
+                item.experience.includes(form.experience)
+    );
+    // Set the form data to the filtered data
+    form.role = filtered[0].role;
+    form.experience = filtered[0].experience;
+    form.country = filtered[0].country;
+};
+
+const handleSubmit = () => {
+  form.get(route('web.pages.calculator-view'), {});
+};
 </script>

@@ -233,6 +233,21 @@ const navigation: generalNavType[] = [
         ]
     },
     {
+        name: "Pricing Management",
+        href: "#",
+        parentUrl: "#",
+        allowed: true,
+        children: [
+            {
+                name: "Pricing",
+                href: route('admin.pricing-management.pricings.index'),
+                parentUrl: "admin.pricing-management.pricings*",
+                icon: DocumentTextIcon,
+                allowed: true,
+            },
+        ]
+    },
+    {
         name: "Inquiry Management",
         href: "#",
         parentUrl: "#",

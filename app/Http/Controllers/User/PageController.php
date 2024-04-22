@@ -9,6 +9,7 @@ use App\Models\Modular\ParentPage;
 use App\Http\Controllers\Controller;
 use App\Models\Modular\ChildPage;
 use App\Models\Modular\SubPage;
+use App\Models\Calculator\Pricing;
 use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller
@@ -127,10 +128,23 @@ class PageController extends Controller
 
      // Calculator
     public function calculator() {
-        return Inertia::render('User/Pages/Calculator/Index', [])->withViewData([]);
+        $items = Pricing::query()->get();
+        return Inertia::render('User/Pages/Calculator/Index', [
+            'items' => $items,
+        ])->withViewData([]);
     }
-    public function calculatorView() {
-        return Inertia::render('User/Pages/Calculator/View', [])->withViewData([]);
+    public function calculatorView(Request $request) {
+        // Access the form data
+        $items = Pricing::query()->get();
+        $role = $request->role;
+        $experience = $request->experience;
+        $country = $request->country;
+        return Inertia::render('User/Pages/Calculator/View', [
+            'items' => $items,
+            'role' => $role,
+            'experience' => $experience,
+            'country' => $country,
+        ])->withViewData([]);
     }
 
     // Contact Us
