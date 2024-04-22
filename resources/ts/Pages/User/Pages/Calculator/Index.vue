@@ -44,11 +44,18 @@
             :show="showCalculatorModal"
             @cancel="showCalculatorModal = false"
             maxWidth="calculator"
+            :items="items"
         />
     </user-layout>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
+const props = defineProps({
+    items: {
+        type: Object,
+        default: () => ({})
+    },
+});
 
 const showCalculatorModal = ref(false);
 
