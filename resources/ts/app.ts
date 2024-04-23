@@ -12,6 +12,7 @@ import VBackButton from "@/Pages/User/Components/Buttons/VBackButton.vue";
 import VCheckbox from "@/Pages/User/Components/Inputs/VCheckbox.vue";
 import VDatePicker from "@/Pages/User/Components/Inputs/VDatePicker.vue";
 import VTextInput from "@/Pages/User/Components/Inputs/VTextInput.vue";
+import VFileInput from "@/Pages/User/Components/Inputs/VFileInput.vue";
 import VPasswordInput from "@/Pages/User/Components/Inputs/VPasswordInput.vue";
 import VSelector from "@/Pages/User/Components/Inputs/VSelector.vue";
 
@@ -70,6 +71,7 @@ createInertiaApp({
                     VCheckbox,
                     VDatePicker,
                     VTextInput,
+                    VFileInput,
                     VPasswordInput,
                     VSelector,
                     VConfirmationModal,

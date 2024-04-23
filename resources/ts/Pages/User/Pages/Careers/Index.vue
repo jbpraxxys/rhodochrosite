@@ -17,6 +17,7 @@
                 <career-card 
                     v-for="item in cms?.section2_items"
                     :item="item"
+                    @apply="apply(item.title)"
                 />
             </div>
         </div>
@@ -73,13 +74,19 @@
                         src="/icons/contact-bg.svg" 
                         alt="contact"
                     >
-                    <career-form />
+                    <div id="career-form" class="spacer -translate-y-20"></div>
+                    <career-form 
+                        :position="position" 
+                        :title="cms?.section5_title "
+                        :description="cms?.section5_content"
+                    />
                 </div>
             </div>
         </section>
     </user-layout>
 </template>
 <script lang="ts" setup>
+import { ref } from 'vue';
 import Lightgallery from 'lightgallery/vue';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
@@ -91,47 +98,15 @@ const props = defineProps({
     }
 })
 
+const position = ref('');
+
 const plugins: {} [] = [lgThumbnail, lgZoom, lgVideo];
 
-const careers = [
-    {
-        title: 'Content Marketing Associate/Marketing Assistant',
-        description: 'Bonifacio Global City, Metro Manila <br>₱25,000 - ₱30,000 per month <br>Marketing Assistants/Coordinators <br> (Marketing & Communications)'
-    },
-    {
-        title: 'Marketing Officer',
-        description: 'Bonifacio Global City, Metro Manila <br>₱25,000 - ₱30,000 per month <br>Marketing Assistants/Coordinators <br> (Marketing & Communications)'
-    },
-    {
-        title: 'Outbound Sales Agent',
-        description: 'Bonifacio Global City, Metro Manila <br>₱25,000 - ₱30,000 per month <br>Marketing Assistants/Coordinators <br> (Marketing & Communications)'
-    },
-    {
-        title: 'Admission Advisor',
-        description: 'Pasay City, Metro Manila<br>Customer Service - Call Centre<br>(Call Center & Customer Service)'
-    },
-]
-
-const journey = [
-    {
-        title: 'Find the perfect role',
-        description: 'Explore roster of open positions to ind the best fit for you.',
-        image: '/temp/is1.png'
-    },
-    {
-        title: 'Reach out and apply',
-        description: 'Submit all necessary documents for your application.',
-        image: '/temp/is2.png'
-    },
-    {
-        title: 'Ace your interview',
-        description: 'Submit all necessary documents for your application.',
-        image: '/temp/is3.png'
-    },
-    {
-        title: 'Get ready for day one',
-        description: 'We’ll ensure your smooth transition to your new role.',
-        image: '/temp/is4.png'
-    },
-]
+const apply = (title) => {
+    position.value = title;
+    const careerForm = document.getElementById('career-form');
+    setTimeout(() => {
+        careerForm.scrollIntoView({ behavior: 'smooth' });
+    }, 300)
+}
 </script>

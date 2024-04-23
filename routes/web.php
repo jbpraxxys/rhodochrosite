@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\CkeditorController;
+use App\Http\Controllers\User\Application\ApplicationController;
 use App\Http\Controllers\User\Articles\ArticleController;
 use App\Http\Controllers\User\Inquiry\InquiryController;
 use App\Http\Controllers\User\ModularController;
@@ -78,6 +79,13 @@ Route::prefix('/inquiry')
 Route::prefix('/subscription')
     ->name('subscription.')
     ->controller(SubscriptionController::class)
+    ->group(function () {
+        Route::post('submit', 'submit')->name('submit');
+});
+
+Route::prefix('/application')
+    ->name('application.')
+    ->controller(ApplicationController::class)
     ->group(function () {
         Route::post('submit', 'submit')->name('submit');
 });
