@@ -7,18 +7,18 @@
         >
         <div class="max-w-[656px] p-6 lg:p-8 bg-primary-900 w-full rounded-2xl">
             <div class="text-white mb-6">
-                <p class="font-semibold text-3xl mb-3">Submit Application</p>
-                <p>Please submit your comprehensive resumé via online form.</p>
+                <p class="font-semibold text-3xl mb-3">{{ title }}</p>
+                <p>{{ description }}</p>
             </div>
             <form @submit.prevent="submit" class="hm-contact grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-4">
                 <div>
                     <v-text-input
                         label="Name"
                         placeholder="Your name"
-                        id="roles"
-                        name="roles"
-                        v-model="form.role"
-                        :error="form.errors.role"
+                        id="full_name"
+                        name="full_name"
+                        v-model="form.full_name"
+                        :error="form.errors.full_name"
                     />
                 </div>
                 <div>
@@ -56,20 +56,14 @@
                     />
                 </div>
                 <div class="col-span-full">
-                    <label class="block text-sm text-gray-900 mb-1">Your Resume</label>
-                    <div class="flex items-center space-x-6">
-                        <div class="w-[calc(100%-134px)] bg-white text-gray-400 text-sm px-4 h-11 flex items-center justify-center rounded-md">
-                            <p class="w-full">No file chosen</p>
-                        </div>
-                        <div class="relative text-primary-500 font-medium cursor-pointer">
-                            <img 
-                                class="h-11" 
-                                src="/icons/export.svg" 
-                                alt="button"
-                            >
-                            <p class="absolute top-1/2 w-full text-center -translate-y-1/2 text-sm">Choose File</p>
-                        </div>
-                    </div>
+                    <v-file-input
+                        id="cv"
+                        label="Your Resume"
+                        description="Only .PDF or .DOCX file will be accepted."
+                        v-model:path="form.cv"
+                        v-model:file="form.cv"
+                        :error="form.errors.cv"
+                    />
                 </div>
                 <div class="col-span-full">
                     <v-text-input
@@ -77,8 +71,8 @@
                         placeholder="Enter Cover Letter"
                         id="cover"
                         name="cover"
-                        v-model="form.cover"
-                        :error="form.errors.cover"
+                        v-model="form.message"
+                        :error="form.errors.message"
                         :textAreaRows="7"
                         textarea
                     />
@@ -125,17 +119,39 @@
     </v-success-modal>
 </template>
 <script lang="ts" setup>
-import { useForm } from "@inertiajs/vue3";
-import { onMounted, ref } from "vue";
+import { useForm, } from "@inertiajs/vue3";
+import { onMounted, ref, reactive, watch } from "vue";
 import { VueRecaptcha } from 'vue-recaptcha';
 
+const props = defineProps({
+    position: {
+        type: String,
+        default: null
+    },
+    title: {
+        type: String,
+        default: 'Submit Application',
+    },
+    description: {
+        type: String,
+        default: 'Please submit your comprehensive resumé via online form.',
+    }
+})
+
+watch(
+    () => props.position,
+    (newPosition) => {
+        form.position = newPosition;
+    }
+);
+
 const form = useForm({
-    name: null,
+    full_name: null,
     email: null,
     phone: null,
-    position: null,
-    resume: null,
-    cover: null,
+    position: reactive(props.position),
+    cv: null,
+    message: null,
     recaptcha_response: null,
 });
 
@@ -156,7 +172,7 @@ const reload = () => {
     location.reload();
 }
 
-const submitUrl = route("web.subscription.submit");
+const submitUrl = route("web.application.submit");
 const submit = () => {
     form.post(submitUrl, {
         preserveScroll: true,

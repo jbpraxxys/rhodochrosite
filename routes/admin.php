@@ -4,6 +4,7 @@ use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\Admin\Others\ActivityLogsController;
 use App\Http\Controllers\Admin\Accounts\AdminController;
 use App\Http\Controllers\Admin\Accounts\RolePermissionController;
+use App\Http\Controllers\Admin\ApplicationController;
 use App\Http\Controllers\Admin\Articles\ArticleController;
 use App\Http\Controllers\Admin\Pricings\PricingController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -295,5 +296,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                     Route::post('restore', 'restore')->name('restore');
                 });
         });
+
+        Route::prefix('application')
+            ->name('application.')
+            ->controller(ApplicationController::class)
+            ->group(function () {
+                Route::get('index', 'index')->name('index');
+                Route::get('view/{application}', 'view')->name('view');
+                Route::delete('delete/{application}', 'delete')->name('delete');
+                Route::post('restore', 'restore')->name('restore');
+            });
         
 });

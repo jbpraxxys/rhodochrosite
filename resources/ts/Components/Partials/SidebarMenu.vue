@@ -270,6 +270,21 @@ const navigation: generalNavType[] = [
         ]
     },
     {
+        name: "Application Management",
+        href: "#",
+        parentUrl: "#",
+        allowed: true,
+        children: [
+            {
+                name: "Application",
+                href: route('admin.application.index'),
+                parentUrl: "admin.application*",
+                icon: DocumentTextIcon,
+                allowed: true,
+            },
+        ]
+    },
+    {
         name: "Accounts",
         href: "#",
         parentUrl: "#",

@@ -1322,6 +1322,39 @@ return [
                         
                     ]
                 ],
+                [
+                    'id' => 'section5',
+                    'label' => 'Section 5',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'title',
+                            'type' => 'textarea',
+                            'label' => 'Title',
+                            'description' => '',
+                        ],
+                        [
+                            'id' => 'content',
+                            'type' => 'textarea',
+                            'label' => 'Content',
+                            'description' => '',
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'application',
+                    'label' => 'Career Application',
+                    'description' => '',
+                    'items' => [
+                        [
+                            'id' => 'email_recipient',
+                            'type' => 'text',
+                            'label' => 'Email Recipient',
+                            'description' => 'This email will be used as a recipient for inquiries. Separate emails with a comma (test@email.com, email@test.com)',
+                        ],
+
+                    ]
+                ],
             ],
         ],
         //Calculator
