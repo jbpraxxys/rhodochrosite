@@ -9,24 +9,27 @@
         <offset-banner 
             :item="{
                 title: cms?.section1_header,
-                description: cms?.section1_content
+                description: cms?.section1_content,
+                customClass: '-translate-y-[100px]'
             }"
         />
-        <div class="px-20 pb-[120px] max-w-[1440px] m-auto bg-primary-50">
-            <div class="grid grid-cols-3 gap-6">
-                <career-card 
-                    v-for="item in cms?.section2_items"
-                    :item="item"
-                    @apply="apply(item.title)"
-                />
+        <section class="bg-primary-50">
+            <div class="px-4 lg:px-20 pb-[120px] max-w-[1440px] m-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <career-card 
+                        v-for="item in cms?.section2_items"
+                        :item="item"
+                        @apply="apply(item.title)"
+                    />
+                </div>
             </div>
-        </div>
+        </section>
         <div class="bg-primary-900">
-            <div class="max-w-[1440px] m-auto px-20 py-32">
+            <div class="max-w-[1440px] m-auto lg:px-20 lg:py-32 px-4 py-16">
                 <div class="text-center text-white mb-10">
                     <p class="text-28 font-bold">{{ cms?.section3_header }}</p>
                 </div>
-                <div class="grid grid-cols-4 gap-20">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-20">
                     <div v-for="i in cms?.section3_items" class="text-white">
                         <div class="w-24 m-auto mb-6">
                             <img
@@ -60,11 +63,13 @@
                         <a 
                             :href="cms?.section4_video_link"
                         >
-                            <img 
-                                class="image image-thumb w-full h-full object-cover" 
-                                :src="$page.props.storage_url + cms?.section4_image" 
-                                alt="thumbnail"
-                            >
+                            <div class="w-full aspect-w-4 aspect-h-3 lg:aspect-w-16 lg:aspect-h-9 rounded-xl lg:rounded-lg overflow-hidden">
+                                <img 
+                                    class="image image-thumb w-full h-full object-cover" 
+                                    :src="$page.props.storage_url + cms?.section4_image" 
+                                    alt="thumbnail"
+                                >
+                            </div>
                         </a>
                     </Lightgallery>
                 </div>

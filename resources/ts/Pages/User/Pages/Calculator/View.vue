@@ -10,13 +10,14 @@
             id="calculator"
             :item="{
                 title: cms?.section1_header,
-                description: cms?.section1_content
+                description: cms?.section1_content,
+                customClass: '-translate-y-[100px]'
             }"
         />
         <section class="bg-primary-50 relative">
-            <div class="max-w-[1440px] m-auto p-20 pt-0">
-                <div class="flex space-x-12">
-                    <div class="w-[350px] p-8 rounded-[2rem] bg-primary-800/[0.02]">
+            <div class="max-w-[1440px] m-auto px-4 py-16 lg:p-20 pt-0">
+                <div class="flex lg:flex-row flex-col lg:space-y-0 space-y-10 lg:space-x-12">
+                    <div class="w-full lg:w-[350px] lg:p-8 rounded-[2rem] bg-primary-800/[0.02]">
                         <div class="mb-8">
                             <p class="text-3xl font-bold mb-4">Hire top talent!</p>
                             <p>For much less than you expect.</p>
@@ -53,19 +54,18 @@
                                 />
                             </div>
                             <div class="flex items-center justify-between space-x-6">
-                                <div @click="addFilterList()" class="relative text-primary-500 font-medium cursor-pointer w-1/2">
-                                    <img class="h-11 w-full" src="/icons/export.svg" alt="button">
-                                    <p class="absolute top-1/2 w-full text-center -translate-y-1/2 text-sm">Add Role</p>
-                                </div>
+                                <v-button @click="addFilterList()" :fill="false" custom-class="px-6 !text-base w-1/2 bg-white" size="md" design-color="text-[#E8EBEB]">
+                                    Add Role
+                                </v-button>
                                 <v-button @click="filterList()" custom-class="px-6 !text-base w-1/2" size="md" design-color="">
                                     Proceed
                                 </v-button>
                             </div>
                         </div>
                     </div>
-                    <div class="w-[calc(100%-398px)]">
+                    <div class="w-full lg:w-[calc(100%-398px)]">
                         <div class="p-8 bg-primary-900 rounded-[2rem] h-fit mb-8">
-                            <table class="w-full text-left border-b mb-3">
+                            <table class="w-full text-left border-b mb-3 lg:block hidden">
                                 <tr class="w-full text-white font-bold text-sm">
                                     <th class="pr-2">Role</th>
                                     <th class="px-2">Country</th>
@@ -82,30 +82,60 @@
                                     <td class="px-2 py-5 font-bold">$ <render-price :value="item.onshore" /></td>
                                     <td class="px-2 py-5 font-bold">$ <render-price :value="item.offshore" /></td>
                                     <td class="px-2 py-5 font-bold text-right">$ <render-price :value="item.onshore - item.offshore" /></td>
-                                    <td @click="removeItem(item.id)" class="px-4 py-5"><XMarkIcon class="w-4 h-4 text-red-600 cursor-pointer" /></td>
+                                    <td @click="removeItem(item.id)" class="px-4 py-5"><XMarkIcon class="w-5 h-5 text-red-600 cursor-pointer" /></td>
                                 </tr>
                                 <tr v-if="filteredData.length == 0" class="text-white text-left h-16"></tr>
                             </table>
+                            <div class="pb-12 border-b mb-8 border-white/[0.5] space-y-5 lg:hidden block">
+                                <div v-for="item in filteredData" class="pb-5 border-b border-white/[0.5] last:border-b-0 last:pb-0">
+                                    <div class="flex items-center justify-between w-full pb-3 border-b border-white/[0.5] mb-3">
+                                        <div class="text-white">
+                                            <p class="text-sm font-bold">Role</p>
+                                            <p>{{item.role}}</p>
+                                        </div>
+                                        <div @click="removeItem(item.id)">
+                                            <XMarkIcon class="w-5 h-5 text-red-600 cursor-pointer" />
+                                        </div>
+                                    </div>
+                                    <div class="space-y-1 text-white">
+                                        <div class="flex w-full items-center justify-between text-sm">
+                                            <p class="font-bold">Country</p><p>{{ item.country }}</p>
+                                        </div>
+                                        <div class="flex w-full items-center justify-between text-sm">
+                                            <p class="font-bold">Experience Level</p><p>{{item.experience}}</p>
+                                        </div>
+                                        <div class="flex w-full items-center justify-between text-sm">
+                                            <p class="font-bold">Onshore Cost</p><p>$ <render-price :value="item.onshore" /></p>
+                                        </div>
+                                        <div class="flex w-full items-center justify-between text-sm">
+                                            <p class="font-bold">Reliasourcing Cost</p><p>$ <render-price :value="item.offshore" /></p>
+                                        </div>
+                                        <div class="flex w-full items-center justify-between text-sm">
+                                            <p class="font-bold">Your Savings</p><p>$ <render-price :value="item.onshore - item.offshore" /></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div>
                                 <p class="text-28 font-bold text-white mb-8">Estimated Monthly Cost</p>
-                                <div class="grid grid-cols-3 gap-8">
+                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                                     <div>
-                                        <p class="text-3xl font-bold text-primary-500 mb-4">$ <render-price :value="totalOnshore" /></p>
+                                        <p class="text-28 lg:text-3xl font-bold text-primary-500 mb-1 lg:mb-4">$ <render-price :value="totalOnshore" /></p>
                                         <p class="text-white">Monthly cost of hiring yourself</p>
                                     </div>
                                     <div>
-                                        <p class="text-3xl font-bold text-primary-500 mb-4">$ <render-price :value="totalOffshore" /></p>
+                                        <p class="text-28 lg:text-3xl font-bold text-primary-500 mb-1 lg:mb-4">$ <render-price :value="totalOffshore" /></p>
                                         <p class="text-white">Monthly savings with Reliasourcing</p>
                                     </div>
                                     <div>
-                                        <p class="text-3xl font-bold text-primary-500 mb-4">{{ totalSavings }}%</p>
+                                        <p class="text-28 lg:text-3xl font-bold text-primary-500 mb-1 lg:mb-4">{{ totalSavings }}%</p>
                                         <p class="text-white">of Savings</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- TODO: Send Email Computation -->
-                        <div class="w-fit m-auto">
+                        <div class="w-fit m-auto hidden">
                             <v-button custom-class="px-6 !text-base animateUp" size="md" design-color="">
                                 Email Computation
                             </v-button>

@@ -510,3 +510,36 @@
         display: none;
     }
 }
+
+
+@media screen and (max-width: 1024px) {
+    .ck-content.saas-highlight {
+        p {
+            line-height: 3.3rem;
+        }
+        strong, b {
+            font-size: 3rem;
+            line-height: 3.3rem;
+        }
+    }
+
+    .ck-content.ecommerce-highlight {
+        p {
+            line-height: 3rem;
+        }
+        strong, b {
+            font-size: 3.5rem;
+            line-height: 4rem;
+        }
+    }
+
+    .ck-content.finance-highlight {
+        p {
+            line-height: 3rem;
+        }
+        strong, b {
+            font-size: 3.5rem;
+            line-height: 4rem;
+        }
+    }
+}

@@ -2,12 +2,18 @@
     <div>
         <swiper
             :modules="modules"
-            :slides-per-view="3.5"
-            :space-between="32"
+            :slides-per-view="1.2"
+            :space-between="24"
             :free-mode="true"
-            class="advantage-swiper"
+            class="advantage-swiper !overflow-visible"
+            :breakpoints="{
+                '1024': {
+                    slidesPerView: 3.5,
+                    spaceBetween: 32,
+                },
+            }"
         >
-            <swiper-slide v-for="item in items" class="radial-card2 relative rounded-xl">
+            <swiper-slide v-for="item in items" class="radial-card2 relative rounded-xl generic-hover">
                 <div 
                     class="p-8 rounded-xl text-white space-y-2.5 flex flex-col min-h-[394px] bg-[#051125] z-[10] relative" 
                     :class="item.customClass"

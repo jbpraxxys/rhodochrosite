@@ -1,5 +1,5 @@
 <template>
-    <svg width="1440" height="879" viewBox="0 0 1440 879" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="100%" viewBox="0 0 1440 879" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- <rect width="1440" height="879" fill="#04193C"/> -->
         
         <g class="float">

@@ -1,9 +1,9 @@
 <template>
     <div>
         <a :href="route('web.resources.show', item.slug)">
-            <div class="flex space-x-4 cursor-pointer hover:text-primary-500 transition">
-                <div class="w-[calc(100%-279px)]">
-                    <div class="aspect-w-1 aspect-h-1 rounded-md overflow-hidden">
+            <div class="flex lg:flex-row flex-col lg:space-x-4 space-x-0 lg:space-y-0 space-y-4 cursor-pointer hover:text-primary-500 transition">
+                <div class="w-full lg:w-[calc(100%-279px)]">
+                    <div class="lg:aspect-w-1 aspect-w-4 aspect-h-3 lg:aspect-h-1 rounded-md overflow-hidden">
                         <img 
                             class="w-full h-full object-cover" 
                             :src="$page.props.storage_url + item.banner_image_path" 
@@ -11,7 +11,7 @@
                         >
                     </div>
                 </div>
-                <div class="w-[263px]">
+                <div class="w-full lg:w-[263px]">
                     <p class="text-xl font-semibold line-clamp-4 mb-4 leading-8">{{item.title}}</p>
                     <p class="text-sm text-neutral-600">{{ formatDate(item.publish_date) }} • {{item.article_type}}</p>
                 </div>

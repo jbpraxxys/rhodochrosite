@@ -9,7 +9,8 @@
         <offset-banner 
             :item="{
                 title: cms?.section1_header,
-                description: cms?.section1_content
+                description: cms?.section1_content,
+                customClass: '-translate-y-[100px]'
             }"
         />
         <section class="relative bg-primary-50">
@@ -20,7 +21,7 @@
             >
             <div class="max-w-[1440px] m-auto px-4 lg:px-20 relative z-[2] py-16">
                 <div class="flex lg:flex-row flex-col items-center justify-between image-text">
-                    <div class="w-full lg:w-7/12 mb-8 lg:mb-0 lg:order-2 lg:ml-20">
+                    <div class="w-full lg:w-7/12 mb-8 lg:mb-0 order-2 lg:ml-20">
                         <div class="text-5xl font-bold mb-6 title reveal-type leading-tight" v-html="cms?.section2_title" />
                         <div class="text-xl animateUp" v-html="cms?.section2_content" />
                         <div class="pt-6">
@@ -33,7 +34,7 @@
                             </v-button>
                         </div>
                     </div>
-                    <div class="w-full lg:w-5/12 max-w-[540px] animateUp lg:order-1">
+                    <div class="w-full lg:w-5/12 max-w-[540px] animateUp order-1">
                         <img class="w-full" :src="$page.props.storage_url + cms?.section2_image" alt="image">
                     </div>
                 </div>

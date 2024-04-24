@@ -2,10 +2,17 @@
     <div>
         <swiper
             :modules="modules"
-            :slides-per-view="3.5"
-            :space-between="32"
+            :slides-per-view="1"
+            :space-between="24"
             :free-mode="true"
-            class="advantage-swiper"
+            :disabled="true"
+            class="advantage-swiper !overflow-visible"
+            :breakpoints="{
+                '1024': {
+                    slidesPerView: 3.5,
+                    spaceBetween: 32,
+                },
+            }"
         >
             <swiper-slide v-for="item in items">
                 <div 

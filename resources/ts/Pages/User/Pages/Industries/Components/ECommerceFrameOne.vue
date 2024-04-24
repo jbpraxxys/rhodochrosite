@@ -1,5 +1,5 @@
 <template>
-    <svg width="1440" viewBox="0 0 1440 779" fill="none">
+    <svg width="100%" viewBox="0 0 1440 779" fill="none">
         <!-- <rect width="1440" height="779" fill="#051125"/> -->
         <g clip-path="url(#clip0_6949_3222)">
             <path

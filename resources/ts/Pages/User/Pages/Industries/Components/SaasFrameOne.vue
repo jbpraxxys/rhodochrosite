@@ -40,9 +40,29 @@
         </g>
         <line x1="791.25" y1="543.588" x2="846.194" y2="575.31" stroke="white" stroke-opacity="0.16" />
         <line x1="761.25" y1="287.567" x2="1073.02" y2="467.567" stroke="white" stroke-opacity="0.16" />
+        <line x1="761.25" y1="287.567" x2="1073.02" y2="467.567" stroke="white" stroke-opacity="0.16">
+            <animate attributeName="x1" values="1073.02;761.25;" dur="8s" repeatCount="indefinite" />
+            <animate attributeName="y1" values="467.567;287.567;" dur="8s" repeatCount="indefinite" />
+            <animate attributeName="stroke-opacity" values="0;1;0" dur="8s" repeatCount="indefinite" />
+        </line>
         <line x1="1060.46" y1="516.879" x2="1156.59" y2="572.38" stroke="white" stroke-opacity="0.16" />
+        <line x1="1060.46" y1="516.879" x2="1156.59" y2="572.38" stroke="white" stroke-opacity="0.16">
+            <animate attributeName="x2" values="1060.46;1156.59;" dur="8s" repeatCount="indefinite" />
+            <animate attributeName="y2" values="516.879;572.38;" dur="8s" repeatCount="indefinite" />
+            <animate attributeName="stroke-opacity" values="0;1;0" dur="8s" repeatCount="indefinite" />
+        </line>
         <line x1="1030.18" y1="422.241" x2="1198.16" y2="325.262" stroke="white" stroke-opacity="0.16" />
+        <line x1="1030.18" y1="422.241" x2="1198.16" y2="325.262" stroke="white" stroke-opacity="0.16">
+            <animate attributeName="x2" values="1030.18;1198.16;" dur="8s" repeatCount="indefinite" />
+            <animate attributeName="y2" values="422.241;325.262;" dur="8s" repeatCount="indefinite" />
+            <animate attributeName="stroke-opacity" values="0;1;0" dur="8s" repeatCount="indefinite" />
+        </line>
         <line x1="766.75" y1="620.546" x2="934.721" y2="523.567" stroke="white" stroke-opacity="0.16" />
+        <line x1="766.75" y1="620.546" x2="934.721" y2="523.567" stroke="white" stroke-opacity="0.16">
+            <animate attributeName="x1" values="934.721;766.75;" dur="8s" repeatCount="indefinite" />
+            <animate attributeName="y1" values="523.567;620.546;" dur="8s" repeatCount="indefinite" />
+            <animate attributeName="stroke-opacity" values="0;1;0" dur="8s" repeatCount="indefinite" />
+        </line>
         <path d="M865.5 680L1105.37 542.067" stroke="white" stroke-opacity="0.16" />
         <line x1="778.25" y1="628.567" x2="866.585" y2="679.567" stroke="white" stroke-opacity="0.16" />
         <path d="M1100 474.809L996.295 535.02L891.984 474.809L995.614 414.598L1100 474.809Z" fill="#788C97" />

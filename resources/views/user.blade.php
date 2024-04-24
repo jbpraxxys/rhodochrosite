@@ -34,7 +34,7 @@
         <!-- Styles & Scripts -->
         @vite(['resources/scss/user.scss', 'resources/ts/app.ts'])
     </head>
-    <body class="font-sans antialiased overflow-x-hidden">
+    <body class="font-sans antialiased lg:overflow-x-visible overflow-x-hidden">
         @inertia
 
         <!-- Google Analytics Code Snippet --> 
