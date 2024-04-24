@@ -33,7 +33,8 @@
             ]"
             >
                 <span v-if="selected"
-                class="block truncate text-sm text-primary-300">
+                    class="block truncate text-sm" :class="modelValue && !disabled ? 'text-gray-900' : 'text-primary-300'"
+                >
                     {{ selected }}
                 </span>
                 <span

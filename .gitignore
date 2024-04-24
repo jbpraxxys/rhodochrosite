@@ -28,5 +28,6 @@ yarn-error.log
 package-lock.json
 /.phpunit.cache
 /*.ms
+*.sql
 
 **/.DS_Store

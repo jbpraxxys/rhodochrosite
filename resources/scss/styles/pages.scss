@@ -10,6 +10,11 @@
     .word {
         font-weight: 700;
     }
+    &.font-base {
+        .word {
+            font-weight: 400 !important;
+        }
+    }
 }
 
 .hm-contact {
@@ -53,6 +58,43 @@
             padding: 24px;
             overflow: visible;
         }
+    }
+}
+
+.gaming-frame3-element {
+    grid-column: span 2 / span 2;
+    &:nth-child(n+4) {
+        grid-column: span 3 / span 3;
+    }
+}
+
+.saas-frame3-element {
+    grid-column: span 2 / span 2;
+    &:nth-child(n+4) {
+        grid-column: span 3 / span 3;
+    }
+}
+
+.ecommerce-frame4-element {
+    grid-column: span 2 / span 2;
+    &:nth-child(n+4) {
+        grid-column: span 3 / span 3;
+    }
+}
+
+.pulse2 {
+    animation: pulse 1s infinite ease-in-out alternate;
+}
+@keyframes pulse {
+    from { transform: scale(0.8); }
+    to { transform: scale(1.2); }
+}
+
+.generic-hover {
+    transition: all 0.5s ease;
+    &:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 5px 10px 0 #4b556380;
     }
 }
 
@@ -549,6 +591,153 @@
     }
 }
 
+.s-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: spath 2s linear infinite;
+}
+
+@keyframes spath {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    50% {
+        stroke-dashoffset: 930;
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 930;
+        opacity: 0;
+    }
+}
+
+.o-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: opath 2s linear infinite;
+    animation-delay: 1000ms;
+}
+
+@keyframes opath {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    50% {
+        stroke-dashoffset: 930;
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 930;
+        opacity: 0;
+    }
+}
+
+.c-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: opath 2s linear infinite;
+    animation-delay: 500ms;
+}
+
+@keyframes cpath {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    50% {
+        stroke-dashoffset: 930;
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 930;
+        opacity: 0;
+    }
+}
+
+.s2-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: s2path 2s linear infinite;
+    animation-delay: 1500ms;
+}
+
+@keyframes s2path {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    50% {
+        stroke-dashoffset: 930;
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 930;
+        opacity: 0;
+    }
+}
+
+.rod-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: rodpath 2s linear infinite;
+    animation-delay: 0ms;
+}
+
+@keyframes rodpath {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    50% {
+        stroke-dashoffset: 800;
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 800;
+        opacity: 0;
+    }
+}
+
+.aa-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: aapath 2s linear infinite;
+    animation-delay: 500ms;
+}
+
+@keyframes aapath {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    50% {
+        stroke-dashoffset: 800;
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 800;
+        opacity: 0;
+    }
+}
+
+.e-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: epath 2s linear infinite;
+    animation-delay: 2000ms;
+}
+
+@keyframes epath {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    50% {
+        stroke-dashoffset: 800;
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 800;
+        opacity: 0;
+    }
+}
+
+
 .radial-card1 {
     padding: 1px;
     overflow: hidden;
@@ -637,9 +826,44 @@
     }
 }
 
+@keyframes blinking {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blinking {
+    animation: blinking infinite;
+}
+
 @media screen and (max-width: 1024px) {
     .header-wrapper,.header-logo,.nav-menu {
         transition: all 0.5s ease;
+    }
+
+    .gaming-frame3-element, .saas-frame3-element, .ecommerce-frame4-element {
+        grid-column: 1 / -1;
+        &:nth-child(n+4) {
+            grid-column: 1 / -1;
+        }
+    }
+
+    .radial-card1 {
+        .radial-bg {
+            width: 200%;
+            height: 200%;
+        }
+    }
+
+    .ecommerce-swiper .swiper-wrapper {
+        padding-left: 16px !important;
+    }
+    .e-commerce-frame .advantage-swiper .swiper-wrapper {
+        padding-left: 16px !important;
+    }
+
+    .finance-frame .advantage-swiper .swiper-wrapper {
+        padding-left: 16px !important;
     }
 
     .nav-menu {
@@ -753,6 +977,16 @@
             margin-right: 0;
         }
     }
+    .advantage-card {
+        transition: all 1s ease;
+        .content {
+            max-height: 515px !important;
+            overflow: hidden;
+            transition: all 1s ease;
+            opacity: 1 !important;
+            transform: translateY(0);
+        }
+    }
 }
 
 .filter-wrapper {
@@ -828,6 +1062,16 @@
 
     .header-logo {
         filter: invert(0);
+    }
+
+    .hamburger-menu .bar {
+        background-color: #1C2C36;
+        &:before {
+            background-color: #1C2C36;
+        }
+        &:after {
+            background-color: #1C2C36;
+        }
     }
 }
 

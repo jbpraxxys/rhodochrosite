@@ -1,7 +1,7 @@
 <template>
     <footer class="bg-primary-900">
         <div class="px-4 lg:px-20 pb-7 pt-16 lg:py-16 flex lg:flex-row flex-col lg:justify-between">
-            <div class="max-w-[396px]">
+            <div class="lg:max-w-[373px]">
                 <div class="py-3 mb-2">
                     <a href="/">
                         <img 
@@ -15,31 +15,39 @@
                 <div class="flex items-center space-x-6 mb-12 lg:mb-0">
                     <img 
                         v-for="accreditation in footer.section1_accreditation"
-                        class="h-[50px]"
+                        class="h-[40px] lg:h-[50px]"
                         :src="$page.props.storage_url + accreditation.logo" 
                         alt="icon"
                     >
                 </div>
             </div>
-            <div class="max-w-[681px] w-full grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 text-white">
-                <div class="space-y-6">
-                    <p class="font-bold">Solutions</p>
+            <div class="max-w-[780px] w-full grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-16 text-white text-sm">
+                <div class="space-y-3">
+                    <p class="font-bold text-base">Solutions</p>
                     <div><a class="hover:text-primary-600 transition" href="/pages/solutions/contact-center">Contact Center</a></div>
                     <div><a class="hover:text-primary-600 transition" href="/pages/solutions/managed-services">Managed Services</a></div>
                     <div><a class="hover:text-primary-600 transition" href="/pages/solutions/staff-leasing">Staff Leasing</a></div>
                     <div><a class="hover:text-primary-600 transition" href="/pages/solutions/workforce-management">Workforce Management</a></div>
                 </div>
-                <div class="space-y-6">
-                    <p class="font-bold">Specializations</p>
+                <div class="space-y-3">
+                    <p class="font-bold text-base">Specializations</p>
                     <div><a class="hover:text-primary-600 transition" href="/pages/specialization/creative-services">Creative Services</a></div>
                     <div><a class="hover:text-primary-600 transition" href="/pages/specialization/sales-and-customer-support">Sales and Customer Support</a></div>
                     <div><a class="hover:text-primary-600 transition" href="/pages/specialization/sales-and-customer-support/sales-development-services">Sales Development Services</a></div>
                     <div><a class="hover:text-primary-600 transition" href="/pages/specialization/sales-and-customer-support/customer-success-services">Customer Success Services</a></div>
                 </div>
-                <div class="space-y-6">
-                    <p class="font-bold">Others</p>
-                    <div><a class="hover:text-primary-600 transition" href="/pages/industries">Industries</a></div>
+                <div class="space-y-3">
+                    <p class="font-bold text-base">Industries</p>
+                    <div><a class="hover:text-primary-600 transition" href="/industries/gaming">Entertainment & Gaming</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/industries/saas">Product & SaaS</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/industries/e-commerce">E-Commerce</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/industries/finance">Finance</a></div>
+                </div>
+                <div class="space-y-3">
+                    <p class="font-bold text-base">Others</p>
+                    <div><a class="hover:text-primary-600 transition" href="/resources">Resources</a></div>
                     <div><a class="hover:text-primary-600 transition" href="/pages/about-us/our-advantages">About Us</a></div>
+                    <div><a class="hover:text-primary-600 transition" href="/careers">Careers</a></div>
                     <div><a class="hover:text-primary-600 transition" href="/contact-us">Contact Us</a></div>
                 </div>
             </div>

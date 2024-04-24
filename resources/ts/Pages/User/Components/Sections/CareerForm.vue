@@ -103,8 +103,8 @@
     <v-success-modal
         :show="showSuccessModal"
         @close="showSuccessModal = false"
-        title="Inquiry Submitted!"
-        description="Inquiry has been successfully submitted"
+        title="Application Submitted!"
+        description="Application has been successfully submitted"
     >
         <template #button>
             <div class="flex items-center justify-end">

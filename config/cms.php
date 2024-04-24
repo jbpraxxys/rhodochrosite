@@ -481,13 +481,6 @@ return [
                                     'rules' => '',
                                     'summary_field' => false,
                                 ],
-                                [
-                                    'id' => 'custom',
-                                    'label' => 'Custom Class',
-                                    'type' => 'text',
-                                    'rules' => '',
-                                    'summary_field' => false,
-                                ],
                             ]
                         ],
                         [
@@ -606,12 +599,6 @@ return [
                     'description' => 'Relevant data and other details',
                     'items' => [
                         [
-                            'id' => 'header',
-                            'type' => 'htmleditor',
-                            'label' => 'Header',
-                            'description' => '',
-                        ],
-                        [
                             'id' => 'content',
                             'type' => 'textarea',
                             'label' => 'Content',
@@ -682,13 +669,6 @@ return [
                                     'rules' => '',
                                     'summary_field' => false,
                                 ],
-                                [
-                                    'id' => 'customClass',
-                                    'label' => 'Custom Class',
-                                    'type' => 'text',
-                                    'rules' => '',
-                                    'summary_field' => false,
-                                ]
                             ]
                         ]
                     ]
@@ -922,13 +902,6 @@ return [
                                     'rules' => '',
                                     'summary_field' => false,
                                 ],
-                                [
-                                    'id' => 'customClass',
-                                    'label' => 'Custom Class',
-                                    'type' => 'text',
-                                    'rules' => '',
-                                    'summary_field' => false,
-                                ],
                             ]
                         ]
                     ]
@@ -992,11 +965,24 @@ return [
                     'description' => 'Relevant data and other details',
                     'items' => [
                         [
-                            'id' => 'header',
-                            'type' => 'htmleditor',
-                            'label' => 'Header',
+                            'id' => 'uppertext',
+                            'type' => 'text',
+                            'label' => 'Upper Text',
                             'description' => '',
                         ],
+                        [
+                            'id' => 'middletext',
+                            'type' => 'text',
+                            'label' => 'Middle Text',
+                            'description' => 'Larger Text (highlight)',
+                        ],
+                        [
+                            'id' => 'lowertext',
+                            'type' => 'text',
+                            'label' => 'Lower Text',
+                            'description' => '',
+                        ],
+                        
                         [
                             'id' => 'content',
                             'type' => 'textarea',
