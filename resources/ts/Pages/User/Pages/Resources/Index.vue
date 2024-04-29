@@ -25,7 +25,7 @@
                             <p class="text-sm text-neutral-500">{{ formatDate(item.publish_date) }} • {{item.article_type}}</p>
                         <div>
                                 <a :href="route('web.resources.show', item.slug)">
-                                    <v-button designColor='text-white'>Read More</v-button>
+                                    <v-button designColor='text-primary-50'>Read More</v-button>
                                 </a>
                         </div>
                         </div>

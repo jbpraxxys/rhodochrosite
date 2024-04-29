@@ -3,6 +3,7 @@
         :title="`${page.label}`"
         :pages="pages"
         showButton
+        :flash="flash"
     >
         <!-- Tabs -->
         <div>
@@ -232,7 +233,7 @@ import { router } from "@inertiajs/vue3";
 import pickBy from "lodash/pickBy";
 
 const props = defineProps([
-    "page", "schema", "selectedTab"
+    "page", "schema", "selectedTab", "flash"
 ])
 
 const pages = [

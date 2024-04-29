@@ -17,7 +17,7 @@
             <path class="glowing-path" d="M743.502 469.024L934.722 358.591" stroke="black" stroke-opacity="0.16" />
             <path class="glowing-path" d="M889.5 511.5L1105.37 377.067" stroke="black" stroke-opacity="0.16" />
             <line x1="623.75" y1="475.567" x2="791.721" y2="378.589" stroke="white" stroke-opacity="0.16" />
-            <path class="glowing-path" d="M1106 326.809L1002.29 387.02L897.984 326.809L1001.61 266.597L1106 326.809Z" fill="#788C97" />
+            <path d="M1106 326.809L1002.29 387.02L897.984 326.809L1001.61 266.597L1106 326.809Z" fill="#788C97" />
             <line x1="954.75" y1="363.067" x2="980.731" y2="348.067" stroke="white" />
             <line x1="904.75" y1="335.067" x2="930.731" y2="320.067" stroke="white" />
             <line x1="1015.25" y1="361.567" x2="1020.45" y2="364.567" stroke="white" />

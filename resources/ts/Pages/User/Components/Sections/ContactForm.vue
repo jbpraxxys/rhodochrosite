@@ -85,14 +85,11 @@
                     />
                 </div>
                 <div>
-                    <v-text-input
+                    <v-mobile-number
                         label="Phone"
                         placeholder="Enter phone number here"
-                        type="number"
                         id="phone"
                         name="phone"
-                        :add_on_left="true"
-                        add_on_text="+63"
                         v-model="form.phone"
                         :error="form.errors.phone"
                     />
@@ -110,6 +107,7 @@
                         <v-button 
                             custom-class="h-12 px-6 !text-base" 
                             @click="submit"
+                            :designColor="designColor"
                             :disabled="!form.recaptcha_response"
                         >
                             Submit
@@ -154,6 +152,10 @@ defineProps({
     description: {
         type: String,
         default: 'Let’s discuss your project, together we will find a solution to the most difficult task',
+    },
+    designColor: {
+        type: String,
+        default: 'text-primary-900'
     }
 })
 

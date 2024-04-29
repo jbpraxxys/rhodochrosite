@@ -28,7 +28,7 @@
                             <v-button 
                                 @click="showCalculatorModal = true" 
                                 custom-class="h-14 px-6 !text-base animateUp" 
-                                design-color="text-white"
+                                design-color="text-primary-50"
                             >
                                 Get Started
                             </v-button>
@@ -43,7 +43,7 @@
 
         <calculator-modal 
             :show="showCalculatorModal"
-            @cancel="showCalculatorModal = false"
+            @close="showCalculatorModal = false"
             maxWidth="calculator"
             :items="items"
         />
