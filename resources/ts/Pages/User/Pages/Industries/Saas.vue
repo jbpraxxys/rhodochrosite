@@ -11,22 +11,24 @@
             </div>
             <frame-one class="lg:w-full w-[170%] relative right-[70%] lg:right-0" />
         </section>
-        <section class="bg-[#172B75] relative saas-frame2">
-            <saas-particle class="absolute top-[-200px] left-[-650px]" />
-            <div class="max-w-[1440px] m-auto px-4 lg:px-20 flex items-center lg:space-x-20 py-16 lg:flex-row flex-col lg:py-20 w-full">
-                <div class="w-full lg:w-[540px] relative z-1">
-                    <img 
-                        class="w-full"
-                        :src="$page.props.storage_url + cms?.section2_image" 
-                        alt="saas"
-                    >
+        <div class="bg-[#0F193D]">
+            <section class="bg-[#172B75] relative saas-frame2 rounded-t-[2.25rem]">
+                <saas-particle class="absolute top-[-200px] left-[-650px]" />
+                <div class="max-w-[1440px] m-auto px-4 lg:px-20 flex items-center lg:space-x-20 py-16 lg:flex-row flex-col lg:py-20 w-full">
+                    <div class="w-full lg:w-[540px] relative z-1">
+                        <img 
+                            class="w-full"
+                            :src="$page.props.storage_url + cms?.section2_image" 
+                            alt="saas"
+                        >
+                    </div>
+                    <div class="w-full lg:w-[calc(100%-620px)]">
+                        <div class="text-white text-4xl lg:text-[3rem] leading-tight saas-highlight ck-editor mb-4 animateUp" v-html="cms?.section2_header"></div>
+                        <p class="text-white animateUp">{{ cms?.section2_content }}</p>
+                    </div>
                 </div>
-                <div class="w-full lg:w-[calc(100%-620px)]">
-                    <div class="text-white text-4xl lg:text-[3rem] leading-tight saas-highlight ck-editor mb-4 animateUp" v-html="cms?.section2_header"></div>
-                    <p class="text-white animateUp">{{ cms?.section2_content }}</p>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
         <section class="bg-gradient-to-b from-[#172B75] to-[#425FC5]">
             <div class="max-w-[1440px] m-auto lg:px-20 lg:py-20 px-4 py-16">
                 <div class="text-white text-4xl lg:text-[3rem] leading-tight saas-highlight ck-editor mb-10 reveal-type" v-html="cms?.section3_header"></div>

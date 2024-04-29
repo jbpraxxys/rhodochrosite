@@ -285,6 +285,21 @@ const navigation: generalNavType[] = [
         ]
     },
     {
+        name: "Computation Management",
+        href: "#",
+        parentUrl: "#",
+        allowed: true,
+        children: [
+            {
+                name: "Computation",
+                href: route('admin.computation.index'),
+                parentUrl: "admin.computation*",
+                icon: DocumentTextIcon,
+                allowed: true,
+            },
+        ]
+    },
+    {
         name: "Accounts",
         href: "#",
         parentUrl: "#",

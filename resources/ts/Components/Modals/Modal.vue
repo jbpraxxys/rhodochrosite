@@ -98,6 +98,7 @@ export default {
                     'xl': 'sm:max-w-xl',
                     '2xl': 'sm:max-w-2xl',
                     'calculator': 'sm:max-w-[350px] !overflow-visible',
+                    'computation': 'sm:max-w-[400px] !overflow-visible',
                 }[this.maxWidth]
             }
         }

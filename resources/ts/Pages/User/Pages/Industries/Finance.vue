@@ -17,21 +17,23 @@
             </div>
             <frame-one class="lg:w-full w-[200%] relative right-[100%] lg:right-0" />
         </section>
-        <section class="bg-[#051125] relative saas-frame2">
-            <div class="max-w-[1440px] m-auto px-4 lg:px-20 flex lg:flex-row flex-col items-center space-x-0 lg:space-x-20 py-16 lg:py-20 w-full">
-                <div class="w-full lg:w-[540px]">
-                    <img 
-                        class="w-full"
-                        :src="$page.props.storage_url + cms?.section2_image" 
-                        alt="finance"
-                    >
+        <div class="bg-[#04193C]">
+            <section class="bg-[#051125] relative saas-frame2 rounded-t-[2.25rem]">
+                <div class="max-w-[1440px] m-auto px-4 lg:px-20 flex lg:flex-row flex-col items-center space-x-0 lg:space-x-20 py-16 lg:py-20 w-full">
+                    <div class="w-full lg:w-[540px]">
+                        <img 
+                            class="w-full"
+                            :src="$page.props.storage_url + cms?.section2_image" 
+                            alt="finance"
+                        >
+                    </div>
+                    <div class="w-full lg:w-[calc(100%-620px)]">
+                        <div class="text-white text-3xl leading-tight lg:text-[2.2vw] lg:leading-[3vw] finance-highlight ck-editor mb-4 reveal-type" v-html="cms?.section2_header"></div>
+                        <p class="text-white reveal-type font-base">{{ cms?.section2_content }}</p>
+                    </div>
                 </div>
-                <div class="w-full lg:w-[calc(100%-620px)]">
-                    <div class="text-white text-3xl leading-tight lg:text-[2.2vw] lg:leading-[3vw] finance-highlight ck-editor mb-4 reveal-type" v-html="cms?.section2_header"></div>
-                    <p class="text-white reveal-type font-base">{{ cms?.section2_content }}</p>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
         <section class="bg-[#04193C]">
             <div class="max-w-[1440px] m-auto px-4 lg:px-20 py-16 lg:py-20">
                 <div class="text-white text-3xl leading-tight lg:text-[1.7vw] lg:leading-[2.5vw] finance-highlight ck-editor mb-16 text-center reveal-type" v-html="cms?.section3_header"></div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Accounts\AdminController;
 use App\Http\Controllers\Admin\Accounts\RolePermissionController;
 use App\Http\Controllers\Admin\ApplicationController;
 use App\Http\Controllers\Admin\Articles\ArticleController;
+use App\Http\Controllers\Admin\ComputationController;
 use App\Http\Controllers\Admin\Pricings\PricingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Contents\CmsPageController;
@@ -304,6 +305,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::get('index', 'index')->name('index');
                 Route::get('view/{application}', 'view')->name('view');
                 Route::delete('delete/{application}', 'delete')->name('delete');
+                Route::post('restore', 'restore')->name('restore');
+            });
+
+        Route::prefix('computation')
+            ->name('computation.')
+            ->controller(ComputationController::class)
+            ->group(function () {
+                Route::get('index', 'index')->name('index');
+                Route::get('view/{computation}', 'view')->name('view');
+                Route::delete('delete/{computation}', 'delete')->name('delete');
                 Route::post('restore', 'restore')->name('restore');
             });
         

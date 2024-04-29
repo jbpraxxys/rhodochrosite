@@ -13,19 +13,21 @@
             </div>
             <frame-one class="lg:w-full w-[200%] relative right-[105%] lg:right-0" />
         </section>
-        <section class="bg-primary-900 relative saas-frame2">
-            <div class="m-auto px-4 lg:px-20 flex lg:flex-row flex-col items-center space-x-0 lg:space-x-16 pt-16 lg:pt-[120px] pb-16 lg:pb-20 w-full xl:max-w-[1440px] xl:m-auto">
-                <div class="w-full lg:w-1/2">
-                    <div class="text-white text-3xl leading-normal lg:text-[1.7vw] lg:leading-[2.5vw] ecommerce-highlight ck-editor mb-4 reveal-type" v-html="cms?.section2_header"></div>
+        <div class="bg-[#051125]">
+            <section class="bg-primary-900 relative saas-frame2 rounded-t-[2.25rem]">
+                <div class="m-auto px-4 lg:px-20 flex lg:flex-row flex-col items-center space-x-0 lg:space-x-16 pt-16 lg:pt-[120px] pb-16 lg:pb-20 w-full xl:max-w-[1440px] xl:m-auto">
+                    <div class="w-full lg:w-1/2">
+                        <div class="text-white text-3xl leading-normal lg:text-[1.7vw] lg:leading-[2.5vw] ecommerce-highlight ck-editor mb-4 reveal-type" v-html="cms?.section2_header"></div>
+                    </div>
+                    <div class="w-full lg:w-1/2 text-white animateUp">
+                        <p>{{ cms?.section2_content }}</p>
+                    </div>
                 </div>
-                <div class="w-full lg:w-1/2 text-white animateUp">
-                    <p>{{ cms?.section2_content }}</p>
+                <div class="fadeIn xl:max-w-[1440px] xl:m-auto">
+                    <eco-slider :items="cms?.section2_items" />
                 </div>
-            </div>
-            <div class="fadeIn xl:max-w-[1440px] xl:m-auto">
-                <eco-slider :items="cms?.section2_items" />
-            </div>
-        </section>
+            </section>
+        </div>
         <section class="bg-gradient-to-b from-[#1C2C36] to-[#283F4E] e-commerce-frame">
             <div class="max-w-[1440px] m-auto lg:px-20 lg:py-20 px-4 py-16">
                 <div class="text-white text-3xl ecommerce-highlight ck-editor lg:mb-20 lg:text-center reveal-type" v-html="cms?.section3_header"></div>
