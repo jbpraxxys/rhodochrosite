@@ -8,7 +8,7 @@
                     <p v-if="article.article_type == 'case-studies'" class="text-neutral-600 mb-4">Case Studies</p>
                     <p class="text-3xl lg:text-5xl font-bold mb-4">{{ article.title }}</p>
                     <p class="text-neutral-600 mb-8">{{ formatDate(article.publish_date) }}</p>
-                    <div class="aspect-w-[900] aspect-h-[493] overflow-hidden relative mb-4">
+                    <div class="overflow-hidden relative mb-4">
                         <img 
                             class="w-full h-full object-cover" 
                             :src="$page.props.storage_url + article.banner_image_path" 

@@ -36,7 +36,7 @@
                         v-model:file="form.banner_image_path"
                         label="Image"
                         id="banner_image_path"
-                        description="Max file size: 2MB | Dimension: 1200px x 627px"
+                        description="Max file size: 2MB | Dimension: 1200px x 627px | Recommended file type: .webp"
                         :error="form.errors.banner_image_path"
                     />
                 </div>

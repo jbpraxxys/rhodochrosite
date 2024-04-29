@@ -8,6 +8,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\User\Application\ApplicationController;
 use App\Http\Controllers\User\Articles\ArticleController;
+use App\Http\Controllers\User\Computation\ComputationController;
 use App\Http\Controllers\User\Inquiry\InquiryController;
 use App\Http\Controllers\User\ModularController;
 use App\Http\Controllers\User\PageController;
@@ -86,6 +87,13 @@ Route::prefix('/subscription')
 Route::prefix('/application')
     ->name('application.')
     ->controller(ApplicationController::class)
+    ->group(function () {
+        Route::post('submit', 'submit')->name('submit');
+});
+
+Route::prefix('/computation')
+    ->name('computation.')
+    ->controller(ComputationController::class)
     ->group(function () {
         Route::post('submit', 'submit')->name('submit');
 });
