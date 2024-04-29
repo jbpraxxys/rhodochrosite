@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Contents;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Models\CmsPage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -95,8 +96,7 @@ class CmsPageController extends Controller
 
         $cmsPage->save();
 
-        return redirect()
-            ->route('admin.cms.index')
+        return to_route('admin.cms.edit', ['cmsPage' => $cmsPage->id])
             ->with('success', $cmsPage->label . ' successfully updated!');
     }
 

@@ -57,7 +57,7 @@
                                 <v-button @click="addFilterList()" :fill="false" custom-class="px-6 !text-base w-1/2 bg-white" size="md" design-color="text-[#E8EBEB]">
                                     Add Role
                                 </v-button>
-                                <v-button @click="filterList()" custom-class="px-6 !text-base w-1/2" size="md" design-color="">
+                                <v-button @click="filterList()" custom-class="px-6 !text-base w-1/2" size="md" design-color="text-[#E8EBEB]">
                                     Proceed
                                 </v-button>
                             </div>
@@ -139,7 +139,7 @@
                             <!-- <v-button @click="generatePdf" custom-class="px-6 !text-base animateUp" size="md" design-color="">
                                 Download Computation
                             </v-button> -->
-                            <v-button @click="generatePdf" custom-class="px-6 !text-base animateUp" size="md" design-color="">
+                            <v-button @click="generatePdf" custom-class="px-6 !text-base animateUp" size="md" design-color="text-primary-50">
                                 Email Computation
                             </v-button>
                         </div>
@@ -152,6 +152,7 @@
         :show="showDialogModal"
         @cancel="showDialogModal = false"
         maxWidth="computation"
+        cstmClass="!rounded-xl"
     >
         <template #title>
             <p class="mb-1 font-bold text-xl text-left">Email Computation</p>
@@ -193,6 +194,16 @@
                 </div>
                 <div class="w-full flex justify-end space-x-4">
                     
+                    <v-button 
+                        size="md"
+                        :fill="false"
+                        designColor="text-white"
+                        custom-class="px-6 !text-base !border" 
+                        @click="showDialogModal = false"
+                    >
+                        Cancel
+                    </v-button>
+
                     <v-button 
                         size="md"
                         designColor="text-white"

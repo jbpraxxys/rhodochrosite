@@ -16,6 +16,7 @@
                     >
                 </div>
             </swiper-slide>
+            <swiper-slide class="lg:!w-[400px]"/>
         </swiper>
     </div>
 </template>

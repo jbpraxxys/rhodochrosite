@@ -33,7 +33,7 @@
                     >
                 </div>
                 <div class="w-full lg:w-[calc(100%-620px)]">
-                    <div class="text-white text-4xl lg:text-[3rem] leading-tight gaming-highlight ck-editor mb-4 animateUp" v-html="cms?.section2_header"></div>
+                    <div class="text-white text-4xl lg:text-[3rem] leading-tight gaming-highlight ck-editor mb-4 reveal-type" v-html="cms?.section2_header"></div>
                     <p class="text-white animateUp">{{cms?.section2_content}}</p>
                 </div>
             </div>
@@ -42,7 +42,7 @@
             <div class="max-w-[1440px] m-auto px-4 lg:px-20 pt-16 lg:pt-20 pb-[154px]">
                 <div class="grid grid-cols-1 lg:grid-cols-6 gap-3 lg:gap-10 w-full">
                     <div class="flex items-center gaming-frame3-element">
-                        <div class="text-4xl lg:text-[3rem] leading-tight gaming-highlight ck-editor mb-3 fadeIn" v-html="cms?.section3_header"></div>
+                        <div class="text-4xl lg:text-[3rem] leading-tight gaming-highlight ck-editor mb-3 reveal-type" v-html="cms?.section3_header"></div>
                     </div>
                     <div 
                         v-for="solution in cms?.section3_items" 
@@ -130,6 +130,7 @@
             <div class="max-w-[1440px] m-auto relative z-[2] lg:px-0 px-4 py-10">
                 <contact-form 
                     custom-class="!bg-[#2D4959]"
+                    design-color="!text-[#2D4959]"
                     :title="cms?.section6_title "
                     :description="cms?.section6_content"
                 />

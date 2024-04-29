@@ -6,7 +6,8 @@
         :closeable="closeable" 
         @close="$emit('close')"
     >
-        <div class="p-8 rounded-[2rem] bg-white">
+        <div class="p-8 rounded-[2rem] bg-white relative">
+            <XMarkIcon @click="$emit('close')" class="w-5 h-5 text-red-600 cursor-pointer absolute top-4 right-4" />
             <div class="mb-8">
                 <p class="text-3xl font-bold mb-4">Hire top talent!</p>
                 <p>For much less than you expect.</p>
@@ -59,6 +60,7 @@
 import { ref } from 'vue';
 import { useForm } from "@inertiajs/vue3";
 import Modal from '@/Components/Modals/Modal.vue';
+import { XMarkIcon } from "@heroicons/vue/24/solid";
 
 const props = defineProps({
     items: {

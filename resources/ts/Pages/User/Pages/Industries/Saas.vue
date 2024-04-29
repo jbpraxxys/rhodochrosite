@@ -23,7 +23,7 @@
                         >
                     </div>
                     <div class="w-full lg:w-[calc(100%-620px)]">
-                        <div class="text-white text-4xl lg:text-[3rem] leading-tight saas-highlight ck-editor mb-4 animateUp" v-html="cms?.section2_header"></div>
+                        <div class="text-white text-4xl lg:text-[3rem] leading-tight saas-highlight ck-editor mb-4 reveal-type" v-html="cms?.section2_header"></div>
                         <p class="text-white animateUp">{{ cms?.section2_content }}</p>
                     </div>
                 </div>
@@ -51,11 +51,6 @@
             </div>
         </section>
         <section class="bg-gradient-to-b from-[#0F193D] to-[#2843A3] relative overflow-hidden">
-            <!-- <img 
-                class="absolute lg:bottom-auto bottom-0 lg:top-[60%] left-1/2 -translate-x-1/2 z-1"
-                src="/icons/saas-particle4.svg" 
-                alt="saas"
-            > -->
             <saas-particle-two class="absolute lg:bottom-auto bottom-0 lg:top-[60%] left-1/2 -translate-x-1/2 z-1" />
             <div class="max-w-[1060px] m-auto lg:px-20 lg:py-20 px-4 py-16 relative z-[10]">
                 <div class="text-white text-center text-4xl lg:text-[3rem] leading-tight saas-highlight ck-editor mb-16 reveal-type" v-html="cms?.section4_header"></div>
@@ -92,7 +87,7 @@
                     <p class="text-5xl font-bold mb-6 animateUp" v-html="cms?.section5_header"></p>
                     <div class="text-lg mb-12 animateUp" v-html="cms?.section5_content" />
                     <a href="/#contact-us">
-                        <v-button class="animateUp" design-color="text-primary-500">
+                        <v-button class="animateUp" design-color="text-[#425FC5]">
                             Outsource with Us
                         </v-button>
                     </a>
