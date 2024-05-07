@@ -7,9 +7,9 @@
                     <p v-if="article.article_type == 'blogs'" class="text-neutral-600 mb-4">Blogs</p>
                     <p v-if="article.article_type == 'case-studies'" class="text-neutral-600 mb-4">Case Studies</p>
                     <p class="text-3xl lg:text-5xl font-bold mb-4">{{ article.title }}</p>
-                    <div class="text-neutral-600 mb-8 flex items-center space-x-1">
+                    <div class="text-neutral-600 mb-8 flex lg:items-center lg:space-x-1 justify-between w-full lg:space-y-0 space-y-1 lg:flex-row flex-col lg:text-base text-sm">
                         <p>{{ formatDate(article.publish_date) }}</p>
-                        <p v-if="article.author"> • Written by: {{ article.author }}</p>
+                        <p v-if="article.author">Written by: {{ article.author }}</p>
                     </div>
                     <div class="overflow-hidden relative mb-4">
                         <img 
