@@ -18,6 +18,7 @@
             <div class="mb-10">
                 <form-section
                     :form="form"
+                    :hideSlug="true"
                     v-if="activeTab == null"
                 >
                     
@@ -99,6 +100,7 @@ const selectorOptions = [
 
 const form = useForm({
     title: null,
+    author: null,
     article_type:null,
     banner_image_path: null,
     publish_date: null,

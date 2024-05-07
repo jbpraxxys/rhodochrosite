@@ -22,7 +22,9 @@ class ArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'slug' => ['nullable'],
             'title' => ['required'],
+            'author' => ['required'],
             'content' => ['required'],
             'article_type' => ['required'],
             'banner_image_path' => ['required'],

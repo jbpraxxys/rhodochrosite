@@ -99,6 +99,7 @@ const breadcrumbs = [
 ]
 
 const form = useForm({
+    slug: props.item.slug,
     title: props.item.title,
     author: props.item.author,
     article_type: props.item.article_type,

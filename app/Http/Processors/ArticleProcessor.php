@@ -37,7 +37,7 @@ class ArticleProcessor extends BaseRenderer
     public function update(FormRequest $request, Article $detail)
     {
         $data = $request->validated();
-        $data['slug'] = Str::slug($request->title);
+        // $data['slug'] = Str::slug($request->title);
         $data['banner_image_path'] = $this->getImagePath($request->banner_image_path, 'articles');
         $data['meta_image'] = $this->getImagePath($request->meta_image, 'articles');
 

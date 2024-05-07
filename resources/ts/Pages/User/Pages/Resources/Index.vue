@@ -22,7 +22,10 @@
                         <div class="space-y-4 w-full lg:w-[383px]">
                             <p class="text-28 font-bold line-clamp-3">{{item.title}}</p>
                             <p class="line-clamp-6" v-html="item.content"></p>
-                            <p class="text-sm text-neutral-500">{{ formatDate(item.publish_date) }} • {{item.article_type}}</p>
+                            <div>
+                                <p class="text-sm text-neutral-500">{{ formatDate(item.publish_date) }} • {{item.article_type}}</p>
+                                <p v-if="item.author" class="text-sm text-neutral-500">Written by: {{item.author}}</p>
+                            </div>
                         <div>
                                 <a :href="route('web.resources.show', item.slug)">
                                     <v-button designColor='text-primary-50'>Read More</v-button>

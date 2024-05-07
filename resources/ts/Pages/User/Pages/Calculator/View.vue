@@ -50,6 +50,7 @@
                                     placeholder="Select country here"
                                     id="country"
                                     name="country"
+                                    disabled
                                     v-model="compuForm.country"
                                 />
                             </div>
@@ -79,9 +80,36 @@
                                     <td class="pl-0 pr-2 py-5 max-w-[150px] whitespace-pre-wrap">{{item.role}}</td>
                                     <td class="px-2 py-5">{{ item.country }}</td>
                                     <td class="px-2 py-5">{{ item.experience }}</td>
-                                    <td class="px-2 py-5 font-bold">$ <render-price :value="item.onshore" /></td>
-                                    <td class="px-2 py-5 font-bold">$ <render-price :value="item.offshore" /></td>
-                                    <td class="px-2 py-5 font-bold text-right">$ <render-price :value="item.onshore - item.offshore" /></td>
+                                    <td class="px-2 py-5 font-bold">
+                                        <div class="flex">
+                                            <p v-if="compuForm.country == 'US'" class="mr-1">USD $</p> 
+                                            <p v-if="compuForm.country == 'UK'" class="mr-1">GBP £</p> 
+                                            <p v-if="compuForm.country == 'AU'" class="mr-1">AUD $</p> 
+                                            <p v-if="compuForm.country == 'CA'" class="mr-1">CAD $</p> 
+                                            <p v-if="compuForm.country == 'SG'" class="mr-1">SGD $</p> 
+                                            <render-price :value="item.onshore" />
+                                        </div>
+                                    </td>
+                                    <td class="px-2 py-5 font-bold">
+                                        <div class="flex">
+                                            <p v-if="compuForm.country == 'US'" class="mr-1">USD $</p> 
+                                            <p v-if="compuForm.country == 'UK'" class="mr-1">GBP £</p> 
+                                            <p v-if="compuForm.country == 'AU'" class="mr-1">AUD $</p> 
+                                            <p v-if="compuForm.country == 'CA'" class="mr-1">CAD $</p> 
+                                            <p v-if="compuForm.country == 'SG'" class="mr-1">SGD $</p> 
+                                            <render-price :value="item.offshore" />
+                                        </div>
+                                    </td>
+                                    <td class="px-2 py-5 font-bold text-right">
+                                        <div class="flex">
+                                            <p v-if="compuForm.country == 'US'" class="mr-1">USD $</p> 
+                                            <p v-if="compuForm.country == 'UK'" class="mr-1">GBP £</p> 
+                                            <p v-if="compuForm.country == 'AU'" class="mr-1">AUD $</p> 
+                                            <p v-if="compuForm.country == 'CA'" class="mr-1">CAD $</p> 
+                                            <p v-if="compuForm.country == 'SG'" class="mr-1">SGD $</p>  
+                                            <render-price :value="item.onshore - item.offshore" />
+                                        </div>
+                                    </td>
                                     <td @click="removeItem(item.id)" class="px-4 py-5"><XMarkIcon class="w-5 h-5 text-red-600 cursor-pointer" /></td>
                                 </tr>
                                 <tr v-if="filteredData.length == 0" class="text-white text-left h-16"></tr>
@@ -105,13 +133,37 @@
                                             <p class="font-bold">Experience Level</p><p>{{item.experience}}</p>
                                         </div>
                                         <div class="flex w-full items-center justify-between text-sm">
-                                            <p class="font-bold">Onshore Cost</p><p>$ <render-price :value="item.onshore" /></p>
+                                            <p class="font-bold">Onshore Cost</p>
+                                            <p class="flex"> 
+                                                <p v-if="compuForm.country == 'US'" class="mr-1">USD $</p> 
+                                                <p v-if="compuForm.country == 'UK'" class="mr-1">GBP £</p> 
+                                                <p v-if="compuForm.country == 'AU'" class="mr-1">AUD $</p> 
+                                                <p v-if="compuForm.country == 'CA'" class="mr-1">CAD $</p> 
+                                                <p v-if="compuForm.country == 'SG'" class="mr-1">SGD $</p> 
+                                                <render-price :value="item.onshore" />
+                                            </p>
                                         </div>
                                         <div class="flex w-full items-center justify-between text-sm">
-                                            <p class="font-bold">Reliasourcing Cost</p><p>$ <render-price :value="item.offshore" /></p>
+                                            <p class="font-bold">Reliasourcing Cost</p>
+                                            <p class="flex">
+                                                <p v-if="compuForm.country == 'US'" class="mr-1">USD $</p> 
+                                                <p v-if="compuForm.country == 'UK'" class="mr-1">GBP £</p> 
+                                                <p v-if="compuForm.country == 'AU'" class="mr-1">AUD $</p> 
+                                                <p v-if="compuForm.country == 'CA'" class="mr-1">CAD $</p> 
+                                                <p v-if="compuForm.country == 'SG'" class="mr-1">SGD $</p> 
+                                                <render-price :value="item.offshore" />
+                                            </p>
                                         </div>
                                         <div class="flex w-full items-center justify-between text-sm">
-                                            <p class="font-bold">Your Savings</p><p>$ <render-price :value="item.onshore - item.offshore" /></p>
+                                            <p class="font-bold">Your Savings</p>
+                                            <p class="flex">
+                                                <p v-if="compuForm.country == 'US'" class="mr-1">USD $</p> 
+                                                <p v-if="compuForm.country == 'UK'" class="mr-1">GBP £</p> 
+                                                <p v-if="compuForm.country == 'AU'" class="mr-1">AUD $</p> 
+                                                <p v-if="compuForm.country == 'CA'" class="mr-1">CAD $</p> 
+                                                <p v-if="compuForm.country == 'SG'" class="mr-1">SGD $</p> 
+                                                <render-price :value="item.onshore - item.offshore" />
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -120,18 +172,33 @@
                                 <p class="text-28 font-bold text-white mb-8">Estimated Monthly Cost</p>
                                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                                     <div>
-                                        <p class="text-28 lg:text-3xl font-bold text-primary-500 mb-1 lg:mb-4">$ <render-price :value="totalOnshore" /></p>
-                                        <p class="text-white">Monthly cost of hiring yourself</p>
+                                        <p class="text-28 lg:text-3xl font-bold text-primary-500 mb-1 lg:mb-4 flex">
+                                            <p v-if="compuForm.country == 'US'" class="mr-1">USD $</p> 
+                                            <p v-if="compuForm.country == 'UK'" class="mr-1">GBP £</p> 
+                                            <p v-if="compuForm.country == 'AU'" class="mr-1">AUD $</p> 
+                                            <p v-if="compuForm.country == 'CA'" class="mr-1">CAD $</p> 
+                                            <p v-if="compuForm.country == 'SG'" class="mr-1">SGD $</p> 
+                                            <render-price :value="totalOnshore" />
+                                        </p>
+                                        <p class="text-white">Monthly Cost of Hiring Locally</p>
                                     </div>
                                     <div>
-                                        <p class="text-28 lg:text-3xl font-bold text-primary-500 mb-1 lg:mb-4">$ <render-price :value="totalOffshore" /></p>
-                                        <p class="text-white">Monthly savings with Reliasourcing</p>
+                                        <p class="text-28 lg:text-3xl font-bold text-primary-500 mb-1 lg:mb-4 flex">
+                                            <p v-if="compuForm.country == 'US'" class="mr-1">USD $</p> 
+                                            <p v-if="compuForm.country == 'UK'" class="mr-1">GBP £</p> 
+                                            <p v-if="compuForm.country == 'AU'" class="mr-1">AUD $</p> 
+                                            <p v-if="compuForm.country == 'CA'" class="mr-1">CAD $</p> 
+                                            <p v-if="compuForm.country == 'SG'" class="mr-1">SGD $</p> 
+                                            <render-price :value="totalOffshore" />
+                                        </p>
+                                        <p class="text-white">Monthly Cost of Hiring with Reliasourcing</p>
                                     </div>
                                     <div>
                                         <p class="text-28 lg:text-3xl font-bold text-primary-500 mb-1 lg:mb-4">{{ totalSavings }}%</p>
                                         <p class="text-white">of Savings</p>
                                     </div>
                                 </div>
+                                <div v-if="cms?.calculator_disclaimer" class="text-white ck-content mt-8" v-html="cms?.calculator_disclaimer" />
                             </div>
                         </div>
                         <!-- TODO: Send Email Computation -->
@@ -316,12 +383,12 @@ const totalOnshore = computed(() => {
 });
 const totalOffshore = computed(() => {
   // Add up the offshore values in the filteredData array
-  return filteredData.value.reduce((total, item) => total +  Number(item.onshore - item.offshore), 0);
+  return filteredData.value.reduce((total, item) => total +  Number(item.offshore), 0);
 });
 
 const totalSavings = computed(() => {
   // Compute the total savings
-  return (( totalOffshore.value / totalOnshore.value) * 100).toFixed(2);
+  return (( (totalOnshore.value - totalOffshore.value) / totalOnshore.value) * 100).toFixed(2);
 });
 
 const compuForm = ref({
@@ -331,6 +398,15 @@ const compuForm = ref({
 });
 
 const generatePdf = () => {
+    const currencySymbols = {
+        US: 'USD $ ',
+        UK: 'GBP £ ',
+        AU: 'AUD $ ',
+        CA: 'CAD $ ',
+        SG: 'SGD $ ',
+    };
+    const currencySymbol = currencySymbols[compuForm.value.country];
+
     const docDefinition = {
         content: [
             {
@@ -348,9 +424,9 @@ const generatePdf = () => {
                             { text: item.role },
                             { text: item.country },
                             { text: item.experience },
-                            { text: '$ ' + parseFloat(item.onshore).toFixed(2) },
-                            { text: '$ ' + parseFloat(item.offshore).toFixed(2) },
-                            { text: '$ ' + (item.onshore - item.offshore).toFixed(2) },
+                            { text: currencySymbol + parseFloat(item.onshore).toFixed(2) },
+                            { text: currencySymbol + parseFloat(item.offshore).toFixed(2) },
+                            { text: currencySymbol + (item.onshore - item.offshore).toFixed(2) },
                         ])
                     ],
                     
@@ -367,11 +443,21 @@ const generatePdf = () => {
                     widths: ['*', '*', '*'],
 
                     body: [
-                        [{ text: 'Monthly cost of hiring yourself', bold: true }, { text: 'Monthly savings with Reliasourcing', bold: true }, { text: 'Your Savings', bold: true }],
-                        [{ text: '$ ' + parseFloat(totalOnshore.value).toFixed(2), bold: true, fontSize: 20 }, { text: '$ ' + parseFloat(totalOffshore.value).toFixed(2), bold: true, fontSize: 20 }, { text: parseFloat(totalSavings.value).toFixed(2) + ' %', bold: true, fontSize: 20 }],
+                        [{ text: 'Monthly Cost of Hiring Locally', bold: true }, { text: 'Monthly Cost of Hiring with Reliasourcing', bold: true }, { text: 'Your Savings', bold: true }],
+                        [{ text: currencySymbol + parseFloat(totalOnshore.value).toFixed(2), bold: true, fontSize: 20 }, { text: currencySymbol + parseFloat(totalOffshore.value).toFixed(2), bold: true, fontSize: 20 }, { text: parseFloat(totalSavings.value).toFixed(2) + ' %', bold: true, fontSize: 20 }],
+                        
                     ]
                 },
                 margin: [0, 0, 0, 20]
+            },
+            {
+                text: 'Disclaimer:', bold: true, fontSize: 14, margin: [0, 0, 0, 5]
+            },
+            {
+                text: 'The information provided in this cost-saving calculator is intended for general informational purposes only and is not an offer and therefore does not legally bind Reliasourcing.', fontSize: 12, margin: [0, 0, 0, 12]
+            },
+            {
+                text: 'Actual outsourcing costs may vary based on individual client needs, project complexity, market conditions, and other factors. Clients are advised to consult with Reliasourcing representatives for personalized assessments and accurate cost projections tailored to their specific requirements.', fontSize: 12, margin: [0, 0, 0, 10]
             },
         ],
     };

@@ -12,12 +12,28 @@
             </template>
 
             <template #form>
+                <div v-if="!hideSlug" class="col-span-12">
+                    <text-input
+                        v-model="form.slug"
+                        label="Slug"
+                        id="slug"
+                        :error="form.errors.slug"
+                    />
+                </div>
                 <div class="col-span-12">
                     <text-input
                         v-model="form.title"
                         label="Title"
                         id="title"
                         :error="form.errors.title"
+                    />
+                </div>
+                <div class="col-span-12">
+                    <text-input
+                        v-model="form.author"
+                        label="Author"
+                        id="author"
+                        :error="form.errors.author"
                     />
                 </div>
                 <div class="col-span-12">
@@ -86,6 +102,10 @@ const props = defineProps ({
         type: Object
     },
     readonly: {
+        type: Boolean,
+        default: false
+    },
+    hideSlug: {
         type: Boolean,
         default: false
     }

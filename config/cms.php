@@ -1431,6 +1431,20 @@ return [
                         ],
                     ]
                 ],
+                [
+                    'id' => 'calculator',
+                    'label' => 'Calculator',
+                    'description' => 'Relevant data and other details',
+                    'items' => [
+                        [
+                            'id' => 'disclaimer',
+                            'type' => 'htmleditor',
+                            'label' => 'disclaimer',
+                            'description' => '',
+                        ],
+                       
+                    ]
+                ],
             ],
         ],
 
