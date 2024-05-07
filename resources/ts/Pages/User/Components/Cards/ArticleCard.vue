@@ -14,6 +14,7 @@
                 <div class="w-full lg:w-[263px]">
                     <p class="text-xl font-semibold line-clamp-4 mb-4 leading-8">{{item.title}}</p>
                     <p class="text-sm text-neutral-600">{{ formatDate(item.publish_date) }} • {{item.article_type}}</p>
+                    <p v-if="item.author" class="text-sm text-neutral-600">Written by: {{ item.author }}</p>
                 </div>
             </div>
         </a>

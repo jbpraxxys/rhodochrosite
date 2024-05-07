@@ -63,6 +63,4 @@ const props = defineProps({
 });
 
 const showCalculatorModal = ref(false);
-
-
 </script>

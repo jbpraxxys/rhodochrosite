@@ -20,6 +20,7 @@
                         placeholder="Select role here"
                         id="role"
                         name="role"
+                        required
                         v-model="form.role"
                     />
                 </div>
@@ -30,20 +31,23 @@
                         placeholder="Select experience level here"
                         id="experience"
                         name="experience"
+                        required
                         v-model="form.experience"
                     />
                 </div>
                 <div>
                     <v-selector
                         :options="countryObject"
-                        label="Country"
-                        placeholder="Select country here"
+                        label="Your Location"
+                        placeholder="Select your location here"
                         id="country"
                         name="country"
+                        required
                         v-model="form.country"
                     />
                 </div>
                 <v-button 
+                    :disabled="!form.role || !form.experience || !form.country"
                     @click="handleSubmit"
                     custom-class="px-6 !text-base animateUp w-full" 
                     size="md" 
