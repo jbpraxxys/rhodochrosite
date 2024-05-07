@@ -1,12 +1,12 @@
 <template>
     <user-layout>
         <section class="relative lg:h-screen">
-            <div class="px-4 lg:px-20 pt-[141px] lg:pt-[169px] lg:absolute lg:top-0 lg:left-0 z-[2] lg:bg-transparent bg-primary-900">
+            <div class="px-4 lg:px-20 pt-[141px] lg:pt-[150px] lg:absolute lg:top-0 lg:left-0 z-[2] lg:bg-transparent bg-primary-900">
                 <div class="w-full lg:w-[36vw] text-white">
                     <h1 
-                    class="text-5xl leading-tight lg:text-[5.1vw] lg:leading-[6vw] mb-6 font-bold ck-content text-highlight" 
+                    class="text-5xl leading-tight lg:text-[5.1vw] lg:leading-[5.8vw] mb-4 font-bold ck-content text-highlight" 
                     v-html="cms?.section1_title" />
-                    <div class="max-w-[294px] mb-8 lg:mb-12">
+                    <div class="max-w-[400px] mb-8 lg:mb-12">
                         <p>{{ cms?.section1_content }}</p>
                     </div>
                     <a :href="cms?.section1_btn_link ? cms?.section1_btn_link : '#contact-us'">

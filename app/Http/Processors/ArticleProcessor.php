@@ -31,6 +31,11 @@ class ArticleProcessor extends BaseRenderer
         $data['banner_image_path'] = $this->getImagePath($request->banner_image_path, 'articles');
         $data['meta_image'] = $this->getImagePath($request->meta_image, 'articles');
 
+        
+        if ($data['is_highlight']) {
+            Article::where('is_highlight', true)->update(['is_highlight' => false]);
+        }
+
         $detail = Article::create($data);
     }
 
@@ -40,6 +45,10 @@ class ArticleProcessor extends BaseRenderer
         // $data['slug'] = Str::slug($request->title);
         $data['banner_image_path'] = $this->getImagePath($request->banner_image_path, 'articles');
         $data['meta_image'] = $this->getImagePath($request->meta_image, 'articles');
+
+        if ($data['is_highlight']) {
+            Article::where('is_highlight', true)->update(['is_highlight' => false]);
+        }
 
         $detail->update($data);
 
