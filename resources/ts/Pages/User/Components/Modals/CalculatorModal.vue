@@ -49,7 +49,7 @@
                 <v-button 
                     :disabled="!form.role || !form.experience || !form.country"
                     @click="handleSubmit"
-                    custom-class="px-6 !text-base animateUp w-full" 
+                    custom-class="px-6 !text-base w-full" 
                     size="md" 
                     design-color="text-white"
                 >

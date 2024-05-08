@@ -50,7 +50,7 @@
     </user-layout>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 const props = defineProps({
     items: {
         type: Object,
@@ -63,4 +63,10 @@ const props = defineProps({
 });
 
 const showCalculatorModal = ref(false);
+
+onMounted(()=> {
+    setTimeout(() => {
+        showCalculatorModal.value = true;
+    }, 2000)
+})
 </script>
