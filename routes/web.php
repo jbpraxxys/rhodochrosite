@@ -67,7 +67,7 @@ Route::prefix('/resources')
     ->controller(ArticleController::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('/view/{article:slug}', 'show')->name('show');
+        Route::get('/{article:slug}', 'show')->name('show');
     });
 
 Route::prefix('/inquiry')
