@@ -12,7 +12,7 @@
             </template>
 
             <template #form>
-                <div v-if="!hideSlug" class="col-span-12">
+                <div class="col-span-12">
                     <text-input
                         v-model="form.slug"
                         label="Slug"
@@ -105,10 +105,6 @@ const props = defineProps ({
         type: Boolean,
         default: false
     },
-    hideSlug: {
-        type: Boolean,
-        default: false
-    }
 });
 
 const selectorOptions = [

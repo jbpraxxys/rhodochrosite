@@ -27,7 +27,11 @@ class ArticleProcessor extends BaseRenderer
     public function store(FormRequest $request)
     {
         $data = $request->validated();
-        $data['slug'] = Str::slug($request->title);
+        if (empty($request->slug)) {
+            $data['slug'] = Str::slug($request->title);
+        } else {
+            $data['slug'] = Str::slug($request->slug);
+        }
         $data['banner_image_path'] = $this->getImagePath($request->banner_image_path, 'articles');
         $data['meta_image'] = $this->getImagePath($request->meta_image, 'articles');
 
@@ -42,7 +46,11 @@ class ArticleProcessor extends BaseRenderer
     public function update(FormRequest $request, Article $detail)
     {
         $data = $request->validated();
-        // $data['slug'] = Str::slug($request->title);
+        if (empty($request->slug)) {
+            $data['slug'] = Str::slug($request->title);
+        } else {
+            $data['slug'] = Str::slug($request->slug);
+        }
         $data['banner_image_path'] = $this->getImagePath($request->banner_image_path, 'articles');
         $data['meta_image'] = $this->getImagePath($request->meta_image, 'articles');
 
