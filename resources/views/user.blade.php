@@ -16,6 +16,7 @@
         <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('/favicon/android-chrome-192x192.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/favicon/favicon-32x32.png') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/favicon/favicon-16x16.png') }}">
+        <link rel="canonical" href="{{ url('/') }}" />
         <link rel="manifest" href="{{ asset('/favicon/site.webmanifest') }}">
         <meta name="msapplication-TileColor" content="#FFFFFF">
         <meta name="theme-color" content="#FFFFFF">

@@ -90,23 +90,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="p-6 lg:p-14 bg-primary-50 rounded-2xl flex lg:space-x-11 items-center lg:flex-row flex-col space-y-6 lg:space-y-0">
-                    <img 
-                        class="w-full lg:w-[340px] showLeft" 
-                        :src="$page.props.storage_url + cms?.section5_image" 
-                        alt="ceo"
-                    >
-                    <div class="lg:w-[calc(100%-384px)] relative">
-                        <img
-                            src="/icons/quote.svg" 
-                            alt="quote"
-                            class="absolute -top-4 lg:-top-8 left-0 lg:-left-8"
-                        >
-                        <p class="text-xl lg:text-2xl font-medium poppins mb-4 animateUp">{{ cms?.section5_testimonial }}</p>
-                        <p class="text-sm font-bold animateUp">{{ cms?.section5_name }}</p>
-                        <p class="text-sm animateUp">{{ cms?.section5_position }}</p>
-                    </div>
-                </div>
+                <testimony-slider v-if="cms?.section5_testimonials.length > 0" :items="cms?.section5_testimonials" />
             </div>
         </section>
 
@@ -178,6 +162,7 @@
 import { onMounted } from 'vue';
 import FrameOne from './Components/FrameOne.vue';
 import CompanySlider from './Components/CompanySlider.vue';
+import TestimonySlider from './Components/TestimonySlider.vue';
 import HomeContactForm from './Components/ContactForm.vue';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

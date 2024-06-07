@@ -245,28 +245,45 @@ return [
                             ]
                         ],
                         [
-                            'id' => 'testimonial',
-                            'type' => 'textarea',
-                            'label' => 'Testimonial',
+                            'id' => 'testimonials',
+                            'type' => 'list_table',
+                            'label' => 'Testimonials',
                             'description' => '',
-                        ],
-                        [
-                            'id' => 'name',
-                            'type' => 'text',
-                            'label' => 'Name',
-                            'description' => '',
-                        ],
-                        [
-                            'id' => 'position',
-                            'type' => 'text',
-                            'label' => 'Position',
-                            'description' => '',
-                        ],
-                        [
-                            'id' => 'image',
-                            'type' => 'image',
-                            'label' => 'Image',
-                            'description' => 'Dimension: 350 x 350 - maximum: 2MB | Recommended file type: .webp',
+                            
+                            'items' => [
+                                [
+                                    'id' => 'image',
+                                    'type' => 'image',
+                                    'label' => 'Image',
+                                    'rules' => '',
+                                    'description' => 'Dimension: 350 x 350 - maximum: 2MB | Recommended file type: .webp',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'name',
+                                    'type' => 'text',
+                                    'label' => 'Name',
+                                    'description' => '',
+                                    'rules' => '',
+                                    'summary_field' => true,
+                                ],
+                                [
+                                    'id' => 'position',
+                                    'type' => 'text',
+                                    'label' => 'Position',
+                                    'description' => '',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                                [
+                                    'id' => 'testimonial',
+                                    'type' => 'textarea',
+                                    'label' => 'Testimonial',
+                                    'description' => '',
+                                    'rules' => '',
+                                    'summary_field' => false,
+                                ],
+                            ],
                         ],
                     ]
                 ],
