@@ -12,6 +12,7 @@
                         alt="logo"
                         class="lg:h-[68px] max-w-full mx-auto transition duration-700 header-logo"
                         :class="headerScroll ? 'h-[64px]' : 'brightness-0 invert h-[61px]'"
+                        async
                     > 
                 </a>
             </div>
