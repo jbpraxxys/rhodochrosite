@@ -8,6 +8,8 @@
                             class="w-[250px] lg:w-[260px]" 
                             :src="$page.props.storage_url + footer.section1_logo" 
                             alt="footer-logo"
+                            loading="lazy"
+                            decoding="async"
                         >
                     </a>
                 </div>
@@ -15,9 +17,11 @@
                 <div class="flex items-center space-x-6 mb-12 lg:mb-0">
                     <img 
                         v-for="accreditation in footer.section1_accreditation"
-                        class="h-[40px] lg:h-[50px]"
+                        class="h-[40px] lg:h-[50px] w-fit"
                         :src="$page.props.storage_url + accreditation.logo" 
                         alt="icon"
+                        loading="lazy"
+                        decoding="async"
                     >
                 </div>
             </div>
@@ -71,6 +75,8 @@
                         class="w-5" 
                         :src="$page.props.storage_url + social.icon" 
                         alt="icon"
+                        loading="lazy"
+                        decoding="async"
                     >
                 </a>
             </div>

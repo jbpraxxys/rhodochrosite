@@ -123,6 +123,8 @@
                 class="absolute bottom-[1300px] lg:bottom-0 left-0 lg:scale-100 scale-[200%] -translate-x-[50%] z-1"
                 src="/icons/contact-bg.svg" 
                 alt="contact"
+                loading="lazy"
+                decoding="async"
             >
             <div class="max-w-[1440px] m-auto lg:py-[120px] lg:px-20 px-4 py-16 relative z-[2]">
                 <div class="flex lg:flex-row flex-col lg:space-y-0 space-y-8 lg:space-x-20 max-w-[1062px] m-auto mb-24">
@@ -159,14 +161,15 @@
     </user-layout>
 </template>
 <script lang="ts" setup>
-import { onMounted } from 'vue';
-import FrameOne from './Components/FrameOne.vue';
-import CompanySlider from './Components/CompanySlider.vue';
-import TestimonySlider from './Components/TestimonySlider.vue';
-import HomeContactForm from './Components/ContactForm.vue';
+import { onMounted, defineAsyncComponent } from 'vue';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ScrollMagic from "scrollmagic";
+
+const FrameOne = defineAsyncComponent(() => import('./Components/FrameOne.vue'));
+const CompanySlider = defineAsyncComponent(() => import('./Components/CompanySlider.vue'));
+const TestimonySlider = defineAsyncComponent(() => import('./Components/TestimonySlider.vue'));
+const HomeContactForm = defineAsyncComponent(() => import('./Components/ContactForm.vue'));
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -5,6 +5,8 @@
                 class="w-24 m-auto mb-6 values-image scaleUp"
                 :src="$page.props.storage_url + item.image" 
                 alt="icon"
+                loading="lazy"
+                decoding="async"
             >
         </div>
         <p class="font-bold text-xl mb-2">{{ item.title }}</p>

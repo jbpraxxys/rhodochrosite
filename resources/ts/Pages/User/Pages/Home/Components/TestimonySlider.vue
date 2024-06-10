@@ -19,7 +19,13 @@
                         <div class="absolute top-2 left-0 bg-primary-500 w-full h-full rounded-[2rem] rotate-45"></div>
                         <div class="aspect-w-1 aspect-h-1 w-full rounded-[2rem] rotate-45 overflow-hidden relative">
                             <div class="w-[135%] h-[135%] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-45">
-                                <img class="w-full object-cover" :src="$page.props.storage_url + item.image"  alt="ceo">
+                                <img 
+                                    class="w-full object-cover" 
+                                    :src="$page.props.storage_url + item.image"  
+                                    alt="ceo"
+                                    loading="lazy"
+                                    decoding="async"
+                                >
                             </div>
                         </div>
                     </div>
@@ -29,6 +35,8 @@
                         src="/icons/quote.svg" 
                         alt="quote"
                         class="absolute -top-4 lg:-top-8 left-0 lg:-left-8"
+                        loading="lazy"
+                        decoding="async"
                     >
                     <p class="text-xl lg:text-2xl font-medium poppins mb-4 animateUp">{{ item?.testimonial }}</p>
                     <p class="text-sm font-bold animateUp">{{ item?.name }}</p>

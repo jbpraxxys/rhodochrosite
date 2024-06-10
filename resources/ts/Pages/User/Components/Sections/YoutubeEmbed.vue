@@ -18,6 +18,8 @@
                             class="image image-thumb w-full h-full object-cover" 
                             :src="$page.props.storage_url + item.image" 
                             alt="thumbnail"
+                            loading="lazy"
+                            decoding="async"
                         >
                     </a>
                 </Lightgallery>

@@ -18,6 +18,8 @@
                 class="absolute top-0 left-0 w-full h-full z-1 object-cover" 
                 src="/icons/grid.png" 
                 alt="grid"
+                loading="lazy"
+                decoding="async"
             >
             <div class="max-w-[1440px] m-auto px-4 lg:px-20 relative z-[2] py-16">
                 <div class="flex lg:flex-row flex-col items-center justify-between image-text">
@@ -35,7 +37,13 @@
                         </div>
                     </div>
                     <div class="w-full lg:w-5/12 max-w-[540px] animateUp order-1">
-                        <img class="w-full" :src="$page.props.storage_url + cms?.section2_image" alt="image">
+                        <img 
+                            class="w-full" 
+                            :src="$page.props.storage_url + cms?.section2_image" 
+                            alt="image"
+                            loading="lazy"
+                            decoding="async"
+                        >
                     </div>
                 </div>
             </div>

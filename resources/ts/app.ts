@@ -1,7 +1,7 @@
 import "./bootstrap";
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
-import {createApp, h} from "vue";
+import {createApp, h, defineAsyncComponent} from "vue";
 import { createInertiaApp } from '@inertiajs/vue3';
 
 import UserLayout from "@/Layouts/UserLayout.vue";
@@ -24,31 +24,31 @@ import VSuccessModal from "./Pages/User/Components/Modals/VSuccessModal.vue";
 import CalculatorModal from "./Pages/User/Components/Modals/CalculatorModal.vue";
 
 // Design Components
-import ServiceCard from "./Pages/User/Components/Cards/ServiceCard.vue";
-import ValuesCard from "./Pages/User/Components/Cards/ValuesCard.vue";
-import BenefitCard from "./Pages/User/Components/Cards/BenefitCard.vue";
-import SpecialtyCard from "./Pages/User/Components/Cards/SpecialtyCard.vue";
-import ArticleCard from "./Pages/User/Components/Cards/ArticleCard.vue";
-import CareerCard from "./Pages/User/Components/Cards/CareerCard.vue";
-import OfferCard from "./Pages/User/Components/Cards/OfferCard.vue";
-import TeamCard from "./Pages/User/Components/Cards/TeamCard.vue";
-import ImageText from "./Pages/User/Components/Sections/ImageText.vue";
-import ContactForm from "./Pages/User/Components/Sections/ContactForm.vue";
-import CareerForm from "./Pages/User/Components/Sections/CareerForm.vue";
+const ServiceCard = defineAsyncComponent(() => import('./Pages/User/Components/Cards/ServiceCard.vue'));
+const ValuesCard = defineAsyncComponent(() => import('./Pages/User/Components/Cards/ValuesCard.vue'));
+const BenefitCard = defineAsyncComponent(() => import('./Pages/User/Components/Cards/BenefitCard.vue'));
+const SpecialtyCard = defineAsyncComponent(() => import('./Pages/User/Components/Cards/SpecialtyCard.vue'));
+const ArticleCard = defineAsyncComponent(() => import('./Pages/User/Components/Cards/ArticleCard.vue'));
+const CareerCard = defineAsyncComponent(() => import('./Pages/User/Components/Cards/CareerCard.vue'));
+const OfferCard = defineAsyncComponent(() => import('./Pages/User/Components/Cards/OfferCard.vue'));
+const TeamCard = defineAsyncComponent(() => import('./Pages/User/Components/Cards/TeamCard.vue'));
+const ImageText = defineAsyncComponent(() => import('./Pages/User/Components/Sections/ImageText.vue'));
+const ContactForm = defineAsyncComponent(() => import('./Pages/User/Components/Sections/ContactForm.vue'));
+const CareerForm = defineAsyncComponent(() => import('./Pages/User/Components/Sections/CareerForm.vue'));
 
 //Section Components
 import GeneralBanner from "./Pages/User/Components/Sections/GeneralBanner.vue";
-import OffsetBanner from "./Pages/User/Components/Sections/OffsetBanner.vue";
-import GenericBlock from "./Pages/User/Components/Sections/GenericBlock.vue";
-import OfferBlock from "./Pages/User/Components/Sections/OfferBlock.vue";
-import SpecialtyBlock from "./Pages/User/Components/Sections/SpecialtyBlock.vue";
-import ContactFrame from "./Pages/User/Components/Sections/ContactFrame.vue";
-import ImageTextFrame from "./Pages/User/Components/Sections/ImageTextFrame.vue";
-import BenefitBlock from "./Pages/User/Components/Sections/BenefitBlock.vue";
-import TextWithMap from "./Pages/User/Components/Sections/TextWithMap.vue";
-import TeamFrame from "./Pages/User/Components/Sections/TeamFrame.vue";
-import YoutubeEmbed from "./Pages/User/Components/Sections/YoutubeEmbed.vue";
-import VPagination from "./Pages/User/Components/Partials/VPagination.vue";
+const OffsetBanner = defineAsyncComponent(() => import('./Pages/User/Components/Sections/OffsetBanner.vue'));
+const GenericBlock = defineAsyncComponent(() => import('./Pages/User/Components/Sections/GenericBlock.vue'));
+const OfferBlock = defineAsyncComponent(() => import('./Pages/User/Components/Sections/OfferBlock.vue'));
+const SpecialtyBlock = defineAsyncComponent(() => import('./Pages/User/Components/Sections/SpecialtyBlock.vue'));
+const ContactFrame = defineAsyncComponent(() => import('./Pages/User/Components/Sections/OfferBlock.vue'));
+const ImageTextFrame = defineAsyncComponent(() => import('./Pages/User/Components/Sections/ImageTextFrame.vue'));
+const BenefitBlock = defineAsyncComponent(() => import('./Pages/User/Components/Sections/BenefitBlock.vue'));
+const TextWithMap = defineAsyncComponent(() => import('./Pages/User/Components/Sections/TextWithMap.vue'));
+const TeamFrame = defineAsyncComponent(() => import('./Pages/User/Components/Sections/TeamFrame.vue'));
+const YoutubeEmbed = defineAsyncComponent(() => import('./Pages/User/Components/Sections/OfferBlock.vue'));
+const VPagination = defineAsyncComponent(() => import('./Pages/User/Components/Partials/VPagination.vue'));
 
 import { Head, Link } from '@inertiajs/vue3';
 

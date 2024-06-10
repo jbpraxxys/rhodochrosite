@@ -30,6 +30,8 @@
                             class="w-[114px] grayscale transition hover:grayscale-0 hover:scale-125 duration-500"
                             :src="$page.props.storage_url + i.logo" 
                             alt="logo"
+                            loading="lazy"
+                            decoding="async"
                         >
                     </div>
                 </a>

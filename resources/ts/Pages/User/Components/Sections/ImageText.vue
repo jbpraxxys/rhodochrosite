@@ -12,7 +12,12 @@
             </div>
         </div>
         <div class="w-full lg:w-5/12 max-w-[540px] animateUp" :class="item.imageFirst ? 'lg:order-1' : ''">
-            <img class="w-full" :src="$page.props.storage_url + item.image" alt="image">
+            <img 
+                class="w-full" :src="$page.props.storage_url + item.image" 
+                alt="image"
+                loading="lazy"
+                decoding="async"
+            >
         </div>
     </div>
 </template>
