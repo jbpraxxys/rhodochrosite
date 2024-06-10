@@ -18,6 +18,8 @@
                         class="w-[152px]" 
                         :src="$page.props.storage_url + item.image" 
                         :alt="item.title"
+                        loading="lazy"
+                        decoding="async"
                     >
                 </div>
             </div>

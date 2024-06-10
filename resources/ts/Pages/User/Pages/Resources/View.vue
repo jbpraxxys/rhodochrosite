@@ -16,6 +16,8 @@
                             class="w-full h-full object-cover" 
                             :src="$page.props.storage_url + article.banner_image_path" 
                             alt="banner"
+                            loading="lazy"
+                            decoding="async"
                         >
                     </div>
                     <div class="ck-content" v-html="article.content"></div>
@@ -30,6 +32,8 @@
                                         class="w-full h-full object-cover" 
                                         :src="$page.props.storage_url + item.banner_image_path" 
                                         alt="placeholder"
+                                        loading="lazy"
+                                        decoding="async"
                                     >
                                 </div>
                                 <p class="text-sm text-neutral-600">{{ formatDate(article.publish_date) }}</p>

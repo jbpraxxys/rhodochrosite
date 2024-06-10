@@ -8,6 +8,8 @@
                             class="w-full h-full object-cover" 
                             :src="$page.props.storage_url + item.banner_image_path" 
                             alt="placeholder"
+                            loading="lazy"
+                            decoding="async"
                         >
                     </div>
                 </div>

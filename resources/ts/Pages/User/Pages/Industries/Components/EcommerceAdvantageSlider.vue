@@ -25,6 +25,8 @@
                                     class="w-full h-full object-contain" 
                                     :src="$page.props.storage_url + item.image" 
                                     alt="icon"
+                                    loading="lazy"
+                                    decoding="async"
                                 >
                             </div>
                             <p class="font-semibold text-2xl">{{ item.title }}</p>

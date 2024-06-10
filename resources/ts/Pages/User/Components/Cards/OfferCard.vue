@@ -12,6 +12,8 @@
                 class="w-[152px] absolute bottom-0 right-0 transition duration-500 group-hover/offer:scale-110" 
                 :src="$page.props.storage_url + item.image" 
                 alt="icon"
+                loading="lazy"
+                decoding="async"
             >
         </div>
     </div>

@@ -13,6 +13,8 @@
                         class="w-full h-full object-cover lg:object-none lg:w-auto lg:h-full lg:relative absolute lg:top-auto lg:left-auto top-0 left-0"
                         :src="$page.props.storage_url + item.image" 
                         alt="ecommerce"
+                        loading="lazy"
+                        decoding="async"
                     >
                 </div>
             </swiper-slide>

@@ -4,6 +4,8 @@
             class="w-[483px]" 
             src="/icons/contact-img.svg" 
             alt="contact"
+            loading="lazy"
+            decoding="async"
         >
         <div class="max-w-[656px] p-6 lg:p-8 bg-primary-900 w-full rounded-2xl" :class="customClass">
             <div class="text-white mb-6">

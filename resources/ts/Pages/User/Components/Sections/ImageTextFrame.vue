@@ -6,6 +6,8 @@
                     class="w-full h-full object-cover" 
                     :src="item.image" 
                     alt="solution"
+                    loading="lazy"
+                    decoding="async"
                 >
             </div>
             <div class="w-full lg:w-1/2 text-white px-4 lg:px-20 py-6 lg:py-[100px]">

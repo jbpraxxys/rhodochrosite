@@ -36,6 +36,8 @@
                                 class="w-full h-full object-contain"
                                 :src="$page.props.storage_url + i.image" 
                                 alt="iso"
+                                loading="lazy"
+                                decoding="async"
                             >
                         </div>
                         <div class="text-center">
@@ -68,6 +70,8 @@
                                     class="image image-thumb w-full h-full object-cover" 
                                     :src="$page.props.storage_url + cms?.section4_image" 
                                     alt="thumbnail"
+                                    loading="lazy"
+                                    decoding="async"
                                 >
                             </div>
                         </a>
@@ -78,6 +82,8 @@
                         class="absolute bottom-[1300px] lg:bottom-0 left-0 lg:scale-100 scale-[200%] -translate-x-[50%] z-1"
                         src="/icons/contact-bg.svg" 
                         alt="contact"
+                        loading="lazy"
+                        decoding="async"
                     >
                     <div id="career-form" class="spacer -translate-y-20"></div>
                     <career-form 

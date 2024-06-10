@@ -20,6 +20,8 @@
                             class="w-full"
                             :src="$page.props.storage_url + cms?.section2_image" 
                             alt="saas"
+                            loading="lazy"
+                            decoding="async"
                         >
                     </div>
                     <div class="w-full lg:w-[calc(100%-620px)]">
@@ -42,6 +44,8 @@
                                 class="w-full h-full object-contain" 
                                 :src="$page.props.storage_url + solution.logo" 
                                 alt="icon"
+                                loading="lazy"
+                                decoding="async"
                             >
                         </div>
                         <p class="font-semibold text-xl lg:text-2xl">{{ solution.title }}</p>
@@ -62,6 +66,8 @@
                                     class="w-full h-full object-contain" 
                                     :src="$page.props.storage_url + expectation.logo" 
                                     alt="expectation"
+                                    loading="lazy"
+                                    decoding="async"
                                 >
                             </div>
                             <div class="w-[calc(100%-56px)] text-white">
@@ -81,6 +87,8 @@
                         class="w-full h-full object-cover" 
                         :src="$page.props.storage_url + cms?.section5_image" 
                         alt="saas"
+                        loading="lazy"
+                        decoding="async"
                     >
                 </div>
                 <div class="w-full lg:w-1/2 text-white px-4 lg:px-20 py-16 lg:py-[100px]">

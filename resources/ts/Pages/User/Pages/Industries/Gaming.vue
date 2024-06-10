@@ -9,6 +9,8 @@
                             class="lg:-translate-x-16 mb-4 lg:w-[50vw]"
                             :src="$page.props.storage_url + cms?.section1_header" 
                             alt="game"
+                            loading="lazy"
+                            decoding="async"
                         >
                     </div>
                     <div class="lg:max-w-[39vw] mb-8 lg:mb-12">
@@ -21,6 +23,8 @@
                 class="absolute bottom-0 w-[900%] lg:w-full max-w-max lg:max-w-full"
                 :src="$page.props.storage_url + cms?.section1_footer" 
                 alt="footer"
+                loading="lazy"
+                decoding="async"
             >
         </section>
         <section class="bg-[#11CEBB] relative gaming-frame2">
@@ -30,6 +34,8 @@
                         class="w-full"
                         :src="$page.props.storage_url + cms?.section2_image" 
                         alt="iceberg"
+                        loading="lazy"
+                        decoding="async"
                     >
                 </div>
                 <div class="w-full lg:w-[calc(100%-620px)]">
@@ -53,6 +59,8 @@
                                 class="w-full h-full object-contain" 
                                 :src="$page.props.storage_url + solution?.logo" 
                                 alt="icon"
+                                loading="lazy"
+                                decoding="async"
                             >
                         </div>
                         <p class="font-semibold text-2xl">{{ solution?.title }}</p>
@@ -64,6 +72,8 @@
                 class="absolute bottom-0 w-[900%] lg:w-full max-w-max lg:max-w-full"
                 :src="$page.props.storage_url + cms?.section3_footer" 
                 alt="footer"
+                loading="lazy"
+                decoding="async"
             >
         </section>
         <section class="bg-[#11CEBB] relative">
@@ -94,6 +104,8 @@
                         class="w-full lg:sticky lg:top-20"
                         :src="$page.props.storage_url + cms?.section4_image" 
                         alt="gaming"
+                        loading="lazy"
+                        decoding="async"
                     >
                 </div>
             </div>
@@ -105,6 +117,8 @@
                         class="w-full h-full object-cover" 
                         :src="$page.props.storage_url + cms?.section5_image" 
                         alt="gaming"
+                        loading="lazy"
+                        decoding="async"
                     >
                 </div>
                 <div class="w-full lg:w-1/2 px-4 lg:px-20 py-6 lg:py-[100px]">
@@ -126,6 +140,8 @@
                 class="absolute lg:top-0 top-[150px] lg:scale-100 scale-[200%] lg:bottom-0 left-0 -translate-x-[50%] z-1"
                 src="/icons/contact-bg.svg" 
                 alt="contact"
+                loading="lazy"
+                decoding="async"
             >
             <div class="max-w-[1440px] m-auto relative z-[2] lg:px-0 px-4 py-10">
                 <contact-form 

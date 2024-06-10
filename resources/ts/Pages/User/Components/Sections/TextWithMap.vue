@@ -10,12 +10,16 @@
                     class="w-full banner-image" 
                     :src="$page.props.storage_url + item.image" 
                     alt="map"
+                    loading="lazy"
+                    decoding="async"
                 >
             </div>
             <img 
                 class="absolute lg:bottom-auto bottom-0 lg:scale-100 scale-[150%] lg:top-1/2 right-0 lg:-translate-y-1/2 translate-x-1/2"
                 src="/icons/ph-design.svg" 
                 alt="design"
+                loading="lazy"
+                decoding="async"
             >
         </div>
     </section>

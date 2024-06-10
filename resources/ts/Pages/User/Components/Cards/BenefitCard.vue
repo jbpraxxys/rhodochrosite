@@ -8,6 +8,8 @@
                             class="w-6 h-6 group-hover/benefit:scale-125 transition" 
                             :src="$page.props.storage_url + item.image" 
                             alt="icon"
+                            loading="lazy"
+                            decoding="async"
                         >
                     </div>
                     <p class="w-[calc(100%-72px)] text-xl font-bold transition">{{  item.title }}</p>

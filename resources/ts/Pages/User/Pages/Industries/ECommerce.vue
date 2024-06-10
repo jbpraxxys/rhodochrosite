@@ -45,6 +45,8 @@
                                 class="w-full h-full object-contain" 
                                 :src="$page.props.storage_url + item.image" 
                                 alt="icon"
+                                loading="lazy"
+                                decoding="async"
                             >
                         </div>
                         <p class="font-semibold text-xl text-primary-500 lg:text-2xl">{{ item.title }}</p>
@@ -69,6 +71,8 @@
                                     class="w-6 h-6 group-hover/benefit:scale-125 transition" 
                                     :src="$page.props.storage_url +  service.image" 
                                     alt="icon"
+                                    loading="lazy"
+                                    decoding="async"
                                 >
                             </div>
                             <div class="w-[calc(100%-60px)] text-white">
@@ -88,6 +92,8 @@
                         class="w-full h-full object-cover" 
                         :src="$page.props.storage_url + cms?.section5_image" 
                         alt="ecommerce"
+                        loading="lazy"
+                        decoding="async"
                     >
                 </div>
                 <div class="w-full lg:w-1/2 text-white px-4 lg:px-20 py-16 lg:py-[100px]">
@@ -107,6 +113,8 @@
                 class="absolute lg:top-0 top-[150px] lg:scale-100 scale-[200%] lg:bottom-0 left-0 -translate-x-[50%] z-1"
                 src="/icons/contact-bg.svg" 
                 alt="contact"
+                loading="lazy"
+                decoding="async"
             >
             <div class="max-w-[1440px] m-auto relative z-[2] lg:px-0 px-4 py-10">
                 <contact-form 
