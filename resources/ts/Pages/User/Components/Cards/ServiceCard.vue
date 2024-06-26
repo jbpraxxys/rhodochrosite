@@ -1,7 +1,7 @@
 <template>
     <div>
         <a :href="item.link">
-            <div class="p-8 bg-primary-100 rounded-2xl min-h-[297px] relative group/service hover:bg-primary-500 transition duration-500 cursor-pointer hover:-translate-y-3 hover:shadow-lg">
+            <div class="p-8 bg-primary-100 rounded-2xl min-h-[297px] h-[297px] relative group/service hover:bg-primary-500 transition duration-500 cursor-pointer hover:-translate-y-3 hover:shadow-lg">
                 <div class="flex justify-between space-x-10">
                     <div class="max-w-[237px]">
                         <p class="text-xl font-bold mb-2 group-hover/service:text-white transition">{{ item.title }}</p>

@@ -16,7 +16,7 @@
         <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('/favicon/android-chrome-192x192.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/favicon/favicon-32x32.png') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/favicon/favicon-16x16.png') }}">
-        <link rel="canonical" href="{{ url('/') }}" />
+        <link rel="canonical" href="{{ Request::url() }}" />
         <link rel="manifest" href="{{ asset('/favicon/site.webmanifest') }}">
         <meta name="msapplication-TileColor" content="#FFFFFF">
         <meta name="theme-color" content="#FFFFFF">
@@ -41,8 +41,8 @@
         <!-- Google Analytics Code Snippet --> 
         @if(config('app.google_analytics'))
         <!-- Google Tag Manager -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id={{ $api_keys->content['section1_googleanalytics'] }}"></script>
-        <script>
+        <script defer src="https://www.googletagmanager.com/gtag/js?id={{ $api_keys->content['section1_googleanalytics'] }}"></script>
+        <script defer>
 
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -57,7 +57,7 @@
         <!-- Tawk.to Code Snippet --> 
         @if(config('app.tawkto'))
         <!--Start of Tawk.to Script-->
-        <script type="text/javascript">
+        <script defer type="text/javascript">
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
             (function(){
             var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -78,13 +78,13 @@
         <div id="fb-root"></div>
         <div id="fb-customer-chat" class="fb-customerchat"></div>
 
-        <script>
+        <script defer>
             var chatbox = document.getElementById('fb-customer-chat');
             chatbox.setAttribute("page_id", "{{ $api_keys->content['section3_facebook_page_id'] }}");
             chatbox.setAttribute("attribution", "biz_inbox");
         </script>
 
-        <script>
+        <script defer>
             window.fbAsyncInit = function() {
                 FB.init({
                     xfbml: true,

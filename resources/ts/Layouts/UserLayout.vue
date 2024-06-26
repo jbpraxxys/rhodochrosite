@@ -15,15 +15,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
+import { onMounted, computed, defineAsyncComponent } from "vue";
 import { usePage } from "@inertiajs/vue3";
-import Header from "./Components/Header.vue";
-import Footer from "./Components/Footer.vue";
 
 import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
+
+const Header = defineAsyncComponent(() => import('./Components/Header.vue'));
+const Footer = defineAsyncComponent(() => import('./Components/Footer.vue'));
 
 gsap.registerPlugin(ScrollTrigger);
 

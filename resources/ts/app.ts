@@ -4,24 +4,24 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import {createApp, h, defineAsyncComponent} from "vue";
 import { createInertiaApp } from '@inertiajs/vue3';
 
-import UserLayout from "@/Layouts/UserLayout.vue";
+const UserLayout = defineAsyncComponent(() => import('@/Layouts/UserLayout.vue'));
 
-import VButton from "@/Pages/User/Components/Buttons/VButton.vue";
-import VBackButton from "@/Pages/User/Components/Buttons/VBackButton.vue";
+const VButton = defineAsyncComponent(() => import('@/Pages/User/Components/Buttons/VButton.vue'));
+const VBackButton = defineAsyncComponent(() => import('@/Pages/User/Components/Buttons/VButton.vue'));
 
-import VCheckbox from "@/Pages/User/Components/Inputs/VCheckbox.vue";
-import VDatePicker from "@/Pages/User/Components/Inputs/VDatePicker.vue";
-import VTextInput from "@/Pages/User/Components/Inputs/VTextInput.vue";
-import VMobileNumber from "@/Pages/User/Components/Inputs/VMobileNumber.vue";
-import VFileInput from "@/Pages/User/Components/Inputs/VFileInput.vue";
-import VPasswordInput from "@/Pages/User/Components/Inputs/VPasswordInput.vue";
-import VSelector from "@/Pages/User/Components/Inputs/VSelector.vue";
+const VCheckbox = defineAsyncComponent(() => import('@/Pages/User/Components/Inputs/VCheckbox.vue'));
+const VDatePicker = defineAsyncComponent(() => import('@/Pages/User/Components/Inputs/VDatePicker.vue'));
+const VTextInput = defineAsyncComponent(() => import('@/Pages/User/Components/Inputs/VTextInput.vue'));
+const VMobileNumber = defineAsyncComponent(() => import('@/Pages/User/Components/Inputs/VMobileNumber.vue'));
+const VFileInput = defineAsyncComponent(() => import('@/Pages/User/Components/Inputs/VFileInput.vue'));
+const VPasswordInput = defineAsyncComponent(() => import('@/Pages/User/Components/Inputs/VPasswordInput.vue'));
+const VSelector = defineAsyncComponent(() => import('@/Pages/User/Components/Inputs/VSelector.vue'));
 
-import VConfirmationModal from "./Pages/User/Components/Modals/VConfirmationModal.vue";
-import VDeleteModal from "./Pages/User/Components/Modals/VDeleteModal.vue";
-import VDialogModal from "./Pages/User/Components/Modals/VDialogModal.vue";
-import VSuccessModal from "./Pages/User/Components/Modals/VSuccessModal.vue";
-import CalculatorModal from "./Pages/User/Components/Modals/CalculatorModal.vue";
+const VConfirmationModal = defineAsyncComponent(() => import('./Pages/User/Components/Modals/VConfirmationModal.vue'));
+const VDeleteModal = defineAsyncComponent(() => import('./Pages/User/Components/Modals/VDeleteModal.vue'));
+const VDialogModal = defineAsyncComponent(() => import('./Pages/User/Components/Modals/VDialogModal.vue'));
+const VSuccessModal = defineAsyncComponent(() => import('./Pages/User/Components/Modals/VSuccessModal.vue'));
+const CalculatorModal = defineAsyncComponent(() => import('./Pages/User/Components/Modals/CalculatorModal.vue'));
 
 // Design Components
 const ServiceCard = defineAsyncComponent(() => import('./Pages/User/Components/Cards/ServiceCard.vue'));
@@ -42,7 +42,7 @@ const OffsetBanner = defineAsyncComponent(() => import('./Pages/User/Components/
 const GenericBlock = defineAsyncComponent(() => import('./Pages/User/Components/Sections/GenericBlock.vue'));
 const OfferBlock = defineAsyncComponent(() => import('./Pages/User/Components/Sections/OfferBlock.vue'));
 const SpecialtyBlock = defineAsyncComponent(() => import('./Pages/User/Components/Sections/SpecialtyBlock.vue'));
-const ContactFrame = defineAsyncComponent(() => import('./Pages/User/Components/Sections/OfferBlock.vue'));
+const ContactFrame = defineAsyncComponent(() => import('./Pages/User/Components/Sections/ContactFrame.vue'));
 const ImageTextFrame = defineAsyncComponent(() => import('./Pages/User/Components/Sections/ImageTextFrame.vue'));
 const BenefitBlock = defineAsyncComponent(() => import('./Pages/User/Components/Sections/BenefitBlock.vue'));
 const TextWithMap = defineAsyncComponent(() => import('./Pages/User/Components/Sections/TextWithMap.vue'));

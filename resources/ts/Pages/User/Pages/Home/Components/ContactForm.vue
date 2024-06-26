@@ -112,9 +112,15 @@
     </v-success-modal>
 </template>
 <script lang="ts" setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, defineAsyncComponent } from "vue";
 import { useForm } from "@inertiajs/vue3";
-import { VueRecaptcha } from 'vue-recaptcha';
+const VueRecaptcha = defineAsyncComponent({
+  loader: () => import('vue-recaptcha').then(module => module.VueRecaptcha),
+  loadingComponent: () => '<div>Loading...</div>',
+  delay: 200,
+});
+
+
 
 const form = useForm({
     full_name: null,

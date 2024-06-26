@@ -22,7 +22,7 @@ class SecurityHeaders
         // uncomment if for UAT/Live
         // $response->header('Content-Security-Policy', "default-src * data:; script-src https: 'unsafe-inline' 'unsafe-eval'; style-src https: 'unsafe-inline'");
         $response->header('Referrer-Policy', 'no-referrer-when-downgrade');
-        $response->header('Permissions-Policy', "geolocation 'none'");
+        // $response->header('Permissions-Policy', "geolocation 'none'");
 
         return $response;
     }
