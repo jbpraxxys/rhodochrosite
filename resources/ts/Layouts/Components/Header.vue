@@ -4,7 +4,7 @@
         class="w-full fixed top-0 left-0 z-[90] transition"
         :class="[headerScroll ? '!bg-white shadow-md' : 'bg-primary-900', customClass]"
     >
-        <div class="px-4 lg:px-20 mx-auto lg:py-4 flex items-center justify-between transition header-wrapper" :class="headerScroll ? 'py-2' : 'py-6'">
+        <div class="px-4 lg:px-4 xl:px-20 mx-auto lg:py-4 flex items-center justify-between transition header-wrapper" :class="headerScroll ? 'py-2' : 'py-6'">
             <div class="hdr-logo lg:w-auto">
                 <a href="/">
                     <img 
@@ -20,7 +20,7 @@
                 <div class="bar" :class="headerScroll ? 'scroll' : ''"></div>
             </div>
             <div
-                class="lg:flex items-center font-medium lg:space-y-0 space-y-6 lg:space-x-8 transition lg:relative fixed nav-menu lg:top-auto"
+                class="lg:flex items-center font-medium lg:space-y-0 space-y-6 lg:space-x-4 xl:space-x-8 transition lg:relative fixed nav-menu lg:top-auto"
                 :class="[
                     headerScroll ? 'text-primary-900 top-[80px] scroll' : 'lg:text-white top-[109px]',
                     menuOpen ? 'translate-x-0' : 'translate-x-[110%] lg:translate-x-0'
@@ -134,7 +134,7 @@
                     </div>
                 </div>
                 <div>
-                    <div class="lg:pl-8 button-header px-5 py-4 lg:px-0 lg:py-0 text-sm">
+                    <div class="button-header px-5 py-4 lg:px-0 lg:py-0 text-sm">
                         <a href="/contact-us">
                             <v-button custom-class="w-full lg:w-auto" v-if="headerScroll ? '': 'hidden'" size="md">Contact Us</v-button>
                             <v-button custom-class="w-full lg:w-auto" v-if="headerScroll ? 'hidden': ''" size="md" design-color="text-white">Contact Us</v-button>
