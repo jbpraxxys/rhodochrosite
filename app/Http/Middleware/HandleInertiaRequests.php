@@ -71,7 +71,29 @@ class HandleInertiaRequests extends Middleware
             },
             'cms_header' => $request->routeIs('admin.*') ? '' : CmsPage::where('slug', 'header')->first()->content,
             'cms_footer' => $request->routeIs('admin.*') ? '' : CmsPage::where('slug', 'footer')->first()->content,
-            'parent_pages' => $request->routeIs('admin.*') ? [] : ParentPage::orderBy('order', 'ASC')->with('sub_pages.child_pages')->get(),
+            'parent_pages' => $request->routeIs('admin.*') ? [] : ParentPage::orderBy('order', 'ASC')->with('sub_pages.child_pages')->get()->map(function ($parent) {
+                return [
+                    'id' => $parent->id,
+                    'slug' => $parent->slug,
+                    'title' => $parent->title,
+                    'sub_pages' => $parent->sub_pages->map(function ($subpage) {
+                        return [
+                            'parent_page_id' =>  $subpage->parent_page_id,
+                            'id' => $subpage->id,
+                            'slug' => $subpage->slug,
+                            'title' => $subpage->title,
+                            'child_pages' => $subpage->child_pages->map(function ($child) {
+                                return [
+                                    'sub_page_id' =>  $child->sub_page_id,
+                                    'id' => $child->id,
+                                    'slug' => $child->slug,
+                                    'title' => $child->title,
+                                ];
+                            })
+                        ];
+                    })
+                ];
+            }),
         ]);
     }
 }
