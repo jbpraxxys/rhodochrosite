@@ -305,11 +305,15 @@
 </template>
 <script setup lang="ts">
 import { useForm } from "@inertiajs/vue3";
-import { ref, computed, onMounted, reactive } from "vue";
+import { ref, computed, onMounted, reactive, defineAsyncComponent } from "vue";
 import { XMarkIcon } from "@heroicons/vue/24/solid";
 import RenderPrice from "@/Components/Inputs/RenderPrice.vue";
 import pdfMake from 'pdfmake/build/pdfmake';
-import { VueRecaptcha } from 'vue-recaptcha';
+const VueRecaptcha = defineAsyncComponent({
+  loader: () => import('vue-recaptcha').then(module => module.VueRecaptcha),
+  loadingComponent: () => '<div>Loading...</div>',
+  delay: 200,
+});
 (<any>pdfMake).fonts = {
     Roboto: {
         normal:

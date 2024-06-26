@@ -11,7 +11,7 @@
                 >
             </div>
             <div class="w-full lg:w-1/2 text-white px-4 lg:px-20 py-6 lg:py-[100px]">
-                <p class="text-5xl font-bold mb-6 animateUp" v-html="item.title"></p>
+                <h2 class="text-5xl font-bold mb-6 animateUp" v-html="item.title"></h2>
                 <div class="text-lg mb-12 animateUp" v-html="item.content" />
                 <a :href="item.buttonLink">
                     <v-button class="animateUp">

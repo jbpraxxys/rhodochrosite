@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Modular\ChildPage;
 use App\Models\Modular\ParentPage;
 use App\Models\Modular\SubPage;
+use App\Models\Articles\Article;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\Sitemap;
@@ -44,6 +45,36 @@ class GenerateSitemap extends Command
             ->setLastModificationDate(Carbon::yesterday())
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
             ->setPriority(1.0)
+        )
+        ->add(Article::get()->whereNull('deleted_at')
+            ->setLastModificationDate(Carbon::yesterday())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+            ->setPriority(1.0)
+        )
+        ->add(Url::create('/industries/gaming')
+            ->setLastModificationDate(Carbon::yesterday())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+            ->setPriority(0.8)
+        )
+        ->add(Url::create('/industries/saas')
+            ->setLastModificationDate(Carbon::yesterday())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+            ->setPriority(0.8)
+        )
+        ->add(Url::create('/industries/gaming')
+            ->setLastModificationDate(Carbon::yesterday())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+            ->setPriority(0.8)
+        )
+        ->add(Url::create('/industries/e-commerce')
+            ->setLastModificationDate(Carbon::yesterday())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+            ->setPriority(0.8)
+        )
+        ->add(Url::create('/industries/finance')
+            ->setLastModificationDate(Carbon::yesterday())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+            ->setPriority(0.8)
         )
         ->add(Url::create('/privacy-policy')
             ->setLastModificationDate(Carbon::yesterday())

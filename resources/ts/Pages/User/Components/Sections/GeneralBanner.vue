@@ -7,7 +7,7 @@
                 alt="banner-image"
             >
             <div class="max-w-[755px] w-full text-banner">
-                <h1 class="font-bold text-white mb-8" v-html="item.title" />
+                <h1 class="font-bold text-white mb-8 text-h1" v-html="item.title" />
                 <a href="/contact-us/#contact-form">
                     <v-button>
                         Inquire Now

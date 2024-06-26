@@ -5,7 +5,7 @@
         :class="[
             disabled ? 'pointer-events-none disabled:opacity-25' : '',
             fill ? 'hover:bg-primary-600 text-white active:text-white' : 'bg-transparent hover:text-white',
-            fillColor == 'primary' ? 'bg-primary-500 border-0 active:bg-primary-600 hover:bg-primary-600' : '',
+            fillColor == 'primary' ? 'bg-primary-600 border-0 active:bg-primary-600 hover:bg-primary-600' : '',
             size == 'lg' ? 'h-14' : 
             size == 'sm' ? 'h-10' : 
             size == 'md' ? 'h-12' : 'h-11',

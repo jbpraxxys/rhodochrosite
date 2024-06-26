@@ -122,8 +122,12 @@
 </template>
 <script lang="ts" setup>
 import { useForm, } from "@inertiajs/vue3";
-import { onMounted, ref, reactive, watch } from "vue";
-import { VueRecaptcha } from 'vue-recaptcha';
+import { onMounted, ref, reactive, watch, defineAsyncComponent } from "vue";
+const VueRecaptcha = defineAsyncComponent({
+  loader: () => import('vue-recaptcha').then(module => module.VueRecaptcha),
+  loadingComponent: () => '<div>Loading...</div>',
+  delay: 200,
+});
 
 const props = defineProps({
     position: {
