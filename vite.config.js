@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
+import commonjs from 'vite-plugin-commonjs';
 import compression from 'vite-plugin-compression';
 
 export default defineConfig({
@@ -11,6 +12,7 @@ export default defineConfig({
             'resources/scss/admin.scss',
             'resources/ts/admin.ts',
         ]),
+        commonjs(),
         vue({
             template: {
                 transformAssetUrls: {
@@ -30,6 +32,16 @@ export default defineConfig({
         }
     },
     build: {
+        commonjsOptions: {
+            exclude: [
+                  'ckeditor5-custom-build', 
+            ]
+        },
+        optimizeDeps: {
+            include: [
+                'ckeditor5-custom-build',
+            ],
+        },
         rollupOptions: {
             input: {
                 app: 'resources/ts/app.ts', // Entry point for TypeScript
