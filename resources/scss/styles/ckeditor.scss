@@ -568,12 +568,13 @@ margin-left: -15px;
 }
 
 
-.ck-content a:hover {
-    background: #D9291C;
-    color: #fff;
-    transition: all ease .3s;
-    border-radius: 4px;
-    padding: 4px 8px;
+.ck-content a {
+    color: #22857F;
+    text-decoration: underline;
+    &:hover {
+        color: #31BEB5;
+        transition: all ease .3s;
+    }
 }
 
 .ck-content-search * {
