@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Sitemap\Contracts\Sitemapable;
+use Spatie\Sitemap\Tags\Url;
 
-class Article extends Model
+class Article extends Model implements Sitemapable
 {
     use HasFactory, SoftDeletes, Searchable, LogsActivity, PrettyLog;
 
@@ -64,5 +66,15 @@ class Article extends Model
         ];
 
         return $array;
+    }
+
+    public function toSitemapTag(): Url | string | array
+    {
+        return Url::create(route('web.resources.show', [
+            'article' => $this->slug,
+        ]))
+        ->setLastModificationDate(Carbon::create($this->updated_at))
+        ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+        ->setPriority(1.0);
     }
 }

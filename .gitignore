@@ -1,4 +1,5 @@
 /node_modules
+/libs/ckeditor5/node_modules
 /public/hot
 /public/mix-manifest.json
 /public/js
@@ -31,3 +32,5 @@ package-lock.json
 *.sql
 
 **/.DS_Store
+/ckeditor5-38.1/
+/public/sitemap.xml
