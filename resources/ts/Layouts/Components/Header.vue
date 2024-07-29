@@ -135,7 +135,7 @@
                 </div>
                 <div>
                     <div class="button-header px-5 py-4 lg:px-0 lg:py-0 text-sm">
-                        <a href="/contact-us">
+                        <a @click.prevent="handleContactClick" href="/contact-us/#contact-form">
                             <v-button custom-class="w-full lg:w-auto" v-if="headerScroll ? '': 'hidden'" size="md">Contact Us</v-button>
                             <v-button custom-class="w-full lg:w-auto" v-if="headerScroll ? 'hidden': ''" size="md" design-color="text-white">Contact Us</v-button>
                         </a>
@@ -149,6 +149,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref, computed } from 'vue'
+import { router } from '@inertiajs/vue3'
 
 const props = defineProps({
     header: {
@@ -171,6 +172,28 @@ const toggleMenu = () => {
 
 const headRef = ref<any>(null);
 const headerScroll = ref(false);
+
+const handleContactClick = () => {
+    if (window.location.pathname === '/contact-us') {
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.scrollIntoView({ behavior: 'smooth' });
+        }
+    } else {
+        router.visit('/contact-us', { 
+            preserveState: true,
+            preserveScroll: true,
+            onSuccess: () => {
+                setTimeout(() => {
+                    const contactForm = document.getElementById('contact-form');
+                    if (contactForm) {
+                        contactForm.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            }
+        });
+    }
+}
 
 onMounted(() => {
 	var prev = window.pageYOffset;
