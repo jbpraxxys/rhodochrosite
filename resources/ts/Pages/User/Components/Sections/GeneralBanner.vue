@@ -8,7 +8,7 @@
             >
             <div class="max-w-[755px] w-full text-banner">
                 <h1 class="font-bold text-white mb-8 text-h1" v-html="item.title" />
-                <a href="/contact-us/#contact-form">
+                <a @click.prevent="handleContactClick" href="/contact-us/#contact-form">
                     <v-button>
                         Inquire Now
                     </v-button>
@@ -18,10 +18,33 @@
     </section>
 </template>
 <script lang="ts" setup>
+import { router } from '@inertiajs/vue3'
 defineProps({
     item: {
         type: Object,
         default: () => ({})
     }
 })
+
+const handleContactClick = () => {
+    if (window.location.pathname === '/contact-us') {
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.scrollIntoView({ behavior: 'smooth' });
+        }
+    } else {
+        router.visit('/contact-us', { 
+            preserveState: true,
+            preserveScroll: true,
+            onSuccess: () => {
+                setTimeout(() => {
+                    const contactForm = document.getElementById('contact-form');
+                    if (contactForm) {
+                        contactForm.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            }
+        });
+    }
+}
 </script>
