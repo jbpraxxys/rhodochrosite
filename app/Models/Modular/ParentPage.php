@@ -37,6 +37,7 @@ class ParentPage extends Model implements Sitemapable
         // seo meta data
         'meta_title',
         'meta_description',
+        'meta_keyword',
         'meta_image',
     ];
 
