@@ -25,7 +25,7 @@ use App\Http\Controllers\User\Subscription\SubscriptionController;
 |
 */
 
-Route::get('/admin', function () {
+Route::get('/', function () {
     return redirect('/admin/login');
 });
 
@@ -39,28 +39,28 @@ Route::get('/stylesheet', function () {
     return Inertia::render('Stylesheet/Partials/SSContent');
 });
 
-Route::prefix('/')
-    ->name('pages.')
-    ->controller(PageController::class)
-    ->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('/pages/{parentPage:slug}', 'parentPage')->name('parent-page');
-        Route::get('/pages/{parentPage:slug}/{subPage:slug}', 'subPage')->name('sub-page');
-        Route::get('/pages/{parentPage:slug}/{subPage:slug}/{childPage:slug}', 'childPage')->name('child-page');
+// Route::prefix('/')
+//     ->name('pages.')
+//     ->controller(PageController::class)
+//     ->group(function () {
+//         Route::get('/', 'index')->name('index');
+//         Route::get('/pages/{parentPage:slug}', 'parentPage')->name('parent-page');
+//         Route::get('/pages/{parentPage:slug}/{subPage:slug}', 'subPage')->name('sub-page');
+//         Route::get('/pages/{parentPage:slug}/{subPage:slug}/{childPage:slug}', 'childPage')->name('child-page');
         
-        Route::get('/industries/saas', 'saas')->name('saas');
-        Route::get('/industries/finance', 'finance')->name('finance');
-        Route::get('/industries/gaming', 'gaming')->name('gaming');
-        Route::get('/industries/e-commerce', 'ecommerce')->name('ecommerce');
-        Route::get('/calculator', 'calculator')->name('calculator');
-        Route::get('/calculator/view', 'calculatorView')->name('calculator-view');
-        Route::get('/careers', 'careers')->name('careers');
-        // Route::get('/resources', 'resources')->name('resources');
-        // Route::get('/resources/view', 'resourcesView')->name('resources-view');
-        Route::get('/contact-us', 'contactUs')->name('contact-us');
-        Route::get('/privacy-policy', 'privacyPolicy')->name('privacy-policy');
-        Route::get('/terms-and-conditions', 'termsAndConditions')->name('terms-and-conditions');
-    });
+//         Route::get('/industries/saas', 'saas')->name('saas');
+//         Route::get('/industries/finance', 'finance')->name('finance');
+//         Route::get('/industries/gaming', 'gaming')->name('gaming');
+//         Route::get('/industries/e-commerce', 'ecommerce')->name('ecommerce');
+//         Route::get('/calculator', 'calculator')->name('calculator');
+//         Route::get('/calculator/view', 'calculatorView')->name('calculator-view');
+//         Route::get('/careers', 'careers')->name('careers');
+//         // Route::get('/resources', 'resources')->name('resources');
+//         // Route::get('/resources/view', 'resourcesView')->name('resources-view');
+//         Route::get('/contact-us', 'contactUs')->name('contact-us');
+//         Route::get('/privacy-policy', 'privacyPolicy')->name('privacy-policy');
+//         Route::get('/terms-and-conditions', 'termsAndConditions')->name('terms-and-conditions');
+//     });
 
 Route::prefix('/resources')
     ->name('resources.')
